@@ -11,7 +11,7 @@ This project is called Above Care Staff Management web application. It will allo
 ### Design
 * [Screen Design](DesignDocuments/Screens.md)
 * [Application Flow](DesignDocuments/ApplicationFlow.md)
-* [Database Design](DesignDocuments/DatabaseDiagram.png)
+* [Database Design](DesignDocuments/DatabaseDiagram.md)
 
 ### [Project Plan](ProjectPlan.md)
 
