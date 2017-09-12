@@ -1,5 +1,4 @@
-
-# Time Log
+3# Time Log
 
 | Date | Task | Hours | Notes|
 |------|------|-------|------|
@@ -14,9 +13,9 @@
 | 09/06/17| Call friend in Chicago and discuss possible individual project idea for her business| 1.0 | |
 | 09/06/17| Participate in Week 2 classroom activities| 4.0 | |
 | 09/08/17| Start working on week 2 exercise| 2.5 | |
-| 09/10/17| Finish week 2 exercise and start designing database structure for Above Care Staff Management application| 4.0 | |
+| 09/10/17| Finish week 2 exercise and start designing database structure for Above Care Staff Management web application| 4.0 | |
 | 09/11/17| Capture new screen shots for week 2 exercise, watch week 3 video and read references| 2.5 | |
-| 09/12/17| Draw the design of the screens and describe process flow for Above Care Satff Management project| 3.0 | |
-| 09/12/17| Create TimeLog page and enter time spent from week 0 thru week 2 and also prior to week 3 | 1.0 | | 
-| 09/13/17| Participate in Week 2 classroom activities| 4.0 | |
+| 09/12/17| Draw the design of the screens and process flow for Above Care Satff Management project| 2.0 | |
+| 09/12/17| Create TimeLog page and enter time spent from week 0 thru week 2 and prior to week 3 | 1.0 | | 
+| 09/13/17| Participate in Week 3 classroom activities| 4.0 | |
 
