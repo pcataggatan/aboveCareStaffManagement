@@ -1,4 +1,4 @@
-/home/student/IdeaProjects/taglibconsumer# Pablo Cataggatan's Individual Project
+# Pablo Cataggatan's Individual Project
 
 ### Problem Statement
 
