@@ -18,12 +18,12 @@
 - [ ] W3 Task3
 
 ### Week 4
-- [ ] W3 Task1
-- [ ] W3 Task2
-- [ ] W3 Task3
+- [ ] W4 Task1
+- [ ] W4 Task2
+- [ ] W4 Task3
 - [ ] W4 Task4
 
 ### Week 5
-- [ ] W3 Task1
-- [ ] W3 Task2
-- [ ] W3 Task3
+- [ ] W5 Task1
+- [ ] W5 Task2
+- [ ] W5 Task3
