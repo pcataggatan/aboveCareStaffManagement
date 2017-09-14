@@ -9,13 +9,13 @@
 - [X] Begin project plan
 
 ### Week 2
-- [X] 
+- [X] W2 Tasks1
 
 ### Week 3
-- [X] 
+- [X] W3 Tasks1
 
 ### Week 4
-- [X] 
+- [X] W4 Tasks1
 
 ### Week 5
-- [X] 
+- [X] W5 Tasks1
