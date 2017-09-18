@@ -1,7 +1,7 @@
 # Screen Designs
 
 ### Login Screen
-![Home Page](screens/Login Screen.PNG)
+![Home Page](screens/LoginScreen.PNG)
 
 
 ### Owner Page
