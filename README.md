@@ -12,7 +12,26 @@ In order to meet her goals, she wanted a solution that will:
 
 I would like to create a web application to alleviate my friend's staffing and scheduling burdens. It will allow a user based on log in credentials to view, add, update and delete data from the client and staff database. The screens will be user-friendly and easy to use and the data will be rendered nicely on every report page.  
 
-### Project Technologies/Techniques
+### Project Technologies/Techniques 
+
+* Security/Authentication
+  * Admin role: create/read/update/delete (crud) of all data
+  * Owner role: Maintain Hourly Rate table and view reports with financial information (login required)
+  * Scheduler: create/read/update/delete client and staff data and view reports without financial information (login required)
+* Database (MySQL and Hibernate)
+  * Store users and roles
+  * Store client data
+  * Store Staff data
+  * Store Hourly Rate information
+  * Store staff schedule informatiomn
+* Web Services or APIs
+  * Zipcodes API for the list of zipcodes within a specified zipcode and radius
+* JSON (independent research topic)
+* Logging
+  * Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting. 
+* Site and database hosted on AWS
+* Unit Testing
+  * JUnit tests to achieve at least 80% code coverage 
 
 ### Design
 * [Screen Design](DesignDocuments/Screens.md)
