@@ -45,14 +45,8 @@
 ### Scheduler's Client List Details
 ![Scheduler Client List Details](screens/SchedulerClientListDetails.PNG)
 
-### Scheduler's Staff List Search
-![Scheduler Staff List Search](screens/SchedulerStaffListSearch.PNG)
-
-### Scheduler's Staff List Details
-![Scheduler Staff List Details](screens/SchedulerStaffListDetails.PNG)
-
 ### Scheduler's Add Client Fields
-![Scheduler Add Client Fields](screens/SchedulerSchedulerAddClientFields.PNG)
+![Scheduler Add Client Fields](screens/SchedulerAddClientFields.PNG)
 
 ### Scheduler's Update Client Search
 ![Scheduler Update Client Search](screens/SchedulerUpdateClientSearch.PNG)
@@ -88,13 +82,13 @@
 ![Scheduler Update or Delete Staff Sched Details](screens/SchedulerUpdateDeleteStaffSchedDetails.PNG)
 
 ### Scheduler's Staff Schedule Search
-![Scheduler Staff Schedule Search(screens/SchedulerStaffScheduleSearch.PNG)
+![Scheduler Staff Schedule Search](screens/SchedulerStaffScheduleSearch.PNG)
 
 ### Scheduler's Staff Schedule Details
 ![Scheduler Staff Schedule Details](screens/SchedulerStaffScheduleDetails.PNG)
 
-### Scheduler's Staff Schedule Details
+### Scheduler's Staff Worked Hours Search
 ![Scheduler Staff Worked Hours Search](screens/SchedulerStaffWorkedHoursSearch.PNG)
 
-### Scheduler's Staff Schedule Details
-![Scheduler Staff Worked Hours Details](screens/SchedulerStaffWorkedHoursDetails.PNG)
+### Scheduler's Staff Worked Hours Fields
+![Scheduler Staff Worked Hours Fields](screens/SchedulerStaffWorkedHoursFields.PNG)
