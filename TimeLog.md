@@ -18,4 +18,12 @@
 | 09/12/17| Draw the design of the screens and process flow for Above Care Satff Management project| 2.0 | |
 | 09/12/17| Create TimeLog page and enter time spent from week 0 thru week 2 and prior to week 3 | 1.0 | | 
 | 09/13/17| Participate in Week 3 classroom activities| 4.0 | |
+| 09/15/17| Download wireframing tool and watch tutorial videos | 2.0 | |
+| 09/16/17| Create screen mockups for indie project | 2.0 | |
+| 09/16/17| Work on week 3 exercise | 2.5 | |
+| 09/17/17| Learn more about balsamiq tool and improve project screen mockups | 3.0 | |
+| 09/18/17| Resolve issues raised on week 2 exercise | 1.5 | |
+| 09/18/17| Upload screen mockups to git and create screens.md file to link the images | 2.0 | |
+| 09/18/17| Finish week 3 exercise on custom taglib | 2.0 | |
+| 09/19/17| Watch demo videos on Dao and Hibernate for week 4 | 2.0 | |
 
