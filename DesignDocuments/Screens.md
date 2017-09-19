@@ -84,5 +84,17 @@
 ### Scheduler's Update or Delete Staff Sched Search
 ![Scheduler Update or Delete Staff Sched Search](screens/SchedulerUpdateDeleteStaffSchedSearch.PNG)
 
-### Scheduler's Update or Delete Staff Sched Search
+### Scheduler's Update or Delete Staff Sched Details
 ![Scheduler Update or Delete Staff Sched Details](screens/SchedulerUpdateDeleteStaffSchedDetails.PNG)
+
+### Scheduler's Staff Schedule Search
+![Scheduler Staff Schedule Search(screens/SchedulerStaffScheduleSearch.PNG)
+
+### Scheduler's Staff Schedule Details
+![Scheduler Staff Schedule Details](screens/SchedulerStaffScheduleDetails.PNG)
+
+### Scheduler's Staff Schedule Details
+![Scheduler Staff Worked Hours Search](screens/SchedulerStaffWorkedHoursSearch.PNG)
+
+### Scheduler's Staff Schedule Details
+![Scheduler Staff Worked Hours Details](screens/SchedulerStaffWorkedHoursDetails.PNG)
