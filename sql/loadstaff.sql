@@ -17,18 +17,18 @@ create table staff (
   eff_dt          date,
   end_dt          date,
   PRIMARY KEY  (staff_id)
-);
+); ENGINE=INNODB;
 
 insert into staff VALUES
 (1
 ,"Corazon"
 ,"Acosta"
-,'1950-01-01'
+,'1969-01-01'
 ,"123 Intellij Avenue"
 ,NULL
 ,"Madison"
 ,"WI"
-,"53704"
+,"53701"
 ,"(608) 101-1001"
 ,"corazon@abovecare.com"
 ,"Care Giver"
@@ -37,3 +37,20 @@ insert into staff VALUES
 ,NULL
 );
 
+insert into staff VALUES
+(2
+  ,"Leah"
+  ,"Bagunu"
+  ,'1969-02-01'
+  ,"123 Intellij Lane"
+  ,NULL
+  ,"Madison"
+  ,"WI"
+  ,"53702"
+  ,"(608) 101-1002"
+  ,"leah@abovecare.com"
+  ,"Care Giver"
+  ,"S02"
+  ,"2017-02-01"
+  ,NULL
+);

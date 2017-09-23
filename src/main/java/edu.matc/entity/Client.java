@@ -1,5 +1,6 @@
 package edu.matc.entity;
 
+import edu.matc.util.LocalDateAttributeConverter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Client {
     private String lastName;
 
     @Column(name = "birth_date")
+    @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate brithDate;
 
     @Column(name = "st_addr1")
@@ -30,8 +32,10 @@ public class Client {
     @Column(name = "st_addr2")
     private String addrLine2;
 
+    //@Column (name = "city")
     private String city;
 
+    //@Column (name = "state")
     private String state;
 
     @Column(name = "zipcode")
@@ -40,15 +44,18 @@ public class Client {
     @Column(name = "phone_nr")
     private String phoneNr;
 
+    //@Column (name = "email")
     private String email;
 
     @Column(name = "rate_cd")
     private String rateCd;
 
     @Column(name = "eff_dt")
+    @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate effDt;
 
     @Column(name = "end_dt")
+    @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate endDt;
 
     public Client() {

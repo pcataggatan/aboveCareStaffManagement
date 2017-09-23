@@ -16,7 +16,7 @@ create table client (
      eff_dt          date,
      end_dt          date,
      PRIMARY KEY  (client_id)
- );
+ ); ENGINE=INNODB;
 
 insert into client VALUES
 (1
@@ -28,10 +28,26 @@ insert into client VALUES
 ,"Madison"
 ,"WI"
 ,"53718"
-,"(608) 123-4567"
-,"abc@xyz.com"
+,"(608) 909-90001"
+,"abc1@xyz.com"
 ,"C01"
 ,"2017-01-01"
 ,NULL
 );
 
+insert into client VALUES
+(2
+,"Mary"
+,"Johnson"
+,'1940-02-01'
+,"123 Java Ct"
+,NULL
+,"Cottage Grove"
+,"WI"
+,"53527"
+,"(608) 909-90002"
+,"abc2@xyz.com"
+,"C02"
+,"2017-01-01"
+,NULL
+);
