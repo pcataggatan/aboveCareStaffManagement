@@ -1,10 +1,10 @@
-drop table if exists `Code`;
+drop table if exists `code`;
 
 create table code (
   code      VARCHAR(3) NOT NULL,
   value     VARCHAR(5) NOT NULL,
   desc_tx   VARCHAR(30) NOT NULL,
-  PRIMARY KEY (code, value)
+  PRIMARY KEY (code)
 );
 
 insert into code values ("C01","8.00","Client rate code tier 01");

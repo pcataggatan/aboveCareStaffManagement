@@ -1,6 +1,6 @@
 package edu.matc.persistence;
 
-import edu.matc.entity.Client;
+import edu.matc.entity.Staff;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -9,68 +9,66 @@ import org.hibernate.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientDao {
-
+public class StaffDao {
+    
     private final Logger log = Logger.getLogger(this.getClass());
 
-
-    /** Return a list of all clients
+    /** Return a list of all staffs
      *
-     * @return All clients
+     * @return All staffs
      */
-    public List<Client> getAllClients() {
-        List<Client> clients = new ArrayList<Client>();
+    public List<Staff> getAllStaffs() {
+        List<Staff> staffs = new ArrayList<Staff>();
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        clients = session.createCriteria(Client.class).list();
-        return clients;
+        staffs = session.createCriteria(Staff.class).list();
+        return staffs;
     }
 
-
     /**
-     * retrieve a client given their id
+     * retrieve a staff given their id
      *
-     * @param id the client's id
-     * @return client
+     * @param id the staff's id
+     * @return staff
      */
-    public Client getClient(int id) {
+    public Staff getStaff(int id) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
-        Client client = null;
+        Staff staff = null;
         try {
             tx = session.beginTransaction();
-            client = (Client) session.get(Client.class, id);
+            staff = (Staff) session.get(Staff.class, id);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error retrieving client, id: " + id, he);
+                log.error("Error retrieving a staff, id: " + id, he);
             }
         } finally {
             session.close();
         }
 
-        return client;
+        return staff;
     }
 
 
     /**
-     * add a client
+     * add a staff
      *
-     * @param client
+     * @param staff
      * @return the id of the inserted record
      */
-    public int addClient(Client client) {
+    public int addStaff(Staff staff) {
         int id = 0;
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            id = (Integer) session.save(client);
+            id = (Integer) session.save(staff);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error adding a new client", he);
+                log.error("Error adding a new staff", he);
             }
         } finally {
             session.close();
@@ -81,22 +79,22 @@ public class ClientDao {
 
 
     /**
-     * delete a client by id
-     * @param id the client's id
+     * delete a satff by id
+     * @param id the staff's id
      */
-    public void deleteClient(int id) {
+    public void deleteStaff(int id) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
-        Client client = null;
+        Staff staff = null;
         try {
             tx = session.beginTransaction();
-            client = (Client) session.get(Client.class, id);
-            session.delete(client);
+            staff = (Staff) session.get(Staff.class, id);
+            session.delete(staff);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error deleting a client, id: " + id, he);
+                log.error("Error deleting a staff, id: " + id, he);
             }
         } finally {
             session.close();
@@ -105,25 +103,25 @@ public class ClientDao {
 
 
     /**
-     * Update the client
-     * @param client
+     * Update the staff
+     * @param staff
      */
 
-    public void updateClient(Client client) {
+    public void updateStaff(Staff staff) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.saveOrUpdate(client);
+            session.saveOrUpdate(staff);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error updating a client, id: " + client.getClientId(), he);
+                log.error("Error updating a staff, id: " + staff.getStaffId(), he);
             }
         } finally {
             session.close();
         }
     }
-
+    
 }
