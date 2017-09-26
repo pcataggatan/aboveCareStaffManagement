@@ -9,19 +9,25 @@
 - [X] Begin project plan
 
 ### Week 2
-- [ ] W2 Task1
-- [ ] W2 Task2
+- [X] Create wireframes for screen mockups
+- [X] Show/review screens with the instructor
+- [X] Create Maven project using web application achetype
+- [X] Add directories needed for the porject
+- [X] Start incorporating DAO and Hibernate to the project with full CRUD on main tables
+- [X] Log time spent
 
 ### Week 3
-- [ ] W3 Task1
-- [ ] W3 Task2
-- [ ] W3 Task3
+- [X] Finish incorporating DAO and Hibernate to the project
+- [X] Refine design to identify scope and strech calls
+- [X] Do design review with peers
+- [X] Describe process flow
+- [X] Log time spent
 
 ### Week 4
-- [ ] W4 Task1
-- [ ] W4 Task2
-- [ ] W4 Task3
-- [ ] W4 Task4
+- [ ] Start coding JSPs for the screens
+- [ ] Use MVC design pattern
+- [ ] Create AWS account
+- [ ] Log time spent
 
 ### Week 5
 - [ ] W5 Task1
