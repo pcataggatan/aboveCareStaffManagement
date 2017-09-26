@@ -26,4 +26,8 @@
 | 09/18/17| Upload screen mockups to git and create screens.md file to link the images | 2.0 | |
 | 09/18/17| Finish week 3 exercise on custom taglib | 2.0 | |
 | 09/19/17| Watch demo videos on Dao and Hibernate for week 4 | 2.0 | |
+| 09/20/17| Participate in Week 4 classroom activities| 4.0 | |
+| 09/22/17| Finish Week 4 exercice, the scripted exercise | 2.0 | |
+| 09/23/17| Incorporate DAO and Hibernate in individual project | 3.0 | |
+| 09/25/17| Watch week 5 videos and create AWS account | 2.5 | Stuck in creating EC2 instance | 
 
