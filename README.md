@@ -15,18 +15,17 @@ I would like to create a web application to alleviate my friend's staffing and s
 ### Project Technologies/Techniques 
 
 * Security/Authentication
-  * Admin role: create/read/update/delete (crud) of all data
   * Owner role: Maintain Hourly Rate table and view reports with financial information (login required)
   * Scheduler: create/read/update/delete client and staff data and view reports without financial information (login required)
 * Database (MySQL and Hibernate)
-  * Store users and roles
-  * Store client data
+  * Store Users and roles
+  * Store Client data
   * Store Staff data
-  * Store Hourly Rate information
-  * Store staff schedule informatiomn
+  * Store Client and Staff Hourly Rate information
+  * Store Staff schedule information
 * Web Services or APIs
   * Zipcodes API for the list of zipcodes within a specified zipcode and radius
-* JSON (independent research topic)
+* JSON (independent research topic???) or just CSV results from Zipcodes API
 * Logging
   * Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting. 
 * Site and database hosted on AWS
