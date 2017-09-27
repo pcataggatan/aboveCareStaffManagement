@@ -28,7 +28,7 @@
 - [ ] Use MVC design pattern
 - [X] Create AWS account
 - [X] Create and configure EC2 instance, test tomee and mysql connections
-- [X ] Log time spent
+- [X] Log time spent
 
 ### Week 5
 - [ ] Continue coding servlets and jsps
