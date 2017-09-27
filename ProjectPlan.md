@@ -26,10 +26,11 @@
 ### Week 4
 - [ ] Start coding JSPs for the screens
 - [ ] Use MVC design pattern
-- [ ] Create AWS account
-- [ ] Log time spent
+- [X] Create AWS account
+- [X] Create and configure EC2 instance, test tomee and mysql connections
+- [X ] Log time spent
 
 ### Week 5
-- [ ] W5 Task1
-- [ ] W5 Task2
-- [ ] W5 Task3
+- [ ] Continue coding servlets and jsps
+- [ ] Start individual research on Functional Programming
+- [ ] Log time spent
