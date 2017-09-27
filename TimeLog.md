@@ -30,4 +30,5 @@
 | 09/22/17| Finish Week 4 exercice, the scripted exercise | 2.0 | |
 | 09/23/17| Incorporate DAO and Hibernate in individual project | 3.0 | |
 | 09/25/17| Watch week 5 videos and create AWS account | 2.5 | Stuck in creating EC2 instance | 
+| 09/26/17| Create and configure EC2 instance on AWS | 3.0 | | 
 
