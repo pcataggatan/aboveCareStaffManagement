@@ -1,5 +1,5 @@
 # Database Diagram
 
 ## Entity Relationship Diagram
-![Entity Relationship](screens/ERDiagram.PNG)
+![Entity Relationship](screens/ERDiagram.png)
 
