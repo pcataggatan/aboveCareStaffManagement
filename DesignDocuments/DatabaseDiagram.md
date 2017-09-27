@@ -1,3 +1,4 @@
 # Database Diagram
 
-## Entity relationship diagrams soon ....
+## Entity Relationship Diagram
+![Entity Relationship](screens/ERDiagram.PNG)
