@@ -20,37 +20,21 @@ create table staff (
 ); ENGINE=INNODB;
 
 insert into staff VALUES
-(1
-,"Corazon"
-,"Acosta"
-,'1969-01-01'
-,"123 Intellij Avenue"
-,NULL
-,"Madison"
-,"WI"
-,"53701"
-,"(608) 101-1001"
-,"corazon@abovecare.com"
-,"Care Giver"
-,"S01"
-,"2017-01-01"
-,NULL
-);
+(10001,"Corazon","Acosta",'1969-01-01',"123 Intellij Avenue",NULL,"Madison","WI","53701"
+  ,"(608) 101-1001","cacosta@abovecare.com","Care Giver","S01",'2017-01-01',NULL);
 
 insert into staff VALUES
-(2
-  ,"Leah"
-  ,"Bagunu"
-  ,'1969-02-01'
-  ,"123 Intellij Lane"
-  ,NULL
-  ,"Madison"
-  ,"WI"
-  ,"53702"
-  ,"(608) 101-1002"
-  ,"leah@abovecare.com"
-  ,"Care Giver"
-  ,"S02"
-  ,"2017-02-01"
-  ,NULL
-);
+(10002,"Leah","Bagunu",'1969-02-01',"123 Intellij Lane",NULL,"Madison","WI","53702"
+,"(608) 101-1002","lbagunu@abovecare.com","Care Giver","S02",'2017-01-01',NULL);
+
+insert into staff VALUES
+(10003,"Catherine", "Baricaua",'1969-03-01',"123 Intellij St",NULL,"Madison","WI","53703"
+,"(608) 101-1003","cbaricaua@abovecare.com","Care Giver","S02",'2017-01-01',NULL);
+
+insert into staff VALUES
+(10004, "Audrey", "Bautista",'1969-04-01',"123 Intellij Rd",NULL,"Madison","WI","53704"
+,"(608) 101-1004","abautista@abovecare.com","Care Giver","S02",'2017-01-01',NULL);
+
+insert into staff VALUES
+(10005,"Rowena", "Castaneda",'1969-04-01',"123 Intellij Rd",NULL,"Sun Prairie","WI","53590"
+,"(608) 101-1004","abautista@abovecare.com","Care Giver","S01",'2017-01-01',NULL);

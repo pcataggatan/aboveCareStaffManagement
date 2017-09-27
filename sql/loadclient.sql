@@ -19,35 +19,25 @@ create table client (
  ); ENGINE=INNODB;
 
 insert into client VALUES
-(1
-,"John"
-,"Smith"
-,'1950-01-01'
-,"123 Java Lane"
-,NULL
-,"Madison"
-,"WI"
-,"53718"
-,"(608) 909-90001"
-,"abc1@xyz.com"
-,"C01"
-,"2017-01-01"
-,NULL
-);
+(90000,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 insert into client VALUES
-(2
-,"Mary"
-,"Johnson"
-,'1940-02-01'
-,"123 Java Ct"
-,NULL
-,"Cottage Grove"
-,"WI"
-,"53527"
-,"(608) 909-90002"
-,"abc2@xyz.com"
-,"C02"
-,"2017-01-01"
-,NULL
-);
+(90001,"John","Smith",'1950-01-01',"123 Java Lane",NULL,"Madison","WI","53718"
+,"(608) 909-9001","abc1@xyz.com","C01",'2017-01-01',NULL);
+
+insert into client VALUES
+(90002,"Mary","Johnson",'1940-02-01',"123 Java Ct",NULL,"Cottage Grove","WI","53527"
+,"(608) 909-9002","abc2@xyz.com","C02",'2017-01-01',NULL);
+
+insert into client VALUES
+(90003,"Patricia","Brown",'1941-03-01',"1234 Java Rd",NULL,"Sun Prairie","WI","53590"
+,"(608) 909-9003","abc3@xyz.com","C01",'2017-01-01',NULL);
+
+insert into client VALUES
+(90004,"Barbara","Tucker",'1955-04-01',"123 Java Pkwy",NULL,"De Forest","WI","53532"
+,"(608) 909-9004","abc4@xyz.com","C02",'2017-01-01',NULL);
+
+insert into client VALUES
+(90005,"Charles","Williams",'1941-05-01',"123A Java St",NULL,"Lake Mills","WI","53551"
+,"(608) 909-9005","abc5@xyz.com","C03",'2017-01-01',NULL);
+
