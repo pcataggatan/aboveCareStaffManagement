@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<c:set var="pageTitle" value="Employee Search" scope="session" />
+<c:set var="pageTitle" value="User Login" scope="session" />
 <c:import url="headtag.jsp" />
 
 <body>

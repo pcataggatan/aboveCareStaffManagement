@@ -13,26 +13,20 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(
-        name = "searchClient",
-        urlPatterns = {"/search-client"}
+        name = "userLoginFormForm",
+        urlPatterns = {"/user-login-form"}
 )
 
-public class SearchClient extends HttpServlet {
+public class UserLoginForm extends HttpServlet {
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        ClientDao clientDao = new ClientDao();
-
-        if (req.getParameter("searchType").equals("byLastname")) {
-            req.setAttribute("clients", clientDao.getClientByLastName(req.getParameter("searchTerm")));
-        } else {
-            req.setAttribute("clients", clientDao.getAllClients());
-        }
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("searchClientResults.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("userLoginForm.jsp");
         dispatcher.forward(req, resp);
     }
 }

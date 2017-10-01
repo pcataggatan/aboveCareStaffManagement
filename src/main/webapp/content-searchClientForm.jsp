@@ -8,6 +8,6 @@
         <button type="submit" value="viewAll" name="searchType">All</button>
     </form>
     <br>
-    <p><a href="#">Back to home page</a></p>
+    <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
 
 </div>

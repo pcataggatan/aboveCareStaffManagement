@@ -1,8 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="title" value="Search Results" scope="session" />
-<%@include file="header.jsp"%>
-
-
 <div class="container-fluid">
     <h2>Search Results: </h2>
 
@@ -30,6 +25,10 @@
             </tr>
         </c:forEach>
     </table>
+
+    <br>
+    <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
+
 </div>
 
 

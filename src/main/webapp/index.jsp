@@ -1,22 +1,22 @@
 <%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 --%>
-
-<%@include file="taglib.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="title" value="Home Page" scope="session" />
-<%@include file="headtag.jsp"%>
 
-<html><body>
+<html>
+<c:import url="headtag.jsp" />
 
+<body>
 
 <div id="wrap">
-    <%@ include file="header.jsp" %>
+    <c:import url="header.jsp" />
     <%-- if userLoggedIn then display menu
          else display something like quote of the day on the sidebar
      --%>
-    <%@ include file="menu.jsp" %>
-    <%@ include file="content-home.jsp" %>
-    <%@ include file="footer.jsp" %>
+    <c:import url="menu.jsp" />
+    <c:import url="content-home.jsp" />
+    <c:import url="footer.jsp" />
 </div>
 
 

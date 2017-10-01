@@ -1,6 +1,7 @@
 package edu.matc.controller;
 
 import edu.matc.persistence.ClientDao;
+import edu.matc.persistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,22 +22,31 @@ public class UserLogin extends HttpServlet {
         //ServletContext context = getServletContext();
         //HttpSession session = req.getSession();
 
-        ClientDao clientDao = new ClientDao();
+        UserDao userDao = new UserDao();
 
 
         String userRole = req.getParameter("userRole");
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        String username = req.getParameter("loginBtn");
+        String loginBtn = req.getParameter("loginBtn");
 
 
-        if (req.getParameter("login").equals("Login")) {
-            req.setAttribute("clients", clientDao.getClientByLastName(req.getParameter("searchTerm")));
+        if (loginBtn.equals("Login")) {
+            req.setAttribute("userRole",userRole);
+            String invalidMsg = userDao.validateUser(username, password);
+
+            if (invalidMsg.equals("")) {
+                RequestDispatcher dispatcher = req.getRequestDispatcher("userMainPage.jsp");
+                dispatcher.forward(req, resp);
+            } else {
+                req.setAttribute("invalidLoginMsg", invalidMsg);
+                RequestDispatcher dispatcher = req.getRequestDispatcher("userLoginForm.jsp");
+                dispatcher.forward(req, resp);
+            }
         } else {
-            req.setAttribute("clients", clientDao.getAllClients());
+            // there's a proper way to link to homepage
+            RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+            dispatcher.forward(req, resp);
         }
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("searchClientResults.jsp");
-        dispatcher.forward(req, resp);
     }
 }
