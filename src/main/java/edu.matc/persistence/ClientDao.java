@@ -2,9 +2,11 @@ package edu.matc.persistence;
 
 import edu.matc.entity.Client;
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,18 @@ public class ClientDao {
 
     private final Logger log = Logger.getLogger(this.getClass());
 
+    /** Return a list of clients based on search term
+     *
+     * @return Clients that contain the search term string
+     */
+    public List<Client> getClientByLastName(String searchTerm) {
+        List<Client> clients = new ArrayList<Client>();
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Criteria cr = session.createCriteria(Client.class);
+        cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
+        return clients;
+
+    }
 
     /** Return a list of all clients
      *

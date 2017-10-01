@@ -1,6 +1,7 @@
 drop table if exists `user`;
 
 create table user (
+
   username  VARCHAR(15) NOT NULL,
   password  VARCHAR(16) NOT NULL,
   role      VARCHAR(10) NOT NULL,

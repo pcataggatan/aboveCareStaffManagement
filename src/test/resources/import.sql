@@ -1,21 +1,7 @@
 drop table if exists `client`;
 
-create table client (client_id       int(11) NOT NULL auto_increment,
-     first_name      varchar(25) NOT NULL,
-     last_name       varchar(30) NOT NULL,
-     birth_date      date NOT NULL,
-     st_addr1        varchar(40) NOT NULL,
-     st_addr2        varchar(40),
-     city            varchar(25) NOT NULL,
-     state           varchar(2) NOT NULL,
-     zipcode         varchar(5) NOT NULL,
-     phone_nr        varchar(15) NOT NULL,
-     email           varchar(60),
-     rate_cd         varchar(03) NOT NULL,
-     eff_dt          date NOT NULL,
-     end_dt          date,
-     PRIMARY KEY  (client_id)
- ) ENGINE=INNODB;
+create table client ('client_id' int(11) NOT NULL auto_increment,'first_name' varchar(25) NOT NULL,'last_name' varchar(30) NOT NULL,
+'birth_date' date NOT NULL,'st_addr1' varchar(40) NOT NULL,'st_addr2' varchar(40),'city' varchar(25) NOT NULL,'state' varchar(2) NOT NULL,'zipcode' varchar(5) NOT NULL,'phone_nr' varchar(15) NOT NULL,'email' varchar(60),'rate_cd' varchar(03) NOT NULL,'eff_dt' date NOT NULL,'end_dt' date,PRIMARY KEY  (client_id)) ENGINE=INNODB;
 
 
 insert into client VALUES (1,"John","Smith",'1950-01-01',"123 Java Lane",NULL,"Madison","WI","53718","(608) 909-9001","abc1@xyz.com","C01",'2017-01-01',NULL);

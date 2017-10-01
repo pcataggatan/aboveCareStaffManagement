@@ -1,0 +1,41 @@
+package edu.matc.controller;
+
+import edu.matc.persistence.ClientDao;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+
+@WebServlet(
+        name = "searchClient",
+        urlPatterns = {"/search-client"}
+)
+
+public class SearchClient extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        //ServletContext context = getServletContext();
+        //HttpSession session = req.getSession();
+
+        ClientDao clientDao = new ClientDao();
+
+        String searchType = req.getParameter("searchType");
+        String searchTerm = req.getParameter("searchTerm");
+
+        if (req.getParameter("searchType").equals("byLastname")) {
+            req.setAttribute("clients", clientDao.getClientByLastName(req.getParameter("searchTerm")));
+        } else {
+            req.setAttribute("clients", clientDao.getAllClients());
+        }
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("searchClientResults.jsp");
+        dispatcher.forward(req, resp);
+    }
+}

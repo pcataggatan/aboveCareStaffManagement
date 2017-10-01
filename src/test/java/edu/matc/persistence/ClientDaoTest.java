@@ -11,13 +11,14 @@ import static org.junit.Assert.*;
 
 public class ClientDaoTest {
 
-    private Client client;
     private ClientDao clientDao;
+    private Client client;
+
 
     @Before
     public void setUp() throws Exception {
-        client = new Client();
         clientDao = new ClientDao();
+        client = new Client();
     }
 
 
@@ -32,7 +33,8 @@ public class ClientDaoTest {
     public void getClient() throws Exception {
         int id = 1;
         client = clientDao.getClient(id);
-        assertTrue("Not the client with userid " + id, client.getFirstName().equals("John"));
+        assertTrue("Not the client with userid " + id,
+                client.getFirstName().equals("John"));
     }
 
     @Test
@@ -47,7 +49,7 @@ public class ClientDaoTest {
 
     @Test
     public void deleteClient() throws Exception {
-        int id = clientDao.getAllClients().size() - 1;
+        int id = clientDao.getAllClients().size();
         client = clientDao.getClient(id);
         clientDao.deleteClient(id);
         List<Client> clients = clientDao.getAllClients();

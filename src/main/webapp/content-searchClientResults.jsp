@@ -1,0 +1,35 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="title" value="Search Results" scope="session" />
+<%@include file="header.jsp"%>
+
+
+<div class="container-fluid">
+    <h2>Search Results: </h2>
+
+    <%-- ${users} --%>
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Street Address</th>
+            <th>City</th>
+            <th>Zipcode</th>
+            <th>Phone</th>
+            <th>Email<th>
+        </tr>
+
+        <c:forEach var="client" items="${clients}">
+            <tr>
+                <td>${client.firstName}</td>
+                <td>${client.lastName}</td>
+                <td>${client.st_addr2}</td>
+                <td>${client.city}</td>
+                <td>${client.zipCd}</td>
+                <td>${client.phoneNr}</td>
+                <td>${client.email}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
+
+
