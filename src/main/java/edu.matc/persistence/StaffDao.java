@@ -1,10 +1,13 @@
 package edu.matc.persistence;
 
+import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +15,7 @@ import java.util.List;
 public class StaffDao {
     
     private final Logger log = Logger.getLogger(this.getClass());
+
 
     /** Return a list of all staffs
      *
@@ -23,6 +27,22 @@ public class StaffDao {
         staffs = session.createCriteria(Staff.class).list();
         return staffs;
     }
+
+    /** Return a list of staffs based on search term
+     * @param searchTerm search string
+     * @return Staffs that contain the search term string
+     */
+    public List<Staff> getClientByLastName(String searchTerm) {
+        List<Staff> staffs = new ArrayList<Staff>();
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Criteria cr = session.createCriteria(Client.class);
+        cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
+        staffs = cr.list();
+        return staffs;
+
+    }
+
+
 
     /**
      * retrieve a staff given their id

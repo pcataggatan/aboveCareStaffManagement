@@ -4,7 +4,6 @@
             <label for="searchTerm">Search</label>
             <input type="text" id="searchTerm" name="searchTerm" autofocus><br/><br/>
         </div>
-
         <button type="submit" value="byLastname" name="searchType">By LastName</button>
         <button type="submit" value="viewAll" name="searchType">All</button>
     </form>

@@ -21,11 +21,11 @@
         <property name="show_sql">true</property>
 
         <!-- List the annotated entity class/es -->
+        <mapping class="edu.matc.entity.User"/>
         <mapping class="edu.matc.entity.Client"/>
         <mapping class="edu.matc.entity.Staff"/>
-        <mapping class="edu.matc.entity.Code"/>
         <mapping class="edu.matc.entity.Sched"/>
-
+        <mapping class="edu.matc.entity.Code"/>
     </session-factory>
 
 </hibernate-configuration>

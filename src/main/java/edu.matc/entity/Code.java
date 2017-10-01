@@ -10,11 +10,13 @@ import javax.persistence.Table;
 public class Code {
 
     @Id
+    @Column(name = "code", unique = true, nullable = false)
     private String code;
 
+    @Column(name = "value", nullable = false)
     private String value;
 
-    @Column(name = "desc_tx")
+    @Column(name = "desc",  nullable = false)
     private String desc;
 
     public Code() {}

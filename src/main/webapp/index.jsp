@@ -2,13 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 --%>
 
-<%-- <%@include file="taglib.jsp"%> --%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="pageTitle" value="Home" scope="session" />
-<%@ include file="headtag.jsp" %>
-
-<%-- <%@include file="headtag.jsp"%> --%>
+<%@include file="taglib.jsp"%>
+<c:set var="title" value="Home Page" scope="session" />
+<%@include file="headtag.jsp"%>
 
 <html><body>
 

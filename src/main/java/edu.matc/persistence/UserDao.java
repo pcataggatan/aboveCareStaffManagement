@@ -1,6 +1,6 @@
 package edu.matc.persistence;
 
-import edu.matc.entity.Client;
+import edu.matc.entity.User;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -11,85 +11,58 @@ import org.hibernate.criterion.Restrictions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientDao {
+public class UserDao {
 
     private final Logger log = Logger.getLogger(this.getClass());
 
 
-
-    /** Return a list of all clients
-     *
-     * @return All clients
-     */
-    public List<Client> getAllClients() {
-        List<Client> clients = new ArrayList<Client>();
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        clients = session.createCriteria(Client.class).list();
-        return clients;
-    }
-
-
-
-    /** Return a list of clients based on search term
-     *@param searchTerm search string
-     *
-     * @return Clients that contain the search term string
-     */
-    public List<Client> getClientByLastName(String searchTerm) {
-        List<Client> clients = new ArrayList<Client>();
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Criteria cr = session.createCriteria(Client.class);
-        cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
-        clients = cr.list();
-        return clients;
-
-    }
-
     /**
-     * retrieve a client given their id
+     * retrieve a user given their id
      *
-     * @param id the client's id
-     * @return client
+     * @param username the user's username
+     * @return user
      */
-    public Client getClient(int id) {
+    public boolean isUsernameExist(String username) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
-        Client client = null;
+        boolean userFound = false;
+        User user = null;
         try {
             tx = session.beginTransaction();
-            client = (Client) session.get(Client.class, id);
+            session.get(User.class)
+            user = (User) session.get(User.class, username);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error retrieving client, id: " + id, he);
+                log.error("Error retrieving user, id: " + username, he);
             }
         } finally {
             session.close();
         }
 
-        return client;
+        return user;
     }
 
 
     /**
-     * add a client
+     * add a user
      *
-     * @param client
+     * @param user
      * @return the id of the inserted record
      */
-    public int addClient(Client client) {
+    public int addUser(User user) {
         int id = 0;
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            id = (Integer) session.save(client);
+            id = (Integer) session.save(user);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error adding a new client", he);
+                log.error("Error adding a new user", he);
             }
         } finally {
             session.close();
@@ -100,22 +73,22 @@ public class ClientDao {
 
 
     /**
-     * delete a client by id
-     * @param id the client's id
+     * delete a user by id
+     * @param id the user's id
      */
-    public void deleteClient(int id) {
+    public void deleteUser(int id) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
-        Client client = null;
+        User user = null;
         try {
             tx = session.beginTransaction();
-            client = (Client) session.get(Client.class, id);
-            session.delete(client);
+            user = (User) session.get(User.class, id);
+            session.delete(user);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error deleting a client, id: " + id, he);
+                log.error("Error deleting a user, id: " + id, he);
             }
         } finally {
             session.close();
@@ -124,21 +97,21 @@ public class ClientDao {
 
 
     /**
-     * Update the client
-     * @param client
+     * Update the user
+     * @param user
      */
 
-    public void updateClient(Client client) {
+    public void updateUser(User user) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.saveOrUpdate(client);
+            session.saveOrUpdate(user);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error updating a client, id: " + client.getClientId(), he);
+                log.error("Error updating a user, id: " + user.getUserId(), he);
             }
         } finally {
             session.close();
