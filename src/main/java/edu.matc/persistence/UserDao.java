@@ -11,32 +11,29 @@ public class UserDao {
     private final Logger log = Logger.getLogger(this.getClass());
 
 
-    public String validateUser(String username, String password) {
-        String validateMsg = "";
-        if (isValidUsername(username)) {
-            if (!isValidPassword(password)) {
-                validateMsg = "Invalid password.";
-            }
-        } else {
-            validateMsg = "Invalid username.";
-        }
-
-        return validateMsg;
-    }
-
     /**
      * check if username exists
      *
      * @param username username entered during login
      * @return true if username is found
      */
-    public boolean isValidUsername(String username) {
+    public String validateUser(String username, String password) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         User user = null;
+        String invalidMsg = "";
+
         try {
             tx = session.beginTransaction();
             user = (User) session.get(User.class, username);
+            if (user == null) {
+                invalidMsg = "Invalid username";
+            } else {
+                if (!user.getPassword().equals(password)) {
+                    invalidMsg = "Invalid password";
+                }
+            }
+
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
@@ -47,7 +44,7 @@ public class UserDao {
             session.close();
         }
 
-        return user == null;
+       return invalidMsg;
 
     }
 

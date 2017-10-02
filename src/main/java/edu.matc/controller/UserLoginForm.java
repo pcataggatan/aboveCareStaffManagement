@@ -19,12 +19,12 @@ import java.io.IOException;
 
 public class UserLoginForm extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
+        session.setAttribute("userRole",null);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("userLoginForm.jsp");
         dispatcher.forward(req, resp);

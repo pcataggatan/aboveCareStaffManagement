@@ -24,7 +24,8 @@ public class ClientDao {
     public List<Client> getAllClients() {
         List<Client> clients = new ArrayList<Client>();
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        clients = session.createCriteria(Client.class).list();
+        clients = (List<Client>) session.createCriteria(Client.class).list();
+        System.out .println(clients);
         return clients;
     }
 
