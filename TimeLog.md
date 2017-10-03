@@ -31,4 +31,10 @@
 | 09/23/17| Incorporate DAO and Hibernate in individual project | 3.0 | |
 | 09/25/17| Watch week 5 videos and create AWS account | 2.5 | Stuck in creating EC2 instance | 
 | 09/26/17| Create and configure EC2 instance on AWS | 3.0 | | 
+| 09/27/17| Participate in Week 4 classroom activities | 4.0 | |
+| 09/29/17| Start coding individual projects | 6.0 | Stuck on JSTL not working on my jsps. Read Aaron's reply to Layton and applied changes to web.xml file adn it worked |
+| 10/01/17| Tested login and search client functionality of my project | 3.0 | |
+| 10/02/17| Refine codes for login and search and deployed project war file to AWS | 2.5 | |
+| 10/03/17| Watch week 6 videos and update project time log | 2.0 | |
+
 
