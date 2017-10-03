@@ -24,13 +24,21 @@
 - [X] Log time spent
 
 ### Week 4
-- [ ] Start coding JSPs for the screens
-- [ ] Use MVC design pattern
+- [X] Start coding JSPs for the screens
+- [X] Use MVC design pattern
 - [X] Create AWS account
 - [X] Create and configure EC2 instance, test tomee and mysql connections
 - [X] Log time spent
 
 ### Week 5
-- [ ] Continue coding servlets and jsps
+- [X] Continue coding servlets and jsps
+- [X] Create all the Dao's for the project
+- [X] Deploy project to AWS  
+- [X] Log time spent
+
+### Week 6
+- [X] Continue coding servlets and jsps
+- [ ] Create generic Dao
+- [X] Read/learn Bootstrap CSS and apply to project
 - [ ] Start individual research on Functional Programming
-- [ ] Log time spent
+- [X] Log time spent
