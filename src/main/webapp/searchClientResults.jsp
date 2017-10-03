@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file="taglib.jsp"%>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<c:set var="title" value="Search Client Results" scope="session" />
-<c:import url="headtag.jsp" />
+<c:set var="title" value="Search Client Results" scope="session"/>
+<%@include file="headtag.jsp"%>
 
 <body>
 
 <div id="wrap">
-    <c:import url="header.jsp" />
-    <c:import url="menu.jsp" />
-    <c:import url="content-searchClientResults.jsp" />
-    <c:import url="footer.jsp" />
+    <%@include file="header.jsp"%>
+    <%@include file="menu.jsp"%>
+    <%@include file="content-searchClientResults.jsp"%>
+    <%@include file="footer.jsp"%>
 </div>
 
 </body>

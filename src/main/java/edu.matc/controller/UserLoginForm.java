@@ -25,6 +25,7 @@ public class UserLoginForm extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
         session.setAttribute("userRole",null);
+        session.setAttribute("invalidLoginMsg", null);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("userLoginForm.jsp");
         dispatcher.forward(req, resp);

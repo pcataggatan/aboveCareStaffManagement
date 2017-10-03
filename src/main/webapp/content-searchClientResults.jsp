@@ -1,3 +1,5 @@
+<%@include file="taglib.jsp" %>
+
 <div class="container-fluid">
     <h2>Search Results: </h2>
 
@@ -17,7 +19,7 @@
             <tr>
                 <td>${client.firstName}</td>
                 <td>${client.lastName}</td>
-                <td>${client.st_addr2}</td>
+                <td>${client.addrLine1}</td>
                 <td>${client.city}</td>
                 <td>${client.zipCd}</td>
                 <td>${client.phoneNr}</td>

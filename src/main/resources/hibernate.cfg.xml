@@ -14,6 +14,11 @@
         <property name="connection.username">root</property>
         <property name="connection.password">student</property>
 
+        <!--
+        <property name="connection.username">pabbsbcjr</property>
+        <property name="connection.password">Pjtc080309010712</property>
+        -->
+
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
 

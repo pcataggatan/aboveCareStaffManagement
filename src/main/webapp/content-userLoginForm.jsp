@@ -1,8 +1,10 @@
 <div id="content">
+    <h1>${invalidLoginMsg}</h1>
+    <br>
     Login As &nbsp;
     <select name="userRole" form="loginForm">
         <option name="role" value="Owner">Owner</option>
-        <option name="role" value="Scheduler">Scheduler</option>
+        <option name="role" value="Assistant">Assistant</option>
     </select> </br>
 
     <form action="user-login" id="loginForm" method="GET">
@@ -11,6 +13,8 @@
         <input type="submit" value="Login" name="loginBtn">
         <input type="submit" value="Cancel" name="loginBtn">
     </form>
+
+
 
     <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>

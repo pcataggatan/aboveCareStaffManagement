@@ -22,10 +22,10 @@ public class ClientDao {
      * @return All clients
      */
     public List<Client> getAllClients() {
-        List<Client> clients = new ArrayList<Client>();
+        List<Client> clients; // = new ArrayList<Client>();
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        clients = (List<Client>) session.createCriteria(Client.class).list();
-        System.out .println(clients);
+        clients = session.createCriteria(Client.class).list();
+        session.close();
         return clients;
     }
 
@@ -37,11 +37,12 @@ public class ClientDao {
      * @return Clients that contain the search term string
      */
     public List<Client> getClientByLastName(String searchTerm) {
-        List<Client> clients = new ArrayList<Client>();
+        List<Client> clients; // = new ArrayList<Client>();
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Criteria cr = session.createCriteria(Client.class);
         cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
         clients = cr.list();
+        session.close();
         return clients;
 
     }

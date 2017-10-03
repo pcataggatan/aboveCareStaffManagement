@@ -53,7 +53,7 @@ public class ClientDaoTest {
         client = clientDao.getClient(id);
         clientDao.deleteClient(id);
         List<Client> clients = clientDao.getAllClients();
-        assertFalse("User not deleted", clients.contains(client));
+        assertFalse("Client not deleted", clients.contains(client));
     }
 
     @Test

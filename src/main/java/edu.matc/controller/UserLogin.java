@@ -38,7 +38,7 @@ public class UserLogin extends HttpServlet {
             String invalidMsg = userDao.validateUser(username, password);
 
             if (invalidMsg.equals("")) {
-                RequestDispatcher dispatcher = req.getRequestDispatcher("userMainPage.jsp");
+                RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
                 dispatcher.forward(req, resp);
             } else {
                 session.setAttribute("invalidLoginMsg", invalidMsg);

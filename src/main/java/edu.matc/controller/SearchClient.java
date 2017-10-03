@@ -1,5 +1,6 @@
 package edu.matc.controller;
 
+import edu.matc.entity.Client;
 import edu.matc.persistence.ClientDao;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(
         name = "searchClient",
@@ -27,9 +30,9 @@ public class SearchClient extends HttpServlet {
         ClientDao clientDao = new ClientDao();
 
         if (req.getParameter("searchType").equals("byLastname")) {
-            req.setAttribute("clients", clientDao.getClientByLastName(req.getParameter("searchTerm")));
+            session.setAttribute("clients", clientDao.getClientByLastName(req.getParameter("searchTerm")));
         } else {
-            req.setAttribute("clients", clientDao.getAllClients());
+            session.setAttribute("clients", clientDao.getAllClients());
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("searchClientResults.jsp");

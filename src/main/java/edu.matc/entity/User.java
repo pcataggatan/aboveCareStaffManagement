@@ -8,15 +8,17 @@ import javax.persistence.*;
 @Table(name = "user")
 public class User {
 
-    @Id
-    @Column(name = "email", unique = true, nullable = false)
-    private String email;
 
+
+    @Id
     @Column(name = "username", unique = true, nullable = false)
     private String username;
 
-    @Column(name = "passwrod", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "email", unique = true, nullable = false)
+    private String email;
 
     @Column(name = "role", nullable = false)
     private String role;
