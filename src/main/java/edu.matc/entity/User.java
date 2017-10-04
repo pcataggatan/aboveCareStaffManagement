@@ -3,27 +3,32 @@ package edu.matc.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "user")
 public class User {
 
-
-
     @Id
-    @Column(name = "username", unique = true, nullable = false)
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @Column(name = "user_id")
+    private int userId;
+
+
+    @Column (name = "username", nullable = false)
     private String username;
 
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "email", unique = true, nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
     @Column(name = "role", nullable = false)
     private String role;
 
-        public User() {}
+    public User() {}
 
     public User(String email, String username, String password, String role) {
         this.email = email;
@@ -32,13 +37,12 @@ public class User {
         this.role = role;
     }
 
-
-    public String getEmail() {
-        return email;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -55,6 +59,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getRole() {

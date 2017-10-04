@@ -31,7 +31,7 @@ public class ClientDaoTest {
 
     @Test
     public void getClient() throws Exception {
-        int id = 1;
+        int id = 90001;
         client = clientDao.getClient(id);
         assertTrue("Not the client with userid " + id,
                 client.getFirstName().equals("John"));
@@ -49,7 +49,7 @@ public class ClientDaoTest {
 
     @Test
     public void deleteClient() throws Exception {
-        int id = clientDao.getAllClients().size();
+        int id = 90002;
         client = clientDao.getClient(id);
         clientDao.deleteClient(id);
         List<Client> clients = clientDao.getAllClients();
@@ -58,12 +58,12 @@ public class ClientDaoTest {
 
     @Test
     public void updateClient() throws Exception {
-        client = clientDao.getClient(1);
+        client = clientDao.getClient(90001);
         String newLastName = "Jones";
         client.setLastName(newLastName);
         clientDao.updateClient(client);
         assertTrue("Client's lastname not updated to " + newLastName,
-                clientDao.getClient(1).getLastName().equals("Jones"));
+                clientDao.getClient(90001).getLastName().equals("Jones"));
 
     }
 
