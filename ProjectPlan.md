@@ -40,5 +40,5 @@
 - [X] Continue coding servlets and jsps
 - [ ] Create generic Dao
 - [X] Read/learn Bootstrap CSS and apply to project
-- [ ] Start individual research on Functional Programming
+- [ ] Form-based Authentication
 - [X] Log time spent
