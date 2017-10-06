@@ -19,7 +19,7 @@ import java.io.IOException;
 )
 public class UserLogin extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
@@ -33,17 +33,24 @@ public class UserLogin extends HttpServlet {
         String loginBtn = req.getParameter("loginBtn");
 
 
+
         if (loginBtn.equals("Login")) {
             session.setAttribute("userRole",userRole);
             String invalidMsg = userDao.validateUser(username, password);
-
-            if (invalidMsg.equals("")) {
-                RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
-                dispatcher.forward(req, resp);
-            } else {
+            if (userRole.equals("None")) {
+                invalidMsg = "Please select a role";
                 session.setAttribute("invalidLoginMsg", invalidMsg);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("userLoginForm.jsp");
                 dispatcher.forward(req, resp);
+            } else {
+                if (invalidMsg.equals("")) {
+                    RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+                    dispatcher.forward(req, resp);
+                } else {
+                    session.setAttribute("invalidLoginMsg", invalidMsg);
+                    RequestDispatcher dispatcher = req.getRequestDispatcher("userLoginForm.jsp");
+                    dispatcher.forward(req, resp);
+                }
             }
         } else {
             // there's a proper way to link to homepage

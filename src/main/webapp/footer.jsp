@@ -1,3 +1,3 @@
 	<div id="footer">
-		&copy; 2017 - Enterprise Java
+		&copy; Copywrite 2017 - Enterprise Java
 	</div>

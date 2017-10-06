@@ -25,6 +25,7 @@ public class StaffDao {
         List<Staff> staffs = new ArrayList<Staff>();
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         staffs = session.createCriteria(Staff.class).list();
+        session.close();
         return staffs;
     }
 
@@ -38,6 +39,7 @@ public class StaffDao {
         Criteria cr = session.createCriteria(Client.class);
         cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
         staffs = cr.list();
+        session.close();
         return staffs;
 
     }

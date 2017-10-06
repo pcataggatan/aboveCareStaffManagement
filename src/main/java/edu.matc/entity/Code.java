@@ -9,11 +9,6 @@ import javax.persistence.*;
 public class Code {
 
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "client_id")
-    private int codeId;
-
     @Column(name = "code", unique = true, nullable = false)
     private String code;
 

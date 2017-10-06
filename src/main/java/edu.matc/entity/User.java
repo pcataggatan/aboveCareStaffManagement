@@ -10,12 +10,6 @@ import java.io.Serializable;
 public class User {
 
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "user_id")
-    private int userId;
-
-
     @Column (name = "username", nullable = false)
     private String username;
 
@@ -37,13 +31,6 @@ public class User {
         this.role = role;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 
     public String getUsername() {
         return username;

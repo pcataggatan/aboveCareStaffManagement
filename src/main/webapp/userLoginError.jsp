@@ -11,12 +11,9 @@
 <div id="wrap">
     <%@include file="header.jsp"%>
     <%-- <%@include file="menu.jsp"%> --%>
-    <%-- <%@include file="content-userLoginForm.jsp"%> --%>
 
-    <form action="j_security_check" method="post">
-        User Name: <input type="text" name="j_username"><br />
-        Password:  <input type="password" name="j_password"><br />
-        <input type="submit" value="login">
+    <h2>Invalid username/password combination.</h2></br>
+    <a href="userLoginForm.jsp">Try again</a>
     </form>
 
     <%@include file="footer.jsp"%>

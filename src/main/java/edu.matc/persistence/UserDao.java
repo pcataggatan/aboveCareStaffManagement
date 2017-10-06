@@ -38,7 +38,7 @@ public class UserDao {
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error retrieving user, username: " + username, he);
+                log.error("Error retrieving user username: " + username, he);
             }
         } finally {
             session.close();
@@ -66,7 +66,7 @@ public class UserDao {
         } catch (HibernateException he) {
             if (tx != null) {
                 tx.rollback();
-                log.error("Error retrieving user, password: " + password, he);
+                log.error("Error retrieving user password: " + password, he);
             }
         } finally {
             session.close();
