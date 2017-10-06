@@ -3,16 +3,23 @@
 	<div id="sidebar">
 		 <div class="box">
 		  <ul>
+			    <c:if test="${userRole == 'Owner'}">
+					<li><a href="search-client-form">Search Client</a></li>
+					<li>Search Staff</li>
+			 	    <li>Staffing</li>
+					<li>Wages and Profits</li>
+					<li>Rate Table</li>
+			  	</c:if>
 
-				<li><a href="search-client-form">Search Client</a></li>
-			  	<li>Search Staff</li>
-			 	<li>Staffing</li>
-				<li>Wages and Profits</li>
-				<li>Rate Table</li>
-				<li>Client Management</li>
-				<li>Staff Management</li>
-				<li>Schedules</li>
-				<li>Time Entry</li>
+	 		  	<c:if test="${userRole == 'OfficeStaff'}">
+					<li><a href="search-client-form">Search Client</a></li>
+					<li>Search Staff</li>
+					<li>Client Management</li>
+					<li>Staff Management</li>
+					<li>Schedules</li>
+					<li>Time Entry</li>
+				</c:if>
+
 		  </ul>
 
 		  <%--

@@ -1,6 +1,7 @@
 package edu.matc.controller;
 
 import edu.matc.persistence.ClientDao;
+import edu.matc.persistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -13,21 +14,26 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(
-        name = "userLoginFormForm",
-        urlPatterns = {"/user-login-form"}
+        name = "userHomePage",
+        urlPatterns = {"/user-home-page"}
 )
-
-public class UserLoginForm extends HttpServlet {
-
+public class UserHomePage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
-        session.setAttribute("userRole",null);
-        session.setAttribute("invalidLoginMsg", null);
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("userLoginForm.jsp");
+        if (req.isUserInRole("biz_owner")) {
+            session.setAttribute("userRole", "Owner");
+        } else if (req.isUserInRole("ofc_staff")) {
+            session.setAttribute("userRole", "OfficeStaff");
+        }
+
+        session.setAttribute("loggedIn", "Yes");
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);
+
     }
 }

@@ -10,14 +10,14 @@
 
 <div id="wrap">
     <%@include file="header.jsp"%>
-    <%-- <%@include file="menu.jsp"%> --%>
-    <%-- <%@include file="content-userLoginForm.jsp"%> --%>
 
-    <form action="j_security_check" method="post">
+    <%@include file="content-userLoginForm.jsp"%>
+    <%-- <form action="j_security_check" method="post">
         User Name: <input type="text" name="j_username"><br />
         Password:  <input type="password" name="j_password"><br />
         <input type="submit" value="login">
     </form>
+    --%>
 
     <%@include file="footer.jsp"%>
 </div>

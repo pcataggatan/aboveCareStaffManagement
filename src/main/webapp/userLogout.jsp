@@ -3,20 +3,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<c:set var="title" value="User Login" scope="session" />
+<c:set var="title" value="Search Client Results" scope="session"/>
 <%@include file="headtag.jsp"%>
 
 <body>
 
 <div id="wrap">
     <%@include file="header.jsp"%>
-
-    <%@include file="content-userLoginError.jsp"%>
-    <%--
-    <h2>Invalid username/password combination.</h2></br>
-    <a href="userLoginForm.jsp">Try again</a>
-    --%>
-
+    <%@include file="content-userLogout.jsp"%>
     <%@include file="footer.jsp"%>
 </div>
 

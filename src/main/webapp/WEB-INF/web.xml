@@ -13,19 +13,42 @@ version="2.5">
 
 
 <!-- Protect everything within the "investing" directory. -->
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>searchClientFormServlet</web-resource-name>
-            <url-pattern>/search-client-form</url-pattern>
-        </web-resource-collection>
+<security-constraint>
+    <web-resource-collection>
+        <web-resource-name>userHomePage</web-resource-name>
+        <url-pattern>/user-home-page</url-pattern>
+    </web-resource-collection>
 
-        <auth-constraint>
-            <role-name>administrator</role-name>
-            <role-name>biz_owner</role-name>
-        </auth-constraint>
+    <auth-constraint>
+        <role-name>biz_owner</role-name>
+        <role-name>ofc_staff</role-name>
+    </auth-constraint>
+</security-constraint>
 
-    </security-constraint>
+<security-constraint>
+   <web-resource-collection>
+        <web-resource-name>searchClientFormServlet</web-resource-name>
+        <url-pattern>/search-client-form</url-pattern>
+    </web-resource-collection>
 
+    <auth-constraint>
+        <role-name>biz_owner</role-name>
+        <role-name>ofc_staff</role-name>
+    </auth-constraint>
+</security-constraint>
+
+
+<security-constraint>
+    <web-resource-collection>
+        <web-resource-name>userLogoutPage</web-resource-name>
+        <url-pattern>/user-logout-page</url-pattern>
+    </web-resource-collection>
+
+    <auth-constraint>
+        <role-name>biz_owner</role-name>
+        <role-name>ofc_staff</role-name>
+    </auth-constraint>
+</security-constraint>
 
 <security-role>
     <role-name>administrator</role-name>

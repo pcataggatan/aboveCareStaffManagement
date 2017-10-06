@@ -1,3 +1,5 @@
+<%@include file="taglib.jsp"%>
+
 <div id="content">
     <form action="search-client" method="GET">
         <div>
