@@ -20,6 +20,7 @@ version="2.5">
     </web-resource-collection>
 
     <auth-constraint>
+        <role-name>administrator</role-name>
         <role-name>biz_owner</role-name>
         <role-name>ofc_staff</role-name>
     </auth-constraint>
@@ -32,6 +33,7 @@ version="2.5">
     </web-resource-collection>
 
     <auth-constraint>
+        <role-name>administrator</role-name>
         <role-name>biz_owner</role-name>
         <role-name>ofc_staff</role-name>
     </auth-constraint>
@@ -45,6 +47,7 @@ version="2.5">
     </web-resource-collection>
 
     <auth-constraint>
+        <role-name>administrator</role-name>
         <role-name>biz_owner</role-name>
         <role-name>ofc_staff</role-name>
     </auth-constraint>

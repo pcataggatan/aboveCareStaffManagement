@@ -17,6 +17,7 @@
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
+
         <!-- reload the db before each test -->
         <property name="hbm2ddl.auto">create-drop</property>
         <!--NOTE: to load data before each test, also add import.sql to test resources where
@@ -28,6 +29,7 @@
 
         <!-- List the annotated entity class/es -->
         <mapping class="edu.matc.entity.Client"/>
+        <mapping class="edu.matc.entity.Staff"/>
 
     </session-factory>
 

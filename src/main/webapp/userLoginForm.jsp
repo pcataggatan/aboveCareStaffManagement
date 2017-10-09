@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <%@include file="taglib.jsp"%>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
-<c:set var="title" value="User Login" scope="session" />
+<c:set var="title" value="Home Page" scope="session" />
 <%@include file="headtag.jsp"%>
 
-<body>
+<%@include file="header.jsp"%>
 
-<div id="wrap">
-    <%@include file="header.jsp"%>
-
-    <%@include file="content-userLoginForm.jsp"%>
-    <%-- <form action="j_security_check" method="post">
-        User Name: <input type="text" name="j_username"><br />
-        Password:  <input type="password" name="j_password"><br />
-        <input type="submit" value="login">
-    </form>
-    --%>
-
-    <%@include file="footer.jsp"%>
+<div class="container-fluid text-center">
+    <div class="row content">
+        <%@include file="content-userLoginForm.jsp"%>
+        <%@include file="menu.jsp"%>
+    </div>
 </div>
+
+<%@include file="footer.jsp"%>
 
 </body>
 </html>
+

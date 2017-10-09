@@ -1,82 +1,71 @@
 package edu.matc.entity;
 
+import edu.matc.util.LocalDateAttributeConverter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "staff")
+@Table (name = "staff")
 public class Staff {
 
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "staff_id")
+    @Column(name = "staff_id", nullable = false)
     private int staffId;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false, length = 25)
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false, length = 30)
     private String lastName;
 
-    @Column(name = "birth_date")
-    private LocalDate brithDate;
+    @Column(name = "birth_dt", nullable = false)
+    @Convert(converter = LocalDateAttributeConverter.class)
+    private LocalDate birthDt;
 
-    @Column(name = "st_addr1")
-    private String addrLine1;
+    @Column(name = "st_addr1", nullable = false, length = 40)
+    private String stAddr1;
 
-    @Column(name = "st_addr2")
-    private String addrLine2;
+    @Column(name = "st_addr2", nullable = true, length = 40)
+    private String stAddr2;
 
+    @Column(name = "city", nullable = false, length = 25)
     private String city;
 
-    private String state;
+    @Column(name = "state", nullable = false, length = 2)    private String state;
 
-    @Column(name = "zipcode")
-    private String zipCd;
+    @Column(name = "zipcode", nullable = false, length = 5)
+    private String zipcode;
 
-    @Column(name = "phone_nr")
+    @Column(name = "phone_nr", nullable = false, length = 15)
     private String phoneNr;
 
-    private String email;
+    @Column(name = "email", nullable = true, length = 50)    private String email;
 
-    @Column(name = "job_title")
-    private String jobTitle;
+    @Column(name = "pay_cd", nullable = false, length = 3)
+    private String payCd;
 
-    @Column(name = "rate_cd")
-    private String rateCd;
+    @Column(name = "hours_worked", nullable = false)
+    private int hoursWorked;
 
-    @Column(name = "eff_dt")
-    private LocalDate effDt;
 
-    @Column(name = "end_dt")
-    private LocalDate endDt;
 
-    public Staff() {
+    @OneToMany(mappedBy="staff")
+    private List<Client> clients;
+
+    public List<Client> getClients() {
+        return clients;
     }
 
-    public Staff(int staffId, String firstName, String lastName, LocalDate brithDate,
-                 String addrLine1, String addrLine2, String city, String state, String zipCd,
-                 String phoneNr, String email, String jobTitle, String rateCd, LocalDate effDt,
-                 LocalDate endDt) {
-        this.staffId = staffId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.brithDate = brithDate;
-        this.addrLine1 = addrLine1;
-        this.addrLine2 = addrLine2;
-        this.city = city;
-        this.state = state;
-        this.zipCd = zipCd;
-        this.phoneNr = phoneNr;
-        this.email = email;
-        this.jobTitle = jobTitle;
-        this.rateCd = rateCd;
-        this.effDt = effDt;
-        this.endDt = endDt;
+    public void setEmployees(List<Client> clients) {
+        this.clients = clients;
     }
+
+
 
     public int getStaffId() {
         return staffId;
@@ -98,32 +87,28 @@ public class Staff {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public LocalDate getBirthDt() {
+        return birthDt;
     }
 
-    public LocalDate getBrithDate() {
-        return brithDate;
+    public void setBirthDt(LocalDate birthDt) { this.birthDt = birthDt; }
+
+    public String getStAddr1() {
+        return stAddr1;
     }
 
-    public void setBrithDate(LocalDate brithDate) {
-        this.brithDate = brithDate;
+    public void setStAddr1(String stAddr1) {
+        this.stAddr1 = stAddr1;
     }
 
-    public String getAddrLine1() {
-        return addrLine1;
+    public String getStAddr2() {
+        return stAddr2;
     }
 
-    public void setAddrLine1(String addrLine1) {
-        this.addrLine1 = addrLine1;
-    }
-
-    public String getAddrLine2() {
-        return addrLine2;
-    }
-
-    public void setAddrLine2(String addrLine2) {
-        this.addrLine2 = addrLine2;
+    public void setStAddr2(String stAddr2) {
+        this.stAddr2 = stAddr2;
     }
 
     public String getCity() {
@@ -142,12 +127,12 @@ public class Staff {
         this.state = state;
     }
 
-    public String getZipCd() {
-        return zipCd;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public void setZipCd(String zipCd) {
-        this.zipCd = zipCd;
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 
     public String getPhoneNr() {
@@ -166,35 +151,56 @@ public class Staff {
         this.email = email;
     }
 
-    public String getJobTitle() {
-        return jobTitle;
+    public String getPayCd() {
+        return payCd;
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
+    public void setPayCd(String payCd) {
+        this.payCd = payCd;
     }
 
-    public String getRateCd() {
-        return rateCd;
+    public int getHoursWorked() { return hoursWorked; }
+
+    public void setHoursWorked(int hoursWorked) { this.hoursWorked = hoursWorked; }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Staff staff = (Staff) o;
+
+        if (staffId != staff.staffId) return false;
+        if (firstName != null ? !firstName.equals(staff.firstName) : staff.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(staff.lastName) : staff.lastName != null) return false;
+        if (birthDt != null ? !birthDt.equals(staff.birthDt) : staff.birthDt != null) return false;
+        if (stAddr1 != null ? !stAddr1.equals(staff.stAddr1) : staff.stAddr1 != null) return false;
+        if (stAddr2 != null ? !stAddr2.equals(staff.stAddr2) : staff.stAddr2 != null) return false;
+        if (city != null ? !city.equals(staff.city) : staff.city != null) return false;
+        if (state != null ? !state.equals(staff.state) : staff.state != null) return false;
+        if (zipcode != null ? !zipcode.equals(staff.zipcode) : staff.zipcode != null) return false;
+        if (phoneNr != null ? !phoneNr.equals(staff.phoneNr) : staff.phoneNr != null) return false;
+        if (email != null ? !email.equals(staff.email) : staff.email != null) return false;
+        if (payCd != null ? !payCd.equals(staff.payCd) : staff.payCd != null) return false;
+
+        return true;
     }
 
-    public void setRateCd(String rateCd) {
-        this.rateCd = rateCd;
-    }
-
-    public LocalDate getEffDt() {
-        return effDt;
-    }
-
-    public void setEffDt(LocalDate effDt) {
-        this.effDt = effDt;
-    }
-
-    public LocalDate getEndDt() {
-        return endDt;
-    }
-
-    public void setEndDt(LocalDate endDt) {
-        this.endDt = endDt;
+    @Override
+    public int hashCode() {
+        int result = staffId;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (birthDt != null ? birthDt.hashCode() : 0);
+        result = 31 * result + (stAddr1 != null ? stAddr1.hashCode() : 0);
+        result = 31 * result + (stAddr2 != null ? stAddr2.hashCode() : 0);
+        result = 31 * result + (city != null ? city.hashCode() : 0);
+        result = 31 * result + (state != null ? state.hashCode() : 0);
+        result = 31 * result + (zipcode != null ? zipcode.hashCode() : 0);
+        result = 31 * result + (phoneNr != null ? phoneNr.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (payCd != null ? payCd.hashCode() : 0);
+        return result;
     }
 }

@@ -1,3 +1,3 @@
-	<div id="footer">
-		&copy; Copywrite 2017 - Enterprise Java
-	</div>
+<footer class="container-fluid text-left">
+	<p>&copy; Copyright - 2017 Above Care Staff Management</p>
+</footer>

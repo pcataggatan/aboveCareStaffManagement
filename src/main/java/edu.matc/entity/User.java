@@ -3,35 +3,44 @@ package edu.matc.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name = "user")
+@Table (name = "user")
 public class User {
-
-    @Id
-    @Column (name = "username", nullable = false)
+    private int userId;
     private String username;
-
-    @Column(name = "password", nullable = false)
     private String password;
-
-    @Column(name = "email", nullable = false)
+    private String rolename;
     private String email;
 
-    @Column(name = "role", nullable = false)
-    private String role;
-
-    public User() {}
-
-    public User(String email, String username, String password, String role) {
-        this.email = email;
-        this.username = username;
-        this.password = password;
-        this.role = role;
+    public User() {
     }
 
 
+    public User (int userId, String username, String password, String rolename, String email) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.rolename = rolename;
+        this.email = email;
+    }
+
+
+
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @Column(name = "user_id", nullable = false)
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    @Basic
+    @Column(name = "username", nullable = false, length = 15)
     public String getUsername() {
         return username;
     }
@@ -40,6 +49,8 @@ public class User {
         this.username = username;
     }
 
+    @Basic
+    @Column(name = "password", nullable = false, length = 15)
     public String getPassword() {
         return password;
     }
@@ -48,6 +59,18 @@ public class User {
         this.password = password;
     }
 
+    @Basic
+    @Column(name = "rolename", nullable = false, length = 15)
+    public String getRolename() {
+        return rolename;
+    }
+
+    public void setRolename(String rolename) {
+        this.rolename = rolename;
+    }
+
+    @Basic
+    @Column(name = "email", nullable = false, length = 50)
     public String getEmail() {
         return email;
     }
@@ -56,11 +79,29 @@ public class User {
         this.email = email;
     }
 
-    public String getRole() {
-        return role;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (userId != user.userId) return false;
+        if (username != null ? !username.equals(user.username) : user.username != null) return false;
+        if (password != null ? !password.equals(user.password) : user.password != null) return false;
+        if (rolename != null ? !rolename.equals(user.rolename) : user.rolename != null) return false;
+        if (email != null ? !email.equals(user.email) : user.email != null) return false;
+
+        return true;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    @Override
+    public int hashCode() {
+        int result = userId;
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (rolename != null ? rolename.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        return result;
     }
 }

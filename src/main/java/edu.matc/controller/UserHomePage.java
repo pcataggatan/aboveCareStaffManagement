@@ -1,8 +1,5 @@
 package edu.matc.controller;
 
-import edu.matc.persistence.ClientDao;
-import edu.matc.persistence.UserDao;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -24,7 +21,11 @@ public class UserHomePage extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        if (req.isUserInRole("biz_owner")) {
+        String userRole;
+
+        if (req.isUserInRole("administrator")) {
+            session.setAttribute("userRole", "Admin");
+        } else if (req.isUserInRole("biz_owner")) {
             session.setAttribute("userRole", "Owner");
         } else if (req.isUserInRole("ofc_staff")) {
             session.setAttribute("userRole", "OfficeStaff");

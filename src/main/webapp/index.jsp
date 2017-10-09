@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <%@include file="taglib.jsp"%>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
+
 <c:set var="title" value="Home Page" scope="session" />
 <%@include file="headtag.jsp"%>
 
-<body>
+<%@include file="header.jsp"%>
 
-<div id="wrap">
-    <%@include file="header.jsp"%>
-    <%-- if userLoggedIn then display menu
-         else display something like quote of the day on the sidebar
-     --%>
-    <%@include file="menu.jsp"%>
-    <%@include file="content-home.jsp"%>
-    <%@include file="footer.jsp"%>
+<div class="container-fluid text-center">
+    <div class="row content">
+        <%@include file="content-home.jsp"%>
+        <%@include file="menu.jsp"%>
+    </div>
 </div>
+
+<%@include file="footer.jsp"%>
 
 </body>
 </html>

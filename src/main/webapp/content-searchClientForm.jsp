@@ -1,12 +1,13 @@
 <%@include file="taglib.jsp"%>
 
-<div id="content">
+<div class="col-sm-10 text-left">
+    <br>
     <form action="search-client" method="GET">
-        <div>
-            <label for="searchTerm">Search</label>
-            <input type="text" id="searchTerm" name="searchTerm" autofocus><br/><br/>
-        </div>
+        <label for="searchTerm">Search</label>
+        <input type="text" id="searchTerm" name="searchTerm" autofocus>
+        &nbsp;
         <button type="submit" value="byLastname" name="searchType">By LastName</button>
+        &nbsp;
         <button type="submit" value="viewAll" name="searchType">All</button>
     </form>
     <br>

@@ -1,11 +1,12 @@
-<%@ include file="taglib.jsp"%>
+<%@include file="taglib.jsp"%>
 
-<div id="content">
-    <form action="j_security_check" method="POST">
-        User Name: <input type ="text" name ="j_username" placeholder="username"></br>
-        Password: <input type="password" name="j_password" placeholder="password"></br>
+<div class="col-sm-10 text-center">
+    <br>
+    <span style="text-align:right;">
+    <form  action="j_security_check" method="POST">
+        User Name: <input type ="text" name ="j_username" placeholder="username" autofocus><br><br>
+        Password: <input type="password" name="j_password" placeholder="password"><br><br>
         <input type="submit" value="Login">
-        <!--<input type="submit" value="Cancel" name="loginBtn"> -->
     </form>
-
+    </span>
 </div>

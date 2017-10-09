@@ -1,20 +1,34 @@
 <%@ include file="taglib.jsp" %>
 
-	<div id="header">
-		<div id="headerlinks">
-		  <a href="/aboveCareStaffManagement" title="Home Page">Home</a>
-		  <a href="#" title="About Us">About Us</a>
-		  <a href="#" title="Contact">Contact Us</a>
-		  <c:choose>
-			  <c:when test="${loggedIn == 'Yes'}">
-			  	  <a href="user-logout-page" title="Logout">Logout</a>
-			  </c:when>
-			  <c:otherwise>
-				  <a href="user-home-page" title="Login">Login</a>
-			  </c:otherwise>
-		  </c:choose>
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
 
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/aboveCareStaffManagement">Above Care Staff Management</a>
 		</div>
-		<h1><a href="#">Above Care Staff Management</a></h1>
-		<h2>by Pablo Cataggatan</h2>
+
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/aboveCareStaffManagement">Home</a></li>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Contact Us</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<c:choose>
+					<c:when test="${loggedIn == 'Yes'}">
+						<li><a href="user-logout-page"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="user-home-page"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+					</c:otherwise>
+				</c:choose>
+			</ul>
+		</div>
+
 	</div>
+</nav>
