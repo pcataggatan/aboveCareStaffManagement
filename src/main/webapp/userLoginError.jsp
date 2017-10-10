@@ -3,7 +3,7 @@
 
 <html lang="en">
 
-<c:set var="title" value="Home Page" scope="session" />
+<c:set var="title" value="Login Error" scope="session" />
 <%@include file="headtag.jsp"%>
 
 <%@include file="header.jsp"%>

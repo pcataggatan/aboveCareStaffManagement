@@ -30,6 +30,10 @@
 			padding: 5px 10px;
 		}
 
+		td {
+			padding: 2px 5px;
+		}
+
 		/* On small screens, set height to 'auto' for sidenav and grid */
 		@media screen and (max-width: 767px) {
 			.sidenav {

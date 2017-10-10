@@ -1,5 +1,9 @@
 package edu.matc.controller;
 
+
+import edu.matc.persistence.ClientDao;
+import edu.matc.persistence.StaffDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -10,32 +14,30 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+
 @WebServlet(
-        name = "userHomePage",
-        urlPatterns = {"/user-home-page"}
+        name = "searchStaff",
+        urlPatterns = {"/search-staff"}
 )
-public class UserHomePage extends HttpServlet {
+
+public class SearchStaff extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        String userRole;
+        StaffDao staffDao = new StaffDao();
 
-        if (req.isUserInRole("administrator")) {
-            session.setAttribute("userRole", "Admin");
-        } else if (req.isUserInRole("biz_owner")) {
-            session.setAttribute("userRole", "Owner");
-        } else if (req.isUserInRole("ofc_staff")) {
-            session.setAttribute("userRole", "OfficeStaff");
+        if (req.getParameter("searchType").equals("byLastname")) {
+            session.setAttribute("staffList", staffDao.getStaffByLastName(req.getParameter("searchTerm")));
+        } else {
+            session.setAttribute("staffList", staffDao.getAllStaffs());
         }
 
-        session.setAttribute("loggedIn", "Yes");
-        /*session.setAttribute("loggedOut", "No");*/
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("searchResult.jsp");
         dispatcher.forward(req, resp);
-
     }
 }
+
+

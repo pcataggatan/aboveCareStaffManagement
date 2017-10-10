@@ -1,12 +1,12 @@
 <%@include file="taglib.jsp"%>
 
-<div class="col-sm-10 text-center">
+<div class="col-sm-10 text-right">
     <br>
-    <span style="text-align:right;">
     <form  action="j_security_check" method="POST">
-        User Name: <input type ="text" name ="j_username" placeholder="username" autofocus><br><br>
-        Password: <input type="password" name="j_password" placeholder="password"><br><br>
+        User Name: <input type ="text" name ="j_username" placeholder="username" autofocus><br>
+        Password: <input type="password" name="j_password" placeholder="password"><br>
         <input type="submit" value="Login">
     </form>
-    </span>
+    <br>
+    <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
 </div>

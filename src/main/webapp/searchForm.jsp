@@ -3,14 +3,14 @@
 
 <html lang="en">
 
-<c:set var="title" value="Home Page" scope="session" />
+<c:set var="title" value="Search" scope="session" />
 <%@include file="headtag.jsp"%>
 
 <%@include file="header.jsp"%>
 
 <div class="container-fluid text-center">
     <div class="row content">
-        <%@include file="content-searchClientForm.jsp"%>
+        <%@include file="content-searchForm.jsp"%>
         <%@include file="menu.jsp"%>
     </div>
 </div>

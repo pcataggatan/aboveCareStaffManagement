@@ -1,5 +1,9 @@
 package edu.matc.controller;
 
+
+import edu.matc.entity.Client;
+import edu.matc.persistence.ClientDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -10,32 +14,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+
 @WebServlet(
-        name = "userHomePage",
-        urlPatterns = {"/user-home-page"}
+        name = "clientDetail",
+        urlPatterns = {"/client-detail"}
 )
-public class UserHomePage extends HttpServlet {
+
+public class ClientDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        String userRole;
+        ClientDao clientDao = new ClientDao();
 
-        if (req.isUserInRole("administrator")) {
-            session.setAttribute("userRole", "Admin");
-        } else if (req.isUserInRole("biz_owner")) {
-            session.setAttribute("userRole", "Owner");
-        } else if (req.isUserInRole("ofc_staff")) {
-            session.setAttribute("userRole", "OfficeStaff");
-        }
+        int clientId = Integer.parseInt(req.getParameter("idClient"));
 
-        session.setAttribute("loggedIn", "Yes");
-        /*session.setAttribute("loggedOut", "No");*/
+        session.setAttribute("clientDetail", clientDao.getClient(clientId));
+        session.setAttribute("personDetail","Client");
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("personDetail.jsp");
         dispatcher.forward(req, resp);
-
     }
 }

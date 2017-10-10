@@ -21,10 +21,10 @@
 			<ul class="nav navbar-nav navbar-right">
 				<c:choose>
 					<c:when test="${loggedIn == 'Yes'}">
-						<li><a href="user-logout-page"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+						<li><a href="user-logout-page"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="user-home-page"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+						<li><a href="user-home-page"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					</c:otherwise>
 				</c:choose>
 			</ul>

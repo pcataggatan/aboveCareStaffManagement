@@ -29,12 +29,12 @@ public class SearchClient extends HttpServlet {
         ClientDao clientDao = new ClientDao();
 
         if (req.getParameter("searchType").equals("byLastname")) {
-            session.setAttribute("clients", clientDao.getClientByLastName(req.getParameter("searchTerm")));
+            session.setAttribute("clientList", clientDao.getClientByLastName(req.getParameter("searchTerm")));
         } else {
-            session.setAttribute("clients", clientDao.getAllClients());
+            session.setAttribute("clientList", clientDao.getAllClients());
         }
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("searchClientResults.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("searchResult.jsp");
         dispatcher.forward(req, resp);
     }
 }

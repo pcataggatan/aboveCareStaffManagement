@@ -1,6 +1,5 @@
 package edu.matc.persistence;
 
-import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
@@ -33,10 +32,10 @@ public class StaffDao {
      * @param searchTerm search string
      * @return Staffs that contain the search term string
      */
-    public List<Staff> getClientByLastName(String searchTerm) {
+    public List<Staff> getStaffByLastName(String searchTerm) {
         List<Staff> staffs = new ArrayList<Staff>();
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Criteria cr = session.createCriteria(Client.class);
+        Criteria cr = session.createCriteria(Staff.class);
         cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
         staffs = cr.list();
         session.close();

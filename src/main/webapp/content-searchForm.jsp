@@ -2,7 +2,16 @@
 
 <div class="col-sm-10 text-left">
     <br>
-    <form action="search-client" method="GET">
+
+    <c:choose>
+        <c:when test="${searchFor == 'Client'}">
+            <form action="search-client" method="GET">
+        </c:when>
+        <c:when test="${searchFor == 'Staff'}">
+            <form action="search-staff" method="GET">
+        </c:when>
+    </c:choose>
+
         <label for="searchTerm">Search</label>
         <input type="text" id="searchTerm" name="searchTerm" autofocus>
         &nbsp;

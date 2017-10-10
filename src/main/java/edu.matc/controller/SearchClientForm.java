@@ -24,7 +24,8 @@ public class SearchClientForm extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("searchClientForm.jsp");
+        session.setAttribute("searchFor", "Client");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("searchForm.jsp");
         dispatcher.forward(req, resp);
     }
 }
