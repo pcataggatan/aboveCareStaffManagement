@@ -1,6 +1,6 @@
 package edu.matc.controller;
 
-import edu.matc.persistence.ClientDao;
+import edu.matc.persistence.StaffDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -14,23 +14,23 @@ import java.io.IOException;
 
 
 @WebServlet(
-        name = "clientDetail",
-        urlPatterns = {"/client-detail"}
+        name = "staffDetail",
+        urlPatterns = {"/staff-detail"}
 )
 
-public class ClientDetail extends HttpServlet {
+public class StaffDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        ClientDao clientDao = new ClientDao();
+        StaffDao staffDao = new StaffDao();
 
-        int clientId = Integer.parseInt(req.getParameter("idClient"));
+        int staffId = Integer.parseInt(req.getParameter("idStaff"));
 
-        session.setAttribute("clientDetail", clientDao.getClient(clientId));
-        session.setAttribute("personDetail","Client");
+        session.setAttribute("staffDetail", staffDao.getStaff(staffId));
+        session.setAttribute("personDetail","Staff");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("personDetail.jsp");
         dispatcher.forward(req, resp);

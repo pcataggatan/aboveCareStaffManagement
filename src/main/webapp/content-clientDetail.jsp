@@ -42,7 +42,7 @@
             <td>${clientDetail.email}</td>
         </tr>
         <tr>
-            <td>Bill Cd</td>
+            <td>Bill Rate Cd</td>
             <td>${clientDetail.billCd}</td>
         </tr>
 
@@ -67,7 +67,6 @@
         </tbody>
     </table>
 
-    <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
 
 </div>

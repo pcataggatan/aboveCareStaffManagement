@@ -1,96 +1,80 @@
 package edu.matc.persistence;
 
 
-import edu.matc.entity.Staff;
+import edu.matc.entity.Schedule;
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaffDao {
+public class ScheduleDao {
 
     private final Logger log = Logger.getLogger(this.getClass());
 
 
 
-    /** Return a list of all staffs
+    /** Return a list of all schedule
      *
-     * @return All staff
+     * @return All schedule
      */
-    public List<Staff> getAllStaffs() {
+    public List<Schedule> getAllSchedules() {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        List<Staff> staffs = session.createCriteria(Staff.class).list();
+        List<Schedule> schedules = session.createCriteria(Schedule.class).list();
         session.close();
-        return staffs;
+        return schedules;
     }
 
-
-
-    /** Return a list of staffs based on search term
-     *@param searchTerm search string
-     *
-     * @return Staffs that contain the search term string
-     */
-    public List<Staff> getStaffByLastName(String searchTerm) {
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Criteria cr = session.createCriteria(Staff.class);
-        cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
-        List<Staff> staffs = cr.list();
-        session.close();
-        return staffs;
-
-    }
 
     /**
-     * retrieve a staff given their id
+     * retrieve a schedule given their id
      *
-     * @param id the staff's id
-     * @return staff
+     * @param id the schedule's id
+     * @return schedule
      */
-    public Staff getStaff(int id) {
+    public Schedule getSchedule(int id) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
-        Staff staff = null;
+        Schedule schedule = null;
         try {
             tx = session.beginTransaction();
-            staff = (Staff) session.get(Staff.class, id);
+            schedule = (Schedule) session.get(Schedule.class, id);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error retrieving staff id: " + id, he);
+                log.error("Error retrieving schedule id: " + id, he);
             }
         } finally {
             session.close();
         }
 
-        return staff;
+        return schedule;
     }
 
 
+
     /**
-     * add a staff
+     * add a shcedule
      *
-     * @param staff staff object
+     * @param schedule schedule object
      * @return the id of the inserted record
      */
-    public int addStaff(Staff staff) {
+    public int addSchedule(Schedule schedule) {
         int id = 0;
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            id = (Integer) session.save(staff);
+            id = (Integer) session.save(schedule);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error adding a new staff", he);
+                log.error("Error adding a new schedule", he);
             }
         } finally {
             session.close();
@@ -101,25 +85,25 @@ public class StaffDao {
 
 
     /**
-     * delete a staff by id
-     * @param id the staff's id
+     * delete a schedule by id
+     * @param id the schedule' id
      */
-    public String deleteStaff(int id) {
+    public String deleteScheduler(int id) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
-        Staff staff = null;
+        //Schedule schedule;
         String deleteMsg = "Success";
 
         try {
             tx = session.beginTransaction();
-            staff = (Staff) session.get(Staff.class, id);
-            session.delete(staff);
+            Schedule schedule = (Schedule) session.get(Schedule.class, id);
+            session.delete(schedule);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
                 deleteMsg = "Failure";
-                log.error("Error deleting a staff id: " + id, he);
+                log.error("Error deleting a schedule id: " + id, he);
             }
         } finally {
             session.close();
@@ -130,24 +114,24 @@ public class StaffDao {
 
 
     /**
-     * Update the staff
-     * @param staff staff object
+     * Update the schedule
+     * @param schedule schedule object
      */
 
-    public String updateStaff(Staff staff) {
+    public String updateSchedule(Schedule schedule) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         String updateMsg = "Success";
 
         try {
             tx = session.beginTransaction();
-            session.saveOrUpdate(staff);
+            session.saveOrUpdate(schedule);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
                 updateMsg = "Failure";
-                log.error("Error updating a staff id: " + staff.getStaffId(), he);
+                log.error("Error updating a schedule id: " + schedule.getSchedId(), he);
             }
         } finally {
             session.close();

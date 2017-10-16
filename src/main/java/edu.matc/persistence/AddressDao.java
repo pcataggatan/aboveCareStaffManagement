@@ -1,96 +1,78 @@
 package edu.matc.persistence;
 
-
-import edu.matc.entity.Staff;
+import edu.matc.entity.Address;
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaffDao {
+public class AddressDao {
 
     private final Logger log = Logger.getLogger(this.getClass());
 
 
 
-    /** Return a list of all staffs
+    /** Return a list of all addresses
      *
-     * @return All staff
+     * @return All addresses
      */
-    public List<Staff> getAllStaffs() {
+    public List<Address> getAllAddresses() {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        List<Staff> staffs = session.createCriteria(Staff.class).list();
+        List<Address> addresses = session.createCriteria(Address.class).list();
         session.close();
-        return staffs;
+        return addresses;
     }
 
-
-
-    /** Return a list of staffs based on search term
-     *@param searchTerm search string
-     *
-     * @return Staffs that contain the search term string
-     */
-    public List<Staff> getStaffByLastName(String searchTerm) {
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Criteria cr = session.createCriteria(Staff.class);
-        cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
-        List<Staff> staffs = cr.list();
-        session.close();
-        return staffs;
-
-    }
 
     /**
-     * retrieve a staff given their id
+     * retrieve a address given their id
      *
-     * @param id the staff's id
-     * @return staff
+     * @param id the address' id
+     * @return address
      */
-    public Staff getStaff(int id) {
+    public Address getAddress(int id) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
-        Staff staff = null;
+        Address address = null;
         try {
             tx = session.beginTransaction();
-            staff = (Staff) session.get(Staff.class, id);
+            address = (Address) session.get(Address.class, id);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error retrieving staff id: " + id, he);
+                log.error("Error retrieving address id: " + id, he);
             }
         } finally {
             session.close();
         }
 
-        return staff;
+        return address;
     }
 
 
+
     /**
-     * add a staff
+     * add a address
      *
-     * @param staff staff object
+     * @param address address object
      * @return the id of the inserted record
      */
-    public int addStaff(Staff staff) {
+    public int addAddress(Address address) {
         int id = 0;
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            id = (Integer) session.save(staff);
+            id = (Integer) session.save(address);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error adding a new staff", he);
+                log.error("Error adding a new address", he);
             }
         } finally {
             session.close();
@@ -101,25 +83,25 @@ public class StaffDao {
 
 
     /**
-     * delete a staff by id
-     * @param id the staff's id
+     * delete a address by id
+     * @param id the address' id
      */
-    public String deleteStaff(int id) {
+    public String deleteAddress(int id) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
-        Staff staff = null;
+        //Address address;
         String deleteMsg = "Success";
 
         try {
             tx = session.beginTransaction();
-            staff = (Staff) session.get(Staff.class, id);
-            session.delete(staff);
+            Address address = (Address) session.get(Address.class, id);
+            session.delete(address);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
                 deleteMsg = "Failure";
-                log.error("Error deleting a staff id: " + id, he);
+                log.error("Error deleting a address id: " + id, he);
             }
         } finally {
             session.close();
@@ -130,24 +112,24 @@ public class StaffDao {
 
 
     /**
-     * Update the staff
-     * @param staff staff object
+     * Update the address
+     * @param address address object
      */
 
-    public String updateStaff(Staff staff) {
+    public String updateAddress(Address address) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         String updateMsg = "Success";
 
         try {
             tx = session.beginTransaction();
-            session.saveOrUpdate(staff);
+            session.saveOrUpdate(address);
             tx.commit();
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
                 updateMsg = "Failure";
-                log.error("Error updating a staff id: " + staff.getStaffId(), he);
+                log.error("Error updating a address id: " + address.getAddrId(), he);
             }
         } finally {
             session.close();

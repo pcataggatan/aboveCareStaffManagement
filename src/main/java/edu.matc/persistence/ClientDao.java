@@ -1,13 +1,13 @@
 package edu.matc.persistence;
 
+import edu.matc.entity.Address;
 import edu.matc.entity.Client;
+import edu.matc.entity.ClientDetailBean;
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClientDao {
@@ -21,9 +21,8 @@ public class ClientDao {
      * @return All clients
      */
     public List<Client> getAllClients() {
-        List<Client> clients; // = new ArrayList<Client>();
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        clients = session.createCriteria(Client.class).list();
+        List<Client> clients = session.createCriteria(Client.class).list();
         session.close();
         return clients;
     }
@@ -36,11 +35,10 @@ public class ClientDao {
      * @return Clients that contain the search term string
      */
     public List<Client> getClientByLastName(String searchTerm) {
-        List<Client> clients; // = new ArrayList<Client>();
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Criteria cr = session.createCriteria(Client.class);
         cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
-        clients = cr.list();
+        List<Client> clients = cr.list();
         session.close();
         return clients;
 
@@ -63,7 +61,7 @@ public class ClientDao {
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error retrieving client, id: " + id, he);
+                log.error("Error retrieving client id: " + id, he);
             }
         } finally {
             session.close();
@@ -76,7 +74,7 @@ public class ClientDao {
     /**
      * add a client
      *
-     * @param client
+     * @param client client object
      * @return the id of the inserted record
      */
     public int addClient(Client client) {
@@ -104,10 +102,12 @@ public class ClientDao {
      * delete a client by id
      * @param id the client's id
      */
-    public void deleteClient(int id) {
+    public String deleteClient(int id) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         Client client = null;
+        String deleteMsg = "Success";
+
         try {
             tx = session.beginTransaction();
             client = (Client) session.get(Client.class, id);
@@ -116,22 +116,27 @@ public class ClientDao {
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error deleting a client, id: " + id, he);
+                deleteMsg = "Failure";
+                log.error("Error deleting a client id: " + id, he);
             }
         } finally {
             session.close();
         }
+
+        return deleteMsg;
     }
 
 
     /**
      * Update the client
-     * @param client
+     * @param client client object
      */
 
-    public void updateClient(Client client) {
+    public String updateClient(Client client) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
+        String updateMsg = "Success";
+
         try {
             tx = session.beginTransaction();
             session.saveOrUpdate(client);
@@ -139,11 +144,59 @@ public class ClientDao {
         } catch (HibernateException he) {
             if (tx!=null) {
                 tx.rollback();
-                log.error("Error updating a client, id: " + client.getClientId(), he);
+                updateMsg = "Failure";
+                log.error("Error updating a client id: " + client.getClientId(), he);
             }
         } finally {
             session.close();
         }
+
+        return updateMsg;
     }
 
+    /**
+     * Get client and address detail
+     * @param id client's id
+     */
+
+    public List<?> getClientDetail(int id) {
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Transaction tx = null;
+        List<?> result = null;
+
+        try {
+            tx = session.beginTransaction();
+            String sql =  "select c.first_name, c.last_name, c. birth_dt, c.phone_nr, c.email, c.bill_cd," +
+                    " a.street, a.city, a.state, a.zipcode" +
+                    " from client c, address a " +
+                    " where c.client_id = " + id +
+                    " and c.addr_id = a.addr_id";
+            //String sql =  "select c.client_id, c.first_name, c.last_name, c. birth_dt, c.phone_nr, c.email, c.bill_cd" +
+            //        " from client c where c.client_id = 30001";
+            //String sql =  "select c.*" +
+            //        " from client as c, address as a" +
+            //       " where c.client_id = " + id +
+            //        " and c.addr_id = a.addr_id";
+
+            SQLQuery query = session.createSQLQuery(sql);
+            query.addEntity("client", Client.class);
+            query.addJoin("address", "client.address");
+            //query.setParameter("clientId", id);
+            result = query.list();
+            // it this possible??? query.setResultTransformer(Transformers.aliasToBean(ClientDetail.class))
+            // define result of type ist<ClientDetail>
+            tx.commit();
+
+        } catch (HibernateException he) {
+            if (tx!=null) {
+                tx.rollback();
+                log.error("Error retrieving client/address, for client id: " + id, he);
+            }
+        } finally {
+            session.close();
+        }
+
+        return result;
+
+    }
 }

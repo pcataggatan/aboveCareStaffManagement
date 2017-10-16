@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `staff`;
 
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `staff` (`staff_id` int(11) NOT NULL AUTO_INCREMENT,`first_name` varchar(25) NOT NULL,`last_name` varchar(30) NOT NULL,`birth_dt` date NOT NULL DEFAULT '1900-01-01',`st_addr1` varchar(40) NOT NULL,`st_addr2` varchar(40) DEFAULT NULL,`city` varchar(25) NOT NULL,`state` varchar(2) NOT NULL,`zipcode` varchar(5) NOT NULL,`phone_nr` varchar(15) NOT NULL,`email` varchar(50) DEFAULT NULL,`pay_cd` varchar(3) NOT NULL,`hours_worked` int(2) NOT NULL DEFAULT '0',PRIMARY KEY (`staff_id`)) ENGINE=InnoDB AUTO_INCREMENT=10006 DEFAULT CHARSET=latin1;
+CREATE TABLE `staff` (`staff_id` int(11) NOT NULL AUTO_INCREMENT,`first_name` varchar(25) NOT NULL,`last_name` varchar(30) NOT NULL,`birth_dt` date NOT NULL DEFAULT '1900-01-01',`st_addr1` varchar(40) NOT NULL,`st_addr2` varchar(40) DEFAULT NULL,`city` varchar(25) NOT NULL,`state` varchar(2) NOT NULL,`zipcode` varchar(5) NOT NULL,`phone_nr` varchar(15) NOT NULL,`email` varchar(50) DEFAULT NULL,`job_title` varchar(20) NOT NULL,`pay_cd` varchar(3) NOT NULL,`hours_worked` int(2) NOT NULL DEFAULT '0',PRIMARY KEY (`staff_id`)) ENGINE=InnoDB AUTO_INCREMENT=10006 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -32,7 +32,7 @@ CREATE TABLE `staff` (`staff_id` int(11) NOT NULL AUTO_INCREMENT,`first_name` va
 
 LOCK TABLES `staff` WRITE;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
-INSERT INTO `staff` (`staff_id`, `first_name`, `last_name`, `birth_dt`, `st_addr1`, `st_addr2`, `city`, `state`, `zipcode`, `phone_nr`, `email`, `pay_cd`, `hours_worked`) VALUES (10001,'Corazon','Acosta','1969-01-01','123 Intellij Avenue',NULL,'Madison','WI','53701','(608) 101-1001','cacosta@abovecare.com','S01',0),(10002,'Leah','Bagunu','1969-02-01','123 Intellij Lane',NULL,'Madison','WI','53702','(608) 101-1002','lbagunu@abovecare.com','S02',0),(10003,'Catherine','Baricaua','1969-03-01','123 Intellij St',NULL,'Madison','WI','53703','(608) 101-1003','cbaricaua@abovecare.com','S03',0),(10004,'Audrey','Bautista','1969-04-01','123 Intellij Rd',NULL,'Madison','WI','53704','(608) 101-1004','abautista@abovecare.com','S04',0),(10005,'Rowena','Castaneda','1969-04-01','123 Intellij Rd',NULL,'Sun Prairie','WI','53590','(608) 101-1004','abautista@abovecare.com','S05',0);
+INSERT INTO `staff` (`staff_id`, `first_name`, `last_name`, `birth_dt`, `st_addr1`, `st_addr2`, `city`, `state`, `zipcode`, `phone_nr`, `email`, `job_title`, `pay_cd`, `hours_worked`) VALUES (10001,"Corazon","Acosta",'1969-01-01',"123 Intellij Avenue",NULL,"Madison","WI","53701","(608) 101-1001","cacosta@abovecare.com","Care Giver","S01",10),(10002,"Leah","Bagunu",'1969-02-01',"123 Intellij Lane",NULL,"Madison","WI","53702","(608) 101-1002","lbagunu@abovecare.com","Lic Pract Nurse","S02",20),(10003,"Catherine","Baricaua",'1969-03-01',"123 Intellij St",NULL,"Madison","WI","53703","(608) 101-1003","cbaricaua@abovecare.com","Care Giver","S03",30),(10004,"Audrey","Bautista",'1969-04-01',"123 Intellij Rd",NULL,"Madison","WI","53704","(608) 101-1004","abautista@abovecare.com","Reg Nurse","S04",24),(10005,"Rowena","Castaneda",'1969-04-01',"123 Intellij Rd",NULL,"Sun Prairie","WI","53590","(608) 101-1004","abautista@abovecare.com","Cert Nurse Asst","S05",32);
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

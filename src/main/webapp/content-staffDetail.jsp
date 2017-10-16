@@ -1,16 +1,67 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: student
-  Date: 10/9/17
-  Time: 11:22 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@include file="taglib.jsp"%>
 
-</body>
-</html>
+<div class="col-sm-10 text-left">
+    <h2>Search Results:</h2>
+
+    <table class="table borderless">
+        <tbody>
+        <tr>
+            <td class="col-sm-2">Full Name</td>
+            <td class="col-sm-10">${staffDetail.firstName} ${staffDetail.lastName}</td>
+        </tr>
+
+        <tr><td>Birth Date</td>
+            <td>${staffDetail.birthDt}</td>
+        </tr>
+        <tr>
+            <td>Street Address1</td>
+            <td>${staffDetail.stAddr1}</td>
+        </tr>
+
+        <c:if test="${!(staffDetail.stAddr2 == null) && !(staffDetail.stAddr2 == '')}">
+            <tr>
+                <td>Street Address2</td>
+                <td>${staffDetail.stAddr2}</td>
+            </tr>
+        </c:if>
+
+        <tr>
+            <td>City</td>
+            <td>${staffDetail.city}</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>${staffDetail.state}</td>
+        </tr>
+        <tr>
+            <td>Zipcode</td>
+            <td>${staffDetail.zipcode}</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>${staffDetail.phoneNr}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>${staffDetail.email}</td>
+        </tr>
+        <tr>
+            <td>Job Title</td>
+            <td>${staffDetail.jobTitle}</td>
+        </tr>
+        <tr>
+            <td>Pay Rate Cd</td>
+            <td>${staffDetail.payCd}</td>
+        </tr>
+        <tr>
+            <td>Hours Worked</td>
+            <td>${staffDetail.hoursWorked}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
+
+</div>
+
+
