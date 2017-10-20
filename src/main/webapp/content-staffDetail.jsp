@@ -13,6 +13,8 @@
         <tr><td>Birth Date</td>
             <td>${staffDetail.birthDt}</td>
         </tr>
+
+        <%--
         <tr>
             <td>Street Address1</td>
             <td>${staffDetail.stAddr1}</td>
@@ -37,6 +39,8 @@
             <td>Zipcode</td>
             <td>${staffDetail.zipcode}</td>
         </tr>
+        --%>
+
         <tr>
             <td>Phone</td>
             <td>${staffDetail.phoneNr}</td>
@@ -53,10 +57,13 @@
             <td>Pay Rate Cd</td>
             <td>${staffDetail.payCd}</td>
         </tr>
+
+        <%--
         <tr>
             <td>Hours Worked</td>
             <td>${staffDetail.hoursWorked}</td>
         </tr>
+        --%>
         </tbody>
     </table>
 

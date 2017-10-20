@@ -41,28 +41,17 @@ public class Staff {
     @Column(name = "job_title", nullable = false, length = 20)
     private String jobTitle;
 
-    //@ManyToOne(cascade = CascadeType.ALL)
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="addr_id", nullable=false)
-    private Address staffAddress;
-
-
-    //@OneToMany(mappedBy = "staffByStaffId")
-    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "staffByStaffId", cascade = CascadeType.ALL))
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "staffByStaffId")
-    private Set<Schedule> schedules = new HashSet<Schedule>();
-
-
-
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "staffByStaffId", cascade = CascadeType.ALL)
-    private TimeSheet timeSheet;
+    private Address address;
 
 
     public Staff() {
     }
 
     public Staff(String firstName, String lastName, LocalDate birthDt, String phoneNr, String email,
-                  String payCd, String jobTitle, Address staffAddress) {
+                  String payCd, String jobTitle, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDt = birthDt;
@@ -70,7 +59,7 @@ public class Staff {
         this.email = email;
         this.payCd = payCd;
         this.jobTitle = jobTitle;
-        this.staffAddress = staffAddress;
+        this.address = address;
     }
 
 
@@ -147,34 +136,6 @@ public class Staff {
         this.jobTitle = jobTitle;
     }
 
-
-    public Address getStaffAddress() {
-        return staffAddress;
-    }
-
-    public void setStaffAddress(Address staffAddress) {
-        this.staffAddress = staffAddress;
-    }
-
-
-
-    public Set<Schedule> getSchedules() {
-        return schedules;
-    }
-
-    public void setSchedules(Set<Schedule> schedules) {
-        this.schedules = schedules;
-    }
-
-
-
-    public TimeSheet getTimeSheet() {
-        return timeSheet;
-    }
-
-    public void setTimeSheet(TimeSheet timeSheet) {
-        this.timeSheet = timeSheet;
-    }
 
 
     @Override

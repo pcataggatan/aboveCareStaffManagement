@@ -6,7 +6,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AddressDao {
@@ -21,9 +20,9 @@ public class AddressDao {
      */
     public List<Address> getAllAddresses() {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        List<Address> addresses = session.createCriteria(Address.class).list();
+        List<Address> address = session.createCriteria(Address.class).list();
         session.close();
-        return addresses;
+        return address;
     }
 
 
@@ -58,7 +57,7 @@ public class AddressDao {
     /**
      * add a address
      *
-     * @param address address object
+     * @param address clienaddresstDetail object
      * @return the id of the inserted record
      */
     public int addAddress(Address address) {

@@ -5,10 +5,10 @@
 
     <c:choose>
         <c:when test="${addPersonType == 'Client'}">
-            <form action="add-client" method="POST">
+            <form action="add-new-client" method="POST">
         </c:when>
         <c:when test="${addPersonType == 'Staff'}">
-            <form action="add-staff" method="POST">
+            <form action="add-new-staff" method="POST">
         </c:when>
     </c:choose>
 

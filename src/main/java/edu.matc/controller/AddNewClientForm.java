@@ -11,20 +11,21 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(
-        name = "addPersonForm",
-        urlPatterns = {"/add-person-form"}
+        name = "addClientForm",
+        urlPatterns = {"/add-client-form"}
 )
 
-public class AddPersonForm extends HttpServlet {
-
+public class AddNewClientForm extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
         session.setAttribute("addPersonType", "Client");
+        session.setAttribute("addMsg", null);
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("addPersonForm.jsp");
         dispatcher.forward(req, resp);
     }

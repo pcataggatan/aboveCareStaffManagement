@@ -29,6 +29,7 @@ public class ClientDetail extends HttpServlet {
 
         int clientId = Integer.parseInt(req.getParameter("idClient"));
 
+
         session.setAttribute("clientDetail", clientDao.getClient(clientId));
         session.setAttribute("personDetail","Client");
 

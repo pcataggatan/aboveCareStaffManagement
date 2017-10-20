@@ -5,9 +5,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
-
 
 
 @Entity
@@ -40,16 +37,17 @@ public class Client {
     private String billCd;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="addr_id", nullable=false)
     private Address address;
 
 
+/*
     //@OneToMany(mappedBy = "staffByStaffId")
     //@OneToMany(fetch = FetchType.LAZY, mappedBy = "staffByStaffId", cascade = CascadeType.ALL))
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "clientByClientId")
     private Set<Schedule> schedules = new HashSet<Schedule>();
-
+*/
 
     public Client() {
     }
@@ -65,7 +63,13 @@ public class Client {
         this.address = address;
     }
 
+    public Address getAddress() {
+        return address;
+    }
 
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public int getClientId() {
         return clientId;
@@ -135,30 +139,6 @@ public class Client {
         this.billCd = billCd;
     }
 
-
-    // Mapping area ------------------------------------------------
-
-    @ManyToOne
-    @JoinColumn(name="addr_id", nullable=false)
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-
-    /*
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "clientByClientId")
-    public Set<Schedule> getSchedules() {
-        return schedules;
-    }
-
-    public void setSchedules(Set<Schedule> schedules) {
-        this.schedules = schedules;
-    }
-    */
 
 
     @Override

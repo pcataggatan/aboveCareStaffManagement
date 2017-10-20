@@ -26,44 +26,6 @@
         </auth-constraint>
     </security-constraint>
 
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>searchClientFormServlet</web-resource-name>
-            <url-pattern>/search-client-form</url-pattern>
-        </web-resource-collection>
-
-        <auth-constraint>
-            <role-name>administrator</role-name>
-            <role-name>biz_owner</role-name>
-            <role-name>ofc_staff</role-name>
-        </auth-constraint>
-    </security-constraint>
-
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>searchClientFormServlet</web-resource-name>
-            <url-pattern>/delete-client</url-pattern>
-        </web-resource-collection>
-
-        <auth-constraint>
-            <role-name>administrator</role-name>
-            <role-name>biz_owner</role-name>
-            <role-name>ofc_staff</role-name>
-        </auth-constraint>
-    </security-constraint>
-
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>userLogoutPage</web-resource-name>
-            <url-pattern>/user-logout-page</url-pattern>
-        </web-resource-collection>
-
-        <auth-constraint>
-            <role-name>administrator</role-name>
-            <role-name>biz_owner</role-name>
-            <role-name>ofc_staff</role-name>
-        </auth-constraint>
-    </security-constraint>
 
     <security-role>
         <role-name>administrator</role-name>
@@ -78,6 +40,8 @@
     </security-role>
 
 
+
+
     <!-- Tell the server to use form-based authentication. -->
     <login-config>
         <auth-method>FORM</auth-method>
@@ -89,5 +53,4 @@
 
 
 </web-app>
-
 

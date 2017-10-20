@@ -1,13 +1,10 @@
 package edu.matc.persistence;
 
-import edu.matc.entity.Address;
 import edu.matc.entity.Client;
-import edu.matc.entity.ClientDetailBean;
 import org.apache.log4j.Logger;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ClientDao {
@@ -154,49 +151,5 @@ public class ClientDao {
         return updateMsg;
     }
 
-    /**
-     * Get client and address detail
-     * @param id client's id
-     */
 
-    public List<?> getClientDetail(int id) {
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Transaction tx = null;
-        List<?> result = null;
-
-        try {
-            tx = session.beginTransaction();
-            String sql =  "select c.first_name, c.last_name, c. birth_dt, c.phone_nr, c.email, c.bill_cd," +
-                    " a.street, a.city, a.state, a.zipcode" +
-                    " from client c, address a " +
-                    " where c.client_id = " + id +
-                    " and c.addr_id = a.addr_id";
-            //String sql =  "select c.client_id, c.first_name, c.last_name, c. birth_dt, c.phone_nr, c.email, c.bill_cd" +
-            //        " from client c where c.client_id = 30001";
-            //String sql =  "select c.*" +
-            //        " from client as c, address as a" +
-            //       " where c.client_id = " + id +
-            //        " and c.addr_id = a.addr_id";
-
-            SQLQuery query = session.createSQLQuery(sql);
-            query.addEntity("client", Client.class);
-            query.addJoin("address", "client.address");
-            //query.setParameter("clientId", id);
-            result = query.list();
-            // it this possible??? query.setResultTransformer(Transformers.aliasToBean(ClientDetail.class))
-            // define result of type ist<ClientDetail>
-            tx.commit();
-
-        } catch (HibernateException he) {
-            if (tx!=null) {
-                tx.rollback();
-                log.error("Error retrieving client/address, for client id: " + id, he);
-            }
-        } finally {
-            session.close();
-        }
-
-        return result;
-
-    }
 }

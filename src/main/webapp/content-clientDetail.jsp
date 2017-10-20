@@ -10,28 +10,17 @@
             <td class="col-sm-10">${clientDetail.firstName} ${clientDetail.lastName}</td>
         </tr>
 
+        <tr>
+            <td>Street Address</td>
+            <td>${clientDetail.address.getStreet()}
+                ${clientDetail.address.getCity()},
+                ${clientDetail.address.getState()}
+                ${clientDetail.address.getZipcode()}
+            </td>
+        </tr>
+
         <tr><td>Birth Date</td>
             <td>${clientDetail.birthDt}</td>
-        </tr>
-        <tr>
-            <td>Street Address1</td>
-            <td>${clientDetail.stAddr1}</td>
-        </tr>
-
-        <c:if test="${!(clientDetail.stAddr2 == null) && !(clientDetail.stAddr2 == '')}">
-            <tr>
-                <td>Street Address2</td>
-                <td>${clientDetail.stAddr2}</td>
-            </tr>
-        </c:if>
-
-        <tr>
-            <td>City</td>
-            <td>${clientDetail.city}</td>
-        </tr>
-        <tr>
-            <td>Zipcode</td>
-            <td>${clientDetail.zipcode}</td>
         </tr>
         <tr>
             <td>Phone</td>
@@ -46,23 +35,24 @@
             <td>${clientDetail.billCd}</td>
         </tr>
 
+        <%--
         <tr>
-            <td>Sched1</td>
-            <td>${clientDetail.sched1}</td>
+            <td>Street Address</td>
+            <td>${clientDetail.address.getStreet()}</td>
         </tr>
-
-        <c:if test="${!(clientDetail.sched2 == null) && !(clientDetail.sched2 == '')}">
-            <tr>
-                <td>Sched3</td>
-                <td>${clientDetail.sched2}</td>
-            </tr>
-        </c:if>
-        <c:if test="${!(clientDetail.sched3 == null) && !(clientDetail.sched3 == '')}">
-            <tr>
-                <td>Sched3</td>
-                <td>${clientDetail.sched3}</td>
-            </tr>
-        </c:if>
+        <tr>
+            <td>City</td>
+            <td>${clientDetail.address.getCity()}</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>${clientDetail.address.getState()}</td>
+        </tr>
+        <tr>
+            <td>Zipcode</td>
+            <td>${clientDetail.address.getZipcode()}</td>
+        </tr>
+        --%>
 
         </tbody>
     </table>
