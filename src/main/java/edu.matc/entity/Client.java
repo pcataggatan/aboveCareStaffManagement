@@ -42,33 +42,25 @@ public class Client {
     private Address address;
 
 
-/*
-    //@OneToMany(mappedBy = "staffByStaffId")
-    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "staffByStaffId", cascade = CascadeType.ALL))
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "clientByClientId")
-    private Set<Schedule> schedules = new HashSet<Schedule>();
-*/
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "staff_id")
+    private Staff staff;
+
 
     public Client() {
     }
 
     public Client(String firstName, String lastName, LocalDate birthDt, String phoneNr, String email,
-                  String billCd, Address address) {
+                  String billCd) {
+                  //String billCd, Address address, Staff staff) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDt = birthDt;
         this.phoneNr = phoneNr;
         this.email = email;
         this.billCd = billCd;
-        this.address = address;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
+        //this.address = address;
+        //this.staff = staff;
     }
 
 
@@ -126,7 +118,6 @@ public class Client {
     }
 
 
-
     public String getBillCd() {
         return billCd;
     }
@@ -134,6 +125,20 @@ public class Client {
     public void setBillCd(String billCd) {
         this.billCd = billCd;
     }
+
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+
+    public Staff getStaff() { return staff; }
+
+    public void setStaff(Staff staff) { this.staff = staff; }
 
 
 

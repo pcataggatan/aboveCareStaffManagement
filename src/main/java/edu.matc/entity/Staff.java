@@ -4,7 +4,6 @@ import edu.matc.util.LocalDateAttributeConverter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -47,11 +46,16 @@ public class Staff {
     private Address address;
 
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "staff", cascade = CascadeType.ALL)
+    private Set<Client> clients = new HashSet<Client>();
+    //private Set<Client> clients = new HashSet<Client>();
+
     public Staff() {
     }
 
     public Staff(String firstName, String lastName, LocalDate birthDt, String phoneNr, String email,
-                  String payCd, String jobTitle, Address address) {
+                  String payCd, String jobTitle) {
+        //String payCd, String jobTitle, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDt = birthDt;
@@ -59,7 +63,7 @@ public class Staff {
         this.email = email;
         this.payCd = payCd;
         this.jobTitle = jobTitle;
-        this.address = address;
+        //this.address = address;
     }
 
 
@@ -134,6 +138,7 @@ public class Staff {
         this.jobTitle = jobTitle;
     }
 
+
     public Address getAddress() {
         return address;
     }
@@ -141,6 +146,13 @@ public class Staff {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+
+    public Set<Client> getClients() { return clients; }
+
+    public void setClients(Set<Client> clients) { this.clients = clients; }
+
+
 
     @Override
     public boolean equals(Object o) {

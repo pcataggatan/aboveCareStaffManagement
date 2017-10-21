@@ -1,13 +1,16 @@
 package edu.matc.persistence;
 
 import edu.matc.entity.Address;
+import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -17,15 +20,18 @@ public class StaffDaoTest {
 
     private StaffDao staffDao;
     private Staff staff;
-    //private AddressDao addressDao;
     private Address address;
+    private ClientDao clientDao;
+    private Client client;
+    private Client client2;
 
     @Before
     public void setUp() throws Exception {
         staffDao = new StaffDao();
         staff = new Staff();
-       // addressDao = new AddressDao();
         address = new Address();
+        client = new Client();
+        client2 = new Client();
     }
 
 
@@ -38,13 +44,13 @@ public class StaffDaoTest {
 
     @Test
     public void getStaff() throws Exception {
-        int id = 20001;
+        int id = 20003;
         staff = staffDao.getStaff(id);
 
         //specific field value compare
         assertTrue("Not the staff with staffId " + id,
-                staff.getFirstName().equals("Corazon")
-                        && staff.getLastName().equals("Acosta"));
+                staff.getFirstName().equals("Catherine")
+                        && staff.getLastName().equals("Updated"));
     }
 
     @Test
@@ -53,7 +59,7 @@ public class StaffDaoTest {
         address = new Address("2001 Hibernate St","Madison","WI","53718");
 
         staff = new Staff("Jared", "Cataggatan", LocalDate.now(), "(608) 909-9003"
-                ,"abc3@xyz.com", "S01", "Care Giver", address);
+                ,"abc3@xyz.com", "S01", "Care Giver");
 
         staff.setAddress(address);
 
@@ -82,19 +88,34 @@ public class StaffDaoTest {
     @Test
     public void updateStaff() throws Exception {
 
-        int updtStaffId = 20002;
-        String newLastName = "Update";
+
+        int updtStaffId = 20003;
 
         staff = staffDao.getStaff(updtStaffId);
-        staff.setLastName(newLastName);
-        staff.getAddress().setStreet("4321 New Street Addr");
+        staff.setLastName("Updated");
+        staff.getAddress().setStreet("4321 Updated Street");
+
+        Set<Client> clients = new HashSet<Client>();
+
+        Client client1 = new ClientDao().getClient(30004);
+        clients.add(client1);
+
+        Client client2 = new ClientDao().getClient(30005);
+        clients.add(client2);
+
+
+        staff.setClients(clients);
+
+        client1.setStaff(staff);
+        client2.setStaff(staff);
 
         String updtMsg = staffDao.updateStaff(staff);
 
         Staff updatedStaff = staffDao.getStaff(updtStaffId);
 
-        assertTrue("Staff's lastname not updated to " + newLastName,
+        assertTrue("Staff is not successfully updated",
                 staff.equals(updatedStaff));
+
     }
 
 }

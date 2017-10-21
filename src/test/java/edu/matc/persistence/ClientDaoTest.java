@@ -2,6 +2,7 @@ package edu.matc.persistence;
 
 import edu.matc.entity.Address;
 import edu.matc.entity.Client;
+import edu.matc.entity.Staff;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,14 +18,14 @@ public class ClientDaoTest {
 
     private ClientDao clientDao;
     private Client client;
-    private AddressDao addressDao;
     private Address address;
+
+
 
     @Before
     public void setUp() throws Exception {
         clientDao = new ClientDao();
         client = new Client();
-        addressDao = new AddressDao();
         address = new Address();
     }
 
@@ -38,13 +39,16 @@ public class ClientDaoTest {
 
     @Test
     public void getClient() throws Exception {
-        int id = 30001;
+        //int id = 30001;
+        int id = 30004;
         client = clientDao.getClient(id);
 
-        //specific field value compare
+        //assertTrue("Not the client with clientId " + id,
+        //        client.getFirstName().equals("John")
+        //                && client.getLastName().equals("Smith"));
         assertTrue("Not the client with clientId " + id,
-                client.getFirstName().equals("John")
-                        && client.getLastName().equals("Smith"));
+                client.getFirstName().equals("Barbara")
+                        && client.getLastName().equals("Tucker"));
     }
 
     @Test
@@ -53,7 +57,7 @@ public class ClientDaoTest {
         address = new Address("102 Intellij Ave","Madison","WI","53702");
 
         client = new Client("Josh", "Cataggatan", LocalDate.now(), "(608) 909-9003"
-                ,"abc3@xyz.com", "C01", address);
+                ,"abc3@xyz.com", "C01");
 
         client.setAddress(address);
 

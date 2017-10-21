@@ -42,6 +42,15 @@
         </tbody>
     </table>
 
+    <p><strong>Clients:</strong></p>
+    <ul style="list-style-type: none;">
+      <c:forEach var="client" items="${staffDetail.getClients()}">
+          <li><a href="client-detail?idClient=${client.getClientId()}">
+                  ${client.getFirstName()} ${client.getLastName()}</a></li>
+      </c:forEach>
+    </ul>
+
+    <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
 
 </div>

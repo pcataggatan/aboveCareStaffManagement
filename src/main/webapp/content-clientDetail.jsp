@@ -35,27 +35,14 @@
             <td>${clientDetail.billCd}</td>
         </tr>
 
-        <%--
-        <tr>
-            <td>Street Address</td>
-            <td>${clientDetail.address.getStreet()}</td>
-        </tr>
-        <tr>
-            <td>City</td>
-            <td>${clientDetail.address.getCity()}</td>
-        </tr>
-        <tr>
-            <td>State</td>
-            <td>${clientDetail.address.getState()}</td>
-        </tr>
-        <tr>
-            <td>Zipcode</td>
-            <td>${clientDetail.address.getZipcode()}</td>
-        </tr>
-        --%>
-
         </tbody>
     </table>
+
+    <%--
+    <p><strong>Staff: </strong><a href="staff-detail?idStaff=${clientDetail.staff.getStaffId()}">
+        ${clientDetail.staff.getFirstName()} ${clientDetail.staff.getLastName()}</a>
+    </p>
+    --%>
 
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
 
