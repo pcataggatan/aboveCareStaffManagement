@@ -31,7 +31,7 @@
             <td>${clientDetail.email}</td>
         </tr>
         <tr>
-            <td>Bill Rate Cd</td>
+            <td>Bill Rate Code</td>
             <td>${clientDetail.billCd}</td>
         </tr>
 

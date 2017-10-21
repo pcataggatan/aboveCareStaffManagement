@@ -1,9 +1,10 @@
 drop table if exists `schedule`;
 drop table if exists `timesheet`;
-drop table if exists `staff`;
+
 
 ============================================
 
+drop table if exists `staff`;
 drop table if exists `client`;
 drop table if exists `address`;
 
@@ -16,6 +17,25 @@ CREATE TABLE `address` (
   PRIMARY KEY (`addr_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1;
 
+
+CREATE TABLE `staff` (
+  `staff_id`        int(11) NOT NULL auto_increment,
+  `first_name`      varchar(25) NOT NULL,
+  `last_name`       varchar(30) NOT NULL,
+  `birth_dt`        date NOT NULL DEFAULT '1900-01-01',
+  `phone_nr`        varchar(15) NOT NULL,
+  `email`           varchar(50) DEFAULT NULL,
+  `pay_cd`          varchar(03) NOT NULL,
+  `job_title`       varchar(20) NOT NULL,
+  `addr_id`         int(11) NOT NULL,
+  PRIMARY KEY (`staff_id`),
+  KEY `addr_id_fk1` (`addr_id`),
+  CONSTRAINT FOREIGN KEY (`addr_id`)
+  REFERENCES `address` (`addr_id`)
+  ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=20001 DEFAULT CHARSET=latin1;
+
+
 CREATE TABLE `client` (
   `client_id`       int(11) NOT NULL auto_increment,
   `first_name`      varchar(25) NOT NULL,
@@ -24,9 +44,9 @@ CREATE TABLE `client` (
   `phone_nr`        varchar(15) NOT NULL,
   `email`           varchar(50) DEFAULT NULL,
   `bill_cd`         varchar(03) NOT NULL,
-  `addr_id`         int(11) DEFAULT NULL,
+  `addr_id`         int(11) NOT NULL,
   PRIMARY KEY (`client_id`),
-  KEY `addr_id_fk` (`addr_id`),
+  KEY `addr_id_fk2` (`addr_id`),
   CONSTRAINT FOREIGN KEY (`addr_id`)
   REFERENCES `address` (`addr_id`)
   ON DELETE CASCADE ON UPDATE CASCADE
@@ -40,34 +60,29 @@ insert into `address` VALUES (10005,"2101 Java World","Madison","WI","53718");
 insert into `address` VALUES (10006,"2102 Java Ct","Cottage Grove","WI","53527");
 insert into `address` VALUES (10007,"2103 Java St","Sun Prairie","WI","53590");
 insert into `address` VALUES (10008,"2104 Java Ln","Lake Mills","WI","53551");
+insert into `address` VALUES (10009,"2104 Java Ln","Lake Mills","WI","53551");
+insert into `address` VALUES (10010,"2105 Java Ln","Lake Mills","WI","53551");
+insert into `address` VALUES (10011,"2105 Java Ln","Lake Mills","WI","53551");
+insert into `address` VALUES (10012,"2105 Java Ln","Lake Mills","WI","53551");
 
-insert into `client` VALUES (30000,"Dumb","Dumber",'1950-01-01',"(608) 909-9001","abc1@xyz.com","C01",10001);
-insert into `client` VALUES (30001,"John","Smith",'1950-01-01',"(608) 909-9001","abc1@xyz.com","C01",10002);
-insert into `client` VALUES (30002,"Mary","Johnson",'1940-02-01',"(608) 909-9002","abc2@xyz.com","C02",10003);
-insert into `client` VALUES (30003,"Patricia","Brown",'1941-03-01',"(608) 909-9003","abc3@xyz.com","C01",10004);
-insert into `client` VALUES (30004,"Barbara","Tucker",'1955-04-01',"(608) 909-9004","abc4@xyz.com","C02",10005);
-insert into `client` VALUES (30005,"Charles","Williams",'1941-05-01',"(608) 909-9005","abc5@xyz.com","C03",10006);
+insert into `staff` VALUES (20000,"Dumb","Dummy",'1969-01-01',"(608) 101-1001","cacosta@abovecare.com","S01","Care Giver",10001);
+insert into `staff` VALUES (20001,"Corazon","Acosta",'1969-01-01',"(608) 101-1001","cacosta@abovecare.com","S01","Care Giver",10002);
+insert into `staff` VALUES (20002,"Leah","Bagunu",'1969-02-01',"(608) 101-1002","lbagunu@abovecare.com","S02","Lic Pract Nurse",10003);
+insert into `staff` VALUES (20003,"Catherine","Baricaua",'1969-03-01',"(608) 101-1003","cbaricaua@abovecare.com","S03","Care Giver",10004);
+insert into `staff` VALUES (20004,"Audrey","Bautista",'1969-04-01',"(608) 101-1004","abautista@abovecare.com","S04","Reg Nurse",10005);
+insert into `staff` VALUES (20005,"Rowena","Castaneda",'1969-04-01',"(608) 101-1004","abautista@abovecare.com","S05","Cert Nurse Asst",10006);
+
+insert into `client` VALUES (30000,"Dumb","Dumber",'1950-01-01',"(608) 909-9001","abc1@xyz.com","C01",10007);
+insert into `client` VALUES (30001,"John","Smith",'1950-01-01',"(608) 909-9001","abc1@xyz.com","C01",10008);
+insert into `client` VALUES (30002,"Mary","Johnson",'1940-02-01',"(608) 909-9002","abc2@xyz.com","C02",10009);
+insert into `client` VALUES (30003,"Patricia","Brown",'1941-03-01',"(608) 909-9003","abc3@xyz.com","C01",10010);
+insert into `client` VALUES (30004,"Barbara","Tucker",'1955-04-01',"(608) 909-9004","abc4@xyz.com","C02",10011);
+insert into `client` VALUES (30005,"Charles","Williams",'1941-05-01',"(608) 909-9005","abc5@xyz.com","C03",10012);
+
 
 ====================================================================================================================
 
 
-
-CREATE TABLE `staff` (
-  `staff_id`        int(11) NOT NULL auto_increment,
-  `first_name`      varchar(25) NOT NULL,
-  `last_name`       varchar(30) NOT NULL,
-  `birth_dt`        date NOT NULL DEFAULT '1900-01-01',
-  `phone_nr`        varchar(15) NOT NULL,
-  `email`           varchar(50) DEFAULT NULL,
-  `pay_cd`          varchar(03) NOT NULL,
-  `job_title`       varchar(20) NOT NULL,
-  `addr_id`         int(11) DEFAULT NULL,
-  PRIMARY KEY (`staff_id`),
-
-  KEY `addr_id` (`addr_id`),
-  FOREIGN KEY (`addr_id`)
-    REFERENCES `clientDetail` (`addr_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20001 DEFAULT CHARSET=latin1;
 
 
 

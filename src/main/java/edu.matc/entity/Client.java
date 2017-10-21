@@ -71,14 +71,12 @@ public class Client {
         this.address = address;
     }
 
-    public int getClientId() {
-        return clientId;
-    }
+
+    public int getClientId() { return clientId; }
 
     public void setClientId(int clientId) {
         this.clientId = clientId;
     }
-
 
 
     public String getFirstName() {
@@ -90,7 +88,6 @@ public class Client {
     }
 
 
-
     public String getLastName() {
         return lastName;
     }
@@ -98,7 +95,6 @@ public class Client {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
 
 
     public LocalDate getBirthDt() {

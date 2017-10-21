@@ -50,9 +50,9 @@ public class ClientDaoTest {
     @Test
     public void addClient() throws Exception {
 
-        address = new Address("101 Intellij Ave","Madison","WI","53702");
+        address = new Address("102 Intellij Ave","Madison","WI","53702");
 
-        client = new Client("Pablo", "Cataggatan", LocalDate.now(), "(608) 909-9003"
+        client = new Client("Josh", "Cataggatan", LocalDate.now(), "(608) 909-9003"
                 ,"abc3@xyz.com", "C01", address);
 
         client.setAddress(address);
@@ -65,7 +65,7 @@ public class ClientDaoTest {
         String addStreet = addedAddress.getStreet();
 
         assertTrue("New client not added ",
-                client.equals(addedClient) && addStreet.equals("101 Intellij Ave"));
+                client.equals(addedClient) && addStreet.equals("102 Intellij Ave"));
      }
 
     @Test

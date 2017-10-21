@@ -31,11 +31,6 @@ public class Address {
     private String zipcode;
 
 
-    @OneToMany(mappedBy = "address")
-    private Set<Client> clients;
-
-
-
     public Address() {
     }
 
@@ -47,16 +42,11 @@ public class Address {
     }
 
 
-
-
-    public int getAddrId() {
-        return addrId;
-    }
+    public int getAddrId() { return addrId; }
 
     public void setAddrId(int addrId) {
         this.addrId = addrId;
     }
-
 
 
     public String getStreet() {
@@ -68,7 +58,6 @@ public class Address {
     }
 
 
-
     public String getCity() {
         return city;
     }
@@ -76,7 +65,6 @@ public class Address {
     public void setCity(String city) {
         this.city = city;
     }
-
 
 
     public String getState() {
@@ -88,7 +76,6 @@ public class Address {
     }
 
 
-
     public String getZipcode() {
         return zipcode;
     }
@@ -96,18 +83,6 @@ public class Address {
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
-
-
-
-
-    public Set<Client> getClients() {
-        return clients;
-    }
-
-    public void setClients(Set<Client> clients) {
-        this.clients = clients;
-    }
-
 
 
 

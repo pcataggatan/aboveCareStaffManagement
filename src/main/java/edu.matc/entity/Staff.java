@@ -109,7 +109,6 @@ public class Staff {
     }
 
 
-
     public String getEmail() {
         return email;
     }
@@ -117,7 +116,6 @@ public class Staff {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
     public String getPayCd() {
         return payCd;
@@ -136,7 +134,13 @@ public class Staff {
         this.jobTitle = jobTitle;
     }
 
+    public Address getAddress() {
+        return address;
+    }
 
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     @Override
     public boolean equals(Object o) {
