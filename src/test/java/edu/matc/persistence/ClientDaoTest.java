@@ -75,7 +75,14 @@ public class ClientDaoTest {
     @Test
     public void deleteClient() throws Exception {
         int id = 30000;
+
         client = clientDao.getClient(id);
+
+        if (client.getStaff() != null) {
+            Staff staff = null;
+            client.setStaff(staff);
+            String updtMsg = clientDao.updateClient(client);
+        }
 
         String deleteMsg = clientDao.deleteClient(id);
 

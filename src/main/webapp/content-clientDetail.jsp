@@ -1,7 +1,7 @@
 <%@include file="taglib.jsp"%>
 
 <div class="col-sm-10 text-left">
-    <h2>Search Results: </h2>
+    <h2>Client Search Results: </h2>
 
     <table class="table borderless">
         <tbody>
@@ -38,11 +38,15 @@
         </tbody>
     </table>
 
-    <%--
-    <p><strong>Staff: </strong><a href="staff-detail?idStaff=${clientDetail.staff.getStaffId()}">
-        ${clientDetail.staff.getFirstName()} ${clientDetail.staff.getLastName()}</a>
-    </p>
-    --%>
+    <c:if test="${clientDetail.staff == null}">
+        <p><strong>Assigned Staff : &nbsp;</strong>None</p>
+    </c:if>
+
+    <c:if test="${clientDetail.staff != null}">
+        <p><strong>Assigned Staff : &nbsp;</strong><a href="staff-detail?idStaff=${clientDetail.staff.getStaffId()}">
+            ${clientDetail.staff.getFirstName()} ${clientDetail.staff.getLastName()}</a>
+        </p>
+    </c:if>
 
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
 

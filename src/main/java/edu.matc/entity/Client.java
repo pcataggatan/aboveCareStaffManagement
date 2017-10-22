@@ -1,6 +1,7 @@
 package edu.matc.entity;
 
 import edu.matc.util.LocalDateAttributeConverter;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -42,7 +43,8 @@ public class Client {
     private Address address;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    //@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinColumn(name = "staff_id")
     private Staff staff;
 

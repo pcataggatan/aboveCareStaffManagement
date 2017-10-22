@@ -1,7 +1,7 @@
 <%@include file="taglib.jsp"%>
 
 <div class="col-sm-10 text-left">
-    <h2>Search Results:</h2>
+    <h2>Staff Search Results:</h2>
 
     <table class="table borderless">
         <tbody>
@@ -42,13 +42,19 @@
         </tbody>
     </table>
 
-    <p><strong>Clients:</strong></p>
-    <ul style="list-style-type: none;">
-      <c:forEach var="client" items="${staffDetail.getClients()}">
-          <li><a href="client-detail?idClient=${client.getClientId()}">
-                  ${client.getFirstName()} ${client.getLastName()}</a></li>
-      </c:forEach>
-    </ul>
+    <c:if test="${staffDetail.getClients().size() == 0}">
+        <p><strong>Clients : &nbsp;</strong>None</p>
+    </c:if>
+
+    <c:if test="${staffDetail.getClients().size() > 0}">
+        <p><strong>Clients:</strong></p>
+        <ul style="list-style-type: none;">
+          <c:forEach var="client" items="${staffDetail.getClients()}">
+              <li><a href="client-detail?idClient=${client.getClientId()}">
+                      ${client.getFirstName()} ${client.getLastName()}</a></li>
+          </c:forEach>
+        </ul>
+    </c:if>
 
     <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>

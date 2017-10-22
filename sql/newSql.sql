@@ -31,9 +31,10 @@ CREATE TABLE `staff` (
   `addr_id`         int(11) NOT NULL,
   PRIMARY KEY (`staff_id`),
   KEY `addr_id_fk` (`addr_id`),
-  CONSTRAINT FOREIGN KEY (`addr_id`)
-  REFERENCES `address` (`addr_id`)
-  ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT FOREIGN KEY (`addr_id`)
+    REFERENCES `address` (`addr_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=20001 DEFAULT CHARSET=latin1;
 
 
@@ -51,11 +52,13 @@ CREATE TABLE `client` (
   KEY `addr_id_fk` (`addr_id`),
     CONSTRAINT FOREIGN KEY (`addr_id`)
     REFERENCES `address` (`addr_id`)
-    ON DELETE CASCADE ON UPDATE CASCADE,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   KEY `staff_id_fk` (`staff_id`),
     CONSTRAINT FOREIGN KEY (`staff_id`)
     REFERENCES `staff` (`staff_id`)
-    ON DELETE CASCADE ON UPDATE CASCADE
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=30001 DEFAULT CHARSET=latin1;
 
 
