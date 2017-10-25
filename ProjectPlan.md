@@ -40,5 +40,48 @@
 - [X] Continue coding servlets and jsps
 - [ ] Create generic Dao
 - [X] Read/learn Bootstrap CSS and apply to project
-- [ ] Form-based Authentication
+- [X] Form-based Authentication
 - [X] Log time spent
+
+### Week 7
+- [X] Continue coding servlets and jsps
+- [X] Redesign table structures, break up into several tables pply 1:1 and 1:many associations 
+- [X] Code the annotations for each entity 
+- [X] Code test cases for Client and Staff CRUD 
+- [X] Start looking for zipcode API
+- [X] Start collaborating with team members about Team project
+- [X] Log time spent
+
+### Week 8
+- [X] Fix relationship issues and continue coding servlets and jsps
+- [ ] Start coding the logic to consume RESTful webservice from zipcodeapi.com 
+- [ ] Code the Add and Update functionality for Client and Staff 
+- [X] Add Schedule table with many:1 relationship with Staff
+- [X] Start working on the structure of the Team project
+- [X] Log time spent
+
+
+### Week 6
+- [X] Continue coding servlets and jsps
+- [ ] Create generic Dao
+- [X] Read/learn Bootstrap CSS and apply to project
+- [X] Form-based Authentication
+- [X] Log time spent
+
+### Week 7
+- [X] Continue coding servlets and jsps
+- [X] Redesign table structures, break up into several tables pply 1:1 and 1:many associations 
+- [X] Code the annotations for each entity 
+- [X] Code test cases for Client and Staff CRUD 
+- [X] Start looking for zipcode API
+- [X] Start collaborating with team members about Team project
+- [X] Log time spent
+
+### Week 8
+- [X] Fix relationship issues and continue coding servlets and jsps
+- [ ] Start coding the logic to consume RESTful webservice from zipcodeapi.com 
+- [ ] Code the Add and Update functionality for Client and Staff 
+- [X] Add Schedule table with many:1 relationship with Staff
+- [X] Start working on the structure of the Team project
+- [X] Log time spent
+
