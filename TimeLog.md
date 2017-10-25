@@ -47,7 +47,4 @@
 | 10/21/17| Finally got 1:1 and 1:many working | 4.0 | |
 | 10/23/17| Finish week 8 activities 1-4 | 4.0 | |
 | 10/24/17| Finish Week 8 exercise| 2.5 | |
-| 10/04/17| Participate in Week 6 classroom activities| 4.0 | |
-| 10/04/17| Participate in Week 6 classroom activities| 4.0 | |
-
 
