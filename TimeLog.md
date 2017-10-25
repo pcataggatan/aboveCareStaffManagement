@@ -37,5 +37,17 @@
 | 10/02/17| Refine codes for login and search and deployed project war file to AWS | 4.0 | |
 | 10/03/17| Watch week 6 videos and update project time log | 2.0 | |
 | 10/04/17| Participate in Week 6 classroom activities| 4.0 | |
+| 10/06/17| Redesign tables to apply 1:1, 1:many and many:1 associations| 3.0 | |
+| 10/07/17| Modify DAOs to add operation message for add/update/delete | 1.5 | Stuck with hibernate lazyinitialization exception |
+| 10/09/17| Modify ClientDaoTest to test relationships  | 3.0 | |
+| 10/10/17| Idle for 5 days thru 10/14/17 | n/a | Domestic issue |
+| 10/15/17| Finish week 7 activities | 3.0 | |
+| 10/17/17| Finish week 7 exercise | 2.0 | |
+| 10/20/17| Continue working and 1:many and many:1 annotations and trying to resolve issues | 3.0 | |
+| 10/21/17| Finally got 1:1 and 1:many working | 4.0 | |
+| 10/23/17| Finish week 8 activities 1-4 | 4.0 | |
+| 10/24/17| Finish Week 8 exercise| 2.5 | |
+| 10/04/17| Participate in Week 6 classroom activities| 4.0 | |
+| 10/04/17| Participate in Week 6 classroom activities| 4.0 | |
 
 
