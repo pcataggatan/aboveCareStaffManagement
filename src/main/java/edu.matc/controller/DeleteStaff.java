@@ -1,6 +1,8 @@
 package edu.matc.controller;
 
+import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
+import edu.matc.persistence.ClientDao;
 import edu.matc.persistence.StaffDao;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Set;
 
 
 @WebServlet(
@@ -31,7 +34,18 @@ public class DeleteStaff extends HttpServlet {
         StaffDao staffDao = new StaffDao();
 
         Staff staff = staffDao.getStaff(staffId);
-        String deletedStaff = "Staff ID: " + staffId + " - " + staff.getFirstName() + " " + staff.getLastName();
+
+        Set<Client> clients = staff.getClients();
+
+        for (Client client : clients) {
+            ClientDao updtClientDao = new ClientDao();
+            Client updtClient = updtClientDao.getClient(client.getClientId());
+            Staff nullStaff = null;
+            updtClient.setStaff(nullStaff);
+            String updtMsg = updtClientDao.updateClient(updtClient);
+        }
+
+        String deletedStaff = staff.getFirstName() + " " + staff.getLastName();
 
         session.setAttribute("deletedStaff", deletedStaff);
         session.setAttribute("deletedPerson", "Staff");

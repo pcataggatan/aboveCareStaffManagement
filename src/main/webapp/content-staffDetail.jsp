@@ -1,7 +1,7 @@
 <%@include file="taglib.jsp"%>
 
 <div class="col-sm-10 text-left">
-    <h2>Staff Search Results:</h2>
+    <h2>Staff Detail</h2>
 
     <table class="table borderless">
         <tbody>

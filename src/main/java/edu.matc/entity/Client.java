@@ -44,7 +44,6 @@ public class Client {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    //@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinColumn(name = "staff_id")
     private Staff staff;
 
@@ -54,15 +53,12 @@ public class Client {
 
     public Client(String firstName, String lastName, LocalDate birthDt, String phoneNr, String email,
                   String billCd) {
-                  //String billCd, Address address, Staff staff) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDt = birthDt;
         this.phoneNr = phoneNr;
         this.email = email;
         this.billCd = billCd;
-        //this.address = address;
-        //this.staff = staff;
     }
 
 

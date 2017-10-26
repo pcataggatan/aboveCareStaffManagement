@@ -18,6 +18,7 @@ public class StaffDaoTest {
 
     private final Logger log = Logger.getLogger(this.getClass());
 
+
     private StaffDao staffDao;
     private Staff staff;
     private Address address;
@@ -44,13 +45,12 @@ public class StaffDaoTest {
 
     @Test
     public void getStaff() throws Exception {
-        int id = 20003;
+        int id = 20001;
         staff = staffDao.getStaff(id);
-
         //specific field value compare
         assertTrue("Not the staff with staffId " + id,
-                staff.getFirstName().equals("Catherine")
-                        && staff.getLastName().equals("Updated"));
+                staff.getFirstName().equals("Corazon")
+                        && staff.getLastName().equals("Acosta"));
     }
 
     @Test
@@ -58,7 +58,7 @@ public class StaffDaoTest {
 
         address = new Address("2001 Hibernate St","Madison","WI","53718");
 
-        staff = new Staff("Jared", "Cataggatan", LocalDate.now(), "(608) 909-9003"
+        staff = new Staff("Josh", "Cataggatan", LocalDate.now(), "(608) 909-9003"
                 ,"abc3@xyz.com", "S01", "Care Giver");
 
         staff.setAddress(address);
@@ -76,8 +76,19 @@ public class StaffDaoTest {
 
     @Test
     public void deleteStaff() throws Exception {
-        int id = 20000;
+        int id = 20004;
         staff = staffDao.getStaff(id);
+
+        Set<Client> clients = staff.getClients();
+
+        for (Client client : clients) {
+            //int clientId = client.getClientId();
+            ClientDao updtClientDao = new ClientDao();
+            Client updtClient = updtClientDao.getClient(client.getClientId());
+            Staff staff = null;
+            updtClient.setStaff(staff);
+            String updtMsg = updtClientDao.updateClient(updtClient);
+        }
 
         String deleteMsg = staffDao.deleteStaff(id);
 

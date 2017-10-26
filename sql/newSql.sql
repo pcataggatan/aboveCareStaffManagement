@@ -57,7 +57,7 @@ CREATE TABLE `client` (
   KEY `staff_id_fk` (`staff_id`),
     CONSTRAINT FOREIGN KEY (`staff_id`)
     REFERENCES `staff` (`staff_id`)
-    ON DELETE RESTRICT
+    ON DELETE SET NULL
     ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=30001 DEFAULT CHARSET=latin1;
 

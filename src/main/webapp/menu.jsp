@@ -5,8 +5,9 @@
 	<c:if test="${userRole == 'Admin' || userRole == 'Owner' || userRole == 'OfficeStaff'}">
 		<p><a href="search-staff-form">Search Staff</a></p>
 		<p><a href="#">Add New Staff</a></p>
-		<p><a href="#">Assign Client To Staff</a></p>
 		<p><a href="search-client-form">Search Clients</a></p>
+		<p><a href="add-client-form">Add New Client</a></p>
+		<p><a href="#">Assign Client To Staff</a></p>
 	</c:if>
 
 	<c:if test="${userRole == 'Admin' || userRole == 'Owner'}">

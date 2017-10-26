@@ -48,14 +48,13 @@ public class Staff {
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "staff", cascade = CascadeType.ALL)
     private Set<Client> clients = new HashSet<Client>();
-    //private Set<Client> clients = new HashSet<Client>();
+
 
     public Staff() {
     }
 
     public Staff(String firstName, String lastName, LocalDate birthDt, String phoneNr, String email,
                   String payCd, String jobTitle) {
-        //String payCd, String jobTitle, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDt = birthDt;
@@ -63,7 +62,6 @@ public class Staff {
         this.email = email;
         this.payCd = payCd;
         this.jobTitle = jobTitle;
-        //this.address = address;
     }
 
 

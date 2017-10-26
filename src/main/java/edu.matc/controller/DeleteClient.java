@@ -1,6 +1,7 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Client;
+import edu.matc.entity.Staff;
 import edu.matc.persistence.ClientDao;
 
 import javax.servlet.RequestDispatcher;
@@ -31,7 +32,14 @@ public class DeleteClient extends HttpServlet {
         ClientDao clientDao = new ClientDao();
 
         Client client = clientDao.getClient(clientId);
-        String deletedClient = "Client ID: " + clientId + " - " + client.getFirstName() + " " + client.getLastName();
+
+        if (client.getStaff() != null) {
+            Staff staff = null;
+            client.setStaff(staff);
+            String updtMsg = clientDao.updateClient(client);
+        }
+
+        String deletedClient = client.getFirstName() + " " + client.getLastName();
 
         session.setAttribute("deletedClient", deletedClient);
         session.setAttribute("deletedPerson", "Client");

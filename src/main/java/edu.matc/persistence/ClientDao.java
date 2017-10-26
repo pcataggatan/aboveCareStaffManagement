@@ -108,6 +108,7 @@ public class ClientDao {
         try {
             tx = session.beginTransaction();
             client = (Client) session.get(Client.class, id);
+
             session.delete(client);
             tx.commit();
         } catch (HibernateException he) {

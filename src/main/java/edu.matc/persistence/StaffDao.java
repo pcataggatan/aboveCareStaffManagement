@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
@@ -25,6 +26,16 @@ public class StaffDao {
     public List<Staff> getAllStaffs() {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         List<Staff> staffs = session.createCriteria(Staff.class).list();
+
+        //Criteria cr = session.createCriteria(Staff.class);
+        //cr.setProjection(Projections.distinct(Projections.property("staffId")));
+        //cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        //List<Staff> staffs = cr.list();
+
+        //List staffs = session.createCriteria(Staff.class)
+        //        .setProjection(Projections.projectionList()
+        //            .add( Projections.distinct(Projections.property("staffId")))).list();
+
         session.close();
         return staffs;
     }
