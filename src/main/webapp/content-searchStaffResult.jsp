@@ -1,30 +1,27 @@
 <%@include file="taglib.jsp"%>
 
-<div class="col-sm-10 text-left">
+<div class="col-md-10 text-left">
     <h2>Staff Search Results:</h2>
     <p align="right"><a href="add-new-staff">Add new staff</a></piv><br>
 
-    <table class="table table-bordered">
+    <table class="table table-striped">
         <tr>
             <th>Staff Name</th>
-            <%--
-            <th>Birth Date</th>
-            <th>Street ClientDetail</th>
-            <th>City</th>
-            <th>Zipcode</th>
-            --%>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
 
         <c:forEach var="staff" items="${staffList}">
             <tr>
                 <td><a href="staff-detail?idStaff=${staff.staffId}">${staff.firstName} ${staff.lastName}</a></td>
-                <%--
-                <td>${staff.birthDt}</td>
-                <td>${staff.stAddr1}</td>
-                <td>${staff.city}</td>
-                <td>${staff.zipcode}</td>
-                --%>
 
+                <%--
+                <c:forEach var="client" items="${staff.clients}">
+                   <td><a href="client-detail?idClient=${client.clientId}">${client.firstName} ${client.lastName}</a></td>
+                </c:forEach>
+                --%>
 
                 <td><a href="#">Update</a></td>
                 <%-- <td><a href="update-staff?idStaff=${staff.staffId}">Update</a></td>
@@ -42,8 +39,9 @@
         </c:forEach>
     </table>
 
+    <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
-
+    <br>
 </div>
 
 

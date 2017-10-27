@@ -1,6 +1,6 @@
 <%@include file="taglib.jsp"%>
 
-<div class="col-sm-10 text-right">
+<div class="col-md-10 text-right">
     <br>
     <form  action="j_security_check" method="POST">
         User Name: <input type ="text" name ="j_username" placeholder="username" autofocus><br>

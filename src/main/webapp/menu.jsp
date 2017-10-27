@@ -1,6 +1,6 @@
 <%@ include file="taglib.jsp" %>
 
-<div class="col-sm-2 sidenav text-lef">
+<div class="col-md-2 sidenav text-lef">
 	<br>
 	<c:if test="${userRole == 'Admin' || userRole == 'Owner' || userRole == 'OfficeStaff'}">
 		<p><a href="search-staff-form">Search Staff</a></p>

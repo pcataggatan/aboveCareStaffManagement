@@ -76,7 +76,7 @@ public class StaffDaoTest {
 
     @Test
     public void deleteStaff() throws Exception {
-        int id = 20004;
+        int id = 20000;
         staff = staffDao.getStaff(id);
 
         Set<Client> clients = staff.getClients();
@@ -100,7 +100,7 @@ public class StaffDaoTest {
     public void updateStaff() throws Exception {
 
 
-        int updtStaffId = 20003;
+        int updtStaffId = 20004;
 
         staff = staffDao.getStaff(updtStaffId);
         staff.setLastName("Updated");
@@ -111,14 +111,14 @@ public class StaffDaoTest {
         Client client1 = new ClientDao().getClient(30004);
         clients.add(client1);
 
-        Client client2 = new ClientDao().getClient(30005);
-        clients.add(client2);
+        //Client client2 = new ClientDao().getClient(30005);
+        //clients.add(client2);
 
 
         staff.setClients(clients);
 
         client1.setStaff(staff);
-        client2.setStaff(staff);
+        //client2.setStaff(staff);
 
         String updtMsg = staffDao.updateStaff(staff);
 

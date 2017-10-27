@@ -1,6 +1,7 @@
 package edu.matc.controller;
 
 
+import edu.matc.entity.Staff;
 import edu.matc.persistence.ClientDao;
 import edu.matc.persistence.StaffDao;
 
@@ -13,6 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 @WebServlet(
@@ -30,9 +35,19 @@ public class SearchStaff extends HttpServlet {
         StaffDao staffDao = new StaffDao();
 
         if (req.getParameter("searchType").equals("byLastname")) {
-            session.setAttribute("staffList", staffDao.getStaffByLastName(req.getParameter("searchTerm")));
+            List<Staff> staffList = staffDao.getStaffByLastName(req.getParameter("searchTerm"));
+            Set<Staff> staffSet = new HashSet<>();
+            for (Staff staff : staffList) {
+                staffSet.add(staff);
+            }
+            session.setAttribute("staffList", staffSet);
         } else {
-            session.setAttribute("staffList", staffDao.getAllStaffs());
+            List<Staff> staffList = staffDao.getAllStaffs();
+            Set<Staff> staffSet = new HashSet<>();
+            for (Staff staff : staffList) {
+                staffSet.add(staff);
+            }
+            session.setAttribute("staffList", staffSet);
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("searchResult.jsp");

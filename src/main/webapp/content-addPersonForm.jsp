@@ -1,6 +1,6 @@
 <%@include file="taglib.jsp"%>
 
-<div class="col-sm-10 text-left">
+<div class="col-md-10 text-left">
     <br>
 
     <c:choose>

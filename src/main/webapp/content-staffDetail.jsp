@@ -1,10 +1,10 @@
 <%@include file="taglib.jsp"%>
 
-<div class="col-sm-10 text-left">
+<div class="col-md-10 text-left">
     <h2>Staff Detail</h2>
 
     <table class="table borderless">
-        <tbody>
+        <!-- <tbody> -->
         <tr>
             <td class="col-sm-2">Full Name</td>
             <td class="col-sm-10">${staffDetail.firstName} ${staffDetail.lastName}</td>
@@ -19,27 +19,32 @@
             </td>
         </tr>
 
-        <tr><td>Birth Date</td>
+        <tr>
+            <td>Birth Date</td>
             <td>${staffDetail.birthDt}</td>
         </tr>
+
         <tr>
             <td>Phone</td>
             <td>${staffDetail.phoneNr}</td>
         </tr>
+
         <tr>
             <td>Email</td>
             <td>${staffDetail.email}</td>
         </tr>
+
         <tr>
             <td>Job Title</td>
             <td>${staffDetail.jobTitle}</td>
         </tr>
+
         <tr>
             <td>Pay Rate Code</td>
             <td>${staffDetail.payCd}</td>
         </tr>
 
-        </tbody>
+        <!-- </tbody> -->
     </table>
 
     <c:if test="${staffDetail.getClients().size() == 0}">
@@ -57,7 +62,10 @@
     </c:if>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
+    <p><a href="/aboveCareStaffManagement">Back to home page</a> &nbsp; &nbsp;
+        <a href="searchResult.jsp">Back to search results</a>
+    </p>
+    <br>
 
 </div>
 

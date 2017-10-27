@@ -1,6 +1,6 @@
 <%@include file="taglib.jsp"%>
 
-<div class="col-sm-10 text-left">
+<div class="col-md-10 text-left">
     <br>
     <h1>${deleteMsg}</h1>
     <c:choose>
@@ -11,8 +11,11 @@
             <h3>${deletedStaff}</h3>
         </c:when>
     </c:choose>
-    <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
 
+    <br>
+    <p><a href="/aboveCareStaffManagement">Back to home page</a> &nbsp; &nbsp;
+        <a href="searchResult.jsp">Back to search results</a>
+    </p>
+    <br>
 </div>
 
