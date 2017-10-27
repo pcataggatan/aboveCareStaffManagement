@@ -66,28 +66,32 @@ insert into `address` VALUES (10001,"121 Intellij Ave","Madison","WI","53701");
 insert into `address` VALUES (10002,"122 Intellij St","Madison","WI","53702");
 insert into `address` VALUES (10003,"123 Intellij Rd","Madison","WI","53703");
 insert into `address` VALUES (10004,"124 Intellij Pkwy","Madison","WI","53704");
-insert into `address` VALUES (10005,"2101 Java World","Madison","WI","53718");
+insert into `address` VALUES (10005,"2101 Java Ave","Madison","WI","53718");
 insert into `address` VALUES (10006,"2102 Java Ct","Cottage Grove","WI","53527");
 insert into `address` VALUES (10007,"2103 Java St","Sun Prairie","WI","53590");
 insert into `address` VALUES (10008,"2104 Java Ln","Lake Mills","WI","53551");
-insert into `address` VALUES (10009,"2104 Java Ln","Lake Mills","WI","53551");
-insert into `address` VALUES (10010,"2105 Java Ln","Lake Mills","WI","53551");
-insert into `address` VALUES (10011,"2105 Java Ln","Lake Mills","WI","53551");
-insert into `address` VALUES (10012,"2105 Java Ln","Lake Mills","WI","53551");
+insert into `address` VALUES (10009,"2105 Java Rd","Madison","WI","53705");
+insert into `address` VALUES (10010,"2106 Java Cir","Madison","WI","53705");
+insert into `address` VALUES (10011,"2107 Java Pkwy","Madison","WI","53706");
+insert into `address` VALUES (10012,"2108 Java Ln","Madison","WI","53707");
+insert into `address` VALUES (10013,"2109 Java St","Madison","WI","53708");
+insert into `address` VALUES (10014,"2110 Java Dr","Madison","WI","53709");
 
-insert into `staff` VALUES (20000,"Dumb","Dummy",'1969-01-01',"(608) 101-1001","cacosta@abovecare.com","S01","Care Giver",10001);
-insert into `staff` VALUES (20001,"Corazon","Acosta",'1969-01-01',"(608) 101-1001","cacosta@abovecare.com","S01","Care Giver",10002);
-insert into `staff` VALUES (20002,"Leah","Bagunu",'1969-02-01',"(608) 101-1002","lbagunu@abovecare.com","S02","Lic Pract Nurse",10003);
-insert into `staff` VALUES (20003,"Catherine","Baricaua",'1969-03-01',"(608) 101-1003","cbaricaua@abovecare.com","S03","Care Giver",10004);
-insert into `staff` VALUES (20004,"Audrey","Bautista",'1969-04-01',"(608) 101-1004","abautista@abovecare.com","S04","Reg Nurse",10005);
-insert into `staff` VALUES (20005,"Rowena","Castaneda",'1969-04-01',"(608) 101-1004","abautista@abovecare.com","S05","Cert Nurse Asst",10006);
+insert into `staff` VALUES (20000,"Dummmy","Staff",'1969-01-01',"(608) 101-1001","cacosta@abovecare.com","S01","Care Giver",10001);
+insert into `staff` VALUES (20001,"Pablo","Cataggatan",'1969-01-01',"(608) 101-1001","cacosta@abovecare.com","S01","Care Giver",10002);
+insert into `staff` VALUES (20002,"Corazon","Acosta",'1969-01-01',"(608) 101-1001","cacosta@abovecare.com","S01","Care Giver",10003);
+insert into `staff` VALUES (20003,"Leah","Bagunu",'1969-02-01',"(608) 101-1002","lbagunu@abovecare.com","S02","Lic Pract Nurse",10004);
+insert into `staff` VALUES (20004,"Catherine","Baricaua",'1969-03-01',"(608) 101-1003","cbaricaua@abovecare.com","S03","Care Giver",10005);
+insert into `staff` VALUES (20005,"Audrey","Bautista",'1969-04-01',"(608) 101-1004","abautista@abovecare.com","S04","Reg Nurse",10006);
+insert into `staff` VALUES (20006,"Rowena","Castaneda",'1969-04-01',"(608) 101-1004","abautista@abovecare.com","S05","Cert Nurse Asst",10007);
 
-insert into `client` VALUES (30000,"Dumb","Dumber",'1950-01-01',"(608) 909-9001","abc1@xyz.com","C01",10007,20001);
-insert into `client` VALUES (30001,"John","Smith",'1950-01-01',"(608) 909-9001","abc1@xyz.com","C01",10008,20002);
-insert into `client` VALUES (30002,"Mary","Johnson",'1940-02-01',"(608) 909-9002","abc2@xyz.com","C02",10009,20003);
-insert into `client` VALUES (30003,"Patricia","Brown",'1941-03-01',"(608) 909-9003","abc3@xyz.com","C01",10010,20004);
-insert into `client` VALUES (30004,"Barbara","Tucker",'1955-04-01',"(608) 909-9004","abc4@xyz.com","C02",10011,20005);
-insert into `client` VALUES (30005,"Charles","Williams",'1941-05-01',"(608) 909-9005","abc5@xyz.com","C03",10012,20005);
+insert into `client` VALUES (30000,"Dummy","Client",'1950-01-01',"(608) 909-9001","abc1@xyz.com","C01",10008,20001);
+insert into `client` VALUES (30001,"John","Smith",'1950-01-01',"(608) 909-9001","abc1@xyz.com","C01",10009,20002);
+insert into `client` VALUES (30002,"Mary","Johnson",'1940-02-01',"(608) 909-9002","abc2@xyz.com","C02",10010,20003);
+insert into `client` VALUES (30003,"Patricia","Brown",'1941-03-01',"(608) 909-9003","abc3@xyz.com","C01",10011,20004);
+insert into `client` VALUES (30004,"Barbara","Tucker",'1955-04-01',"(608) 909-9004","abc4@xyz.com","C02",10012,20005);
+insert into `client` VALUES (30005,"Charles","Williams",'1941-05-01',"(608) 909-9005","abc5@xyz.com","C03",10014,20005);
+insert into `client` VALUES (30006,"Aaron","Murphy",'1951-05-01',"(608) 909-9006","abc6@xyz.com","C04",10014,20006);
 
 
 ====================================================================================================================

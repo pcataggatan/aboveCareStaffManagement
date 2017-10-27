@@ -34,6 +34,7 @@ public class SearchStaff extends HttpServlet {
 
         StaffDao staffDao = new StaffDao();
 
+        /* --- this Hashset is working too !!!!
         if (req.getParameter("searchType").equals("byLastname")) {
             List<Staff> staffList = staffDao.getStaffByLastName(req.getParameter("searchTerm"));
             Set<Staff> staffSet = new HashSet<>();
@@ -48,6 +49,14 @@ public class SearchStaff extends HttpServlet {
                 staffSet.add(staff);
             }
             session.setAttribute("staffList", staffSet);
+        }
+        */
+
+
+        if (req.getParameter("searchType").equals("byLastname")) {
+            session.setAttribute("staffList", staffDao.getStaffByLastName(req.getParameter("searchTerm")));
+        } else {
+            session.setAttribute("staffList", staffDao.getAllStaffs());
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("searchResult.jsp");

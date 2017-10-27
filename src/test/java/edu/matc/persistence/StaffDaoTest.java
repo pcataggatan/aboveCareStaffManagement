@@ -34,12 +34,18 @@ public class StaffDaoTest {
         client = new Client();
         client2 = new Client();
     }
-
-
     @Test
     public void getAllStaffs() throws Exception {
         List<Staff> staffs = staffDao.getAllStaffs();
         assertTrue(staffs.size() > 0);
+    }
+
+
+    @Test
+    public void getStaffsByLastname() throws Exception {
+        String searchTerm = "Cataggatan";
+        List<Staff> staffs = staffDao.getStaffByLastName(searchTerm);
+        assertEquals("Wrong number of rows returned",2, staffs.size());
     }
 
 
@@ -49,8 +55,8 @@ public class StaffDaoTest {
         staff = staffDao.getStaff(id);
         //specific field value compare
         assertTrue("Not the staff with staffId " + id,
-                staff.getFirstName().equals("Corazon")
-                        && staff.getLastName().equals("Acosta"));
+                staff.getFirstName().equals("Pablo")
+                        && staff.getLastName().equals("Cataggatan"));
     }
 
     @Test
@@ -82,7 +88,6 @@ public class StaffDaoTest {
         Set<Client> clients = staff.getClients();
 
         for (Client client : clients) {
-            //int clientId = client.getClientId();
             ClientDao updtClientDao = new ClientDao();
             Client updtClient = updtClientDao.getClient(client.getClientId());
             Staff staff = null;

@@ -25,17 +25,10 @@ public class StaffDao {
      */
     public List<Staff> getAllStaffs() {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        List<Staff> staffs = session.createCriteria(Staff.class).list();
-
-        //Criteria cr = session.createCriteria(Staff.class);
-        //cr.setProjection(Projections.distinct(Projections.property("staffId")));
-        //cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-        //List<Staff> staffs = cr.list();
-
-        //List staffs = session.createCriteria(Staff.class)
-        //        .setProjection(Projections.projectionList()
-        //            .add( Projections.distinct(Projections.property("staffId")))).list();
-
+        //List<Staff> staffs = session.createCriteria(Staff.class).list();
+        List<Staff> staffs = session.createCriteria(Staff.class)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+                .list();
         session.close();
         return staffs;
     }
@@ -49,9 +42,15 @@ public class StaffDao {
      */
     public List<Staff> getStaffByLastName(String searchTerm) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Criteria cr = session.createCriteria(Staff.class);
-        cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
-        List<Staff> staffs = cr.list();
+        //Criteria cr = session.createCriteria(Staff.class);
+        //cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
+        //List<Staff> staffs = cr.list();
+
+        List<Staff> staffs = session.createCriteria(Staff.class)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+                .add(Restrictions.like("lastName", "%" + searchTerm + "%"))
+                .list();
+
         session.close();
         return staffs;
 
