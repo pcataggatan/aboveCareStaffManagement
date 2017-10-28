@@ -42,7 +42,7 @@ public class DeleteClient extends HttpServlet {
         String deletedClient = client.getFirstName() + " " + client.getLastName();
 
         session.setAttribute("deletedClient", deletedClient);
-        session.setAttribute("deletedPerson", "Client");
+        session.setAttribute("deletePersonType", "Client");
 
         String deleteMsg = clientDao.deleteClient(clientId);
         if (deleteMsg.equals("Success")) {

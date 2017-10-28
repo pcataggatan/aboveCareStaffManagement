@@ -19,7 +19,8 @@
         &nbsp;
         <button type="submit" value="viewAll" name="searchType">All</button>
     </form>
+
     <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
-
+    <br>
 </div>

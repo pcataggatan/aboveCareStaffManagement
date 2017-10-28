@@ -1,7 +1,6 @@
 drop table if exists `schedule`;
 drop table if exists `timesheet`;
 
-
 ============================================
 
 drop table if exists `client`;
@@ -90,8 +89,8 @@ insert into `client` VALUES (30001,"John","Smith",'1950-01-01',"(608) 909-9001",
 insert into `client` VALUES (30002,"Mary","Johnson",'1940-02-01',"(608) 909-9002","abc2@xyz.com","C02",10010,20003);
 insert into `client` VALUES (30003,"Patricia","Brown",'1941-03-01',"(608) 909-9003","abc3@xyz.com","C01",10011,20004);
 insert into `client` VALUES (30004,"Barbara","Tucker",'1955-04-01',"(608) 909-9004","abc4@xyz.com","C02",10012,20005);
-insert into `client` VALUES (30005,"Charles","Williams",'1941-05-01',"(608) 909-9005","abc5@xyz.com","C03",10014,20005);
-insert into `client` VALUES (30006,"Aaron","Murphy",'1951-05-01',"(608) 909-9006","abc6@xyz.com","C04",10014,20006);
+insert into `client` VALUES (30005,"Charles","Williams",'1941-05-01',"(608) 909-9005","abc5@xyz.com","C03",10013,20005);
+insert into `client` VALUES (30006,"Aaron","Johnson",'1951-05-01',"(608) 909-9006","abc6@xyz.com","C04",10014,20006);
 
 
 ====================================================================================================================

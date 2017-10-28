@@ -48,7 +48,7 @@ public class DeleteStaff extends HttpServlet {
         String deletedStaff = staff.getFirstName() + " " + staff.getLastName();
 
         session.setAttribute("deletedStaff", deletedStaff);
-        session.setAttribute("deletedPerson", "Staff");
+        session.setAttribute("deletePersonType", "Staff");
 
         String deleteMsg = staffDao.deleteStaff(staffId);
 

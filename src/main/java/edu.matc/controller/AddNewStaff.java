@@ -2,7 +2,9 @@ package edu.matc.controller;
 
 import edu.matc.entity.Address;
 import edu.matc.entity.Client;
+import edu.matc.entity.Staff;
 import edu.matc.persistence.ClientDao;
+import edu.matc.persistence.StaffDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -18,11 +20,11 @@ import java.time.format.DateTimeFormatter;
 
 
 @WebServlet(
-        name = "addNewClient",
-        urlPatterns = {"/add-new-client"}
+        name = "addNewStaff",
+        urlPatterns = {"/add-new-staff"}
 )
 
-public class AddNewClient extends HttpServlet {
+public class AddNewStaff extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,19 +32,20 @@ public class AddNewClient extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        Client client = new Client();
+        Staff staff = new Staff();
 
-        client.setFirstName(req.getParameter("firstName"));
-        client.setLastName(req.getParameter("lastName"));
-        client.setPhoneNr(req.getParameter("phoneNr"));
-        client.setEmail(req.getParameter("email"));
-        client.setBillCd(req.getParameter("billCd"));
+        staff.setFirstName(req.getParameter("firstName"));
+        staff.setLastName(req.getParameter("lastName"));
+        staff.setPhoneNr(req.getParameter("phoneNr"));
+        staff.setEmail(req.getParameter("email"));
+        staff.setJobTitle(req.getParameter("jobTitle"));
+        staff.setPayCd(req.getParameter("payCd"));
 
         LocalDate today = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate birthDt = LocalDate.parse(req.getParameter("birthDt"), formatter);
 
-        client.setBirthDt(birthDt);
+        staff.setBirthDt(birthDt);
 
         Address  address = new Address();
 
@@ -51,23 +54,24 @@ public class AddNewClient extends HttpServlet {
         address.setState(req.getParameter("state"));
         address.setZipcode(req.getParameter("zipcode"));
 
-        client.setAddress(address);
+        staff.setAddress(address);
 
-        ClientDao clientDao = new ClientDao();
+        StaffDao staffDao = new StaffDao();
 
-        int addClientId = clientDao.addClient(client);
+        int addStaffId = staffDao.addStaff(staff);
 
-        String addedClient = client.getFirstName() + " " + client.getLastName();
+        String addedStaff = staff.getFirstName() + " " + staff.getLastName();
 
-        session.setAttribute("addedClient", addedClient);
+        session.setAttribute("addedStaff", addedStaff);
 
-        if (addClientId == 0) {
-            session.setAttribute("addMsg", "Error Adding New Client");
+        if (addStaffId == 0) {
+            session.setAttribute("addMsg", "Error Adding New Staff");
         } else {
-            session.setAttribute("addMsg", "New Client Successfully Added");
+            session.setAttribute("addMsg", "New Staff Successfully Added");
         }
 
         resp.sendRedirect("personAdded.jsp");
 
     }
 }
+

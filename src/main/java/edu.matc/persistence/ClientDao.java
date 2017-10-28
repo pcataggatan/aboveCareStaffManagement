@@ -1,6 +1,7 @@
 package edu.matc.persistence;
 
 import edu.matc.entity.Client;
+import edu.matc.entity.Staff;
 import org.apache.log4j.Logger;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
@@ -19,7 +20,10 @@ public class ClientDao {
      */
     public List<Client> getAllClients() {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        List<Client> clients = session.createCriteria(Client.class).list();
+        //List<Client> clients = session.createCriteria(Client.class).list();
+        List<Client> clients = session.createCriteria(Client.class)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+                .list();
         session.close();
         return clients;
     }
@@ -33,9 +37,14 @@ public class ClientDao {
      */
     public List<Client> getClientByLastName(String searchTerm) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Criteria cr = session.createCriteria(Client.class);
-        cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
-        List<Client> clients = cr.list();
+        //Criteria cr = session.createCriteria(Client.class);
+        //cr.add(Restrictions.like("lastName", "%" + searchTerm + "%"));
+        //List<Client> clients = cr.list();
+
+        List<Client> clients = session.createCriteria(Client.class)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+                .add(Restrictions.like("lastName", "%" + searchTerm + "%"))
+                .list();
         session.close();
         return clients;
 

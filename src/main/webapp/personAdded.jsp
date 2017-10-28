@@ -3,14 +3,14 @@
 
 <html lang="en">
 
-<c:set var="title" value="Delete Person" scope="session" />
+<c:set var="title" value="Add Person" scope="session" />
 <%@include file="headtag.jsp"%>
 
 <%@include file="header.jsp"%>
 
 <div class="container-fluid text-center">
     <div class="row content">
-        <%@include file="content-deletePerson.jsp"%>
+        <%@include file="content-personAdded.jsp"%>
         <%@include file="menu.jsp"%>
     </div>
 </div>

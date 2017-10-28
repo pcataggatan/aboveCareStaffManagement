@@ -3,7 +3,7 @@
 <div class="col-md-10 text-left">
     <h2>Client Detail:</h2>
 
-    <table class="table borderless">
+    <table class="table table-striped">
         <!--<tbody> -->
         <tr>
             <td class="col-sm-2">Full Name</td>
@@ -53,8 +53,8 @@
     </c:if>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a> &nbsp; &nbsp;
-        <a href="searchResult.jsp">Back to search results</a>
+    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;
+        <a href="search-client?searchTerm=&searchType=viewAll">Back to search results</a>
     </p>
     <br>
 </div>

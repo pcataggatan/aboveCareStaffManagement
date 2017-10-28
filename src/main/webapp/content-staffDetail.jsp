@@ -62,8 +62,8 @@
     </c:if>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a> &nbsp; &nbsp;
-        <a href="searchResult.jsp">Back to search results</a>
+    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;
+        <a href="search-staff?searchTerm=&searchType=viewAll">Back to search results</a>
     </p>
     <br>
 

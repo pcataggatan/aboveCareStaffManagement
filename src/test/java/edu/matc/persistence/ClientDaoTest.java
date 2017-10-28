@@ -37,15 +37,20 @@ public class ClientDaoTest {
     }
 
 
+
+    @Test
+    public void getClientsByLastName() throws Exception {
+        String searchTerm = "Johnson";
+        List<Client> clients = clientDao.getClientByLastName(searchTerm);
+        assertEquals("Wrong number of rows returned",1, clients.size());
+
+    }
+
     @Test
     public void getClient() throws Exception {
         //int id = 30001;
         int id = 30004;
         client = clientDao.getClient(id);
-
-        //assertTrue("Not the client with clientId " + id,
-        //        client.getFirstName().equals("John")
-        //                && client.getLastName().equals("Smith"));
         assertTrue("Not the client with clientId " + id,
                 client.getFirstName().equals("Barbara")
                         && client.getLastName().equals("Tucker"));
