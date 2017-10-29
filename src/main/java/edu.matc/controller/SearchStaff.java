@@ -34,25 +34,6 @@ public class SearchStaff extends HttpServlet {
 
         StaffDao staffDao = new StaffDao();
 
-        /* --- this Hashset is working too !!!!
-        if (req.getParameter("searchType").equals("byLastname")) {
-            List<Staff> staffList = staffDao.getStaffByLastName(req.getParameter("searchTerm"));
-            Set<Staff> staffSet = new HashSet<>();
-            for (Staff staff : staffList) {
-                staffSet.add(staff);
-            }
-            session.setAttribute("staffList", staffSet);
-        } else {
-            List<Staff> staffList = staffDao.getAllStaffs();
-            Set<Staff> staffSet = new HashSet<>();
-            for (Staff staff : staffList) {
-                staffSet.add(staff);
-            }
-            session.setAttribute("staffList", staffSet);
-        }
-        */
-
-
         if (req.getParameter("searchType").equals("byLastname")) {
             session.setAttribute("staffList", staffDao.getStaffByLastName(req.getParameter("searchTerm")));
         } else {

@@ -36,6 +36,7 @@ public class DeleteStaff extends HttpServlet {
         Staff staff = staffDao.getStaff(staffId);
 
         Set<Client> clients = staff.getClients();
+        session.setAttribute("clientsForDeletedStaff", clients);
 
         for (Client client : clients) {
             ClientDao updtClientDao = new ClientDao();

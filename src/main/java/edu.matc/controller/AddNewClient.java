@@ -67,6 +67,8 @@ public class AddNewClient extends HttpServlet {
             session.setAttribute("addMsg", "New Client Successfully Added");
         }
 
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("searchFor", "Client");
         resp.sendRedirect("personAdded.jsp");
 
     }

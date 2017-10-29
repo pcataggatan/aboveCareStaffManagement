@@ -70,6 +70,8 @@ public class AddNewStaff extends HttpServlet {
             session.setAttribute("addMsg", "New Staff Successfully Added");
         }
 
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("searchFor", "Staff");
         resp.sendRedirect("personAdded.jsp");
 
     }

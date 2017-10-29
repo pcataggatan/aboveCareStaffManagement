@@ -2,12 +2,12 @@
 
 <div class="col-md-10 text-left">
     <h2>Staff Detail</h2>
-
+    <br>
     <table class="table borderless">
         <!-- <tbody> -->
         <tr>
-            <td class="col-sm-2">Full Name</td>
-            <td class="col-sm-10">${staffDetail.firstName} ${staffDetail.lastName}</td>
+            <td class="col-md-2">Full Name</td>
+            <td class="col-md-8"><strong>${staffDetail.firstName} ${staffDetail.lastName}</strong></td>
         </tr>
 
         <tr>

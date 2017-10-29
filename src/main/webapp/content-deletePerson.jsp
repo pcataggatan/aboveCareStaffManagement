@@ -5,10 +5,22 @@
     <h2>${deleteMsg}</h2>
     <c:choose>
         <c:when test="${deletePersonType == 'Client'}">
-            <h3>${deletedClient}</h3>
+            <h3>Name: ${deletedClient}</h3>
         </c:when>
         <c:when test="${deletePersonType == 'Staff'}">
-            <h3>${deletedStaff}</h3>
+            <h3>Name: ${deletedStaff}</h3>
+            <c:if test="${clientsForDeletedStaff.size() > 0}">
+                <br>
+                <h4>${deletedStaff} worked for the following client(s). Make sure to re-assign them to another staff.</h4>
+                <ul style="list-style-type: none;">
+                    <c:forEach var="client" items="${clientsForDeletedStaff}">
+                        <li><a href="client-detail?idClient=${client.getClientId()}">
+                                ${client.getFirstName()} ${client.getLastName()}</a>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </c:if>
+            <h4></h4>
         </c:when>
     </c:choose>
 

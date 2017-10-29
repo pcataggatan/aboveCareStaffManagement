@@ -1,6 +1,7 @@
 package edu.matc.controller;
 
 
+import edu.matc.entity.Client;
 import edu.matc.persistence.ClientDao;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 
 @WebServlet(

@@ -1,7 +1,7 @@
 <%@include file="taglib.jsp"%>
 
 <div class="col-md-10 text-left">
-    <br>
+    <br><br>
 
     <c:choose>
         <c:when test="${searchFor == 'Client'}">
