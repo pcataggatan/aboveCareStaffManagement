@@ -22,12 +22,12 @@ create table user_roles (
 
 
 
-insert into user values (1001,"admin","king1","administrator", "king1admin@abovecare.com");
-insert into user values (1002,"pabbs","prince2","biz_owner", "prince2owner@abovecare.com");
-insert into user values (1003,"aileen","princess3","ofc_staff", "princess3@abovecare.com");
-insert into user values (1004,"trixie","princess4","ofc_staff", "princess3@abovecare.com");
+insert into user values (1001,"admin","king","administrator", "kingadmin@abovecare.com");
+insert into user values (1002,"pabbs","mybiz","biz_owner", "princeowner@abovecare.com");
+insert into user values (1005,"paula","waite","biz_owner", "paulawaite@abovecare.com");
+insert into user values (1006,"waite","paula","ofc_staff", "waitepaula@abovecare.com");
 
 insert into user_roles values (2001,"admin", "administrator");
 insert into user_roles values (2002,"pabbs", "biz_owner");
-insert into user_roles values (2003,"aileen", "ofc_staff");
-insert into user_roles values (2004,"trixie", "ofc_staff");
+insert into user_roles values (2003,"paula", "biz_owner");
+insert into user_roles values (2004,"waite", "ofc_staff");

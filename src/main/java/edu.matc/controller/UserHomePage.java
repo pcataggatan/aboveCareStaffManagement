@@ -32,7 +32,6 @@ public class UserHomePage extends HttpServlet {
         }
 
         session.setAttribute("loggedIn", "Yes");
-        /*session.setAttribute("loggedOut", "No");*/
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);

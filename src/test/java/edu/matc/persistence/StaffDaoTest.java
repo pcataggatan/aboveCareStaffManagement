@@ -42,7 +42,7 @@ public class StaffDaoTest {
 
 
     @Test
-    public void getStaffsByLastname() throws Exception {
+    public void getStaffByLastname() throws Exception {
         String searchTerm = "Cataggatan";
         List<Staff> staffs = staffDao.getStaffByLastName(searchTerm);
         assertEquals("Wrong number of rows returned",2, staffs.size());

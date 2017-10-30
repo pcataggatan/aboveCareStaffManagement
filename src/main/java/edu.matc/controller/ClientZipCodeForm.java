@@ -1,6 +1,6 @@
 package edu.matc.controller;
 
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,18 +11,18 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(
-        name = "userLogoutPage",
-        urlPatterns = {"/user-logout-page"}
+        name = "clientZipCodeForm",
+        urlPatterns = {"/client-zipcode-form"}
 )
-public class UserLogoutPage extends HttpServlet {
 
+public class ClientZipCodeForm extends HttpServlet {
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
-
-        req.getSession().invalidate();
-        resp.sendRedirect("userLogout.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("clientZipCodeForm.jsp");
+        dispatcher.forward(req, resp);
     }
 }

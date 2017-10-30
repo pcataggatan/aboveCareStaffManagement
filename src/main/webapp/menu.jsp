@@ -12,7 +12,7 @@
 
 	<c:if test="${userRole == 'Admin' || userRole == 'Owner'}">
 		<br>
-		<p><a href="#">Possible Staff For<br> New Client</a></p>
+		<p><a href="client-zipcode-form">Possible Staff For<br> New Client</a></p>
 		<!-- <p><a href="#">Rate Maintenance</a></p> -->
 	</c:if>
 	<br>
