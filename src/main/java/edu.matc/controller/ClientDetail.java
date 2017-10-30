@@ -33,6 +33,9 @@ public class ClientDetail extends HttpServlet {
         session.setAttribute("clientDetail", clientDao.getClient(clientId));
         session.setAttribute("personDetail","Client");
 
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("searchFor", "Client");
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("personDetail.jsp");
         dispatcher.forward(req, resp);
     }

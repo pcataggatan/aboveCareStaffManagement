@@ -81,6 +81,10 @@ public class ClientZipCode extends HttpServlet {
         session.setAttribute("targetZipCode", apiZipcode);
         session.setAttribute("targetRadius", apiRadius);
 
+
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("searchFor", "Staff");
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("possibleStaff.jsp");
         dispatcher.forward(req, resp);
     }

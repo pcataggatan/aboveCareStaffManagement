@@ -1,7 +1,7 @@
 <%@include file="taglib.jsp"%>
 
 <div class="col-md-10 text-left">
-    <h2>Client Detail:</h2>
+    <h2>Client Detail</h2>
     <br>
     <table class="table table-striped">
         <!--<tbody> -->
@@ -54,7 +54,7 @@
 
     <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;
-        <a href="search-client?searchTerm=&searchType=viewAll">Back to search results</a>
+        <a href="search-client?searchTerm=&searchType=viewAll">List of Clients</a>
     </p>
     <br>
 </div>

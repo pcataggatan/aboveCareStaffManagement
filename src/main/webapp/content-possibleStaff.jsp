@@ -1,7 +1,7 @@
 <%@include file="taglib.jsp"%>
 
 <div class="col-md-10 text-left">
-    <h2>Staff Within ${targetRadius} miles of Client Zipcode ${targetZipCode}:</h2>
+    <h2>Staff within ${targetRadius} miles of Client zipcode ${targetZipCode}</h2>
     <br>
     <table class="table table-striped">
         <tr>
@@ -27,15 +27,17 @@
                     ${staff.address.getState()}
                     ${staff.address.getZipcode()}
                 </td>
-                <td></td>
-                <td></td>
+                <td>ToDo</td>
+                <td>ToDo</td>
 
             </tr>
         </c:forEach>
     </table>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
+    <p><a href="/aboveCareStaffManagement">Back to home page</a>  &emsp;
+        <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
+    </p>
     <br>
 </div>
 

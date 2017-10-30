@@ -59,6 +59,9 @@ public class DeleteStaff extends HttpServlet {
             session.setAttribute("deleteMsg", "Error Deleting Staff");
         }
 
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("searchFor", "Staff");
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("deletePerson.jsp");
         dispatcher.forward(req, resp);
     }

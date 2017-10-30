@@ -51,6 +51,9 @@ public class DeleteClient extends HttpServlet {
             session.setAttribute("deleteMsg", "Error Deleting Client");
         }
 
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("searchFor", "Client");
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("deletePerson.jsp");
         dispatcher.forward(req, resp);
     }

@@ -16,10 +16,10 @@
     <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;
         <c:choose>
             <c:when test="${addPersonType == 'Client'}">
-                <a href="search-client?searchTerm=&searchType=viewAll">List of clients</a>
+                <a href="search-client?searchTerm=&searchType=viewAll">List of Clients</a>
             </c:when>
             <c:when test="${addPersonType == 'Staff'}">
-                <a href="search-staff?searchTerm=&searchType=viewAll">List of staff</a>
+                <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
             </c:when>
         </c:choose>
     </p>

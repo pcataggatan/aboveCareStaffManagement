@@ -28,10 +28,10 @@
     <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;
         <c:choose>
             <c:when test="${deletePersonType == 'Client'}">
-                <a href="search-client?searchTerm=&searchType=viewAll">Back to search results</a>
+                <a href="search-client?searchTerm=&searchType=viewAll">List of Cliens</a>
             </c:when>
             <c:when test="${deletePersonType == 'Staff'}">
-                <a href="search-staff?searchTerm=&searchType=viewAll">Back to search results</a>
+                <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
             </c:when>
         </c:choose>
     </p>

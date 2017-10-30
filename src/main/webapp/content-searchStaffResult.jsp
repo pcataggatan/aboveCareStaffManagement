@@ -1,7 +1,7 @@
 <%@include file="taglib.jsp"%>
 
 <div class="col-md-10 text-left">
-    <h2>Staff Search Results:</h2>
+    <h2>List of Staff</h2>
     <p align="right"><a href="add-staff-form">Add new staff</a></p><br>
 
     <table class="table table-striped">
@@ -23,7 +23,7 @@
                             ${client.firstName} ${client.lastName}</a><br>
                     </c:forEach>
                 </td>
-                <td><a href="update-staff?idStaff=${staff.staffId}">Update</a></td>
+                <td><a href="#">Update</a></td>
                 <td><a href="delete-staff?idStaff=${staff.staffId}">Delete</a></td>
                 <td><a href="#">Assign Client</a></td>
                 <%-- <td><a href="assign-clienttoStaff?idStaff=${staff.staffId}">Assign Client</a></td>

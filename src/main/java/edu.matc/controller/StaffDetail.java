@@ -32,6 +32,9 @@ public class StaffDetail extends HttpServlet {
         session.setAttribute("staffDetail", staffDao.getStaff(staffId));
         session.setAttribute("personDetail","Staff");
 
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("searchFor", "Staff");
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("personDetail.jsp");
         dispatcher.forward(req, resp);
     }
