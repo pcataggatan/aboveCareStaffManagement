@@ -7,7 +7,7 @@
         <tr>
             <th>Staff Name</th>
             <th>Client Name</th>
-            <th>Address</th>
+            <th>Staff Address</th>
             <th>Distance</th>
             <th>Pay Rate</th>
         </tr>

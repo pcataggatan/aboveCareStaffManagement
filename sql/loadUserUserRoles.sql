@@ -11,8 +11,6 @@ create table user (
   UNIQUE KEY (username)
 ) ENGINE=INNODB;
 
-
-
 create table user_roles (
   user_roles_id    int(11) NOT NULL auto_increment,
   username         varchar(15) not null,
@@ -20,14 +18,12 @@ create table user_roles (
   PRIMARY KEY (user_roles_id)
 ) ENGINE=INNODB;
 
+insert into user values (1001,"admin","king","administrator","kingadmin@abovecare.com");
+insert into user values (1002,"pabbs","mybiz","biz_owner","princeowner@abovecare.com");
+insert into user values (1003,"paula","waite","biz_owner","paulawaite@abovecare.com");
+insert into user values (1004,"waite","paula","ofc_staff","waitepaula@abovecare.com");
 
-
-insert into user values (1001,"admin","king","administrator", "kingadmin@abovecare.com");
-insert into user values (1002,"pabbs","mybiz","biz_owner", "princeowner@abovecare.com");
-insert into user values (1005,"paula","waite","biz_owner", "paulawaite@abovecare.com");
-insert into user values (1006,"waite","paula","ofc_staff", "waitepaula@abovecare.com");
-
-insert into user_roles values (2001,"admin", "administrator");
-insert into user_roles values (2002,"pabbs", "biz_owner");
-insert into user_roles values (2003,"paula", "biz_owner");
-insert into user_roles values (2004,"waite", "ofc_staff");
+insert into user_roles values (2001,"admin","administrator");
+insert into user_roles values (2002,"pabbs","biz_owner");
+insert into user_roles values (2003,"paula","biz_owner");
+insert into user_roles values (2004,"waite","ofc_staff");

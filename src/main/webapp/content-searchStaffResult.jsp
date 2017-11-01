@@ -23,7 +23,7 @@
                             ${client.firstName} ${client.lastName}</a><br>
                     </c:forEach>
                 </td>
-                <td><a href="#">Update</a></td>
+                <td><a href="update-staff-form?idStaff=${staff.staffId}">Update</a></td>
                 <td><a href="delete-staff?idStaff=${staff.staffId}">Delete</a></td>
                 <td><a href="#">Assign Client</a></td>
                 <%-- <td><a href="assign-clienttoStaff?idStaff=${staff.staffId}">Assign Client</a></td>

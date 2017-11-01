@@ -20,7 +20,7 @@
                 <td><a href="staff-detail?idStaff=${client.staff.staffId}">
                         ${client.staff.firstName} ${client.staff.lastName}</a>
                 </td>
-                <td><a href="#">Update</a></td>
+                <td><a href="update-client-form?idClient=${client.clientId}">Update</a></td>
                 <td><a href="delete-client?idClient=${client.clientId}">Delete</a></td>
             </tr>
         </c:forEach>

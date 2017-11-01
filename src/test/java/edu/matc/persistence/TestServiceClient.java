@@ -18,7 +18,7 @@ public class TestServiceClient {
     public void testZipCodeApiJSON() throws Exception {
         Client client = ClientBuilder.newClient();
 
-        String apiKey = "7BUFiqTcqrWSjNIS1jKCOlkK31QPyEVn50rQZbzeFJxt749jKyz87K03U55ysqLx";
+        String apiKey = "AeRPGqRpbJTueB5iWmN0i6Qgd904ZeXPL3uFhKIyAdQG8VAdlpo7G4KTVXQQtPBi";
         String apiZipcode = "53718";
         String apiFormat = "json";
         int apiRadius = 10;
