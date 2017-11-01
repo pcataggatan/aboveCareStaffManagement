@@ -16,7 +16,7 @@
         <fieldset>
 
             <!-- Form Name -->
-            <legend> Personal Information </legend>
+            <legend class="text-center"> Personal Information </legend>
 
             <!-- firstName Text input-->
 
@@ -289,7 +289,7 @@
                                 message: 'Please supply a valid birth date'
                             },
                             notEmpty: {
-                                message: 'Please supply a valid birth date in YYYY/MM/DD format'
+                                message: 'Please supply a valid birth date in YYYY/MM/DD or YYYY-MM-DD format'
                             }
                         }
                     },

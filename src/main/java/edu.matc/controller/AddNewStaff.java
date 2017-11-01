@@ -41,9 +41,12 @@ public class AddNewStaff extends HttpServlet {
         staff.setJobTitle(req.getParameter("jobTitle"));
         staff.setPayCd(req.getParameter("payCd"));
 
-        LocalDate today = LocalDate.now();
+        StringBuilder birthDate = new StringBuilder(req.getParameter("birthDt"));
+        birthDate.setCharAt(4,'/');
+        birthDate.setCharAt(7,'/');
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDate birthDt = LocalDate.parse(req.getParameter("birthDt"), formatter);
+        LocalDate birthDt = LocalDate.parse(birthDate, formatter);
 
         staff.setBirthDt(birthDt);
 

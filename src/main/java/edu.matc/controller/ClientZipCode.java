@@ -42,7 +42,8 @@ public class ClientZipCode extends HttpServlet {
 
         String apiZipcode = req.getParameter("targetZipCode");
         String apiRadius = req.getParameter("targetRadius");;
-        String apiKey = "7BUFiqTcqrWSjNIS1jKCOlkK31QPyEVn50rQZbzeFJxt749jKyz87K03U55ysqLx";
+        //String apiKey = "S5CeIxgBGs11DuK4Nq1jSfZ8lwCWlGrctmgx4G5y7v0CTMrPgXMKQQC5XGkC2ct3";
+        String apiKey = "AeRPGqRpbJTueB5iWmN0i6Qgd904ZeXPL3uFhKIyAdQG8VAdlpo7G4KTVXQQtPBi";
         String apiFormat = "json";
         String apiUnit = "mile";
 

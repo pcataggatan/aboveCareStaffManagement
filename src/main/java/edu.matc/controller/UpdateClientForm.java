@@ -53,7 +53,13 @@ public class UpdateClientForm extends HttpServlet {
 
         session.setAttribute("firstName", client.getFirstName());
         session.setAttribute("lastName", client.getLastName());
-        session.setAttribute("birthDt", client.getBirthDt());
+
+        StringBuilder birthDate = new StringBuilder(client.getBirthDt().toString());
+        birthDate.setCharAt(4,'/');
+        birthDate.setCharAt(7,'/');
+
+        session.setAttribute("birthDt", birthDate);
+
         session.setAttribute("phoneNr", client.getPhoneNr());
         session.setAttribute("email", client.getEmail());
         session.setAttribute("billCd", client.getBillCd());

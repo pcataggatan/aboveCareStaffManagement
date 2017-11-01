@@ -52,7 +52,13 @@ public class UpdateStaffForm extends HttpServlet {
 
         session.setAttribute("firstName", staff.getFirstName());
         session.setAttribute("lastName", staff.getLastName());
-        session.setAttribute("birthDt", staff.getBirthDt());
+
+        StringBuilder birthDate = new StringBuilder(staff.getBirthDt().toString());
+        birthDate.setCharAt(4,'/');
+        birthDate.setCharAt(7,'/');
+
+        session.setAttribute("birthDt", birthDate);
+
         session.setAttribute("phoneNr", staff.getPhoneNr());
         session.setAttribute("email", staff.getEmail());
         session.setAttribute("jobTitle", staff.getJobTitle());

@@ -38,9 +38,12 @@ public class AddNewClient extends HttpServlet {
         client.setEmail(req.getParameter("email"));
         client.setBillCd(req.getParameter("billCd"));
 
-        LocalDate today = LocalDate.now();
+        StringBuilder birthDate = new StringBuilder(req.getParameter("birthDt"));
+        birthDate.setCharAt(4,'/');
+        birthDate.setCharAt(7,'/');
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDate birthDt = LocalDate.parse(req.getParameter("birthDt"), formatter);
+        LocalDate birthDt = LocalDate.parse(birthDate, formatter);
 
         client.setBirthDt(birthDt);
 

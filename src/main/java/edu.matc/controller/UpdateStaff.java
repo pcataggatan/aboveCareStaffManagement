@@ -54,15 +54,20 @@ public class UpdateStaff extends HttpServlet {
 
         staff.setFirstName(req.getParameter("firstName"));
         staff.setLastName(req.getParameter("lastName"));
+
+        StringBuilder birthDate = new StringBuilder(req.getParameter("birthDt"));
+        birthDate.setCharAt(4,'/');
+        birthDate.setCharAt(7,'/');
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate birthDt = LocalDate.parse(birthDate, formatter);
+
+        staff.setBirthDt(birthDt);
+
         staff.setPhoneNr(req.getParameter("phoneNr"));
         staff.setEmail(req.getParameter("email"));
         staff.setJobTitle(req.getParameter("jobTitle"));
         staff.setPayCd(req.getParameter("payCd"));
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate birthDt = LocalDate.parse(req.getParameter("birthDt"), formatter);
-
-        staff.setBirthDt(birthDt);
 
         staff.getAddress().setStreet(req.getParameter("street"));
         staff.getAddress().setCity(req.getParameter("city"));

@@ -243,7 +243,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4">
-                        <button type="submit" class="btn btn-primary" >Submit</button>
+                        <button type="submit" class="btn btn-primary" >Update <span class="glyphicon glyphicon-ok"></span></button>
                     </div>
                 </div>
 
@@ -285,11 +285,11 @@
                         birthDt: {
                             validators: {
                                 date: {
-                                    format: 'YYYY-MM-DD',
+                                    format: 'YYYY/MM/DD',
                                     message: 'Please supply a valid birth date'
                                 },
                                 notEmpty: {
-                                    message: 'Please supply a valid birth date in YYYY-MM-DD format'
+                                    message: 'Please supply a valid birth date in YYYY/MM/DD or YYYY-MM-DD format'
                                 }
                             }
                         },

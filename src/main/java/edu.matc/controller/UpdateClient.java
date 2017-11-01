@@ -53,14 +53,19 @@ public class UpdateClient extends HttpServlet {
 
         client.setFirstName(req.getParameter("firstName"));
         client.setLastName(req.getParameter("lastName"));
+
+        StringBuilder birthDate = new StringBuilder(req.getParameter("birthDt"));
+        birthDate.setCharAt(4,'/');
+        birthDate.setCharAt(7,'/');
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate birthDt = LocalDate.parse(birthDate, formatter);
+
+        client.setBirthDt(birthDt);
+
         client.setPhoneNr(req.getParameter("phoneNr"));
         client.setEmail(req.getParameter("email"));
         client.setBillCd(req.getParameter("billCd"));
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate birthDt = LocalDate.parse(req.getParameter("birthDt"), formatter);
-
-        client.setBirthDt(birthDt);
 
         client.getAddress().setStreet(req.getParameter("street"));
         client.getAddress().setCity(req.getParameter("city"));
