@@ -7,7 +7,7 @@
         Password: <input type="password" name="j_password" placeholder="password"><br><br>
         <%-- <input type="submit" value="Login">
         --%>
-        <button type="submit">Login</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
     <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>

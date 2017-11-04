@@ -32,6 +32,7 @@ public class AddNewStaff extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
+        StaffDao staffDao = new StaffDao();
         Staff staff = new Staff();
 
         staff.setFirstName(req.getParameter("firstName"));
@@ -59,23 +60,46 @@ public class AddNewStaff extends HttpServlet {
 
         staff.setAddress(address);
 
-        StaffDao staffDao = new StaffDao();
+        String addedStaff = staff.getFirstName() + " " + staff.getLastName();
 
         int addStaffId = staffDao.addStaff(staff);
 
-        String addedStaff = staff.getFirstName() + " " + staff.getLastName();
-
-        session.setAttribute("addedStaff", addedStaff);
+        //session.setAttribute("addedStaff", addedStaff);
 
         if (addStaffId == 0) {
-            session.setAttribute("addMsg", "Error Adding New Staff");
+            session.setAttribute("addMsg", "Error adding new Staff " + addedStaff);
         } else {
-            session.setAttribute("addMsg", "New Staff Successfully Added");
+            session.setAttribute("addMsg", "New Staff " + addedStaff + " is successfully added");
         }
 
+
+
+        session.setAttribute("firstName", staff.getFirstName());
+        session.setAttribute("lastName", staff.getLastName());
+
+        StringBuilder dateOfBirth = new StringBuilder(staff.getBirthDt().toString());
+        dateOfBirth.setCharAt(4,'/');
+        dateOfBirth.setCharAt(7,'/');
+
+        session.setAttribute("birthDt", dateOfBirth);
+
+        session.setAttribute("phoneNr", staff.getPhoneNr());
+        session.setAttribute("email", staff.getEmail());
+        session.setAttribute("jobTitle", staff.getJobTitle());
+        session.setAttribute("payCd", staff.getPayCd());
+        session.setAttribute("street", staff.getAddress().getStreet());
+        session.setAttribute("city", staff.getAddress().getCity());
+        session.setAttribute("state", staff.getAddress().getState());
+        session.setAttribute("zipcode", staff.getAddress().getZipcode());
+
+
+        session.setAttribute("addPersonType", "Staff");
         session.setAttribute("searchType", "viewAll");
         session.setAttribute("searchFor", "Staff");
-        resp.sendRedirect("personAdded.jsp");
+        session.setAttribute("addedAlready", "Yes");
+
+        //resp.sendRedirect("personAdded.jsp");
+        resp.sendRedirect("addPersonForm.jsp");
 
     }
 }

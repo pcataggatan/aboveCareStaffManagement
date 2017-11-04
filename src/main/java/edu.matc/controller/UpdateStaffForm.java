@@ -70,6 +70,7 @@ public class UpdateStaffForm extends HttpServlet {
 
         session.setAttribute("updatePersonType", "Staff");
         session.setAttribute("updateMsg", null);
+        session.setAttribute("updatedAlready", "No");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("updatePersonForm.jsp");
         dispatcher.forward(req, resp);

@@ -17,7 +17,6 @@ import java.io.IOException;
 
 public class SearchStaffForm extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -25,6 +24,7 @@ public class SearchStaffForm extends HttpServlet {
         HttpSession session = req.getSession();
 
         session.setAttribute("searchFor", "Staff");
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("searchForm.jsp");
         dispatcher.forward(req, resp);
     }

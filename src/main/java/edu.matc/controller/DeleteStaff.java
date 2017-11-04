@@ -29,14 +29,17 @@ public class DeleteStaff extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        int staffId = Integer.parseInt(req.getParameter("idStaff"));
+
+        //int staffId = Integer.parseInt(req.getParameter("idStaff"));
+
+        int staffId = (Integer) session.getAttribute("deleteStaffId");
 
         StaffDao staffDao = new StaffDao();
 
         Staff staff = staffDao.getStaff(staffId);
 
         Set<Client> clients = staff.getClients();
-        session.setAttribute("clientsForDeletedStaff", clients);
+        //session.setAttribute("clientsForDeletedStaff", clients);
 
         for (Client client : clients) {
             ClientDao updtClientDao = new ClientDao();
@@ -46,17 +49,19 @@ public class DeleteStaff extends HttpServlet {
             String updtMsg = updtClientDao.updateClient(updtClient);
         }
 
-        String deletedStaff = staff.getFirstName() + " " + staff.getLastName();
+        //String deletedStaff = staff.getFirstName() + " " + staff.getLastName();
 
-        session.setAttribute("deletedStaff", deletedStaff);
-        session.setAttribute("deletePersonType", "Staff");
+        //session.setAttribute("deletedStaff", deletedStaff);
+        //session.setAttribute("deletePersonType", "Staff");
+
+        String deleteStaffName = staff.getFirstName() + " " + staff.getLastName();
 
         String deleteMsg = staffDao.deleteStaff(staffId);
 
         if (deleteMsg.equals("Success")) {
-            session.setAttribute("deleteMsg", "Staff Successfully Deleted");
+            session.setAttribute("deleteMsg", "Staff " + deleteStaffName + " is uccessfully deleted");
         } else {
-            session.setAttribute("deleteMsg", "Error Deleting Staff");
+            session.setAttribute("deleteMsg", "Error deleting Staff " + deleteStaffName);
         }
 
         session.setAttribute("searchType", "viewAll");

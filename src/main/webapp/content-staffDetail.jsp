@@ -3,11 +3,15 @@
 <div class="col-md-10 text-left">
     <h2>Staff Detail</h2>
     <br>
-    <table class="table borderless">
+    <table class="table table-striped">
         <!-- <tbody> -->
         <tr>
-            <td class="col-md-2">Full Name</td>
-            <td class="col-md-8"><strong>${staffDetail.firstName} ${staffDetail.lastName}</strong></td>
+            <td class="col-md-2">Staff Id</td>
+            <td class="col-md-8">${staffDetail.staffId}</td>
+        </tr>
+        <tr>
+            <td>Full Name</td>
+            <td><strong>${staffDetail.firstName} ${staffDetail.lastName}</strong></td>
         </tr>
 
         <tr>
@@ -55,14 +59,15 @@
         <p><strong>Clients:</strong></p>
         <ul style="list-style-type: none;">
           <c:forEach var="client" items="${staffDetail.getClients()}">
-              <li><a href="client-detail?idClient=${client.getClientId()}">
+              <li>${client.getClientId()} &nbsp;
+                  <a href="client-detail?idClient=${client.getClientId()}">
                       ${client.getFirstName()} ${client.getLastName()}</a></li>
           </c:forEach>
         </ul>
     </c:if>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;
+    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp;
         <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
     </p>
     <br>

@@ -77,17 +77,38 @@ public class UpdateClient extends HttpServlet {
         String updtMsg = clientDao.updateClient(client);
 
         if (updtMsg.equals("Success")) {
-            session.setAttribute("updateMsg", "Client Successfully Updated");
+            session.setAttribute("updateMsg", "Client " + updatedClient + " is successfully updated");
         } else {
-            session.setAttribute("updateMsg", "Error Updating Client");
+            session.setAttribute("updateMsg", "Error updating client " + updatedClient);
         }
 
-        session.setAttribute("updatedClient", updatedClient);
+
+        session.setAttribute("firstName", client.getFirstName());
+        session.setAttribute("lastName", client.getLastName());
+
+        StringBuilder dateOfBirth = new StringBuilder(client.getBirthDt().toString());
+        dateOfBirth.setCharAt(4,'/');
+        dateOfBirth.setCharAt(7,'/');
+
+        session.setAttribute("birthDt", dateOfBirth);
+
+        session.setAttribute("phoneNr", client.getPhoneNr());
+        session.setAttribute("email", client.getEmail());
+        session.setAttribute("billCd", client.getBillCd());
+        session.setAttribute("street", client.getAddress().getStreet());
+        session.setAttribute("city", client.getAddress().getCity());
+        session.setAttribute("state", client.getAddress().getState());
+        session.setAttribute("zipcode", client.getAddress().getZipcode());
+
+
+        //session.setAttribute("updatedClient", updatedClient);
         session.setAttribute("updatePersonType", "Client");
         session.setAttribute("searchType", "viewAll");
         session.setAttribute("searchFor", "Client");
+        session.setAttribute("updatedAlready", "Yes");
 
-        resp.sendRedirect("personUpdated.jsp");
+        //resp.sendRedirect("personUpdated.jsp");
+        resp.sendRedirect("updatePersonForm.jsp");
 
     }
 }

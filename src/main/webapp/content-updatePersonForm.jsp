@@ -239,13 +239,27 @@
 
 
                 <!-- Button -->
+                <c:choose>
+                    <c:when test="${updatedAlready == 'No'}">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary" >Update <span class="glyphicon glyphicon-ok"></span></button>
+                            </div>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary" disabled>Update <span class="glyphicon glyphicon-ok"></span></button>
+                            </div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label"></label>
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-primary" >Update <span class="glyphicon glyphicon-ok"></span></button>
-                    </div>
-                </div>
+
+
 
             </fieldset>
         </form>
@@ -403,6 +417,15 @@
         </script>
 
         <br>
-        <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
+        <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp;
+        <c:choose>
+            <c:when test="${updatePersonType == 'Staff'}">
+                <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
+            </c:when>
+            <c:when test="${updatePersonType == 'Client'}">
+                <a href="search-client?searchTerm=&searchType=viewAll">List of Clients</a>
+            </c:when>
+        </c:choose>
+        </p>
         <br>
 </div>

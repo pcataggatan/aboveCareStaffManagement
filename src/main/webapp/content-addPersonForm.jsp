@@ -24,7 +24,7 @@
                 <label class="col-md-4 control-label">First Name</label>
                 <div class="col-md-6  inputGroupContainer">
                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input  name="firstName" placeholder="First Name" class="form-control"  type="text">
+                        <input  name="firstName" value="${firstName}" class="form-control"  type="text">
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                 <label class="col-md-4 control-label" >Last Name</label>
                 <div class="col-md-6  inputGroupContainer">
                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="lastName" placeholder="Last Name" class="form-control"  type="text">
+                        <input name="lastName" value="${lastName}" class="form-control"  type="text">
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 <label class="col-md-4 control-label" >Date of Birth</label>
                 <div class="col-md-6  inputGroupContainer">
                     <div class="input-group date"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                        <input name="birthDt" placeholder="YYYY/MM/DD" class="form-control"  type="text">
+                        <input name="birthDt" value="${birthDt}" class="form-control"  type="text">
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                 <label class="col-md-4 control-label">Phone #</label>
                 <div class="col-md-6  inputGroupContainer">
                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input name="phoneNr" placeholder="(608)123-4567" class="form-control" type="text">
+                        <input name="phoneNr" value="${phoneNr}" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 <label class="col-md-4 control-label">E-Mail</label>
                 <div class="col-md-6  inputGroupContainer">
                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="email" placeholder="Email Address" class="form-control"  type="text">
+                        <input name="email" value="${email}" class="form-control"  type="text">
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                         <div class="col-md-6 selectContainer">
                             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                 <select name="billCd" class="form-control selectpicker" >
-                                    <option value=" " >Please select client bill rate code</option>
+                                    <option value="${billCd}">Please select client bill rate code</option>
                                     <option>C01</option>
                                     <option>C02</option>
                                     <option>C03</option>
@@ -108,7 +108,7 @@
                         <label class="col-md-4 control-label">Job Title</label>
                         <div class="col-md-6  inputGroupContainer">
                             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input  name="jobTitle" placeholder="Job Title" class="form-control"  type="text">
+                                <input  name="jobTitle" value="${jobTitle}" class="form-control"  type="text">
                             </div>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                         <div class="col-md-6 selectContainer">
                             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                 <select name="payCd" class="form-control selectpicker" >
-                                    <option value=" " >Please select staff pay rate code</option>
+                                    <option value="${payCd}">Please select staff pay rate code</option>
                                     <option>S01</option>
                                     <option>S02</option>
                                     <option>S03</option>
@@ -145,7 +145,7 @@
                 <label class="col-md-4 control-label">Street Address</label>
                 <div class="col-md-6  inputGroupContainer">
                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="street" placeholder="Address" class="form-control" type="text">
+                        <input name="street" value="${street}" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -156,7 +156,7 @@
                 <label class="col-md-4 control-label">City</label>
                 <div class="col-md-6  inputGroupContainer">
                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="city" placeholder="city" class="form-control"  type="text">
+                        <input name="city" value="${city}" class="form-control"  type="text">
                     </div>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                 <div class="col-md-6 selectContainer">
                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                         <select name="state" class="form-control selectpicker" >
-                            <option value=" " >Please select your state</option>
+                            <option value="${state}">Please select your state</option>
                             <option>AL</option>
                             <option>AK</option>
                             <option>AZ</option>
@@ -232,20 +232,32 @@
                 <label class="col-md-4 control-label">Zip Code</label>
                 <div class="col-md-6  inputGroupContainer">
                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="zipcode" placeholder="Zip Code" class="form-control"  type="text">
+                        <input name="zipcode" value="${zipcode}" class="form-control"  type="text">
                     </div>
                 </div>
             </div>
 
-
             <!-- Button -->
 
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-primary" >Add <span class="glyphicon glyphicon-plus"></span></button>
-                </div>
-            </div>
+            <c:choose>
+                <c:when test="${addedAlready == 'No'}">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary" >Add <span class="glyphicon glyphicon-plus"></span></button>
+                        </div>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary" disabled>Add <span class="glyphicon glyphicon-plus"></span></button>
+                        </div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+
 
         </fieldset>
     </form>
@@ -403,6 +415,15 @@
     </script>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
+    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp;
+    <c:choose>
+        <c:when test="${addPersonType == 'Staff'}">
+            <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
+        </c:when>
+        <c:when test="${addPersonType == 'Client'}">
+            <a href="search-client?searchTerm=&searchType=viewAll">List of Clients</a>
+        </c:when>
+    </c:choose>
+    </p>
     <br>
 </div>

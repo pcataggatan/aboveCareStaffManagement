@@ -22,11 +22,12 @@
                 <option value="50">50</option>
             </select>
             <br><br>
-            <button type="submit">Search Staff</button>
+            <button type="submit" class="btn btn-primary">Search Staff</button>
     </form>
 
     <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
     <br>
 </div>
+
 <div class="col-md-4 text-right"></div>

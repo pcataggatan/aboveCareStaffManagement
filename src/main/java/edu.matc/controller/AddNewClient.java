@@ -65,14 +65,37 @@ public class AddNewClient extends HttpServlet {
         session.setAttribute("addedClient", addedClient);
 
         if (addClientId == 0) {
-            session.setAttribute("addMsg", "Error Adding New Client");
+            session.setAttribute("addMsg", "Error adding new Client " + addedClient);
         } else {
-            session.setAttribute("addMsg", "New Client Successfully Added");
+            session.setAttribute("addMsg", "New Client " + addedClient + " is successfully added");
         }
 
+
+        session.setAttribute("firstName", client.getFirstName());
+        session.setAttribute("lastName", client.getLastName());
+
+        StringBuilder dateOfBirth = new StringBuilder(client.getBirthDt().toString());
+        dateOfBirth.setCharAt(4,'/');
+        dateOfBirth.setCharAt(7,'/');
+
+        session.setAttribute("birthDt", dateOfBirth);
+
+        session.setAttribute("phoneNr", client.getPhoneNr());
+        session.setAttribute("email", client.getEmail());
+        session.setAttribute("billCd", client.getBillCd());
+        session.setAttribute("street", client.getAddress().getStreet());
+        session.setAttribute("city", client.getAddress().getCity());
+        session.setAttribute("state", client.getAddress().getState());
+        session.setAttribute("zipcode", client.getAddress().getZipcode());
+
+
+        session.setAttribute("addPersonType", "Client");
         session.setAttribute("searchType", "viewAll");
         session.setAttribute("searchFor", "Client");
-        resp.sendRedirect("personAdded.jsp");
+        session.setAttribute("addedAlready", "Yes");
+
+        //resp.sendRedirect("personAdded.jsp");
+        resp.sendRedirect("addPersonForm.jsp");
 
     }
 }

@@ -6,6 +6,10 @@
     <table class="table table-striped">
         <!--<tbody> -->
         <tr>
+            <td>Client Id</td>
+            <td>${clientDetail.clientId}</td>
+        </tr>
+        <tr>
             <td class="col-md-2">Full Name</td>
             <td class="col-md-8"><strong>${clientDetail.firstName} ${clientDetail.lastName}</strong></td>
         </tr>
@@ -47,13 +51,15 @@
     </c:if>
 
     <c:if test="${clientDetail.staff != null}">
-        <p><strong>Assigned Staff : &nbsp;</strong><a href="staff-detail?idStaff=${clientDetail.staff.getStaffId()}">
+        <p><strong>Assigned Staff :</strong> &nbsp;
+            ${clientDetail.staff.getStaffId()} &nbsp;
+            <a href="staff-detail?idStaff=${clientDetail.staff.getStaffId()}">
             ${clientDetail.staff.getFirstName()} ${clientDetail.staff.getLastName()}</a>
         </p>
     </c:if>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;
+    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp;
         <a href="search-client?searchTerm=&searchType=viewAll">List of Clients</a>
     </p>
     <br>

@@ -22,6 +22,7 @@ public class ClientZipCodeForm extends HttpServlet {
 
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("clientZipCodeForm.jsp");
         dispatcher.forward(req, resp);
     }

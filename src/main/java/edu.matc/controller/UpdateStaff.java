@@ -79,18 +79,43 @@ public class UpdateStaff extends HttpServlet {
         String updtMsg = staffDao.updateStaff(staff);
 
         if (updtMsg.equals("Success")) {
-            session.setAttribute("updateMsg", "Staff Successfully Updated");
+            session.setAttribute("updateMsg", "Staff " + updatedStaff + " is successfully updated");
         } else {
-            session.setAttribute("updateMsg", "Error Updating Staff");
+            session.setAttribute("updateMsg", "Error updating Staff " + updatedStaff);
         }
 
-        session.setAttribute("updatedStaff", updatedStaff);
+
+
+        session.setAttribute("firstName", staff.getFirstName());
+        session.setAttribute("lastName", staff.getLastName());
+
+        StringBuilder dateOfBirth = new StringBuilder(staff.getBirthDt().toString());
+        dateOfBirth.setCharAt(4,'/');
+        dateOfBirth.setCharAt(7,'/');
+
+        session.setAttribute("birthDt", dateOfBirth);
+
+        session.setAttribute("phoneNr", staff.getPhoneNr());
+        session.setAttribute("email", staff.getEmail());
+        session.setAttribute("jobTitle", staff.getJobTitle());
+        session.setAttribute("payCd", staff.getPayCd());
+        session.setAttribute("street", staff.getAddress().getStreet());
+        session.setAttribute("city", staff.getAddress().getCity());
+        session.setAttribute("state", staff.getAddress().getState());
+        session.setAttribute("zipcode", staff.getAddress().getZipcode());
+
+
+        //session.setAttribute("updatedStaff", updatedStaff);
         session.setAttribute("updatePersonType", "Staff");
         session.setAttribute("searchType", "viewAll");
         session.setAttribute("searchFor", "Staff");
+        session.setAttribute("updatedAlready", "Yes");
 
-        resp.sendRedirect("personUpdated.jsp");
+        //resp.sendRedirect("personUpdated.jsp");
 
+        resp.sendRedirect("updatePersonForm.jsp");
+        //RequestDispatcher dispatcher = req.getRequestDispatcher("updatePersonForm.jsp");
+        //dispatcher.forward(req, resp);
     }
 }
 

@@ -6,6 +6,7 @@
 
     <table class="table table-striped">
         <tr>
+            <th>Staff Id</th>
             <th>Staff Name</th>
             <th>Client Name</th>
             <th></th>
@@ -16,7 +17,9 @@
 
         <c:forEach var="staff" items="${staffList}">
             <tr>
-                <td><a href="staff-detail?idStaff=${staff.staffId}">${staff.firstName} ${staff.lastName}</a></td>
+                <td>${staff.staffId}</td>
+                <td><a href="staff-detail?idStaff=${staff.staffId}">
+                        ${staff.firstName} ${staff.lastName}</a></td>
                 <td>
                     <c:forEach var="client" items="${staff.clients}">
                         <a href="client-detail?idClient=${client.clientId}">
@@ -24,8 +27,8 @@
                     </c:forEach>
                 </td>
                 <td><a href="update-staff-form?idStaff=${staff.staffId}">Update</a></td>
-                <td><a href="delete-staff?idStaff=${staff.staffId}">Delete</a></td>
-                <td><a href="#">Assign Client</a></td>
+                <td><a href="confirm-delete-staff?idStaff=${staff.staffId}">Delete</a></td>
+                <td><a href="assign-client-form?idStaff=${staff.staffId}">Assign a client</a></td>
                 <%-- <td><a href="assign-clienttoStaff?idStaff=${staff.staffId}">Assign Client</a></td>
                 -->
                 <%-- <td><a href="#">Timesheet</a></td>

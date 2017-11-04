@@ -1,6 +1,6 @@
 <%@include file="taglib.jsp"%>
 
-<div class="col-md-10 text-left">
+<div class="col-md-6 text-right"">
     <br><br>
 
     <c:choose>
@@ -15,12 +15,13 @@
         <label for="searchTerm">Search</label>
         <input type="text" id="searchTerm" name="searchTerm" autofocus>
         &nbsp;
-        <button type="submit" value="byLastname" name="searchType">By LastName</button>
+        <button type="submit" value="byLastname" name="searchType" class="btn btn-primary">By LastName</button>
         &nbsp;
-        <button type="submit" value="viewAll" name="searchType">All</button>
+        <button type="submit" value="viewAll" name="searchType" class="btn btn-primary">All</button>
     </form>
 
     <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
     <br>
 </div>
+<div class="col-md-4 text-right"></div>

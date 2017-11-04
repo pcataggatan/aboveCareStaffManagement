@@ -23,8 +23,23 @@ public class AddNewStaffForm extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
+
+        session.setAttribute("firstName", null);
+        session.setAttribute("lastName", null);
+        session.setAttribute("birthDt", null);
+        session.setAttribute("phoneNr", null);
+        session.setAttribute("email", null);
+        session.setAttribute("jobTitle", null);
+        session.setAttribute("payCd", null);
+        session.setAttribute("street", null);
+        session.setAttribute("city", null);
+        session.setAttribute("state", null);
+        session.setAttribute("zipcode", null);
+
+
         session.setAttribute("addPersonType", "Staff");
-        session.setAttribute("addMsg", null);
+        session.setAttribute("addMsg", " ");
+        session.setAttribute("addedAlready", "No");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("addPersonForm.jsp");
         dispatcher.forward(req, resp);

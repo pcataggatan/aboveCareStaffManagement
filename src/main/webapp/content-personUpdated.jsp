@@ -13,15 +13,9 @@
     </c:choose>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;
-        <c:choose>
-            <c:when test="${updatePersonType == 'Client'}">
-                <a href="search-client?searchTerm=&searchType=viewAll">List of Clients</a>
-            </c:when>
-            <c:when test="${updatePersonType == 'Staff'}">
-                <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
-            </c:when>
-        </c:choose>
+    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp;
+        <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a> &emsp;&nbsp;
+        <a href="search-client?searchTerm=&searchType=viewAll">List of Clients</a>
     </p>
     <br>
 </div>

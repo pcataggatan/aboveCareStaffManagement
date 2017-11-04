@@ -6,6 +6,7 @@
 
     <table class="table table-striped">
         <tr>
+            <th>Client Id</th>
             <th>Client Name</th>
             <th>Staff Name</th>
             <th></th>
@@ -14,6 +15,7 @@
 
         <c:forEach var="client" items="${clientList}">
             <tr>
+                <td>${client.clientId}</td>
                 <td><a href="client-detail?idClient=${client.clientId}">
                         ${client.firstName} ${client.lastName}</a>
                 </td>
@@ -21,7 +23,7 @@
                         ${client.staff.firstName} ${client.staff.lastName}</a>
                 </td>
                 <td><a href="update-client-form?idClient=${client.clientId}">Update</a></td>
-                <td><a href="delete-client?idClient=${client.clientId}">Delete</a></td>
+                <td><a href="confirm-delete-client?idClient=${client.clientId}">Delete</a></td>
             </tr>
         </c:forEach>
 
