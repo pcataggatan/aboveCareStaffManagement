@@ -38,19 +38,6 @@ public class UpdateClient extends HttpServlet {
 
         Client client = clientDao.getClient(clientId);
 
-        // for debugging ----------------------------------------
-        String xfirstName = req.getParameter("firstName");
-        String xlastName = req.getParameter("lastName");
-        String xbirthDt = req.getParameter("birthDt");
-        String xphoneNr = req.getParameter("phoneNr");
-        String xemail = req.getParameter("email");
-        String xpayCd = req.getParameter("billCd");
-        String xstreet = req.getParameter("street");
-        String xcity = req.getParameter("city");
-        String xstate = req.getParameter("state");
-        String xzipcode = req.getParameter("zipcode");
-        // ------------------------------------------------------
-
         client.setFirstName(req.getParameter("firstName"));
         client.setLastName(req.getParameter("lastName"));
 

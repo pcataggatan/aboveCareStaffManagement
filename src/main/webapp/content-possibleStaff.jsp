@@ -27,8 +27,8 @@
                     ${staff.address.getState()}
                     ${staff.address.getZipcode()}
                 </td>
-                <td>ToDo</td>
-                <td>ToDo</td>
+                <td>${staff.getDistance()} mi.</td>
+                <td>${staff.getHourlyRate()} - TODO</td>
 
             </tr>
         </c:forEach>

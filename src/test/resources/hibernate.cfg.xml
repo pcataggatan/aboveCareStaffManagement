@@ -33,9 +33,6 @@
         <mapping class="edu.matc.entity.Staff"/>
         <mapping class="edu.matc.entity.User"/>
         <mapping class="edu.matc.entity.UserRoles"/>
-        <mapping class="edu.matc.entity.Schedule"/>
-        <mapping class="edu.matc.entity.TimeSheet"/>
-
 
     </session-factory>
 

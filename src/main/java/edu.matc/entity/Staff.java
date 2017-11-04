@@ -40,6 +40,12 @@ public class Staff {
     @Column(name = "job_title", nullable = false, length = 20)
     private String jobTitle;
 
+    @Column(name = "distance", nullable = true)
+    private double distance;
+
+    @Column(name = "hourly_rate", nullable = true)
+    private double hourlyRate;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="addr_id", nullable=false)
@@ -149,6 +155,16 @@ public class Staff {
     public Set<Client> getClients() { return clients; }
 
     public void setClients(Set<Client> clients) { this.clients = clients; }
+
+
+    public double getDistance() { return distance; }
+
+    public void setDistance(double distance) { this.distance = distance; }
+
+
+    public double getHourlyRate() { return hourlyRate; }
+
+    public void setHourlyRate(double hourlyRate) { this.hourlyRate = hourlyRate; }
 
 
 

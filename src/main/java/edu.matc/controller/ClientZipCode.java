@@ -66,14 +66,11 @@ public class ClientZipCode extends HttpServlet {
         List<Staff> possibleStaff = new ArrayList<Staff>();
 
         for (Staff staff : staffList) {
-            if (staff.getAddress().getZipcode().equals(apiZipcode)) {
-                possibleStaff.add(staff);
-            } else {
-                for (ZipCodesItem zipcode : zipCodeList) {
-                    if (staff.getAddress().getZipcode().equals(zipcode.getZipCode())) {
-                        possibleStaff.add(staff);
-                        break;
-                    }
+            for (ZipCodesItem zipcode : zipCodeList) {
+                if (staff.getAddress().getZipcode().equals(zipcode.getZipCode())) {
+                    staff.setDistance(zipcode.getDistance());
+                    possibleStaff.add(staff);
+                    break;
                 }
             }
         }

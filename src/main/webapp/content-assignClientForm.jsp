@@ -6,9 +6,16 @@
     <h3>Assign a client to ${assignToStaff}</h3>
     <br>
     <form action="assign-client" method="GET">
-        <label for="assignClientId">Enter Client Id</label>
-        <input type="text" id="assignClientId" name="assignClientId" autofocus>
-        &nbsp;
+        <label for="assignClientId">Select Client Id</label>
+        <select id="assignClientId" name="assignClientId">
+            <c:forEach var="clientId" items="${clientsWithNoStaff}">
+                <option value="${clientId}">${clientId}</option>
+            </c:forEach>
+        </select>
+
+        <%--<input type="text" id="assignClientId" name="assignClientId" autofocus> --%>
+
+        &emsp;&nbsp;
         <button type="submit" class="btn btn-primary">Assign</button>
     </form>
 

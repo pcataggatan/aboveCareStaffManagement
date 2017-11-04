@@ -38,20 +38,6 @@ public class UpdateStaff extends HttpServlet {
 
         Staff staff = staffDao.getStaff(staffId);
 
-        // for debugging ----------------------------------------
-        String xfirstName = req.getParameter("firstName");
-        String xlastName = req.getParameter("lastName");
-        String xbirthDt = req.getParameter("birthDt");
-        String xphoneNr = req.getParameter("phoneNr");
-        String xemail = req.getParameter("email");
-        String xjobTitle = req.getParameter("jobTitle");
-        String xpayCd = req.getParameter("payCd");
-        String xstreet = req.getParameter("street");
-        String xcity = req.getParameter("city");
-        String xstate = req.getParameter("state");
-        String xzipcode = req.getParameter("zipcode");
-        // ------------------------------------------------------
-
         staff.setFirstName(req.getParameter("firstName"));
         staff.setLastName(req.getParameter("lastName"));
 
@@ -112,10 +98,8 @@ public class UpdateStaff extends HttpServlet {
         session.setAttribute("updatedAlready", "Yes");
 
         //resp.sendRedirect("personUpdated.jsp");
-
         resp.sendRedirect("updatePersonForm.jsp");
-        //RequestDispatcher dispatcher = req.getRequestDispatcher("updatePersonForm.jsp");
-        //dispatcher.forward(req, resp);
+
     }
 }
 

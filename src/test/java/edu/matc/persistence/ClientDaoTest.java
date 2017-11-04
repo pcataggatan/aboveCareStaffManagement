@@ -40,11 +40,12 @@ public class ClientDaoTest {
 
     @Test
     public void getClientsByLastName() throws Exception {
-        String searchTerm = "Johnson";
+        String searchTerm = "Smith";
         List<Client> clients = clientDao.getClientByLastName(searchTerm);
         assertEquals("Wrong number of rows returned",1, clients.size());
 
     }
+
 
     @Test
     public void getClient() throws Exception {

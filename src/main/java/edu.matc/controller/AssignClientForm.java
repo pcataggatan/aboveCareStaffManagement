@@ -1,6 +1,8 @@
 package edu.matc.controller;
 
+import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
+import edu.matc.persistence.ClientDao;
 import edu.matc.persistence.StaffDao;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @WebServlet(
         name = "assignClientForm",
@@ -34,6 +39,19 @@ public class AssignClientForm extends HttpServlet {
         Staff staff = staffDao.getStaff(staffId);
 
         String assignClientToStaff = staff.getFirstName() + " " + staff.getLastName();
+
+        //---- get all clients without staff assigned
+        ClientDao clientDao = new ClientDao();
+        List<Client> clients = clientDao.getAllClients();
+
+        Set<Integer> clientsWithNoStaff = new HashSet<>();
+
+        for (Client client : clients) {
+            clientsWithNoStaff.add(client.getClientId());
+        }
+
+        session.setAttribute("clientsWithNoStaff", clientsWithNoStaff);
+
 
         session.setAttribute("assignToStaff", assignClientToStaff);
         session.setAttribute("assignClientMsg", " ");
