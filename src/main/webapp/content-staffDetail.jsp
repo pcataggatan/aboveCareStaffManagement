@@ -45,7 +45,14 @@
 
         <tr>
             <td>Pay Rate Code</td>
-            <td>${staffDetail.payCd}</td>
+            <c:choose>
+                <c:when test="${userRole == 'Admin' || userRole == 'Owner'}">
+                    <td>${staffDetail.payCd} <span style="color:red">($${staffDetail.hourlyRate})</span></td>
+                </c:when>
+                <c:otherwise>
+                    <td>${staffDetail.payCd}</td>
+                </c:otherwise>
+            </c:choose>
         </tr>
 
         <!-- </tbody> -->
@@ -56,10 +63,10 @@
     </c:if>
 
     <c:if test="${staffDetail.getClients().size() > 0}">
-        <p><strong>Clients:</strong></p>
+        <p><strong>Clients</strong></p>
         <ul style="list-style-type: none;">
           <c:forEach var="client" items="${staffDetail.getClients()}">
-              <li>${client.getClientId()} &nbsp;
+              <li>(${client.getClientId()})
                   <a href="client-detail?idClient=${client.getClientId()}">
                       ${client.getFirstName()} ${client.getLastName()}</a></li>
           </c:forEach>

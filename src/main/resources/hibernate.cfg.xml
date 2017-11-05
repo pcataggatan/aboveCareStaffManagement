@@ -28,12 +28,12 @@
 
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
-
-        <mapping class="edu.matc.entity.Client"/>
-        <mapping class="edu.matc.entity.Staff"/>
         <mapping class="edu.matc.entity.User"/>
         <mapping class="edu.matc.entity.UserRoles"/>
         <mapping class="edu.matc.entity.Address"/>
+        <mapping class="edu.matc.entity.Client"/>
+        <mapping class="edu.matc.entity.Staff"/>
+        <mapping class="edu.matc.entity.Code"/>
 
     </session-factory>
 

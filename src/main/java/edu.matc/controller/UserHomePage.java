@@ -1,5 +1,8 @@
 package edu.matc.controller;
 
+import edu.matc.entity.Code;
+import edu.matc.persistence.CodeDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(
         name = "userHomePage",
@@ -32,6 +36,13 @@ public class UserHomePage extends HttpServlet {
         }
 
         session.setAttribute("loggedIn", "Yes");
+
+        CodeDao codeDao = new CodeDao();
+        List<Code> clientRateCodes = codeDao.getCodeByDescription("Client");
+        List<Code> staffRateCodes = codeDao.getCodeByDescription("Staff");
+
+        session.setAttribute("clientRateCodes", clientRateCodes);
+        session.setAttribute("staffRateCodes", staffRateCodes);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);

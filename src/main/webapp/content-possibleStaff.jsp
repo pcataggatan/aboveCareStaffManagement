@@ -28,16 +28,15 @@
                     ${staff.address.getZipcode()}
                 </td>
                 <td>${staff.getDistance()} mi.</td>
-                <td>${staff.getHourlyRate()} - TODO</td>
+                <td>$${staff.getHourlyRate()}</td>
 
             </tr>
         </c:forEach>
     </table>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a>  &emsp;&nbsp;
-        <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a> &emsp;&nbsp;
-        <a href="search-client?searchTerm=&searchType=viewAll">List of Clients</a>
+    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp;
+        <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
     </p>
     <br>
 </div>

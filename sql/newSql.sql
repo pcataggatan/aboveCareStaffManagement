@@ -27,8 +27,8 @@ CREATE TABLE `staff` (
   `email`           varchar(50) DEFAULT NULL,
   `pay_cd`          varchar(03) NOT NULL,
   `job_title`       varchar(20) NOT NULL,
-  `distance`        double (9,2) DEFAULT NULL,
-  `hourly_rate`     float (9,2) DEFAULT NULL,
+  `distance`        double (9,2) DEFAULT 0.0,
+  `hourly_rate`     VARCHAR (6) DEFAULT NULL,
   `addr_id`         int(11) NOT NULL,
   PRIMARY KEY (`staff_id`),
   KEY `addr_id_fk` (`addr_id`),
@@ -47,6 +47,7 @@ CREATE TABLE `client` (
   `phone_nr`        varchar(15) NOT NULL,
   `email`           varchar(50) DEFAULT NULL,
   `bill_cd`         varchar(03) NOT NULL,
+  `hourly_rate`     VARCHAR (6) DEFAULT NULL,
   `addr_id`         int(11) NOT NULL,
   `staff_id`       int(11) DEFAULT NULL,
   PRIMARY KEY (`client_id`),
@@ -78,21 +79,21 @@ insert into `address` VALUES (10012,"2108 Java Ln","Madison","WI","53707");
 insert into `address` VALUES (10013,"2109 Java St","Madison","WI","53708");
 insert into `address` VALUES (10014,"2110 Java Dr","Madison","WI","53709");
 
-insert into `staff` VALUES (20000,"Dummmy","Staff",'1969-01-01',"(608)101-1001","cacosta@abovecare.com","S01","Care Giver",0.0,0.0,10001);
-insert into `staff` VALUES (20001,"Pablo","Cataggatan",'1969-01-01',"(608)101-1001","cacosta@abovecare.com","S01","Care Giver",0.0,0.0,10002);
-insert into `staff` VALUES (20002,"Corazon","Acosta",'1969-01-01',"(608)101-1001","cacosta@abovecare.com","S01","Care Giver",0.0,0.0,10003);
-insert into `staff` VALUES (20003,"Leah","Bagunu",'1969-02-01',"(608)101-1002","lbagunu@abovecare.com","S02","Lic Pract Nurse",0.0,0.0,10004);
-insert into `staff` VALUES (20004,"Catherine","Baricaua",'1969-03-01',"(608)101-1003","cbaricaua@abovecare.com","S03","Care Giver",0.0,0.0,10005);
-insert into `staff` VALUES (20005,"Audrey","Bautista",'1969-04-01',"(608)101-1004","abautista@abovecare.com","S04","Reg Nurse",0.0,0.0,10006);
-insert into `staff` VALUES (20006,"Rowena","Castaneda",'1969-04-01',"(608)101-1004","abautista@abovecare.com","S05","Cert Nurse Asst",0.0,0.0,10007);
+insert into `staff` VALUES (20000,"Dummmy","Staff",'1969-01-01',"(608)101-1001","cacosta@abovecare.com","S01","Care Giver",0.0,null,10001);
+insert into `staff` VALUES (20001,"Pablo","Cataggatan",'1969-01-01',"(608)101-1001","cacosta@abovecare.com","S01","Care Giver",0.0,null,10002);
+insert into `staff` VALUES (20002,"Corazon","Acosta",'1969-01-01',"(608)101-1001","cacosta@abovecare.com","S01","Care Giver",0.0,null,10003);
+insert into `staff` VALUES (20003,"Leah","Bagunu",'1969-02-01',"(608)101-1002","lbagunu@abovecare.com","S02","Lic Pract Nurse",0.0,null,10004);
+insert into `staff` VALUES (20004,"Catherine","Baricaua",'1969-03-01',"(608)101-1003","cbaricaua@abovecare.com","S03","Care Giver",0.0,null,10005);
+insert into `staff` VALUES (20005,"Audrey","Bautista",'1969-04-01',"(608)101-1004","abautista@abovecare.com","S04","Reg Nurse",0.0,null,10006);
+insert into `staff` VALUES (20006,"Rowena","Castaneda",'1969-04-01',"(608)101-1004","abautista@abovecare.com","S05","Cert Nurse Asst",0.0,null,10007);
 
-insert into `client` VALUES (30000,"Dummy","Client",'1950-01-01',"(608)909-9001","abc1@xyz.com","C01",10008,20001);
-insert into `client` VALUES (30001,"John","Smith",'1950-01-01',"(608)909-9001","abc1@xyz.com","C01",10009,null);
-insert into `client` VALUES (30002,"Mary","Johnson",'1940-02-01',"(608)909-9002","abc2@xyz.com","C02",10010,20003);
-insert into `client` VALUES (30003,"Patricia","Brown",'1941-03-01',"(608)909-9003","abc3@xyz.com","C01",10011,20004);
-insert into `client` VALUES (30004,"Barbara","Tucker",'1955-04-01',"(608)909-9004","abc4@xyz.com","C02",10012,20005);
-insert into `client` VALUES (30005,"Charles","Williams",'1941-05-01',"(608)909-9005","abc5@xyz.com","C03",10013,20005);
-insert into `client` VALUES (30006,"Aaron","Briggs",'1951-05-01',"(608)909-9006","abc6@xyz.com","C04",10014,20006);
+insert into `client` VALUES (30000,"Dummy","Client",'1950-01-01',"(608)909-9001","abc1@xyz.com","C01",null,10008,20001);
+insert into `client` VALUES (30001,"John","Smith",'1950-01-01',"(608)909-9001","abc1@xyz.com","C01",null,10009,null);
+insert into `client` VALUES (30002,"Mary","Johnson",'1940-02-01',"(608)909-9002","abc2@xyz.com","C02",null,10010,20003);
+insert into `client` VALUES (30003,"Patricia","Brown",'1941-03-01',"(608)909-9003","abc3@xyz.com","C01",null,10011,20004);
+insert into `client` VALUES (30004,"Barbara","Tucker",'1955-04-01',"(608)909-9004","abc4@xyz.com","C02",null,10012,20005);
+insert into `client` VALUES (30005,"Charles","Williams",'1941-05-01',"(608)909-9005","abc5@xyz.com","C03",null,10013,20005);
+insert into `client` VALUES (30006,"Aaron","Briggs",'1951-05-01',"(608)909-9006","abc6@xyz.com","C04",null,10014,20006);
 
 
 ====================================================================================================================

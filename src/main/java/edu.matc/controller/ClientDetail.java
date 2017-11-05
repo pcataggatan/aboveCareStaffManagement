@@ -1,5 +1,7 @@
 package edu.matc.controller;
 
+import edu.matc.entity.Client;
+import edu.matc.entity.Code;
 import edu.matc.persistence.ClientDao;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 
 @WebServlet(
@@ -25,12 +28,25 @@ public class ClientDetail extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        ClientDao clientDao = new ClientDao();
-
         int clientId = Integer.parseInt(req.getParameter("idClient"));
 
+        ClientDao clientDao = new ClientDao();
 
-        session.setAttribute("clientDetail", clientDao.getClient(clientId));
+        Client client = clientDao.getClient(clientId);
+
+
+        List<Code> clientRateCodes = (List<Code>) session.getAttribute("clientRateCodes");
+
+        for (Code rateCode : clientRateCodes) {
+            if (client.getBillCd().equals(rateCode.getCode())) {
+                client.setHourlyRate(rateCode.getValue());
+                break;
+            }
+        }
+
+
+        //session.setAttribute("clientDetail", clientDao.getClient(clientId));
+        session.setAttribute("clientDetail", client);
         session.setAttribute("personDetail","Client");
 
         session.setAttribute("searchType", "viewAll");

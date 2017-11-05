@@ -37,6 +37,9 @@ public class Client {
     @Column(name = "bill_cd", nullable = false, length = 3)
     private String billCd;
 
+    @Column(name = "hourly_rate", nullable = true)
+    private String hourlyRate;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="addr_id", nullable=false)
@@ -123,6 +126,12 @@ public class Client {
     public void setBillCd(String billCd) {
         this.billCd = billCd;
     }
+
+
+    public String getHourlyRate() { return hourlyRate; }
+
+    public void setHourlyRate(String hourlyRate) { this.hourlyRate = hourlyRate; }
+
 
 
     public Address getAddress() {

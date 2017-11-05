@@ -7,62 +7,48 @@ import javax.persistence.*;
 @Entity
 @Table(name = "code")
 public class Code {
-    private int codeId;
-    private String code;
-    private String value;
+    private String codeCode;
+    private String codeValue;
     private String descTx;
 
     public Code () {
     }
 
-    public Code (int codeId, String code, String value, String descTx) {
-        this.codeId = codeId;
-        this.code = code;
-        this.value = value;
+    public Code (String code, String value, String desc) {
+        this.codeCode = code;
+        this.codeValue = value;
         this.descTx = descTx;
     }
 
 
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "code_id", nullable = false)
-    public int getCodeId() {
-        return codeId;
-    }
-
-    public void setCodeId(int codeId) {
-        this.codeId = codeId;
-    }
-
-    @Basic
     @Column(name = "code", nullable = false, length = 3)
     public String getCode() {
-        return code;
+        return codeCode;
     }
 
     public void setCode(String code) {
-        this.code = code;
+        this.codeCode = code;
     }
 
-    @Basic
-    @Column(name = "value", nullable = false, length = 5)
+
+    @Column(name = "value", nullable = false, length = 6)
     public String getValue() {
-        return value;
+        return codeValue;
     }
 
     public void setValue(String value) {
-        this.value = value;
+        this.codeValue = value;
     }
 
-    @Basic
-    @Column(name = "desc_tx", nullable = false, length = 30)
+
+    @Column(name = "desc_tx", nullable = false, length = 40)
     public String getDescTx() {
         return descTx;
     }
 
-    public void setDescTx(String descTx) {
-        this.descTx = descTx;
+    public void setDescTx(String desc) {
+        this.descTx = desc;
     }
 
     @Override
@@ -72,9 +58,8 @@ public class Code {
 
         Code code1 = (Code) o;
 
-        if (codeId != code1.codeId) return false;
-        if (code != null ? !code.equals(code1.code) : code1.code != null) return false;
-        if (value != null ? !value.equals(code1.value) : code1.value != null) return false;
+        if (codeCode != null ? !codeCode.equals(code1.codeCode) : code1.codeCode != null) return false;
+        if (codeValue != null ? !codeValue.equals(code1.codeValue) : code1.codeValue != null) return false;
         if (descTx != null ? !descTx.equals(code1.descTx) : code1.descTx != null) return false;
 
         return true;
@@ -82,9 +67,9 @@ public class Code {
 
     @Override
     public int hashCode() {
-        int result = codeId;
-        result = 31 * result + (code != null ? code.hashCode() : 0);
-        result = 31 * result + (value != null ? value.hashCode() : 0);
+        int result = 0;
+        result = 31 * result + (codeCode != null ? codeCode.hashCode() : 0);
+        result = 31 * result + (codeValue != null ? codeValue.hashCode() : 0);
         result = 31 * result + (descTx != null ? descTx.hashCode() : 0);
         return result;
     }

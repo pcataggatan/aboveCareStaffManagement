@@ -14,9 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @WebServlet(
         name = "assignClientForm",
@@ -44,14 +42,15 @@ public class AssignClientForm extends HttpServlet {
         ClientDao clientDao = new ClientDao();
         List<Client> clients = clientDao.getAllClients();
 
-        Set<Integer> clientsWithNoStaff = new HashSet<>();
+        //Set<Integer> clientsWithNoStaff = new HashSet<>();
+        Map<Integer, String> clientsWithNoStaff = new TreeMap<Integer, String>();
 
         for (Client client : clients) {
-            clientsWithNoStaff.add(client.getClientId());
+            clientsWithNoStaff.put(client.getClientId(), client.getFirstName() + " "
+                    + client.getLastName());
         }
 
         session.setAttribute("clientsWithNoStaff", clientsWithNoStaff);
-
 
         session.setAttribute("assignToStaff", assignClientToStaff);
         session.setAttribute("assignClientMsg", " ");

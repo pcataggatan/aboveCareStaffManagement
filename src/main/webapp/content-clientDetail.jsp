@@ -40,7 +40,14 @@
 
         <tr>
             <td>Bill Rate Code</td>
-            <td>${clientDetail.billCd}</td>
+            <c:choose>
+                <c:when test="${userRole == 'Admin' || userRole == 'Owner'}">
+                    <td>${clientDetail.billCd} <span style="color:red">($${clientDetail.hourlyRate})</span></td>
+                </c:when>
+                <c:otherwise>
+                    <td>${clientDetail.billCd}</td>
+                </c:otherwise>
+            </c:choose>
         </tr>
 
         <!-- </tbody> -->
@@ -51,11 +58,13 @@
     </c:if>
 
     <c:if test="${clientDetail.staff != null}">
-        <p><strong>Assigned Staff :</strong> &nbsp;
-            ${clientDetail.staff.getStaffId()} &nbsp;
-            <a href="staff-detail?idStaff=${clientDetail.staff.getStaffId()}">
-            ${clientDetail.staff.getFirstName()} ${clientDetail.staff.getLastName()}</a>
-        </p>
+        <p><strong>Assigned Staff</strong></p>
+        <ul style="list-style-type: none;">
+            <li>(${clientDetail.staff.getStaffId()})
+                <a href="staff-detail?idStaff=${clientDetail.staff.getStaffId()}">
+                ${clientDetail.staff.getFirstName()} ${clientDetail.staff.getLastName()}</a>
+            </li>
+        </ul>
     </c:if>
 
     <br>

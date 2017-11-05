@@ -8,14 +8,14 @@
     <form action="assign-client" method="GET">
         <label for="assignClientId">Select Client Id</label>
         <select id="assignClientId" name="assignClientId">
-            <c:forEach var="clientId" items="${clientsWithNoStaff}">
-                <option value="${clientId}">${clientId}</option>
+            <c:forEach var="client" items="${clientsWithNoStaff}">
+                <option value="${client.getKey()}">${client.getKey()} - ${client.getValue()}</option>
             </c:forEach>
         </select>
 
         <%--<input type="text" id="assignClientId" name="assignClientId" autofocus> --%>
 
-        &emsp;&nbsp;
+        &nbsp;
         <button type="submit" class="btn btn-primary">Assign</button>
     </form>
 

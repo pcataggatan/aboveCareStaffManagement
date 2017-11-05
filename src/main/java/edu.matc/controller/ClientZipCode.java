@@ -4,6 +4,7 @@ package edu.matc.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.com.zipcodeapi.Response;
 import edu.matc.com.zipcodeapi.ZipCodesItem;
+import edu.matc.entity.Code;
 import edu.matc.entity.Staff;
 import edu.matc.persistence.ClientDao;
 import edu.matc.persistence.StaffDao;
@@ -68,7 +69,18 @@ public class ClientZipCode extends HttpServlet {
         for (Staff staff : staffList) {
             for (ZipCodesItem zipcode : zipCodeList) {
                 if (staff.getAddress().getZipcode().equals(zipcode.getZipCode())) {
+
                     staff.setDistance(zipcode.getDistance());
+
+                    List<Code> staffRateCodes = (List<Code>) session.getAttribute("staffRateCodes");
+
+                    for (Code rateCode : staffRateCodes) {
+                        if (staff.getPayCd().equals(rateCode.getCode())) {
+                            staff.setHourlyRate(rateCode.getValue());
+                            break;
+                        }
+                    }
+
                     possibleStaff.add(staff);
                     break;
                 }

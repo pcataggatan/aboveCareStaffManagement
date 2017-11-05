@@ -44,7 +44,7 @@ public class Staff {
     private double distance;
 
     @Column(name = "hourly_rate", nullable = true)
-    private double hourlyRate;
+    private String hourlyRate;
 
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -162,9 +162,9 @@ public class Staff {
     public void setDistance(double distance) { this.distance = distance; }
 
 
-    public double getHourlyRate() { return hourlyRate; }
+    public String getHourlyRate() { return hourlyRate; }
 
-    public void setHourlyRate(double hourlyRate) { this.hourlyRate = hourlyRate; }
+    public void setHourlyRate(String hourlyRate) { this.hourlyRate = hourlyRate; }
 
 
 
