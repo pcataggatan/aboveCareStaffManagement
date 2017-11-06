@@ -14,7 +14,7 @@ public class Code {
     public Code () {
     }
 
-    public Code (String code, String value, String desc) {
+    public Code (String code, String value, String descTx) {
         this.codeCode = code;
         this.codeValue = value;
         this.descTx = descTx;
@@ -23,21 +23,21 @@ public class Code {
 
     @Id
     @Column(name = "code", nullable = false, length = 3)
-    public String getCode() {
+    public String getCodeCode() {
         return codeCode;
     }
 
-    public void setCode(String code) {
+    public void setCodeCode(String code) {
         this.codeCode = code;
     }
 
 
     @Column(name = "value", nullable = false, length = 6)
-    public String getValue() {
+    public String getCodeValue() {
         return codeValue;
     }
 
-    public void setValue(String value) {
+    public void setCodeValue(String value) {
         this.codeValue = value;
     }
 

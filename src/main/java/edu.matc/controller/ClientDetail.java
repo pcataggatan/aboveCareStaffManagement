@@ -38,8 +38,8 @@ public class ClientDetail extends HttpServlet {
         List<Code> clientRateCodes = (List<Code>) session.getAttribute("clientRateCodes");
 
         for (Code rateCode : clientRateCodes) {
-            if (client.getBillCd().equals(rateCode.getCode())) {
-                client.setHourlyRate(rateCode.getValue());
+            if (client.getBillCd().equals(rateCode.getCodeCode())) {
+                client.setHourlyRate(rateCode.getCodeValue());
                 break;
             }
         }

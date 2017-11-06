@@ -93,8 +93,8 @@ public class ClientZipCodeAPI extends HttpServlet {
                     List<Code> staffRateCodes = (List<Code>) session.getAttribute("staffRateCodes");
 
                     for (Code rateCode : staffRateCodes) {
-                        if (staff.getPayCd().equals(rateCode.getCode())) {
-                            staff.setHourlyRate(rateCode.getValue());
+                        if (staff.getPayCd().equals(rateCode.getCodeCode())) {
+                            staff.setHourlyRate(rateCode.getCodeValue());
                             break;
                         }
                     }

@@ -32,3 +32,7 @@ insert into `code` values ("S08","12.75","Staff rate code tier 8");
 insert into `code` values ("S09","13.75","Staff rate code tier 9");
 insert into `code` values ("S10","14.75","Staff rate code tier 10");
 insert into `code` values ("S11","15.75","Staff rate code tier 11");
+insert into `code` values ("S12","16.75","Staff rate code tier 12");
+insert into `code` values ("S13","17.75","Staff rate code tier 13");
+insert into `code` values ("S14","18.75","Staff rate code tier 14");
+insert into `code` values ("S15","19.75","Staff rate code tier 15");
