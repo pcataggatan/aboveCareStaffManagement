@@ -59,7 +59,7 @@ public class DeleteStaff extends HttpServlet {
         String deleteMsg = staffDao.deleteStaff(staffId);
 
         if (deleteMsg.equals("Success")) {
-            session.setAttribute("deleteMsg", "Staff " + deleteStaffName + " is uccessfully deleted");
+            session.setAttribute("deleteMsg", "Staff " + deleteStaffName + " is successfully deleted");
         } else {
             session.setAttribute("deleteMsg", "Error deleting Staff " + deleteStaffName);
         }

@@ -3,7 +3,16 @@
 <div class="col-md-10 text-left">
     <br>
     <h2>${addMsg}</h2>
-
+    <p align="right">
+        <c:choose>
+            <c:when test="${addPersonType == 'Staff'}">
+                <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
+            </c:when>
+            <c:when test="${addPersonType == 'Client'}">
+                <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
+            </c:when>
+        </c:choose>
+    </p>
     <c:choose>
         <c:when test="${addPersonType == 'Client'}">
             <form class="form-horizontal" action="add-new-client" method="POST" id="reg_form">
@@ -415,13 +424,14 @@
     </script>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp;
+    <p align="right">
+    <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
     <c:choose>
         <c:when test="${addPersonType == 'Staff'}">
-            <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
+            <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
         </c:when>
         <c:when test="${addPersonType == 'Client'}">
-            <a href="search-client?searchTerm=&searchType=viewAll">List of Clients</a>
+            <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
         </c:when>
     </c:choose>
     </p>

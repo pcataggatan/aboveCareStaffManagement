@@ -36,6 +36,7 @@ public class StaffDetail extends HttpServlet {
 
         Staff staff = staffDao.getStaff(staffId);
 
+
         List<Code> staffRateCodes = (List<Code>) session.getAttribute("staffRateCodes");
 
         for (Code rateCode : staffRateCodes) {

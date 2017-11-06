@@ -41,6 +41,9 @@ public class AddNewStaffForm extends HttpServlet {
         session.setAttribute("addMsg", " ");
         session.setAttribute("addedAlready", "No");
 
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("searchFor", "Staff");
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("addPersonForm.jsp");
         dispatcher.forward(req, resp);
     }

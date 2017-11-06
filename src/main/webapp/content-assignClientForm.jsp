@@ -6,9 +6,9 @@
     <h3>Assign a client to ${assignToStaff}</h3>
     <br>
     <form action="assign-client" method="GET">
-        <label for="assignClientId">Select Client Id</label>
+        <label for="assignClientId">Select a Client &nbsp;</label>
         <select id="assignClientId" name="assignClientId">
-            <c:forEach var="client" items="${clientsWithNoStaff}">
+            <c:forEach var="client" items="${clientList}">
                 <option value="${client.getKey()}">${client.getKey()} - ${client.getValue()}</option>
             </c:forEach>
         </select>
@@ -20,10 +20,8 @@
     </form>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp;
-        <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
-    </p>
+    <%-- <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
+    <p><a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a></p>
     <br>
-
 </div>
 

@@ -43,14 +43,14 @@ public class AssignClientForm extends HttpServlet {
         List<Client> clients = clientDao.getAllClients();
 
         //Set<Integer> clientsWithNoStaff = new HashSet<>();
-        Map<Integer, String> clientsWithNoStaff = new TreeMap<Integer, String>();
+        Map<Integer, String> clientList = new TreeMap<Integer, String>();
 
         for (Client client : clients) {
-            clientsWithNoStaff.put(client.getClientId(), client.getFirstName() + " "
+            clientList.put(client.getClientId(), client.getFirstName() + " "
                     + client.getLastName());
         }
 
-        session.setAttribute("clientsWithNoStaff", clientsWithNoStaff);
+        session.setAttribute("clientList", clientList);
 
         session.setAttribute("assignToStaff", assignClientToStaff);
         session.setAttribute("assignClientMsg", " ");

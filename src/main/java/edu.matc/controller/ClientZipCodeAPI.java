@@ -8,7 +8,9 @@ import edu.matc.entity.Code;
 import edu.matc.entity.Staff;
 import edu.matc.persistence.ClientDao;
 import edu.matc.persistence.StaffDao;
+import org.apache.log4j.Logger;
 
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
@@ -33,8 +35,10 @@ import java.util.Set;
         urlPatterns = {"/client-zipcode"}
 )
 
-public class ClientZipCode extends HttpServlet {
-    
+public class ClientZipCodeAPI extends HttpServlet {
+
+    private final Logger log = Logger.getLogger(this.getClass());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -42,6 +46,7 @@ public class ClientZipCode extends HttpServlet {
         HttpSession session = req.getSession();
 
         String apiZipcode = req.getParameter("targetZipCode");
+        session.setAttribute("apiZipCode", apiZipcode);
         String apiRadius = req.getParameter("targetRadius");;
         //String apiKey = "S5CeIxgBGs11DuK4Nq1jSfZ8lwCWlGrctmgx4G5y7v0CTMrPgXMKQQC5XGkC2ct3";
         String apiKey = "AeRPGqRpbJTueB5iWmN0i6Qgd904ZeXPL3uFhKIyAdQG8VAdlpo7G4KTVXQQtPBi";
@@ -49,17 +54,30 @@ public class ClientZipCode extends HttpServlet {
         String apiUnit = "mile";
 
         Client client = ClientBuilder.newClient();
+        String response = "";
+        List<ZipCodesItem> zipCodeList = null;
 
-        WebTarget target = client.target("http://www.zipcodeapi.com/rest/"
-                + apiKey + "/radius." + apiFormat + "/"
-                + apiZipcode + "/" + apiRadius + "/" + apiUnit);
+        try {
+            WebTarget target = client.target("http://www.zipcodeapi.com/rest/"
+                    + apiKey + "/radius." + apiFormat + "/"
+                    + apiZipcode + "/" + apiRadius + "/" + apiUnit);
 
-        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+            response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
-        ObjectMapper mapper = new ObjectMapper();
+            ObjectMapper mapper = new ObjectMapper();
 
-        Response zipcodes = mapper.readValue(response, Response.class);
-        List<ZipCodesItem> zipCodeList = zipcodes.getZipCodes();
+            Response zipcodes = mapper.readValue(response, Response.class);
+            zipCodeList = zipcodes.getZipCodes();
+
+
+        } catch (NotFoundException nfe) {
+            log.error("Zip code " + apiZipcode + " does not exist");
+            session.setAttribute("errorMsg", "Zipcode does not exist, enter a valid zipcode");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("clientZipCodeForm.jsp");
+            dispatcher.forward(req, resp);
+            return;
+        }
+
 
         StaffDao staffDao = new StaffDao();
         List<Staff> staffList = staffDao.getAllStaffs();

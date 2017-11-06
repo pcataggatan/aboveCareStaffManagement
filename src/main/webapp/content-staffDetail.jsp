@@ -2,6 +2,7 @@
 
 <div class="col-md-10 text-left">
     <h2>Staff Detail</h2>
+    <p align="right"><a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a></p>
     <br>
     <table class="table table-striped">
         <!-- <tbody> -->
@@ -74,8 +75,9 @@
     </c:if>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp;
-        <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
+    <p align="right">
+        <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
+        <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
     </p>
     <br>
 

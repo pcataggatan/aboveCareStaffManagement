@@ -25,7 +25,7 @@ public class UserHomePage extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        String userRole;
+        //String userRole;
 
         if (req.isUserInRole("administrator")) {
             session.setAttribute("userRole", "Admin");

@@ -12,7 +12,7 @@
         </c:when>
     </c:choose>
 
-        <label for="searchTerm">Search</label>
+        <label for="searchTerm">Search &nbsp;</label>
         <input type="text" id="searchTerm" name="searchTerm" autofocus>
         &nbsp;
         <button type="submit" value="byLastname" name="searchType" class="btn btn-primary">By LastName</button>
@@ -20,8 +20,10 @@
         <button type="submit" value="viewAll" name="searchType" class="btn btn-primary">All</button>
     </form>
 
+    <%--
     <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
     <br>
+    --%>
 </div>
 <div class="col-md-4 text-right"></div>

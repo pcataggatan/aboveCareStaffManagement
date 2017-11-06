@@ -21,13 +21,19 @@ import java.util.Set;
         urlPatterns = {"/client-zipcode-form"}
 )
 
-public class ClientZipCodeForm extends HttpServlet {
+public class ClientZipCodeAPIForm extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
+
+        session.setAttribute("errorMsg"," ");
+        session.setAttribute("apiZipCode", "");
+
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("searchFor", "Client");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("clientZipCodeForm.jsp");
         dispatcher.forward(req, resp);

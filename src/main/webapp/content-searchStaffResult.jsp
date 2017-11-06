@@ -38,9 +38,11 @@
         </c:forEach>
     </table>
 
+    <%--
     <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
     <br>
+    --%>
 </div>
 
 

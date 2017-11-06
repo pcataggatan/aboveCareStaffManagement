@@ -40,6 +40,9 @@ public class AddNewClientForm extends HttpServlet {
         session.setAttribute("addMsg", " ");
         session.setAttribute("addedAlready", "No");
 
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("searchFor", "Client");
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("addPersonForm.jsp");
         dispatcher.forward(req, resp);
     }

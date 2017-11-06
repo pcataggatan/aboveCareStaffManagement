@@ -1,10 +1,11 @@
 <%@ include file="taglib.jsp" %>
 
 <div class="col-md-2 sidenav text-center">
-	<br><hr>
+	<br><br><br>
 	<c:if test="${userRole == 'Admin' || userRole == 'Owner' || userRole == 'OfficeStaff'}">
 		<p><a href="search-staff-form">Search Staff</a></p>
 		<p><a href="add-staff-form">Add New Staff</a></p>
+		<hr>
 		<p><a href="search-client-form">Search Clients</a></p>
 		<p><a href="add-client-form">Add New Client</a></p>
 		<%--<p><a href="assign-client-form">Assign Client To Staff</a></p> --%>

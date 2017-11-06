@@ -21,7 +21,7 @@
                     Make sure to re-assign them to another staff if you wish to delete ${deletedStaff}.</h4>
                 <ul style="list-style-type: none;">
                     <c:forEach var="client" items="${clientsForDeletedStaff}">
-                        <li>${client.getClientId()} &nbsp;
+                        <li>(${client.getClientId()}) &nbsp;
                             <a href="client-detail?idClient=${client.getClientId()}">
                                 ${client.getFirstName()} ${client.getLastName()}</a>
                         </li>
@@ -32,13 +32,14 @@
     </c:choose>
 
     <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp;
+    <p>
+        <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
         <c:choose>
             <c:when test="${deletePersonType == 'Client'}">
-                <a href="search-client?searchTerm=&searchType=viewAll">List of Clients</a>
+                <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
             </c:when>
             <c:when test="${deletePersonType == 'Staff'}">
-                <a href="search-staff?searchTerm=&searchType=viewAll">List of Staff</a>
+                <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
             </c:when>
         </c:choose>
     </p>
