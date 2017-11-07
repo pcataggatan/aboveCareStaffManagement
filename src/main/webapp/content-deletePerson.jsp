@@ -3,6 +3,7 @@
 <div class="col-md-10 text-left">
     <br>
     <h2>${deleteMsg}</h2>
+
     <br>
     <p>
     <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>

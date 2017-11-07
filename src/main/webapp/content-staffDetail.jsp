@@ -2,8 +2,13 @@
 
 <div class="col-md-10 text-left">
     <h2>Staff Detail</h2>
-    <p align="right"><a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a></p>
-    <br>
+    <p align="right">
+    <a href="update-staff-form?idStaff=${staffDetail.staffId}">Update Info</a> &nbsp; | &nbsp;
+    <a href="confirm-delete-staff?idStaff=${staffDetail.staffId}">Delete Staff</a> &nbsp; | &nbsp;
+    <a href="assign-client-form?idStaff=${staffDetail.staffId}">Assign Client(s)</a> &nbsp; | &nbsp;
+    <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
+    </p>
+
     <table class="table table-striped">
         <!-- <tbody> -->
         <tr>
@@ -56,11 +61,16 @@
             </c:choose>
         </tr>
 
+        <tr>
+            <td>Schedule</td>
+            <td>${staffDetail.schedule}</td>
+        </tr>
+
         <!-- </tbody> -->
     </table>
 
     <c:if test="${staffDetail.getClients().size() == 0}">
-        <p><strong>Clients : &nbsp;</strong>None</p>
+        <p><strong>Clients :</strong> &nbsp; &nbsp; None</p>
     </c:if>
 
     <c:if test="${staffDetail.getClients().size() > 0}">
@@ -74,10 +84,12 @@
         </ul>
     </c:if>
 
-    <br>
     <p align="right">
         <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
-        <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
+    <a href="update-staff-form?idStaff=${staffDetail.staffId}">Update Info</a> &nbsp; | &nbsp;
+    <a href="confirm-delete-staff?idStaff=${staffDetail.staffId}">Delete Staff</a> &nbsp; | &nbsp;
+    <a href="assign-client-form?idStaff=${staffDetail.staffId}">Assign Client(s)</a> &nbsp; | &nbsp;
+    <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
     </p>
     <br>
 

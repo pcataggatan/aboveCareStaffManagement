@@ -2,7 +2,7 @@
 
 <div class="col-md-10 text-left">
     <h2>List of Clients</h2>
-    <p align="right"><a href="add-client-form">Add New Client</a></p><br>
+    <p align="right"><a href="add-client-form">Add New Client</a></p>
 
     <table class="table table-striped">
         <tr>
@@ -22,8 +22,8 @@
                 <td><a href="staff-detail?idStaff=${client.staff.staffId}">
                         ${client.staff.firstName} ${client.staff.lastName}</a>
                 </td>
-                <td><a href="update-client-form?idClient=${client.clientId}">Update</a></td>
-                <td><a href="confirm-delete-client?idClient=${client.clientId}">Delete</a></td>
+                <td><a href="update-client-form?idClient=${client.clientId}">Update Client Info</a></td>
+                <td><a href="confirm-delete-client?idClient=${client.clientId}">Delete Client</a></td>
             </tr>
         </c:forEach>
 

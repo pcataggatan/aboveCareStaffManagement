@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
@@ -27,6 +28,7 @@ public class StaffDao {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         //List<Staff> staffs = session.createCriteria(Staff.class).list();
         List<Staff> staffs = session.createCriteria(Staff.class)
+                .addOrder(Order.asc("staffId"))
                 .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
                 .list();
         session.close();
@@ -49,6 +51,7 @@ public class StaffDao {
         List<Staff> staffs = session.createCriteria(Staff.class)
                 .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
                 .add(Restrictions.like("lastName", "%" + searchTerm + "%"))
+                .addOrder(Order.asc("staffId"))
                 .list();
 
         session.close();

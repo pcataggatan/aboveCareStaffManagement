@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 
 @WebServlet(
@@ -34,16 +35,10 @@ public class ClientDetail extends HttpServlet {
 
         Client client = clientDao.getClient(clientId);
 
+        Map<String, String> clientRateCodeValueMap =
+                (Map<String, String>) session.getAttribute("clientRateCodeValueMap");
 
-        List<Code> clientRateCodes = (List<Code>) session.getAttribute("clientRateCodes");
-
-        for (Code rateCode : clientRateCodes) {
-            if (client.getBillCd().equals(rateCode.getCodeCode())) {
-                client.setHourlyRate(rateCode.getCodeValue());
-                break;
-            }
-        }
-
+        client.setHourlyRate(clientRateCodeValueMap.get(client.getBillCd()));
 
         //session.setAttribute("clientDetail", clientDao.getClient(clientId));
         session.setAttribute("clientDetail", client);

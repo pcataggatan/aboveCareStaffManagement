@@ -54,6 +54,7 @@ public class UpdateStaff extends HttpServlet {
         staff.setEmail(req.getParameter("email"));
         staff.setJobTitle(req.getParameter("jobTitle"));
         staff.setPayCd(req.getParameter("payCd"));
+        staff.setSchedule(req.getParameter("schedule"));
 
         staff.getAddress().setStreet(req.getParameter("street"));
         staff.getAddress().setCity(req.getParameter("city"));
@@ -85,6 +86,8 @@ public class UpdateStaff extends HttpServlet {
         session.setAttribute("email", staff.getEmail());
         session.setAttribute("jobTitle", staff.getJobTitle());
         session.setAttribute("payCd", staff.getPayCd());
+        session.setAttribute("schedule", staff.getSchedule());
+
         session.setAttribute("street", staff.getAddress().getStreet());
         session.setAttribute("city", staff.getAddress().getCity());
         session.setAttribute("state", staff.getAddress().getState());

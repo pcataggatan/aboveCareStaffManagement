@@ -26,12 +26,11 @@
             <button type="submit" class="btn btn-primary">Search Staff</button>
     </form>
 
-
     <br>
     <p>
         <%-- <a href="/aboveCareStaffManagement">Back to home page</a></p> --%>
         <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
-    <br>
+    </p>
 
 </div>
 

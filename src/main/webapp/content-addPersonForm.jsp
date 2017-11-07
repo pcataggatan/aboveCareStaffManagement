@@ -232,6 +232,7 @@
                 </div>
             </div>
 
+
             <!-- Button -->
 
             <c:choose>
@@ -239,7 +240,18 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label"></label>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary" >Add <span class="glyphicon glyphicon-plus"></span></button>
+                            <button type="submit" class="btn btn-primary">Add
+                                <span class="glyphicon glyphicon-plus"></span></button> &nbsp;
+                            <c:choose>
+                                <c:when test="${addPersonType == 'Staff'}">
+                                    <a href="search-staff?searchTerm=&searchType=viewAll" class="btn btn-primary">
+                                        Cancel <span class="glyphicon glyphicon-remove"></span></a>
+                                </c:when>
+                                <c:when test="${addPersonType == 'Client'}">
+                                    <a href="search-client?searchTerm=&searchType=viewAll" class="btn btn-primary">
+                                        Cancel <span class="glyphicon glyphicon-remove"></span></a>
+                                </c:when>
+                            </c:choose>
                         </div>
                     </div>
                 </c:when>
@@ -247,7 +259,10 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label"></label>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary" disabled>Add <span class="glyphicon glyphicon-plus"></span></button>
+                            <button type="submit" class="btn btn-primary" disabled>Add
+                                <span class="glyphicon glyphicon-plus"></span></button> &nbsp;
+                            <button type="submit" class="btn btn-primary" disabled>Cancel
+                                <span class="glyphicon glyphicon-remove"></span></button>
                         </div>
                     </div>
                 </c:otherwise>
@@ -409,7 +424,7 @@
 
     </script>
 
-    <br>
+
     <p align="right">
     <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
     <c:choose>

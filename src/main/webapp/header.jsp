@@ -9,12 +9,12 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/aboveCareStaffManagement">Above Care Staff Management</a>
+			<a class="navbar-brand" href="/aboveCareStaffManagement"><strong>Above Care Staff Management</strong></a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="/aboveCareStaffManagement">Home</a></li>
+				<li><a href="/aboveCareStaffManagement">Home</a></li>
 				<li><a href="#">About Us</a></li>
 				<li><a href="#">Contact Us</a></li>
 			</ul>

@@ -4,6 +4,7 @@ import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
 import org.apache.log4j.Logger;
 import org.hibernate.*;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class ClientDao {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         //List<Client> clients = session.createCriteria(Client.class).list();
         List<Client> clients = session.createCriteria(Client.class)
+                .addOrder(Order.asc("clientId"))
                 .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
                 .list();
         session.close();
@@ -44,6 +46,7 @@ public class ClientDao {
         List<Client> clients = session.createCriteria(Client.class)
                 .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
                 .add(Restrictions.like("lastName", "%" + searchTerm + "%"))
+                .addOrder(Order.asc("clientId"))
                 .list();
         session.close();
         return clients;

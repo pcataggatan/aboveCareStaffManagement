@@ -2,8 +2,12 @@
 
 <div class="col-md-10 text-left">
     <h2>Client Detail</h2>
-    <p align="right"></p><a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a></p>
-    <br>
+    <p align="right">
+    <a href="update-client-form?idClient=${clientDetail.clientId}">Update Client Info</a> &nbsp; | &nbsp;
+    <a href="confirm-delete-client?idClient=${clientDetail.clientId}">Delete Client</a> &nbsp; | &nbsp;
+    <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
+    </p>
+
     <table class="table table-striped">
         <!--<tbody> -->
         <tr>
@@ -55,7 +59,7 @@
     </table>
 
     <c:if test="${clientDetail.staff == null}">
-        <p><strong>Assigned Staff : &nbsp;</strong>None</p>
+        <p><strong>Assigned Staff :</strong> &nbsp; &nbsp; None</p>
     </c:if>
 
     <c:if test="${clientDetail.staff != null}">
@@ -68,10 +72,12 @@
         </ul>
     </c:if>
 
-    <br>
-    <<p>
+
+    <p align="right">
     <%--<a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
-        <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
+    <a href="update-client-form?idClient=${clientDetail.clientId}">Update Client Info</a> &nbsp; | &nbsp;
+    <a href="confirm-delete-client?idClient=${client.clientId}">Delete Client</a> &nbsp; | &nbsp;
+    <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
     </p>
     <br>
 </div>

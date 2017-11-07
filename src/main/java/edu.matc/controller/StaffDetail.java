@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 
 @WebServlet(
@@ -37,14 +38,10 @@ public class StaffDetail extends HttpServlet {
         Staff staff = staffDao.getStaff(staffId);
 
 
-        List<Code> staffRateCodes = (List<Code>) session.getAttribute("staffRateCodes");
+        Map<String, String> staffRateCodeValueMap =
+                (Map<String, String>) session.getAttribute("staffRateCodeValueMap");
 
-        for (Code rateCode : staffRateCodes) {
-            if (staff.getPayCd().equals(rateCode.getCodeCode())) {
-                staff.setHourlyRate(rateCode.getCodeValue());
-                break;
-            }
-        }
+        staff.setHourlyRate(staffRateCodeValueMap.get(staff.getPayCd()));
 
 
         //session.setAttribute("staffDetail", staffDao.getStaff(staffId));

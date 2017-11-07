@@ -248,13 +248,36 @@
                 </div>
 
 
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Schedule</label>
+                    <div class="col-md-6  inputGroupContainer">
+                        <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input  name="schedule" value="${schedule}" class="form-control"  type="text">
+                        </div>
+                    </div>
+                </div>
+
+
                 <!-- Button -->
                 <c:choose>
                     <c:when test="${updatedAlready == 'No'}">
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary" >Update <span class="glyphicon glyphicon-ok"></span></button>
+                                <button type="submit" class="btn btn-primary">Update
+                                    <span class="glyphicon glyphicon-ok"></span></button> &nbsp;
+                                <c:choose>
+                                    <c:when test="${updatePersonType == 'Staff'}">
+                                        <a href="search-staff?searchTerm=&searchType=viewAll" class="btn btn-primary">
+                                            Cancel <span class="glyphicon glyphicon-remove"></span></a>
+                                    </c:when>
+                                    <c:when test="${updatePersonType == 'Client'}">
+                                        <a href="search-client?searchTerm=&searchType=viewAll" class="btn btn-primary">
+                                            Cancel <span class="glyphicon glyphicon-remove"></span></a>
+                                    </c:when>
+                                </c:choose>
                             </div>
                         </div>
                     </c:when>
@@ -262,14 +285,14 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary" disabled>Update <span class="glyphicon glyphicon-ok"></span></button>
+                                <button type="submit" class="btn btn-primary" disabled>Update
+                                    <span class="glyphicon glyphicon-ok"></span></button> &nbsp;
+                                <button type="submit" class="btn btn-primary" disabled>Cancel
+                                    <span class="glyphicon glyphicon-remove"></span></button>
                             </div>
                         </div>
                     </c:otherwise>
                 </c:choose>
-
-
-
 
             </fieldset>
         </form>
@@ -426,7 +449,6 @@
 
         </script>
 
-        <br>
         <p align="right">
             <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
         <c:choose>

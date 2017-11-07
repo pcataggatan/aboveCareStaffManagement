@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 @WebServlet(
         name = "userHomePage",
@@ -38,11 +40,26 @@ public class UserHomePage extends HttpServlet {
         session.setAttribute("loggedIn", "Yes");
 
         CodeDao codeDao = new CodeDao();
+
         List<Code> clientRateCodes = codeDao.getCodeByDescription("Client");
+
+        Map<String, String> clientRateCodeValueMap = new TreeMap<>();
+
+        for (Code code : clientRateCodes) {
+            clientRateCodeValueMap.put(code.getCodeCode(), code.getCodeValue());
+        }
+
+
         List<Code> staffRateCodes = codeDao.getCodeByDescription("Staff");
 
-        session.setAttribute("clientRateCodes", clientRateCodes);
-        session.setAttribute("staffRateCodes", staffRateCodes);
+        Map<String, String> staffRateCodeValueMap = new TreeMap<>();
+
+        for (Code code : staffRateCodes) {
+            staffRateCodeValueMap.put(code.getCodeCode(), code.getCodeValue());
+        }
+
+        session.setAttribute("clientRateCodeValueMap", clientRateCodeValueMap);
+        session.setAttribute("staffRateCodeValueMap", staffRateCodeValueMap);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);

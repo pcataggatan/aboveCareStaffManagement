@@ -43,8 +43,11 @@ public class Staff {
     @Column(name = "distance", nullable = true)
     private double distance;
 
-    @Column(name = "hourly_rate", nullable = true)
+    @Column(name = "hourly_rate", nullable = true, length = 6)
     private String hourlyRate;
+
+    @Column(name = "schedule", nullable = true, length = 50)
+    private String schedule;
 
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -166,6 +169,10 @@ public class Staff {
 
     public void setHourlyRate(String hourlyRate) { this.hourlyRate = hourlyRate; }
 
+
+    public String getSchedule() { return schedule; }
+
+    public void setSchedule(String schedule) { this.schedule = schedule; }
 
 
     @Override

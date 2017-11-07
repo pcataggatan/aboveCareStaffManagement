@@ -63,6 +63,8 @@ public class UpdateStaffForm extends HttpServlet {
         session.setAttribute("email", staff.getEmail());
         session.setAttribute("jobTitle", staff.getJobTitle());
         session.setAttribute("payCd", staff.getPayCd());
+        session.setAttribute("schedule", staff.getSchedule());
+
         session.setAttribute("street", staff.getAddress().getStreet());
         session.setAttribute("city", staff.getAddress().getCity());
         session.setAttribute("state", staff.getAddress().getState());

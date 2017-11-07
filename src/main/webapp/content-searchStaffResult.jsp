@@ -2,7 +2,7 @@
 
 <div class="col-md-10 text-left">
     <h2>List of Staff</h2>
-    <p align="right"><a href="add-staff-form">Add new staff</a></p><br>
+    <p align="right"><a href="add-staff-form">Add new staff</a></p>
 
     <table class="table table-striped">
         <tr>
@@ -12,7 +12,6 @@
             <th></th>
             <th></th>
             <th></th>
-            <%-- <th style="display: none">Timesheet</th> --%>
         </tr>
 
         <c:forEach var="staff" items="${staffList}">
@@ -26,14 +25,10 @@
                             ${client.firstName} ${client.lastName}</a><br>
                     </c:forEach>
                 </td>
-                <td><a href="update-staff-form?idStaff=${staff.staffId}">Update</a></td>
-                <td><a href="confirm-delete-staff?idStaff=${staff.staffId}">Delete</a></td>
-                <td><a href="assign-client-form?idStaff=${staff.staffId}">Assign a client</a></td>
-                <%-- <td><a href="assign-clienttoStaff?idStaff=${staff.staffId}">Assign Client</a></td>
-                -->
-                <%-- <td><a href="#">Timesheet</a></td>
-                <td><a href="enter-timeSheet?idStaff=${staff.staffId}">Timesheet</a></td>
-                --%>
+                <td><a href="update-staff-form?idStaff=${staff.staffId}">Update Staff Info</a></td>
+                <td><a href="confirm-delete-staff?idStaff=${staff.staffId}">Delete Staff</a></td>
+                <td><a href="assign-client-form?idStaff=${staff.staffId}">Assign Client(s)</a></td>
+                <%-- <td><a href="#">Update Sched</a></td> --%>
             </tr>
         </c:forEach>
     </table>
