@@ -15,8 +15,8 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li><a href="/aboveCareStaffManagement">Home</a></li>
-				<li><a href="#">About Us</a></li>
-				<li><a href="#">Contact Us</a></li>
+				<li><a href="aboutUs.jsp">About Us</a></li>
+				<li><a href="contactUs.jsp">Contact Us</a></li>
 			<!--</ul> -->
 			<!--<ul class="nav navbar-nav navbar-right"> -->
 				<c:choose>

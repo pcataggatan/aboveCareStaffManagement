@@ -3,15 +3,14 @@
 
 <html lang="en">
 
-<c:set var="title" value="Update Person" scope="session" />
+<c:set var="title" value="Contact Us" scope="session" />
 <%@include file="headtag.jsp"%>
-
 
 <%@include file="header.jsp"%>
 
 <div class="container-fluid text-center">
     <div class="row content">
-        <%@include file="content-updatePersonForm.jsp"%>
+        <%@include file="content-contactUs.jsp"%>
         <%@include file="menu.jsp"%>
     </div>
 </div>
