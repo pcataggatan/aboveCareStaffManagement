@@ -6,7 +6,7 @@
     <h3>Assign a client to ${assignToStaff}</h3>
     <br>
     <form action="assign-client" method="GET">
-        <label for="assignClientId">Select a Client &nbsp;</label>
+        <label for="assignClientId">Select A Client: </label> &nbsp;
         <select id="assignClientId" name="assignClientId">
             <c:forEach var="client" items="${clientList}">
                 <option value="${client.getKey()}">${client.getKey()} - ${client.getValue()}</option>
@@ -16,7 +16,10 @@
         <%--<input type="text" id="assignClientId" name="assignClientId" autofocus> --%>
 
         &nbsp;
-        <button type="submit" class="btn btn-primary">Assign</button>
+        <button type="submit" class="btn btn-primary">Assign
+            <span class="glyphicon glyphicon-ok"></span></button> &nbsp;
+        <a href="search-staff?searchTerm=&searchType=viewAll" class="btn btn-primary">
+            Cancel <span class="glyphicon glyphicon-remove"></span></a>
     </form>
 
     <br>

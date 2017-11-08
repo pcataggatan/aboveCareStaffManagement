@@ -6,7 +6,8 @@
         <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
     </p>
 
-    <table class="table table-striped">
+    <table id="staffListTable" class="table table-striped">
+        <thead>
         <tr>
             <th>Staff Id</th>
             <th>Staff Name</th>
@@ -16,7 +17,9 @@
             <th>Distance</th>
             <th>Pay Rate</th>
         </tr>
+        </thead>
 
+        <tbody>
         <c:forEach var="staff" items="${possibleStaff}">
             <tr>
                 <td>${staff.staffId}</td>
@@ -40,8 +43,16 @@
 
             </tr>
         </c:forEach>
+        </tbody>
     </table>
 
+    <script>
+        $(document).ready(function(){
+            $('#staffListTable').dataTable();
+        });
+    </script>
+
+    <br>
     <p align="right">
         <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
         <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>

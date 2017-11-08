@@ -17,8 +17,8 @@
 				<li><a href="/aboveCareStaffManagement">Home</a></li>
 				<li><a href="#">About Us</a></li>
 				<li><a href="#">Contact Us</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
+			<!--</ul> -->
+			<!--<ul class="nav navbar-nav navbar-right"> -->
 				<c:choose>
 					<c:when test="${loggedIn == 'Yes'}">
 						<li><a href="user-logout-page">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>

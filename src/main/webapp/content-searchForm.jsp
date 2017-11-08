@@ -6,15 +6,16 @@
     <c:choose>
         <c:when test="${searchFor == 'Client'}">
             <form action="search-client" method="GET">
+            <label for="searchTerm">Search Client: </label>  &nbsp;
+            <input type="text" id="searchTerm" name="searchTerm" autofocus> &nbsp;
         </c:when>
         <c:when test="${searchFor == 'Staff'}">
             <form action="search-staff" method="GET">
+            <label for="searchTerm">Search Staff: </label>  &nbsp;
+            <input type="text" id="searchTerm" name="searchTerm" autofocus> &nbsp;
         </c:when>
     </c:choose>
 
-        <label for="searchTerm">Search &nbsp;</label>
-        <input type="text" id="searchTerm" name="searchTerm" autofocus>
-        &nbsp;
         <button type="submit" value="byLastname" name="searchType" class="btn btn-primary">By LastName</button>
         &nbsp;
         <button type="submit" value="viewAll" name="searchType" class="btn btn-primary">All</button>

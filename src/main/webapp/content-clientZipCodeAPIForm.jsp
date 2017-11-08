@@ -5,7 +5,7 @@
     <h2>${errorMsg}</h2>
     <br>
     <form action="client-zipcode" method="GET">
-            <label for="targetZipCode">Enter Client Zipcode</label>
+            <label for="targetZipCode">Enter Client Zipcode: </label> &nbsp;
             <input type="text" value="${apiZipCode}" id="targetZipCode" name="targetZipCode" autofocus><br><br>
             <label for="targetRadius">Radius Distance</label>
             <%--<input type="text" id="targetRadius" name="targetRadius"><br><br>

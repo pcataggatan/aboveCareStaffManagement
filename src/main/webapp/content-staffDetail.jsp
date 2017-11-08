@@ -3,7 +3,7 @@
 <div class="col-md-10 text-left">
     <h2>Staff Detail</h2>
     <p align="right">
-    <a href="update-staff-form?idStaff=${staffDetail.staffId}">Update Info</a> &nbsp; | &nbsp;
+    <a href="update-staff-form?idStaff=${staffDetail.staffId}">Update Staff Info</a> &nbsp; | &nbsp;
     <a href="confirm-delete-staff?idStaff=${staffDetail.staffId}">Delete Staff</a> &nbsp; | &nbsp;
     <a href="assign-client-form?idStaff=${staffDetail.staffId}">Assign Client(s)</a> &nbsp; | &nbsp;
     <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
@@ -86,7 +86,7 @@
 
     <p align="right">
         <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
-    <a href="update-staff-form?idStaff=${staffDetail.staffId}">Update Info</a> &nbsp; | &nbsp;
+    <a href="update-staff-form?idStaff=${staffDetail.staffId}">Update Staff Info</a> &nbsp; | &nbsp;
     <a href="confirm-delete-staff?idStaff=${staffDetail.staffId}">Delete Staff</a> &nbsp; | &nbsp;
     <a href="assign-client-form?idStaff=${staffDetail.staffId}">Assign Client(s)</a> &nbsp; | &nbsp;
     <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>

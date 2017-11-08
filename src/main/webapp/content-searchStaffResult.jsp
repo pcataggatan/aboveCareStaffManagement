@@ -4,7 +4,8 @@
     <h2>List of Staff</h2>
     <p align="right"><a href="add-staff-form">Add new staff</a></p>
 
-    <table class="table table-striped">
+    <table id="staffListTable" class="table table-striped">
+        <thead>
         <tr>
             <th>Staff Id</th>
             <th>Staff Name</th>
@@ -13,7 +14,9 @@
             <th></th>
             <th></th>
         </tr>
+        </thead>
 
+        <tbody>
         <c:forEach var="staff" items="${staffList}">
             <tr>
                 <td>${staff.staffId}</td>
@@ -31,7 +34,14 @@
                 <%-- <td><a href="#">Update Sched</a></td> --%>
             </tr>
         </c:forEach>
+        </tbody>
     </table>
+
+    <script>
+        $(document).ready(function(){
+            $('#staffListTable').dataTable();
+        });
+    </script>
 
     <%--
     <br>

@@ -85,7 +85,7 @@ public class ClientZipCodeAPI extends HttpServlet {
             RequestDispatcher dispatcher = req.getRequestDispatcher("clientZipCodeForm.jsp");
             dispatcher.forward(req, resp);
             return;
-        } catch (BadRequestException bre) {
+        } catch (Exception e) {
             log.error("Bad or invalid Zipcode " + apiZipcode);
             session.setAttribute("errorMsg", "Bad or invalid Zipcode, enter a valid zipcode");
             RequestDispatcher dispatcher = req.getRequestDispatcher("clientZipCodeForm.jsp");

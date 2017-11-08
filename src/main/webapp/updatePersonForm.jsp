@@ -3,7 +3,7 @@
 
 <html lang="en">
 
-<c:set var="title" value="Add Person" scope="session" />
+<c:set var="title" value="UpdatePerson" scope="session" />
 <%@include file="headtag.jsp"%>
 
 

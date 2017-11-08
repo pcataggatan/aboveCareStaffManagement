@@ -3,7 +3,7 @@
 
 <html lang="en">
 
-<c:set var="title" value="Zipcode" scope="session" />
+<c:set var="title" value="Zipcode Lookup" scope="session" />
 <%@include file="headtag.jsp"%>
 
 <%@include file="header.jsp"%>
