@@ -38,6 +38,7 @@
         });
     </script>
 
+    <br>
     <%--
     <br>
     <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
