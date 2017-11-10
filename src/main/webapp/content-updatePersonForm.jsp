@@ -94,16 +94,9 @@
                                 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                     <select name="billCd" class="form-control selectpicker" >
                                         <option value="${billCd}">${billCd}</option>
-                                        <option>C01</option>
-                                        <option>C02</option>
-                                        <option>C03</option>
-                                        <option>C04</option>
-                                        <option>C05</option>
-                                        <option>C06</option>
-                                        <option>C07</option>
-                                        <option>C08</option>
-                                        <option>C09</option>
-                                        <option>C10</option>
+                                        <c:forEach var="clientRateCode" items="${clientRateCodeValueMap}">
+                                            <option>${clientRateCode.getKey()}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                             </div>
@@ -131,16 +124,9 @@
                                 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                     <select name="payCd" class="form-control selectpicker" >
                                         <option value="${payCd}" >${payCd}</option>
-                                        <option>S01</option>
-                                        <option>S02</option>
-                                        <option>S03</option>
-                                        <option>S04</option>
-                                        <option>S05</option>
-                                        <option>S06</option>
-                                        <option>S07</option>
-                                        <option>S08</option>
-                                        <option>S09</option>
-                                        <option>S10</option>
+                                        <c:forEach var="staffRateCode" items="${staffRateCodeValueMap}">
+                                            <option>${staffRateCode.getKey()}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                             </div>

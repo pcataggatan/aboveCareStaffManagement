@@ -93,8 +93,8 @@
                             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                 <select name="billCd" class="form-control selectpicker" >
                                     <option value="${billCd}">Please select client bill rate code</option>
-                                    <c:forEach var="clientRateCode" items="${clientRateCodes}">
-                                        <option>${clientRateCode.getCodeCode()}</option>
+                                    <c:forEach var="clientRateCode" items="${clientRateCodeValueMap}">
+                                        <option>${clientRateCode.getKey()}</option>
                                     </c:forEach>
                                 </select>
                             </div>
@@ -123,8 +123,8 @@
                             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                 <select name="payCd" class="form-control selectpicker" >
                                     <option value="${payCd}">Please select staff pay rate code</option>
-                                    <c:forEach var="staffRateCode" items="${staffRateCodes}">
-                                        <option>${staffRateCode.getCodeCode()}</option>
+                                    <c:forEach var="staffRateCode" items="${staffRateCodeValueMap}">
+                                        <option>${staffRateCode.getKey()}</option>
                                     </c:forEach>
                                 </select>
                             </div>
