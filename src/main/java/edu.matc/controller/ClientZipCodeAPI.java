@@ -42,6 +42,8 @@ public class ClientZipCodeAPI extends HttpServlet {
 
         String apiZipcode = req.getParameter("targetZipCode");
         String apiRadius = req.getParameter("targetRadius");
+        session.setAttribute("apiZipCode", apiZipcode);
+        session.setAttribute("apiRadius", apiRadius);
 
         String apiKey = "AeRPGqRpbJTueB5iWmN0i6Qgd904ZeXPL3uFhKIyAdQG8VAdlpo7G4KTVXQQtPBi";
         String apiFormat = "json";
@@ -106,10 +108,6 @@ public class ClientZipCodeAPI extends HttpServlet {
         }
 
         session.setAttribute("possibleStaff", possibleStaff);
-        session.setAttribute("targetZipCode", apiZipcode);
-        session.setAttribute("targetRadius", apiRadius);
-
-
         session.setAttribute("searchType", "viewAll");
         session.setAttribute("personType", "Client");
 

@@ -1,7 +1,7 @@
 <%@include file="taglib.jsp"%>
 
 <div class="col-md-10 text-left">
-    <h2>Staff within ${targetRadius} miles of Client's zipcode ${targetZipCode}</h2>
+    <h2>Staff within ${apiRadius} miles of Client's zipcode ${apiZipCode}</h2>
     <p align="right">
         <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
     </p>

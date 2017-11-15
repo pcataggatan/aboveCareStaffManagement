@@ -29,7 +29,7 @@ public class ClientZipCodeAPIForm extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        session.setAttribute("errorMsg"," ");
+        session.setAttribute("errorMsg","");
         session.setAttribute("apiZipCode", "");
 
         session.setAttribute("searchType", "viewAll");
