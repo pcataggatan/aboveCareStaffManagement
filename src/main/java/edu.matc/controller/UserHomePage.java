@@ -27,42 +27,55 @@ public class UserHomePage extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        //String userRole;
+        session.setAttribute("userRole", getUserRole(req));
 
-        if (req.isUserInRole("administrator")) {
-            session.setAttribute("userRole", "Admin");
-        } else if (req.isUserInRole("biz_owner")) {
-            session.setAttribute("userRole", "Owner");
-        } else if (req.isUserInRole("ofc_staff")) {
-            session.setAttribute("userRole", "OfficeStaff");
-        }
+        session.setAttribute("staffRateCodeValueMap", loadStaffRateCodeValue());
+        session.setAttribute("clientRateCodeValueMap", loadClientRateCodeValue());
 
         session.setAttribute("loggedIn", "Yes");
-
-        CodeDao codeDao = new CodeDao();
-
-        List<Code> clientRateCodes = codeDao.getCodeByDescription("Client");
-
-        Map<String, String> clientRateCodeValueMap = new TreeMap<>();
-
-        for (Code code : clientRateCodes) {
-            clientRateCodeValueMap.put(code.getCodeCode(), code.getCodeValue());
-        }
-
-
-        List<Code> staffRateCodes = codeDao.getCodeByDescription("Staff");
-
-        Map<String, String> staffRateCodeValueMap = new TreeMap<>();
-
-        for (Code code : staffRateCodes) {
-            staffRateCodeValueMap.put(code.getCodeCode(), code.getCodeValue());
-        }
-
-        session.setAttribute("clientRateCodeValueMap", clientRateCodeValueMap);
-        session.setAttribute("staffRateCodeValueMap", staffRateCodeValueMap);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);
 
     }
+
+    public String getUserRole(HttpServletRequest req) {
+
+        String userRole ="";
+
+        if (req.isUserInRole("administrator")) { userRole = "Admin"; }
+        if (req.isUserInRole("biz_owner")) { userRole = "Owner"; }
+        if (req.isUserInRole("ofc_staff")) { userRole = "OfficeStaff"; }
+
+        return userRole;
+    }
+
+    public Map<String, String> loadStaffRateCodeValue() {
+
+        CodeDao codeDao = new CodeDao();
+        Map<String, String> staffRateCodeValueMap = new TreeMap<>();
+
+        List<Code> staffRateCodes = codeDao.getCodeByDescription("Staff");
+
+        for (Code code : staffRateCodes) {
+            staffRateCodeValueMap.put(code.getCodeCode(), code.getCodeValue());
+        }
+
+        return staffRateCodeValueMap;
+    }
+
+    public Map<String, String> loadClientRateCodeValue() {
+
+        CodeDao codeDao = new CodeDao();
+        Map<String, String> clientRateCodeValueMap = new TreeMap<>();
+
+        List<Code> clientRateCodes = codeDao.getCodeByDescription("Client");
+
+        for (Code code : clientRateCodes) {
+            clientRateCodeValueMap.put(code.getCodeCode(), code.getCodeValue());
+        }
+
+        return clientRateCodeValueMap;
+    }
+
 }

@@ -18,13 +18,13 @@
         &nbsp;
         <button type="submit" class="btn btn-primary">Assign
             <span class="glyphicon glyphicon-ok"></span></button> &nbsp;
-        <a href="search-staff?searchTerm=&searchType=viewAll" class="btn btn-primary">
+        <a href="search-person?searchTerm=&searchType=viewAll" class="btn btn-primary">
             Cancel <span class="glyphicon glyphicon-remove"></span></a>
     </form>
 
     <br>
     <%-- <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
-    <p><a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a></p>
+    <p><a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a></p>
     <br>
 </div>
 

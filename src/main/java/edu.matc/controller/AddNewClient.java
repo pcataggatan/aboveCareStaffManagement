@@ -30,6 +30,33 @@ public class AddNewClient extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
+        Client client = getClientDataEntries(req);
+        String addedClient = client.getFirstName() + " " + client.getLastName();
+
+        ClientDao clientDao = new ClientDao();
+        int addClientId = clientDao.addClient(client);
+
+        if (addClientId == 0) {
+            session.setAttribute("addMsg", "Error adding new Client " + addedClient);
+        } else {
+            session.setAttribute("addMsg", "New Client " + addedClient + " is successfully added");
+        }
+
+        saveClientDataEntries(session, client);
+
+        session.setAttribute("addedClient", addedClient);
+        session.setAttribute("personType", "Client");
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("addedAlready", "Yes");
+
+        resp.sendRedirect("addPersonForm.jsp");
+
+    }
+
+
+
+    public Client getClientDataEntries(HttpServletRequest req) {
+
         Client client = new Client();
 
         client.setFirstName(req.getParameter("firstName"));
@@ -41,10 +68,8 @@ public class AddNewClient extends HttpServlet {
         StringBuilder birthDate = new StringBuilder(req.getParameter("birthDt"));
         birthDate.setCharAt(4,'/');
         birthDate.setCharAt(7,'/');
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate birthDt = LocalDate.parse(birthDate, formatter);
-
         client.setBirthDt(birthDt);
 
         Address  address = new Address();
@@ -56,20 +81,11 @@ public class AddNewClient extends HttpServlet {
 
         client.setAddress(address);
 
-        ClientDao clientDao = new ClientDao();
+        return client;
+    }
 
-        int addClientId = clientDao.addClient(client);
 
-        String addedClient = client.getFirstName() + " " + client.getLastName();
-
-        session.setAttribute("addedClient", addedClient);
-
-        if (addClientId == 0) {
-            session.setAttribute("addMsg", "Error adding new Client " + addedClient);
-        } else {
-            session.setAttribute("addMsg", "New Client " + addedClient + " is successfully added");
-        }
-
+    public void saveClientDataEntries(HttpSession session, Client client) {
 
         session.setAttribute("firstName", client.getFirstName());
         session.setAttribute("lastName", client.getLastName());
@@ -77,7 +93,6 @@ public class AddNewClient extends HttpServlet {
         StringBuilder dateOfBirth = new StringBuilder(client.getBirthDt().toString());
         dateOfBirth.setCharAt(4,'/');
         dateOfBirth.setCharAt(7,'/');
-
         session.setAttribute("birthDt", dateOfBirth);
 
         session.setAttribute("phoneNr", client.getPhoneNr());
@@ -87,15 +102,5 @@ public class AddNewClient extends HttpServlet {
         session.setAttribute("city", client.getAddress().getCity());
         session.setAttribute("state", client.getAddress().getState());
         session.setAttribute("zipcode", client.getAddress().getZipcode());
-
-
-        session.setAttribute("addPersonType", "Client");
-        session.setAttribute("searchType", "viewAll");
-        session.setAttribute("searchFor", "Client");
-        session.setAttribute("addedAlready", "Yes");
-
-        //resp.sendRedirect("personAdded.jsp");
-        resp.sendRedirect("addPersonForm.jsp");
-
     }
 }

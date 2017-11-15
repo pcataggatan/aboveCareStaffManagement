@@ -27,24 +27,35 @@ public class DeleteClient extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-        //int clientId = Integer.parseInt(req.getParameter("idClient"));
-
         int clientId = (Integer) session.getAttribute("deleteClientId");
 
         ClientDao clientDao = new ClientDao();
 
         Client client = clientDao.getClient(clientId);
 
+        if (client == null) {
+            session.setAttribute("deleteMsg", "Client does not exist anymore");
+        } else {
+            deleteClient(session, client, clientId);
+        }
+
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("personType", "Client");
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("deletePerson.jsp");
+        dispatcher.forward(req, resp);
+    }
+
+
+    public void deleteClient(HttpSession session, Client client, int clientId) {
+
+        ClientDao clientDao = new ClientDao();
+
         if (client.getStaff() != null) {
             Staff staff = null;
             client.setStaff(staff);
             String updtMsg = clientDao.updateClient(client);
         }
-
-        //String deletedClient = client.getFirstName() + " " + client.getLastName();
-
-        //session.setAttribute("deletedClient", deletedClient);
-        //session.setAttribute("deletePersonType", "Client");
 
         String deleteClientName = client.getFirstName() + " " + client.getLastName();
 
@@ -55,11 +66,6 @@ public class DeleteClient extends HttpServlet {
         } else {
             session.setAttribute("deleteMsg", "Error deleting Client " + deleteClientName);
         }
-        session.setAttribute("searchType", "viewAll");
-        session.setAttribute("searchFor", "Client");
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("deletePerson.jsp");
-        dispatcher.forward(req, resp);
     }
 }
 

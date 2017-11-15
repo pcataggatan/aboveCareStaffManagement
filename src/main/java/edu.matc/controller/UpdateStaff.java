@@ -95,9 +95,9 @@ public class UpdateStaff extends HttpServlet {
 
 
         //session.setAttribute("updatedStaff", updatedStaff);
-        session.setAttribute("updatePersonType", "Staff");
+        session.setAttribute("personType", "Staff");
         session.setAttribute("searchType", "viewAll");
-        session.setAttribute("searchFor", "Staff");
+        //session.setAttribute("searchFor", "Staff");
         session.setAttribute("updatedAlready", "Yes");
 
         //resp.sendRedirect("personUpdated.jsp");

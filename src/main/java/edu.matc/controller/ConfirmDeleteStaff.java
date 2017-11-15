@@ -41,7 +41,7 @@ public class ConfirmDeleteStaff extends HttpServlet {
         String deletedStaff = staff.getFirstName() + " " + staff.getLastName();
 
         session.setAttribute("deletedStaff", deletedStaff);
-        session.setAttribute("deletePersonType", "Staff");
+        session.setAttribute("personType", "Staff");
         session.setAttribute("deleteMsg", null);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("confirmDeletePerson.jsp");

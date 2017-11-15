@@ -59,7 +59,7 @@ public class AssignClient extends HttpServlet {
         }
 
         session.setAttribute("searchType", "viewAll");
-        session.setAttribute("searchFor", "Staff");
+        session.setAttribute("personType", "Staff");
 
         resp.sendRedirect("assignClientForm.jsp");
     }

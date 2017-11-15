@@ -3,17 +3,17 @@
 <div class="col-md-10 text-left">
     <br><br>
     <c:choose>
-        <c:when test="${deletePersonType == 'Client'}">
+        <c:when test="${personType == 'Client'}">
             <span class="h3">Are you sure you want to delete client ${deletedClient}?</span> &emsp;
             <a href="delete-client" class="btn btn-primary">Yes</a> &nbsp;
-            <a href="search-client?searchTerm=&searchType=viewAll" class="btn btn-primary">No</a>
+            <a href="search-person?searchTerm=&searchType=viewAll" class="btn btn-primary">No</a>
             <br><br>
         </c:when>
 
-        <c:when test="${deletePersonType == 'Staff'}">
+        <c:when test="${personType == 'Staff'}">
             <span class="h3">Are you sure you want to delete staff ${deletedStaff}?</span> &emsp;
             <a href="delete-staff" class="btn btn-primary">Yes</a> &nbsp;
-            <a href="search-client?searchTerm=&searchType=viewAll" class="btn btn-primary">No</a>
+            <a href="search-person?searchTerm=&searchType=viewAll" class="btn btn-primary">No</a>
             <br><br>
 
             <c:if test="${clientsForDeletedStaff.size() > 0}">
@@ -22,7 +22,7 @@
                 <ul style="list-style-type: none;">
                     <c:forEach var="client" items="${clientsForDeletedStaff}">
                         <li>(${client.getClientId()}) &nbsp;
-                            <a href="client-detail?idClient=${client.getClientId()}">
+                            <a href="person-detail?idPerson=${client.getClientId()}&personType=Client">
                                 ${client.getFirstName()} ${client.getLastName()}</a>
                         </li>
                     </c:forEach>
@@ -35,11 +35,11 @@
     <p>
         <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
         <c:choose>
-            <c:when test="${deletePersonType == 'Client'}">
-                <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
+            <c:when test="${personType == 'Client'}">
+                <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
             </c:when>
-            <c:when test="${deletePersonType == 'Staff'}">
-                <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
+            <c:when test="${personType == 'Staff'}">
+                <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a>
             </c:when>
         </c:choose>
     </p>

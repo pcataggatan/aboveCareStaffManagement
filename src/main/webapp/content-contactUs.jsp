@@ -7,7 +7,7 @@
     <table class="table table-striped">
         <tr>
             <td class="col-md-1"><span class="glyphicon glyphicon-calendar"></span> &nbsp; <strong> Mon-Fri</strong></td>
-            <td>9:00am - 5:00pm</td>
+            <td class="col-md-9">9:00am - 5:00pm</td>
         </tr>
 
         <tr>

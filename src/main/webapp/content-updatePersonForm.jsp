@@ -5,25 +5,32 @@
     <h2>${updateMsg}</h2>
     <p align="right">
     <c:choose>
-        <c:when test="${updatePersonType == 'Staff'}">
-            <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
+        <c:when test="${personType == 'Staff'}">
+            <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a>
         </c:when>
-        <c:when test="${updatePersonType == 'Client'}">
-            <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
+        <c:when test="${personType == 'Client'}">
+            <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
         </c:when>
     </c:choose>
     </p>
 
     <c:choose>
-        <c:when test="${updatePersonType == 'Client'}">
+        <c:when test="${personType == 'Client'}">
             <form class="form-horizontal" action="update-client?idClient=${updateClientId}" method="POST" id="reg_form">
         </c:when>
-        <c:when test="${updatePersonType == 'Staff'}">
+        <c:when test="${personType == 'Staff'}">
             <form class="form-horizontal" action="update-staff?idStaff=${updateStaffId}" method="POST" id="reg_form">
         </c:when>
     </c:choose>
 
-            <fieldset>
+            <c:choose>
+                <c:when test="${updatedAlready == 'No'}">
+                    <fieldset>
+                </c:when>
+                <c:otherwise>
+                    <fieldset disabled>
+                </c:otherwise>
+            </c:choose>
 
                 <!-- Form Name -->
                 <legend class="text-center"> Personal Information </legend>
@@ -84,7 +91,7 @@
                 </div>
 
                 <c:choose>
-                    <c:when test="${updatePersonType == 'Client'}">
+                    <c:when test="${personType == 'Client'}">
 
                         <!-- billCd - Select Basic -->
 
@@ -103,7 +110,7 @@
                         </div>
                     </c:when>
 
-                    <c:when test="${updatePersonType == 'Staff'}">
+                    <c:when test="${personType == 'Staff'}">
 
                         <!-- jobTitle - Text input-->
 
@@ -247,38 +254,16 @@
 
 
                 <!-- Button -->
-                <c:choose>
-                    <c:when test="${updatedAlready == 'No'}">
-                        <div class="form-group">
-                            <label class="col-md-4 control-label"></label>
-                            <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary">Update
-                                    <span class="glyphicon glyphicon-ok"></span></button> &nbsp;
-                                <c:choose>
-                                    <c:when test="${updatePersonType == 'Staff'}">
-                                        <a href="search-staff?searchTerm=&searchType=viewAll" class="btn btn-primary">
-                                            Cancel <span class="glyphicon glyphicon-remove"></span></a>
-                                    </c:when>
-                                    <c:when test="${updatePersonType == 'Client'}">
-                                        <a href="search-client?searchTerm=&searchType=viewAll" class="btn btn-primary">
-                                            Cancel <span class="glyphicon glyphicon-remove"></span></a>
-                                    </c:when>
-                                </c:choose>
-                            </div>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label"></label>
-                            <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary" disabled>Update
-                                    <span class="glyphicon glyphicon-ok"></span></button> &nbsp;
-                                <button type="submit" class="btn btn-primary" disabled>Cancel
-                                    <span class="glyphicon glyphicon-remove"></span></button>
-                            </div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary">Update
+                            <span class="glyphicon glyphicon-ok"></span></button> &nbsp;
+                        <a href="search-person?searchTerm=&searchType=viewAll" class="btn btn-primary">Cancel
+                            <span class="glyphicon glyphicon-remove"></span></a>
+                    </div>
+                </div>
 
             </fieldset>
         </form>
@@ -408,7 +393,7 @@
                                     message: 'Please supply a vaild zip code'
                                 }
                             }
-                        },
+                        }
 
                     }
                 })
@@ -438,11 +423,11 @@
         <p align="right">
             <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
         <c:choose>
-            <c:when test="${updatePersonType == 'Staff'}">
-                <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
+            <c:when test="${personType == 'Staff'}">
+                <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a>
             </c:when>
-            <c:when test="${updatePersonType == 'Client'}">
-                <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
+            <c:when test="${personType == 'Client'}">
+                <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
             </c:when>
         </c:choose>
         </p>

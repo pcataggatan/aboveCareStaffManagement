@@ -89,9 +89,9 @@ public class UpdateClient extends HttpServlet {
 
 
         //session.setAttribute("updatedClient", updatedClient);
-        session.setAttribute("updatePersonType", "Client");
+        session.setAttribute("personType", "Client");
         session.setAttribute("searchType", "viewAll");
-        session.setAttribute("searchFor", "Client");
+        //session.setAttribute("searchFor", "Client");
         session.setAttribute("updatedAlready", "Yes");
 
         //resp.sendRedirect("personUpdated.jsp");

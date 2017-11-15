@@ -11,10 +11,10 @@
 <div class="container-fluid text-center">
     <div class="row content">
         <c:choose>
-            <c:when test="${searchFor == 'Client'}">
+            <c:when test="${personType == 'Client'}">
                 <%@include file="content-searchClientResult.jsp"%>
             </c:when>
-            <c:when test="${searchFor == 'Staff'}">
+            <c:when test="${personType == 'Staff'}">
                 <%@include file="content-searchStaffResult.jsp"%>
             </c:when>
         </c:choose>

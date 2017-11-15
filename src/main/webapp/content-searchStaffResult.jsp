@@ -2,7 +2,7 @@
 
 <div class="col-md-10 text-left">
     <h2>List of Staff</h2>
-    <p align="right"><a href="add-staff-form">Add new staff</a></p>
+    <p align="right"><a href="add-person-form?personType=Staff">Add New Staff</a></p>
 
     <table id="staffListTable" class="table table-striped">
         <thead>
@@ -20,18 +20,22 @@
         <c:forEach var="staff" items="${staffList}">
             <tr>
                 <td>${staff.staffId}</td>
-                <td><a href="staff-detail?idStaff=${staff.staffId}">
+                <td><a href="person-detail?idPerson=${staff.staffId}&personType=Staff">
                         ${staff.firstName} ${staff.lastName}</a></td>
                 <td>
                     <c:forEach var="client" items="${staff.clients}">
-                        <a href="client-detail?idClient=${client.clientId}">
+                        <a href="person-detail?idPerson=${client.clientId}&personType=Client">
                             ${client.firstName} ${client.lastName}</a><br>
                     </c:forEach>
                 </td>
-                <td><a href="update-staff-form?idStaff=${staff.staffId}">Update Staff Info</a></td>
+
+                <%-- personType doesn't need to be passed, can get the session.attribute(personType)
+                <td><a href="update-person-form?idPerson=${staff.staffId}&personType=Staff">Update Staff Info</a></td>
+                --%>
+                <td><a href="update-person-form?idPerson=${staff.staffId}">Update Staff Info</a></td>
                 <td><a href="confirm-delete-staff?idStaff=${staff.staffId}">Delete Staff</a></td>
                 <td><a href="assign-client-form?idStaff=${staff.staffId}">Assign Client(s)</a></td>
-                <%-- <td><a href="#">Update Sched</a></td> --%>
+                    <%-- <td><a href="#">Update Sched</a></td> --%>
             </tr>
         </c:forEach>
         </tbody>
@@ -44,11 +48,6 @@
     </script>
 
     <br>
-    <%--
-    <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
-    <br>
-    --%>
 </div>
 
 

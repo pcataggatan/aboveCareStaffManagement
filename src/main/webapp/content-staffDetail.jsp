@@ -3,10 +3,10 @@
 <div class="col-md-10 text-left">
     <h2>Staff Detail</h2>
     <p align="right">
-    <a href="update-staff-form?idStaff=${staffDetail.staffId}">Update Staff Info</a> &nbsp; | &nbsp;
+    <a href="update-person-form?idPerson=${staffDetail.staffId}">Update Staff Info</a> &nbsp; | &nbsp;
     <a href="confirm-delete-staff?idStaff=${staffDetail.staffId}">Delete Staff</a> &nbsp; | &nbsp;
     <a href="assign-client-form?idStaff=${staffDetail.staffId}">Assign Client(s)</a> &nbsp; | &nbsp;
-    <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
+    <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a>
     </p>
 
     <table class="table table-striped">
@@ -78,18 +78,17 @@
         <ul style="list-style-type: none;">
           <c:forEach var="client" items="${staffDetail.getClients()}">
               <li>(${client.getClientId()})
-                  <a href="client-detail?idClient=${client.getClientId()}">
+                  <a href="person-detail?idPerson=${client.getClientId()}&personType=Client">
                       ${client.getFirstName()} ${client.getLastName()}</a></li>
           </c:forEach>
         </ul>
     </c:if>
 
     <p align="right">
-        <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
-    <a href="update-staff-form?idStaff=${staffDetail.staffId}">Update Staff Info</a> &nbsp; | &nbsp;
+    <a href="update-person-form?idPerson=${staffDetail.staffId}">Update Staff Info</a> &nbsp; | &nbsp;
     <a href="confirm-delete-staff?idStaff=${staffDetail.staffId}">Delete Staff</a> &nbsp; | &nbsp;
     <a href="assign-client-form?idStaff=${staffDetail.staffId}">Assign Client(s)</a> &nbsp; | &nbsp;
-    <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
+    <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a>
     </p>
     <br>
 

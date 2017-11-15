@@ -32,7 +32,32 @@ public class AddNewStaff extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
+
+        Staff staff = getStaffDataEntries(req);
+        String addedStaff = staff.getFirstName() + " " + staff.getLastName();
+
         StaffDao staffDao = new StaffDao();
+        int addStaffId = staffDao.addStaff(staff);
+
+        if (addStaffId == 0) {
+            session.setAttribute("addMsg", "Error adding new Staff " + addedStaff);
+        } else {
+            session.setAttribute("addMsg", "New Staff " + addedStaff + " is successfully added");
+        }
+
+        saveStaffDataEntries(session, staff);
+
+        session.setAttribute("personType", "Staff");
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("addedAlready", "Yes");
+
+        resp.sendRedirect("addPersonForm.jsp");
+
+    }
+
+
+    public Staff getStaffDataEntries(HttpServletRequest req) {
+
         Staff staff = new Staff();
 
         staff.setFirstName(req.getParameter("firstName"));
@@ -48,7 +73,6 @@ public class AddNewStaff extends HttpServlet {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate birthDt = LocalDate.parse(birthDate, formatter);
-
         staff.setBirthDt(birthDt);
 
         Address  address = new Address();
@@ -60,19 +84,11 @@ public class AddNewStaff extends HttpServlet {
 
         staff.setAddress(address);
 
-        String addedStaff = staff.getFirstName() + " " + staff.getLastName();
-
-        int addStaffId = staffDao.addStaff(staff);
-
-        //session.setAttribute("addedStaff", addedStaff);
-
-        if (addStaffId == 0) {
-            session.setAttribute("addMsg", "Error adding new Staff " + addedStaff);
-        } else {
-            session.setAttribute("addMsg", "New Staff " + addedStaff + " is successfully added");
-        }
+        return staff;
+    }
 
 
+    public void saveStaffDataEntries(HttpSession session, Staff staff) {
 
         session.setAttribute("firstName", staff.getFirstName());
         session.setAttribute("lastName", staff.getLastName());
@@ -80,7 +96,6 @@ public class AddNewStaff extends HttpServlet {
         StringBuilder dateOfBirth = new StringBuilder(staff.getBirthDt().toString());
         dateOfBirth.setCharAt(4,'/');
         dateOfBirth.setCharAt(7,'/');
-
         session.setAttribute("birthDt", dateOfBirth);
 
         session.setAttribute("phoneNr", staff.getPhoneNr());
@@ -91,16 +106,8 @@ public class AddNewStaff extends HttpServlet {
         session.setAttribute("city", staff.getAddress().getCity());
         session.setAttribute("state", staff.getAddress().getState());
         session.setAttribute("zipcode", staff.getAddress().getZipcode());
-
-
-        session.setAttribute("addPersonType", "Staff");
-        session.setAttribute("searchType", "viewAll");
-        session.setAttribute("searchFor", "Staff");
-        session.setAttribute("addedAlready", "Yes");
-
-        //resp.sendRedirect("personAdded.jsp");
-        resp.sendRedirect("addPersonForm.jsp");
-
     }
+
 }
+
 

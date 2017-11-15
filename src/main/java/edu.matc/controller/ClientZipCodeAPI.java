@@ -4,13 +4,10 @@ package edu.matc.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.com.zipcodeapi.Response;
 import edu.matc.com.zipcodeapi.ZipCodesItem;
-import edu.matc.entity.Code;
 import edu.matc.entity.Staff;
-import edu.matc.persistence.ClientDao;
 import edu.matc.persistence.StaffDao;
 import org.apache.log4j.Logger;
 
-import javax.ws.rs.BadRequestException;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -33,7 +30,6 @@ import java.util.*;
         name = "clientZipCode",
         urlPatterns = {"/client-zipcode"}
 )
-
 public class ClientZipCodeAPI extends HttpServlet {
 
     private final Logger log = Logger.getLogger(this.getClass());
@@ -45,8 +41,8 @@ public class ClientZipCodeAPI extends HttpServlet {
         HttpSession session = req.getSession();
 
         String apiZipcode = req.getParameter("targetZipCode");
-        session.setAttribute("apiZipCode", apiZipcode);
-        String apiRadius = req.getParameter("targetRadius");;
+        String apiRadius = req.getParameter("targetRadius");
+
         String apiKey = "AeRPGqRpbJTueB5iWmN0i6Qgd904ZeXPL3uFhKIyAdQG8VAdlpo7G4KTVXQQtPBi";
         String apiFormat = "json";
         String apiUnit = "mile";
@@ -55,7 +51,6 @@ public class ClientZipCodeAPI extends HttpServlet {
         //Client client = ClientBuilder.newClient();
         //String response = "";
 
-        //List<ZipCodesItem> zipCodeList = null;
         Map<String, Double> zipDistanceMap = new TreeMap<>();
 
         try {
@@ -71,13 +66,9 @@ public class ClientZipCodeAPI extends HttpServlet {
 
             Response zipcodes = mapper.readValue(response, Response.class);
 
-
             for (ZipCodesItem zipCodeItem : zipcodes.getZipCodes()) {
                 zipDistanceMap.put(zipCodeItem.getZipCode(), zipCodeItem.getDistance());
             }
-
-            //zipCodeList = zipcodes.getZipCodes();
-
 
         } catch (NotFoundException nfe) {
             log.error("Zip code " + apiZipcode + " does not exist");
@@ -85,6 +76,7 @@ public class ClientZipCodeAPI extends HttpServlet {
             RequestDispatcher dispatcher = req.getRequestDispatcher("clientZipCodeForm.jsp");
             dispatcher.forward(req, resp);
             return;
+
         } catch (Exception e) {
             log.error("Bad or invalid Zipcode " + apiZipcode);
             session.setAttribute("errorMsg", "Bad or invalid Zipcode, enter a valid zipcode");
@@ -103,16 +95,12 @@ public class ClientZipCodeAPI extends HttpServlet {
                 (Map<String, String>) session.getAttribute("staffRateCodeValueMap");
 
         for (Staff staff : staffList) {
-
             String zip = staff.getAddress().getZipcode();
             String rateCode = staff.getPayCd();
 
             if (zipDistanceMap.containsKey(zip)) {
-
                 staff.setDistance(zipDistanceMap.get(zip));
-
                 staff.setHourlyRate(staffRateCodeValueMap.get(rateCode));
-
                 possibleStaff.add(staff);
             }
         }
@@ -123,7 +111,7 @@ public class ClientZipCodeAPI extends HttpServlet {
 
 
         session.setAttribute("searchType", "viewAll");
-        session.setAttribute("searchFor", "Client");
+        session.setAttribute("personType", "Client");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("possibleStaff.jsp");
         dispatcher.forward(req, resp);

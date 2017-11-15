@@ -5,24 +5,31 @@
     <h2>${addMsg}</h2>
     <p align="right">
         <c:choose>
-            <c:when test="${addPersonType == 'Staff'}">
-                <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
+            <c:when test="${personType == 'Staff'}">
+                <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a>
             </c:when>
-            <c:when test="${addPersonType == 'Client'}">
-                <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
+            <c:when test="${personType == 'Client'}">
+                <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
             </c:when>
         </c:choose>
     </p>
     <c:choose>
-        <c:when test="${addPersonType == 'Client'}">
+        <c:when test="${personType == 'Client'}">
             <form class="form-horizontal" action="add-new-client" method="POST" id="reg_form">
         </c:when>
-        <c:when test="${addPersonType == 'Staff'}">
+        <c:when test="${personType == 'Staff'}">
             <form class="form-horizontal" action="add-new-staff" method="POST" id="reg_form">
         </c:when>
     </c:choose>
 
-        <fieldset>
+        <c:choose>
+            <c:when test="${addedAlready == 'No'}">
+                <fieldset>
+            </c:when>
+            <c:otherwise>
+                <fieldset disabled>
+            </c:otherwise>
+        </c:choose>
 
             <!-- Form Name -->
             <legend class="text-center"> Personal Information </legend>
@@ -83,7 +90,7 @@
             </div>
 
             <c:choose>
-                <c:when test="${addPersonType == 'Client'}">
+                <c:when test="${personType == 'Client'}">
 
                     <!-- billCd - Select Basic -->
 
@@ -92,7 +99,7 @@
                         <div class="col-md-6 selectContainer">
                             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                 <select name="billCd" class="form-control selectpicker" >
-                                    <option value="${billCd}">Please select client bill rate code</option>
+                                    <option value="${billCd}">${billCd}</option>
                                     <c:forEach var="clientRateCode" items="${clientRateCodeValueMap}">
                                         <option>${clientRateCode.getKey()}</option>
                                     </c:forEach>
@@ -102,7 +109,7 @@
                     </div>
                 </c:when>
 
-                <c:when test="${addPersonType == 'Staff'}">
+                <c:when test="${personType == 'Staff'}">
 
                     <!-- jobTitle - Text input-->
 
@@ -122,7 +129,7 @@
                         <div class="col-md-6 selectContainer">
                             <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                 <select name="payCd" class="form-control selectpicker" >
-                                    <option value="${payCd}">Please select staff pay rate code</option>
+                                    <option value="${payCd}">${payCd}</option>
                                     <c:forEach var="staffRateCode" items="${staffRateCodeValueMap}">
                                         <option>${staffRateCode.getKey()}</option>
                                     </c:forEach>
@@ -164,7 +171,7 @@
                 <div class="col-md-6 selectContainer">
                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                         <select name="state" class="form-control selectpicker" >
-                            <option value="${state}">Please select your state</option>
+                            <option value="${state}">${state}</option>
                             <option>AL</option>
                             <option>AK</option>
                             <option>AZ</option>
@@ -235,38 +242,15 @@
 
             <!-- Button -->
 
-            <c:choose>
-                <c:when test="${addedAlready == 'No'}">
-                    <div class="form-group">
-                        <label class="col-md-4 control-label"></label>
-                        <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary">Add
-                                <span class="glyphicon glyphicon-plus"></span></button> &nbsp;
-                            <c:choose>
-                                <c:when test="${addPersonType == 'Staff'}">
-                                    <a href="search-staff?searchTerm=&searchType=viewAll" class="btn btn-primary">
-                                        Cancel <span class="glyphicon glyphicon-remove"></span></a>
-                                </c:when>
-                                <c:when test="${addPersonType == 'Client'}">
-                                    <a href="search-client?searchTerm=&searchType=viewAll" class="btn btn-primary">
-                                        Cancel <span class="glyphicon glyphicon-remove"></span></a>
-                                </c:when>
-                            </c:choose>
-                        </div>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label"></label>
-                        <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary" disabled>Add
-                                <span class="glyphicon glyphicon-plus"></span></button> &nbsp;
-                            <button type="submit" class="btn btn-primary" disabled>Cancel
-                                <span class="glyphicon glyphicon-remove"></span></button>
-                        </div>
-                    </div>
-                </c:otherwise>
-            </c:choose>
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary">Add
+                        <span class="glyphicon glyphicon-plus"></span></button> &nbsp;
+                    <a href="search-person?searchTerm=&searchType=viewAll" class="btn btn-primary">Cancel
+                        <span class="glyphicon glyphicon-remove"></span></a>
+                </div>
+            </div>
 
 
         </fieldset>
@@ -428,11 +412,11 @@
     <p align="right">
     <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
     <c:choose>
-        <c:when test="${addPersonType == 'Staff'}">
-            <a href="search-staff?searchTerm=&searchType=viewAll">Go to List of Staff</a>
+        <c:when test="${personType == 'Staff'}">
+            <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a>
         </c:when>
-        <c:when test="${addPersonType == 'Client'}">
-            <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
+        <c:when test="${personType == 'Client'}">
+            <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
         </c:when>
     </c:choose>
     </p>

@@ -29,17 +29,29 @@ public class DeleteStaff extends HttpServlet {
         ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
-
-        //int staffId = Integer.parseInt(req.getParameter("idStaff"));
-
         int staffId = (Integer) session.getAttribute("deleteStaffId");
 
         StaffDao staffDao = new StaffDao();
 
         Staff staff = staffDao.getStaff(staffId);
 
+        if (staff == null) {
+            session.setAttribute("deleteMsg", "Staff does not exist anymore");
+        } else {
+            deleteStaff(session, staff, staffId);
+        }
+
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("personType", "Staff");
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("deletePerson.jsp");
+        dispatcher.forward(req, resp);
+    }
+
+
+    public void deleteStaff(HttpSession session, Staff staff, int staffId) {
+
         Set<Client> clients = staff.getClients();
-        //session.setAttribute("clientsForDeletedStaff", clients);
 
         for (Client client : clients) {
             ClientDao updtClientDao = new ClientDao();
@@ -49,12 +61,9 @@ public class DeleteStaff extends HttpServlet {
             String updtMsg = updtClientDao.updateClient(updtClient);
         }
 
-        //String deletedStaff = staff.getFirstName() + " " + staff.getLastName();
-
-        //session.setAttribute("deletedStaff", deletedStaff);
-        //session.setAttribute("deletePersonType", "Staff");
-
         String deleteStaffName = staff.getFirstName() + " " + staff.getLastName();
+
+        StaffDao staffDao = new StaffDao();
 
         String deleteMsg = staffDao.deleteStaff(staffId);
 
@@ -64,11 +73,6 @@ public class DeleteStaff extends HttpServlet {
             session.setAttribute("deleteMsg", "Error deleting Staff " + deleteStaffName);
         }
 
-        session.setAttribute("searchType", "viewAll");
-        session.setAttribute("searchFor", "Staff");
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("deletePerson.jsp");
-        dispatcher.forward(req, resp);
     }
 }
 

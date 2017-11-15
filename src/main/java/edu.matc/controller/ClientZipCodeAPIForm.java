@@ -33,7 +33,7 @@ public class ClientZipCodeAPIForm extends HttpServlet {
         session.setAttribute("apiZipCode", "");
 
         session.setAttribute("searchType", "viewAll");
-        session.setAttribute("searchFor", "Client");
+        session.setAttribute("personTYpe", "Client");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("clientZipCodeForm.jsp");
         dispatcher.forward(req, resp);

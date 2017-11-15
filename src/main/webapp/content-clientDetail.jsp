@@ -3,9 +3,9 @@
 <div class="col-md-10 text-left">
     <h2>Client Detail</h2>
     <p align="right">
-    <a href="update-client-form?idClient=${clientDetail.clientId}">Update Client Info</a> &nbsp; | &nbsp;
+    <a href="update-person-form?idPerson=${clientDetail.clientId}">Update Client Info</a> &nbsp; | &nbsp;
     <a href="confirm-delete-client?idClient=${clientDetail.clientId}">Delete Client</a> &nbsp; | &nbsp;
-    <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
+    <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
     </p>
 
     <table class="table table-striped">
@@ -66,7 +66,7 @@
         <p><strong>Assigned Staff</strong></p>
         <ul style="list-style-type: none;">
             <li>(${clientDetail.staff.getStaffId()})
-                <a href="staff-detail?idStaff=${clientDetail.staff.getStaffId()}">
+                <a href="person-detail?idPerson=${clientDetail.staff.getStaffId()}&personType=Staff">
                 ${clientDetail.staff.getFirstName()} ${clientDetail.staff.getLastName()}</a>
             </li>
         </ul>
@@ -74,10 +74,9 @@
 
 
     <p align="right">
-    <%--<a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
-    <a href="update-client-form?idClient=${clientDetail.clientId}">Update Client Info</a> &nbsp; | &nbsp;
-    <a href="confirm-delete-client?idClient=${client.clientId}">Delete Client</a> &nbsp; | &nbsp;
-    <a href="search-client?searchTerm=&searchType=viewAll">Go to List of Clients</a>
+    <a href="update-person-form?idPerson=${clientDetail.clientId}">Update Client Info</a> &nbsp; | &nbsp;
+    <a href="confirm-delete-client?idClient=${clientDetail.clientId}">Delete Client</a> &nbsp; | &nbsp;
+    <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
     </p>
     <br>
 </div>

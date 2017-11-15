@@ -2,7 +2,7 @@
 
 <div class="col-md-10 text-left">
     <h2>List of Clients</h2>
-    <p align="right"><a href="add-client-form">Add New Client</a></p>
+    <p align="right"><a href="add-person-form?personType=Client">Add New Client</a></p>
 
     <table id="clientListTable" class="table table-striped">
         <thead>
@@ -19,13 +19,17 @@
         <c:forEach var="client" items="${clientList}">
             <tr>
                 <td>${client.clientId}</td>
-                <td><a href="client-detail?idClient=${client.clientId}">
+                <td><a href="person-detail?idPerson=${client.clientId}&personType=Client">
                         ${client.firstName} ${client.lastName}</a>
                 </td>
-                <td><a href="staff-detail?idStaff=${client.staff.staffId}">
+                <td><a href="person-detail?idPerson=${client.staff.staffId}&personType=Staff">
                         ${client.staff.firstName} ${client.staff.lastName}</a>
                 </td>
-                <td><a href="update-client-form?idClient=${client.clientId}">Update Client Info</a></td>
+
+                <%-- personType doesn't need to be passed, can get the session.attribute(personType)
+                <td><a href="update-person-form?idPerson=${client.clientId}&personType=Client">Update Client Info</a></td>
+                --%>
+                <td><a href="update-person-form?idPerson=${client.clientId}">Update Client Info</a></td>
                 <td><a href="confirm-delete-client?idClient=${client.clientId}">Delete Client</a></td>
             </tr>
         </c:forEach>
@@ -39,11 +43,6 @@
     </script>
 
     <br>
-    <%--
-    <br>
-    <p><a href="/aboveCareStaffManagement">Back to home page</a></p>
-    <br>
-    --%>
 </div>
 
 

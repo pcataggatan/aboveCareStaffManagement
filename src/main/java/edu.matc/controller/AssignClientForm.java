@@ -38,11 +38,10 @@ public class AssignClientForm extends HttpServlet {
 
         String assignClientToStaff = staff.getFirstName() + " " + staff.getLastName();
 
-        //---- get all clients without staff assigned
+
         ClientDao clientDao = new ClientDao();
         List<Client> clients = clientDao.getAllClients();
 
-        //Set<Integer> clientsWithNoStaff = new HashSet<>();
         Map<Integer, String> clientList = new TreeMap<Integer, String>();
 
         for (Client client : clients) {
