@@ -4,12 +4,12 @@
     <h2>Client Detail</h2>
     <p align="right">
     <a href="update-person-form?idPerson=${clientDetail.clientId}">Update Client Info</a> &nbsp; | &nbsp;
-    <a href="confirm-delete-client?idClient=${clientDetail.clientId}">Delete Client</a> &nbsp; | &nbsp;
+    <a href="confirm-delete-person?idPerson=${clientDetail.clientId}">Delete Client</a> &nbsp; | &nbsp;
     <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
     </p>
 
     <table class="table table-striped">
-        <!--<tbody> -->
+        <tbody>
         <tr>
             <td>Client Id</td>
             <td>${clientDetail.clientId}</td>
@@ -54,8 +54,7 @@
                 </c:otherwise>
             </c:choose>
         </tr>
-
-        <!-- </tbody> -->
+        </tbody>
     </table>
 
     <c:if test="${clientDetail.staff == null}">
@@ -72,10 +71,9 @@
         </ul>
     </c:if>
 
-
     <p align="right">
     <a href="update-person-form?idPerson=${clientDetail.clientId}">Update Client Info</a> &nbsp; | &nbsp;
-    <a href="confirm-delete-client?idClient=${clientDetail.clientId}">Delete Client</a> &nbsp; | &nbsp;
+    <a href="confirm-delete-person?idPerson=${clientDetail.clientId}">Delete Client</a> &nbsp; | &nbsp;
     <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
     </p>
     <br>

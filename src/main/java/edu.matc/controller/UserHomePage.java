@@ -2,9 +2,7 @@ package edu.matc.controller;
 
 import edu.matc.entity.Code;
 import edu.matc.persistence.CodeDao;
-
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,15 +14,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
+ * to the addPersonForm.jsp page.
+ *
+ *@author Pablo Cataggatan
+ */
 @WebServlet(
         name = "userHomePage",
         urlPatterns = {"/user-home-page"}
 )
 public class UserHomePage extends HttpServlet {
+
+    /**
+     *  Handles HTTP GET requests.
+     *
+     *@param  req             the HttpRequest
+     *@param  resp            the HttpResponse
+     *@exception  ServletException  if there is a general servlet exception
+     *@exception  IOException       if there is a general I/O exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
         session.setAttribute("userRole", getUserRole(req));

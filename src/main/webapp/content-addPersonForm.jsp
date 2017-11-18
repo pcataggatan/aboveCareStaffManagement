@@ -240,6 +240,20 @@
             </div>
 
 
+            <!-- Text input-->
+
+            <c:if test="${personType == 'Staff'}">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Schedule</label>
+                    <div class="col-md-6  inputGroupContainer">
+                        <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input  name="schedule" value="${schedule}" class="form-control"  type="text">
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+
+
             <!-- Button -->
 
             <div class="form-group">

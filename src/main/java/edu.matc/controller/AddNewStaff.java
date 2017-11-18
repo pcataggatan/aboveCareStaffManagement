@@ -1,13 +1,8 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Address;
-import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
-import edu.matc.persistence.ClientDao;
 import edu.matc.persistence.StaffDao;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,28 +13,37 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
+/**
+ * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
+ * to the addPersonForm.jsp page.
+ *
+ *@author Pablo Cataggatan
+ */
 @WebServlet(
         name = "addNewStaff",
         urlPatterns = {"/add-new-staff"}
 )
-
 public class AddNewStaff extends HttpServlet {
 
+    /**
+     *  Handles HTTP GET requests.
+     *
+     *@param  req             the HttpRequest
+     *@param  resp            the HttpResponse
+     *@exception  ServletException  if there is a general servlet exception
+     *@exception  IOException       if there is a general I/O exception
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ServletContext context = getServletContext();
         HttpSession session = req.getSession();
-
 
         Staff staff = getStaffDataEntries(req);
         String addedStaff = staff.getFirstName() + " " + staff.getLastName();
 
         StaffDao staffDao = new StaffDao();
-        int addStaffId = staffDao.addStaff(staff);
 
-        if (addStaffId == 0) {
+        if (staffDao.addStaff(staff) == 0) {
             session.setAttribute("addMsg", "Error adding new Staff " + addedStaff);
         } else {
             session.setAttribute("addMsg", "New Staff " + addedStaff + " is successfully added");
@@ -52,10 +56,14 @@ public class AddNewStaff extends HttpServlet {
         session.setAttribute("addedAlready", "Yes");
 
         resp.sendRedirect("addPersonForm.jsp");
-
     }
 
 
+    /**
+     * ????
+     * @param req the HttpRequest
+     * @return the new staff to be added to the staff table
+     */
     public Staff getStaffDataEntries(HttpServletRequest req) {
 
         Staff staff = new Staff();
@@ -66,6 +74,7 @@ public class AddNewStaff extends HttpServlet {
         staff.setEmail(req.getParameter("email"));
         staff.setJobTitle(req.getParameter("jobTitle"));
         staff.setPayCd(req.getParameter("payCd"));
+        staff.setSchedule(req.getParameter("schedule"));
 
         StringBuilder birthDate = new StringBuilder(req.getParameter("birthDt"));
         birthDate.setCharAt(4,'/');
@@ -88,6 +97,11 @@ public class AddNewStaff extends HttpServlet {
     }
 
 
+    /**
+     * ????
+     * @param session the HttpSession
+     * @param staff the new staff
+     */
     public void saveStaffDataEntries(HttpSession session, Staff staff) {
 
         session.setAttribute("firstName", staff.getFirstName());
@@ -102,6 +116,8 @@ public class AddNewStaff extends HttpServlet {
         session.setAttribute("email", staff.getEmail());
         session.setAttribute("jobTitle", staff.getJobTitle());
         session.setAttribute("payCd", staff.getPayCd());
+        session.setAttribute("schedule", staff.getSchedule());
+
         session.setAttribute("street", staff.getAddress().getStreet());
         session.setAttribute("city", staff.getAddress().getCity());
         session.setAttribute("state", staff.getAddress().getState());

@@ -1,13 +1,7 @@
 package edu.matc.controller;
 
-import edu.matc.entity.Address;
-import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
-import edu.matc.persistence.ClientDao;
 import edu.matc.persistence.StaffDao;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,24 +12,57 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
+/**
+ * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
+ * to the addPersonForm.jsp page.
+ *
+ *@author Pablo Cataggatan
+ */
 @WebServlet(
         name = "updateStaff",
         urlPatterns = {"/update-staff"}
 )
-
 public class UpdateStaff extends HttpServlet {
 
+    /**
+     *  Handles HTTP GET requests.
+     *
+     *@param  req             the HttpRequest
+     *@param  resp            the HttpResponse
+     *@exception  ServletException  if there is a general servlet exception
+     *@exception  IOException       if there is a general I/O exception
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
         int staffId = Integer.parseInt(req.getParameter("idStaff"));
 
+        Staff staff = updateStaffData(req, staffId);
+        String updatedStaff = staff.getFirstName() + " " + staff.getLastName();
+
         StaffDao staffDao = new StaffDao();
 
+        if (staffDao.updateStaff(staff).equals("Success")) {
+            session.setAttribute("updateMsg", "Staff " + updatedStaff + " is successfully updated");
+        } else {
+            session.setAttribute("updateMsg", "Error updating Staff " + updatedStaff);
+        }
+
+        saveStaffUpdatedData(session, staff);
+
+        session.setAttribute("personType", "Staff");
+        session.setAttribute("searchType", "viewAll");
+        session.setAttribute("updatedAlready", "Yes");
+
+        resp.sendRedirect("updatePersonForm.jsp");
+    }
+
+
+    public Staff updateStaffData(HttpServletRequest req, int staffId) {
+
+        StaffDao staffDao = new StaffDao();
         Staff staff = staffDao.getStaff(staffId);
 
         staff.setFirstName(req.getParameter("firstName"));
@@ -44,10 +71,8 @@ public class UpdateStaff extends HttpServlet {
         StringBuilder birthDate = new StringBuilder(req.getParameter("birthDt"));
         birthDate.setCharAt(4,'/');
         birthDate.setCharAt(7,'/');
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate birthDt = LocalDate.parse(birthDate, formatter);
-
         staff.setBirthDt(birthDt);
 
         staff.setPhoneNr(req.getParameter("phoneNr"));
@@ -61,48 +86,29 @@ public class UpdateStaff extends HttpServlet {
         staff.getAddress().setState(req.getParameter("state"));
         staff.getAddress().setZipcode(req.getParameter("zipcode"));
 
-        String updatedStaff = staff.getFirstName() + " " + staff.getLastName();
+        return staff;
+    }
 
-        String updtMsg = staffDao.updateStaff(staff);
+    public void saveStaffUpdatedData(HttpSession session, Staff staff) {
 
-        if (updtMsg.equals("Success")) {
-            session.setAttribute("updateMsg", "Staff " + updatedStaff + " is successfully updated");
-        } else {
-            session.setAttribute("updateMsg", "Error updating Staff " + updatedStaff);
-        }
-
-
-
-        session.setAttribute("firstName", staff.getFirstName());
-        session.setAttribute("lastName", staff.getLastName());
+        session.setAttribute("updtFirstName", staff.getFirstName());
+        session.setAttribute("updtLastName", staff.getLastName());
 
         StringBuilder dateOfBirth = new StringBuilder(staff.getBirthDt().toString());
         dateOfBirth.setCharAt(4,'/');
         dateOfBirth.setCharAt(7,'/');
+        session.setAttribute("updtBirthDt", dateOfBirth);
 
-        session.setAttribute("birthDt", dateOfBirth);
+        session.setAttribute("updtPhoneNr", staff.getPhoneNr());
+        session.setAttribute("updtEmail", staff.getEmail());
+        session.setAttribute("updtJobTitle", staff.getJobTitle());
+        session.setAttribute("updtPayCd", staff.getPayCd());
+        session.setAttribute("updtSchedule", staff.getSchedule());
 
-        session.setAttribute("phoneNr", staff.getPhoneNr());
-        session.setAttribute("email", staff.getEmail());
-        session.setAttribute("jobTitle", staff.getJobTitle());
-        session.setAttribute("payCd", staff.getPayCd());
-        session.setAttribute("schedule", staff.getSchedule());
-
-        session.setAttribute("street", staff.getAddress().getStreet());
-        session.setAttribute("city", staff.getAddress().getCity());
-        session.setAttribute("state", staff.getAddress().getState());
-        session.setAttribute("zipcode", staff.getAddress().getZipcode());
-
-
-        //session.setAttribute("updatedStaff", updatedStaff);
-        session.setAttribute("personType", "Staff");
-        session.setAttribute("searchType", "viewAll");
-        //session.setAttribute("searchFor", "Staff");
-        session.setAttribute("updatedAlready", "Yes");
-
-        //resp.sendRedirect("personUpdated.jsp");
-        resp.sendRedirect("updatePersonForm.jsp");
-
+        session.setAttribute("updtStreet", staff.getAddress().getStreet());
+        session.setAttribute("updtCity", staff.getAddress().getCity());
+        session.setAttribute("updtState", staff.getAddress().getState());
+        session.setAttribute("updtZipcode", staff.getAddress().getZipcode());
     }
 }
 

@@ -100,7 +100,7 @@ public class ClientDaoTest {
     public void updateClient() throws Exception {
 
         int updtClientId = 30002;
-        String newLastName = "Updated";
+        String newLastName = "TestUpdated";
 
         client = clientDao.getClient(updtClientId);
         client.setLastName(newLastName);

@@ -4,13 +4,13 @@
     <h2>Staff Detail</h2>
     <p align="right">
     <a href="update-person-form?idPerson=${staffDetail.staffId}">Update Staff Info</a> &nbsp; | &nbsp;
-    <a href="confirm-delete-staff?idStaff=${staffDetail.staffId}">Delete Staff</a> &nbsp; | &nbsp;
+    <a href="confirm-delete-person?idPerson=${staffDetail.staffId}">Delete Staff</a> &nbsp; | &nbsp;
     <a href="assign-client-form?idStaff=${staffDetail.staffId}">Assign Client(s)</a> &nbsp; | &nbsp;
     <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a>
     </p>
 
     <table class="table table-striped">
-        <!-- <tbody> -->
+        <tbody>
         <tr>
             <td class="col-md-2">Staff Id</td>
             <td class="col-md-8">${staffDetail.staffId}</td>
@@ -65,8 +65,7 @@
             <td>Schedule</td>
             <td>${staffDetail.schedule}</td>
         </tr>
-
-        <!-- </tbody> -->
+        </tbody>
     </table>
 
     <c:if test="${staffDetail.getClients().size() == 0}">
@@ -86,7 +85,7 @@
 
     <p align="right">
     <a href="update-person-form?idPerson=${staffDetail.staffId}">Update Staff Info</a> &nbsp; | &nbsp;
-    <a href="confirm-delete-staff?idStaff=${staffDetail.staffId}">Delete Staff</a> &nbsp; | &nbsp;
+    <a href="confirm-delete-person?idPerson=${staffDetail.staffId}">Delete Staff</a> &nbsp; | &nbsp;
     <a href="assign-client-form?idStaff=${staffDetail.staffId}">Assign Client(s)</a> &nbsp; | &nbsp;
     <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a>
     </p>

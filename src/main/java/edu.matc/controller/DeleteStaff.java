@@ -4,9 +4,7 @@ import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
 import edu.matc.persistence.ClientDao;
 import edu.matc.persistence.StaffDao;
-
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,13 +24,11 @@ public class DeleteStaff extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
         int staffId = (Integer) session.getAttribute("deleteStaffId");
 
         StaffDao staffDao = new StaffDao();
-
         Staff staff = staffDao.getStaff(staffId);
 
         if (staff == null) {
@@ -56,15 +52,13 @@ public class DeleteStaff extends HttpServlet {
         for (Client client : clients) {
             ClientDao updtClientDao = new ClientDao();
             Client updtClient = updtClientDao.getClient(client.getClientId());
-            Staff nullStaff = null;
-            updtClient.setStaff(nullStaff);
+            updtClient.setStaff(null);
             String updtMsg = updtClientDao.updateClient(updtClient);
         }
 
         String deleteStaffName = staff.getFirstName() + " " + staff.getLastName();
 
         StaffDao staffDao = new StaffDao();
-
         String deleteMsg = staffDao.deleteStaff(staffId);
 
         if (deleteMsg.equals("Success")) {

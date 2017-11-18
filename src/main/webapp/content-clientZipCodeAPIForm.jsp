@@ -9,8 +9,7 @@
             <input type="text" value="${apiZipCode}" id="targetZipCode" maxlength="5"
                    name="targetZipCode" autofocus><br><br>
             <label for="targetRadius">Radius Distance</label> &nbsp;
-            <%--<input type="text" id="targetRadius" name="targetRadius"><br><br>
-            --%>
+
             <select id="targetRadius" name="targetRadius">
                 <option value="5">5</option>
                 <option value="10">10</option>
@@ -25,11 +24,8 @@
     </form>
 
     <br>
-    <p>
-        <%-- <a href="/aboveCareStaffManagement">Back to home page</a></p> --%>
-        <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
-    </p>
-
+    <p><a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a></p>
+    <br>
 </div>
 
 <div class="col-md-4 text-right"></div>

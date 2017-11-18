@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
+
 
 /**
  * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
@@ -21,10 +21,10 @@ import java.util.List;
  *@author Pablo Cataggatan
  */
 @WebServlet(
-        name = "searchPerson",
-        urlPatterns = {"/search-person"}
+        name = "confirmDeletePerson",
+        urlPatterns = {"/confirm-delete-person"}
 )
-public class SearchPerson extends HttpServlet {
+public class ConfirmDeletePerson extends HttpServlet {
 
     /**
      *  Handles HTTP GET requests.
@@ -39,48 +39,24 @@ public class SearchPerson extends HttpServlet {
 
         HttpSession session = req.getSession();
 
+        int personId = Integer.parseInt(req.getParameter("idPerson"));
         String personType = (String) session.getAttribute("personType");
 
         if (personType.equals("Staff")) {
-            session.setAttribute("staffList", searchStaff(req));
+            StaffDao staffDao = new StaffDao();
+            Staff staff = staffDao.getStaff(personId);
+            session.setAttribute("clientsForDeletedStaff", staff.getClients());
+            session.setAttribute("deletedStaff", staff.getFirstName() + " " + staff.getLastName());
+            session.setAttribute("deleteStaffId", personId);
         } else {
-            session.setAttribute("clientList", searchClient(req));
+            ClientDao clientDao = new ClientDao();
+            Client client = clientDao.getClient(personId);
+            session.setAttribute("deletedClient", client.getFirstName() + " " + client.getLastName());
+            session.setAttribute("deleteClientId", personId);
         }
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("searchPersonResult.jsp");
+        session.setAttribute("deleteMsg", "");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("confirmDeletePerson.jsp");
         dispatcher.forward(req, resp);
     }
-
-
-    public List<Staff> searchStaff(HttpServletRequest req) {
-
-        StaffDao staffDao = new StaffDao();
-        List<Staff> staffList = null;
-
-        if (req.getParameter("searchType").equals("byLastname")) {
-            staffList = staffDao.getStaffByLastName(req.getParameter("searchTerm"));
-        } else {
-            staffList = staffDao.getAllStaffs();
-        }
-
-        return staffList;
-    }
-
-
-    public List<Client> searchClient(HttpServletRequest req) {
-
-        ClientDao clientDao = new ClientDao();
-        List<Client> clientList = null;
-
-        if (req.getParameter("searchType").equals("byLastname")) {
-            clientList = clientDao.getClientByLastName(req.getParameter("searchTerm"));
-        } else {
-            clientList = clientDao.getAllClients();
-        }
-
-        return clientList;
-    }
-
 }
-
-

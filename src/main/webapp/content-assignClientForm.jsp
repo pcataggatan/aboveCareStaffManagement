@@ -13,8 +13,6 @@
             </c:forEach>
         </select>
 
-        <%--<input type="text" id="assignClientId" name="assignClientId" autofocus> --%>
-
         &nbsp;
         <button type="submit" class="btn btn-primary">Assign
             <span class="glyphicon glyphicon-ok"></span></button> &nbsp;
@@ -23,7 +21,6 @@
     </form>
 
     <br>
-    <%-- <p><a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
     <p><a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a></p>
     <br>
 </div>

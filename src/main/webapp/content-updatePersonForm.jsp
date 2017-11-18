@@ -41,7 +41,7 @@
                     <label class="col-md-4 control-label">First Name</label>
                     <div class="col-md-6  inputGroupContainer">
                         <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input  name="firstName" value="${firstName}" class="form-control"  type="text">
+                            <input  name="firstName" value="${updtFirstName}" class="form-control"  type="text">
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                     <label class="col-md-4 control-label" >Last Name</label>
                     <div class="col-md-6  inputGroupContainer">
                         <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="lastName" value="${lastName}" class="form-control"  type="text">
+                            <input name="lastName" value="${updtLastName}" class="form-control"  type="text">
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                     <label class="col-md-4 control-label" >Date of Birth</label>
                     <div class="col-md-6  inputGroupContainer">
                         <div class="input-group date"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <input name="birthDt" value="${birthDt}" class="form-control"  type="text">
+                            <input name="birthDt" value="${updtBirthDt}" class="form-control"  type="text">
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     <label class="col-md-4 control-label">Phone #</label>
                     <div class="col-md-6  inputGroupContainer">
                         <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                            <input name="phoneNr" value="${phoneNr}" class="form-control" type="text">
+                            <input name="phoneNr" value="${updtPhoneNr}" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                     <label class="col-md-4 control-label">E-Mail</label>
                     <div class="col-md-6  inputGroupContainer">
                         <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input name="email" value="${email}" class="form-control"  type="text">
+                            <input name="email" value="${updtEmail}" class="form-control"  type="text">
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                             <div class="col-md-6 selectContainer">
                                 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                     <select name="billCd" class="form-control selectpicker" >
-                                        <option value="${billCd}">${billCd}</option>
+                                        <option value="${updtBillCd}">${updtBillCd}</option>
                                         <c:forEach var="clientRateCode" items="${clientRateCodeValueMap}">
                                             <option>${clientRateCode.getKey()}</option>
                                         </c:forEach>
@@ -118,7 +118,7 @@
                             <label class="col-md-4 control-label">Job Title</label>
                             <div class="col-md-6  inputGroupContainer">
                                 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input  name="jobTitle" value="${jobTitle}" class="form-control"  type="text">
+                                    <input  name="jobTitle" value="${updtJobTitle}" class="form-control"  type="text">
                                 </div>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                             <div class="col-md-6 selectContainer">
                                 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                     <select name="payCd" class="form-control selectpicker" >
-                                        <option value="${payCd}" >${payCd}</option>
+                                        <option value="${updtPayCd}" >${updtPayCd}</option>
                                         <c:forEach var="staffRateCode" items="${staffRateCodeValueMap}">
                                             <option>${staffRateCode.getKey()}</option>
                                         </c:forEach>
@@ -148,7 +148,7 @@
                     <label class="col-md-4 control-label">Street Address</label>
                     <div class="col-md-6  inputGroupContainer">
                         <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                            <input name="street" value="${street}" class="form-control" type="text">
+                            <input name="street" value="${updtStreet}" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                     <label class="col-md-4 control-label">City</label>
                     <div class="col-md-6  inputGroupContainer">
                         <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                            <input name="city" value="${city}" class="form-control"  type="text">
+                            <input name="city" value="${updtCity}" class="form-control"  type="text">
                         </div>
                     </div>
                 </div>
@@ -172,7 +172,7 @@
                     <div class="col-md-6 selectContainer">
                         <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <select name="state" class="form-control selectpicker" >
-                                <option value="${state}">${state}</option>
+                                <option value="${updtState}">${updtState}</option>
                                 <option>AL</option>
                                 <option>AK</option>
                                 <option>AZ</option>
@@ -235,7 +235,7 @@
                     <label class="col-md-4 control-label">Zip Code</label>
                     <div class="col-md-6  inputGroupContainer">
                         <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                            <input name="zipcode" value="${zipcode}" class="form-control"  type="text">
+                            <input name="zipcode" value="${updtZipcode}" class="form-control"  type="text">
                         </div>
                     </div>
                 </div>
@@ -243,14 +243,16 @@
 
                 <!-- Text input-->
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Schedule</label>
-                    <div class="col-md-6  inputGroupContainer">
-                        <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <input  name="schedule" value="${schedule}" class="form-control"  type="text">
+                <c:if test="${personType == 'Staff'}">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Schedule</label>
+                        <div class="col-md-6  inputGroupContainer">
+                            <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <input  name="schedule" value="${updtSchedule}" class="form-control"  type="text">
+                            </div>
                         </div>
                     </div>
-                </div>
+                </c:if>
 
 
                 <!-- Button -->
@@ -421,7 +423,6 @@
         </script>
 
         <p align="right">
-            <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
         <c:choose>
             <c:when test="${personType == 'Staff'}">
                 <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Staff</a>

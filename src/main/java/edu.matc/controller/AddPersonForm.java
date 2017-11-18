@@ -1,7 +1,6 @@
 package edu.matc.controller;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +15,6 @@ import java.io.IOException;
  *
  *@author Pablo Cataggatan
  */
-
 @WebServlet(
         name = "addPersonForm",
         urlPatterns = {"/add-person-form"}
@@ -34,7 +32,6 @@ public class AddPersonForm extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
         initializeCommonPersonData(session);
@@ -44,19 +41,15 @@ public class AddPersonForm extends HttpServlet {
         if (personType.equals("Staff")) {
             session.setAttribute("jobTitle", null);
             session.setAttribute("payCd", null);
-            session.setAttribute("personType", "Staff");
-            //session.setAttribute("searchFor", "Staff");
+            session.setAttribute("schedule", null);
         } else {
             session.setAttribute("billCd", null);
-            session.setAttribute("personType", "Client");
-            //session.setAttribute("searchFor", "Client");
         }
 
-        //session.setAttribute("addPersonType", "Staff");
-        session.setAttribute("addMsg", " ");
+        session.setAttribute("addMsg", null);
         session.setAttribute("addedAlready", "No");
+        session.setAttribute("personType", personType);
         session.setAttribute("searchType", "viewAll");
-        //session.setAttribute("searchFor", "Staff");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("addPersonForm.jsp");
         dispatcher.forward(req, resp);

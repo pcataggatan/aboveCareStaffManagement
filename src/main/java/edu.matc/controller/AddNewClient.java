@@ -3,9 +3,6 @@ package edu.matc.controller;
 import edu.matc.entity.Address;
 import edu.matc.entity.Client;
 import edu.matc.persistence.ClientDao;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,27 +13,37 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
+/**
+ * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
+ * to the addPersonForm.jsp page.
+ *
+ *@author Pablo Cataggatan
+ */
 @WebServlet(
         name = "addNewClient",
         urlPatterns = {"/add-new-client"}
 )
-
 public class AddNewClient extends HttpServlet {
 
+    /**
+     *  Handles HTTP GET requests.
+     *
+     *@param  req             the HttpRequest
+     *@param  resp            the HttpResponse
+     *@exception  ServletException  if there is a general servlet exception
+     *@exception  IOException       if there is a general I/O exception
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ServletContext context = getServletContext();
         HttpSession session = req.getSession();
 
         Client client = getClientDataEntries(req);
         String addedClient = client.getFirstName() + " " + client.getLastName();
 
         ClientDao clientDao = new ClientDao();
-        int addClientId = clientDao.addClient(client);
 
-        if (addClientId == 0) {
+        if (clientDao.addClient(client) == 0) {
             session.setAttribute("addMsg", "Error adding new Client " + addedClient);
         } else {
             session.setAttribute("addMsg", "New Client " + addedClient + " is successfully added");
@@ -50,7 +57,6 @@ public class AddNewClient extends HttpServlet {
         session.setAttribute("addedAlready", "Yes");
 
         resp.sendRedirect("addPersonForm.jsp");
-
     }
 
 

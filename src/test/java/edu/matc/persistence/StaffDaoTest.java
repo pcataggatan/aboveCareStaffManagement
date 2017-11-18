@@ -108,7 +108,7 @@ public class StaffDaoTest {
         int updtStaffId = 20004;
 
         staff = staffDao.getStaff(updtStaffId);
-        staff.setLastName("Updated");
+        staff.setLastName("TestUpdated");
         staff.getAddress().setStreet("4321 Updated Street");
 
         Set<Client> clients = new HashSet<Client>();

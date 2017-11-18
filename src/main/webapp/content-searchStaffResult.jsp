@@ -28,14 +28,9 @@
                             ${client.firstName} ${client.lastName}</a><br>
                     </c:forEach>
                 </td>
-
-                <%-- personType doesn't need to be passed, can get the session.attribute(personType)
-                <td><a href="update-person-form?idPerson=${staff.staffId}&personType=Staff">Update Staff Info</a></td>
-                --%>
                 <td><a href="update-person-form?idPerson=${staff.staffId}">Update Staff Info</a></td>
-                <td><a href="confirm-delete-staff?idStaff=${staff.staffId}">Delete Staff</a></td>
+                <td><a href="confirm-delete-person?idPerson=${staff.staffId}">Delete Staff</a></td>
                 <td><a href="assign-client-form?idStaff=${staff.staffId}">Assign Client(s)</a></td>
-                    <%-- <td><a href="#">Update Sched</a></td> --%>
             </tr>
         </c:forEach>
         </tbody>

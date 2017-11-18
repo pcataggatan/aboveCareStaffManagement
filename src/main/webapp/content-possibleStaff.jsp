@@ -2,9 +2,7 @@
 
 <div class="col-md-10 text-left">
     <h2>Staff within ${apiRadius} miles of Client's zipcode ${apiZipCode}</h2>
-    <p align="right">
-        <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
-    </p>
+    <p align="right"><a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a></p>
 
     <table id="staffListTable" class="table table-striped">
         <thead>
@@ -23,11 +21,12 @@
         <c:forEach var="staff" items="${possibleStaff}">
             <tr>
                 <td>${staff.staffId}</td>
-                <td><a href="person-detail?idPerson=${staff.staffId}&personType=Staff">${staff.firstName} ${staff.lastName}</a></td>
-
+                <td><a href="person-detail?idPerson=${staff.staffId}&personType=Staff">
+                        ${staff.firstName} ${staff.lastName}</a></td>
                 <td>
                     <c:forEach var="client" items="${staff.clients}">
-                        <a href="person-detail?idPerson=${client.clientId}&personType=Client">${client.firstName} ${client.lastName}</a><br>
+                        <a href="person-detail?idPerson=${client.clientId}&personType=Client">
+                            ${client.firstName} ${client.lastName}</a><br>
                     </c:forEach>
                 </td>
 
@@ -53,10 +52,7 @@
     </script>
 
     <br>
-    <p align="right">
-        <%-- <a href="/aboveCareStaffManagement">Back to home page</a> &emsp;&nbsp; --%>
-        <a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a>
-    </p>
+    <p align="right"><a href="search-person?searchTerm=&searchType=viewAll">Go to List of Clients</a></p>
     <br>
 </div>
 
