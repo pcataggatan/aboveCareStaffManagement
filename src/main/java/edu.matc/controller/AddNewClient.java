@@ -2,7 +2,8 @@ package edu.matc.controller;
 
 import edu.matc.entity.Address;
 import edu.matc.entity.Client;
-import edu.matc.persistence.ClientDao;
+import edu.matc.persistence.GenericDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,9 +42,9 @@ public class AddNewClient extends HttpServlet {
         Client client = getClientDataEntries(req);
         String addedClient = client.getFirstName() + " " + client.getLastName();
 
-        ClientDao clientDao = new ClientDao();
+        GenericDao clientDao = new GenericDao(Client.class);
 
-        if (clientDao.addClient(client) == 0) {
+        if (clientDao.create(client) == 0) {
             session.setAttribute("addMsg", "Error adding new Client " + addedClient);
         } else {
             session.setAttribute("addMsg", "New Client " + addedClient + " is successfully added");

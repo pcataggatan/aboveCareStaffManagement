@@ -2,8 +2,8 @@ package edu.matc.controller;
 
 import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
-import edu.matc.persistence.ClientDao;
-import edu.matc.persistence.StaffDao;
+import edu.matc.persistence.GenericDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,8 +28,8 @@ public class DeleteStaff extends HttpServlet {
 
         int staffId = (Integer) session.getAttribute("deleteStaffId");
 
-        StaffDao staffDao = new StaffDao();
-        Staff staff = staffDao.getStaff(staffId);
+        GenericDao staffDao = new GenericDao(Staff.class);
+        Staff staff = (Staff) staffDao.get(staffId);
 
         if (staff == null) {
             session.setAttribute("deleteMsg", "Staff does not exist anymore");
@@ -49,17 +49,18 @@ public class DeleteStaff extends HttpServlet {
 
         Set<Client> clients = staff.getClients();
 
+        //disassociate all clients assigned to this staff
         for (Client client : clients) {
-            ClientDao updtClientDao = new ClientDao();
-            Client updtClient = updtClientDao.getClient(client.getClientId());
+            GenericDao updtClientDao = new GenericDao(Client.class);
+            Client updtClient = (Client) updtClientDao.get(client.getClientId());
             updtClient.setStaff(null);
-            String updtMsg = updtClientDao.updateClient(updtClient);
+            String updtMsg = updtClientDao.update(updtClient);
         }
 
         String deleteStaffName = staff.getFirstName() + " " + staff.getLastName();
 
-        StaffDao staffDao = new StaffDao();
-        String deleteMsg = staffDao.deleteStaff(staffId);
+        GenericDao staffDao = new GenericDao(Staff.class);
+        String deleteMsg = staffDao.delete(staffId);
 
         if (deleteMsg.equals("Success")) {
             session.setAttribute("deleteMsg", "Staff " + deleteStaffName + " is successfully deleted");

@@ -99,3 +99,5 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExce
 	... 39 more
 2017-11-18 14:05:10,853 0    [http-nio-8080-exec-2] ERROR edu.matc.controller.ClientZipCodeAPI  - Zip code 53712 does not exist
 2017-11-18 14:26:12,757 0    [http-nio-8080-exec-7] ERROR edu.matc.controller.ClientZipCodeAPI  - Zip code 53727 does not exist
+2017-11-19 23:54:01,429 0    [http-nio-8080-exec-4] ERROR edu.matc.controller.ClientZipCodeAPI  - Zip code 53712 does not exist
+2017-11-19 23:54:23,504 22075 [http-nio-8080-exec-7] ERROR edu.matc.controller.ClientZipCodeAPI  - Bad or invalid Zipcode 22

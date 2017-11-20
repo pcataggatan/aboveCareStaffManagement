@@ -1,7 +1,8 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Client;
-import edu.matc.persistence.ClientDao;
+import edu.matc.persistence.GenericDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,8 +39,8 @@ public class DeleteClient extends HttpServlet {
 
         int clientId = (Integer) session.getAttribute("deleteClientId");
 
-        ClientDao clientDao = new ClientDao();
-        Client client = clientDao.getClient(clientId);
+        GenericDao clientDao = new GenericDao(Client.class);
+        Client client = (Client) clientDao.get(clientId);
 
         if (client == null) {
             session.setAttribute("deleteMsg", "Client does not exist anymore");
@@ -57,15 +58,16 @@ public class DeleteClient extends HttpServlet {
 
     public void deleteClient(HttpSession session, Client client, int clientId) {
 
-        ClientDao clientDao = new ClientDao();
+        GenericDao clientDao = new GenericDao(Client.class);
 
+        //disassociate any staff assigned to this client
         if (client.getStaff() != null) {
             client.setStaff(null);
-            String updtMsg = clientDao.updateClient(client);
+            String updtMsg = clientDao.update(client);
         }
 
         String deleteClientName = client.getFirstName() + " " + client.getLastName();
-        String deleteMsg = clientDao.deleteClient(clientId);
+        String deleteMsg = clientDao.delete(clientId);
 
         if (deleteMsg.equals("Success")) {
             session.setAttribute("deleteMsg", "Client " + deleteClientName + " is successfully deleted");

@@ -2,8 +2,9 @@ package edu.matc.controller;
 
 import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
-import edu.matc.persistence.ClientDao;
-import edu.matc.persistence.StaffDao;
+import edu.matc.persistence.GenericDao;
+import org.hibernate.criterion.MatchMode;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -54,13 +55,14 @@ public class SearchPerson extends HttpServlet {
 
     public List<Staff> searchStaff(HttpServletRequest req) {
 
-        StaffDao staffDao = new StaffDao();
+        GenericDao staffDao = new GenericDao(Staff.class);
         List<Staff> staffList = null;
+        String searchTerm = req.getParameter("searchTerm");
 
         if (req.getParameter("searchType").equals("byLastname")) {
-            staffList = staffDao.getStaffByLastName(req.getParameter("searchTerm"));
+            staffList = staffDao.findByProperty("lastName", searchTerm, MatchMode.ANYWHERE);
         } else {
-            staffList = staffDao.getAllStaffs();
+            staffList = staffDao.getAll();
         }
 
         return staffList;
@@ -69,13 +71,14 @@ public class SearchPerson extends HttpServlet {
 
     public List<Client> searchClient(HttpServletRequest req) {
 
-        ClientDao clientDao = new ClientDao();
+        GenericDao clientDao = new GenericDao(Client.class);
         List<Client> clientList = null;
+        String searchTerm = req.getParameter("searchTerm");
 
         if (req.getParameter("searchType").equals("byLastname")) {
-            clientList = clientDao.getClientByLastName(req.getParameter("searchTerm"));
+            clientList = clientDao.findByProperty("lastName", searchTerm, MatchMode.ANYWHERE);
         } else {
-            clientList = clientDao.getAllClients();
+            clientList = clientDao.getAll();
         }
 
         return clientList;

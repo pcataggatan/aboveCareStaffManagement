@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.com.zipcodeapi.Response;
 import edu.matc.com.zipcodeapi.ZipCodesItem;
 import edu.matc.entity.Staff;
-import edu.matc.persistence.StaffDao;
+import edu.matc.persistence.GenericDao;
 import org.apache.log4j.Logger;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.client.Client;
@@ -123,9 +123,9 @@ public class ClientZipCodeAPI extends HttpServlet {
 
         List<Staff> possibleStaff = new ArrayList<Staff>();
 
-        StaffDao staffDao = new StaffDao();
+        GenericDao staffDao = new GenericDao(Staff.class);
 
-        for (Staff staff : staffDao.getAllStaffs()) {
+        for (Staff staff : (List<Staff>)staffDao.getAll()) {
 
             String zip = staff.getAddress().getZipcode();
             String rateCode = staff.getPayCd();

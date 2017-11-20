@@ -2,8 +2,7 @@ package edu.matc.controller;
 
 import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
-import edu.matc.persistence.ClientDao;
-import edu.matc.persistence.StaffDao;
+import edu.matc.persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,11 +39,11 @@ public class AssignClient extends HttpServlet {
 
         HttpSession session = req.getSession();
 
-        StaffDao staffDao = new StaffDao();
-        Staff staff = staffDao.getStaff((Integer) session.getAttribute("assignToStaffId"));
+        GenericDao staffDao = new GenericDao(Staff.class);
+        Staff staff = (Staff) staffDao.get((Integer) session.getAttribute("assignToStaffId"));
 
-        ClientDao clientDao = new ClientDao();
-        Client client = clientDao.getClient(Integer.parseInt(req.getParameter("assignClientId")));
+        GenericDao clientDao = new GenericDao(Client.class);
+        Client client = (Client) clientDao.get(Integer.parseInt(req.getParameter("assignClientId")));
 
         Set<Client> clients = staff.getClients();
         clients.add(client);
@@ -55,7 +54,7 @@ public class AssignClient extends HttpServlet {
         String assignClientName = client.getFirstName() + " " + client.getLastName();
         String assignStaffName = staff.getFirstName() + " " + staff.getLastName();
 
-        if (staffDao.updateStaff(staff).equals("Success")) {
+        if (staffDao.update(staff).equals("Success")) {
             session.setAttribute("assignClientMsg",
                     assignClientName + " is successfully assigned to " + assignStaffName);
         } else {
@@ -67,7 +66,7 @@ public class AssignClient extends HttpServlet {
         session.setAttribute("personType", "Staff");
 
         //resp.sendRedirect("assignClientForm.jsp");
-        //can we forawrd?
+        //can we forward? - yes
         RequestDispatcher dispatcher = req.getRequestDispatcher("assignClientForm.jsp");
         dispatcher.forward(req, resp);
     }

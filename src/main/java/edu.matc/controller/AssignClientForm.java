@@ -2,8 +2,8 @@ package edu.matc.controller;
 
 import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
-import edu.matc.persistence.ClientDao;
-import edu.matc.persistence.StaffDao;
+import edu.matc.persistence.GenericDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,8 +41,8 @@ public class AssignClientForm extends HttpServlet {
 
         int staffId = Integer.parseInt(req.getParameter("idStaff"));
 
-        StaffDao staffDao = new StaffDao();
-        Staff staff = staffDao.getStaff(staffId);
+        GenericDao staffDao = new GenericDao(Staff.class);
+        Staff staff = (Staff) staffDao.get(staffId);
         session.setAttribute("assignToStaff", staff.getFirstName() + " " + staff.getLastName());
 
         session.setAttribute("clientList", getClientsForStaff());
@@ -59,9 +59,9 @@ public class AssignClientForm extends HttpServlet {
 
         Map<Integer, String> clientList = new TreeMap<Integer, String>();
 
-        ClientDao clientDao = new ClientDao();
+        GenericDao clientDao = new GenericDao(Client.class);
 
-        for (Client client : clientDao.getAllClients()) {
+        for (Client client : (List<Client>) clientDao.getAll()) {
             clientList.put(client.getClientId(), client.getFirstName() + " " + client.getLastName());
         }
 

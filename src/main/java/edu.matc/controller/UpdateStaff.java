@@ -1,7 +1,8 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Staff;
-import edu.matc.persistence.StaffDao;
+import edu.matc.persistence.GenericDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,9 +43,9 @@ public class UpdateStaff extends HttpServlet {
         Staff staff = updateStaffData(req, staffId);
         String updatedStaff = staff.getFirstName() + " " + staff.getLastName();
 
-        StaffDao staffDao = new StaffDao();
+        GenericDao staffDao = new GenericDao(Staff.class);
 
-        if (staffDao.updateStaff(staff).equals("Success")) {
+        if (staffDao.update(staff).equals("Success")) {
             session.setAttribute("updateMsg", "Staff " + updatedStaff + " is successfully updated");
         } else {
             session.setAttribute("updateMsg", "Error updating Staff " + updatedStaff);
@@ -62,8 +63,8 @@ public class UpdateStaff extends HttpServlet {
 
     public Staff updateStaffData(HttpServletRequest req, int staffId) {
 
-        StaffDao staffDao = new StaffDao();
-        Staff staff = staffDao.getStaff(staffId);
+        GenericDao staffDao = new GenericDao(Staff.class);
+        Staff staff = (Staff) staffDao.get(staffId);
 
         staff.setFirstName(req.getParameter("firstName"));
         staff.setLastName(req.getParameter("lastName"));

@@ -2,7 +2,8 @@ package edu.matc.controller;
 
 import edu.matc.entity.Address;
 import edu.matc.entity.Staff;
-import edu.matc.persistence.StaffDao;
+import edu.matc.persistence.GenericDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,9 +42,9 @@ public class AddNewStaff extends HttpServlet {
         Staff staff = getStaffDataEntries(req);
         String addedStaff = staff.getFirstName() + " " + staff.getLastName();
 
-        StaffDao staffDao = new StaffDao();
+        GenericDao staffDao = new GenericDao(Staff.class);
 
-        if (staffDao.addStaff(staff) == 0) {
+        if (staffDao.create(staff) == 0) {
             session.setAttribute("addMsg", "Error adding new Staff " + addedStaff);
         } else {
             session.setAttribute("addMsg", "New Staff " + addedStaff + " is successfully added");

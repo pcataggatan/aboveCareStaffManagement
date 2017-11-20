@@ -1,7 +1,8 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Client;
-import edu.matc.persistence.ClientDao;
+import edu.matc.persistence.GenericDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,9 +43,9 @@ public class UpdateClient extends HttpServlet {
         Client client = updateClientData(req, clientId);
         String updatedClient = client.getFirstName() + " " + client.getLastName();
 
-        ClientDao clientDao = new ClientDao();
+        GenericDao clientDao = new GenericDao(Client.class);
 
-        if (clientDao.updateClient(client).equals("Success")) {
+        if (clientDao.update(client).equals("Success")) {
             session.setAttribute("updateMsg", "Client " + updatedClient + " is successfully updated");
         } else {
             session.setAttribute("updateMsg", "Error updating client " + updatedClient);
@@ -62,8 +63,8 @@ public class UpdateClient extends HttpServlet {
 
     public Client updateClientData(HttpServletRequest req, int clientId) {
 
-        ClientDao clientDao = new ClientDao();
-        Client client = clientDao.getClient(clientId);
+        GenericDao clientDao = new GenericDao(Client.class);
+        Client client = (Client) clientDao.get(clientId);
 
         client.setFirstName(req.getParameter("firstName"));
         client.setLastName(req.getParameter("lastName"));

@@ -1,7 +1,9 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Code;
-import edu.matc.persistence.CodeDao;
+import edu.matc.persistence.GenericDao;
+import org.hibernate.criterion.MatchMode;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -64,10 +66,10 @@ public class UserHomePage extends HttpServlet {
 
     public Map<String, String> loadStaffRateCodeValue() {
 
-        CodeDao codeDao = new CodeDao();
+        GenericDao codeDao = new GenericDao(Code.class);
         Map<String, String> staffRateCodeValueMap = new TreeMap<>();
 
-        List<Code> staffRateCodes = codeDao.getCodeByDescription("Staff");
+        List<Code> staffRateCodes = codeDao.findByProperty("descTx", "Staff rate", MatchMode.START);
 
         for (Code code : staffRateCodes) {
             staffRateCodeValueMap.put(code.getCodeCode(), code.getCodeValue());
@@ -78,10 +80,10 @@ public class UserHomePage extends HttpServlet {
 
     public Map<String, String> loadClientRateCodeValue() {
 
-        CodeDao codeDao = new CodeDao();
+        GenericDao codeDao = new GenericDao(Code.class);
         Map<String, String> clientRateCodeValueMap = new TreeMap<>();
 
-        List<Code> clientRateCodes = codeDao.getCodeByDescription("Client");
+        List<Code> clientRateCodes = codeDao.findByProperty("descTx", "Client rate", MatchMode.START);
 
         for (Code code : clientRateCodes) {
             clientRateCodeValueMap.put(code.getCodeCode(), code.getCodeValue());

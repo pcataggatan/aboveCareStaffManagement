@@ -2,8 +2,8 @@ package edu.matc.controller;
 
 import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
-import edu.matc.persistence.ClientDao;
-import edu.matc.persistence.StaffDao;
+import edu.matc.persistence.GenericDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -58,8 +58,8 @@ public class PersonDetail extends HttpServlet {
 
     public Staff getStaffDetail(HttpSession session, int personId) {
 
-        StaffDao staffDao = new StaffDao();
-        Staff staff = staffDao.getStaff(personId);
+        GenericDao staffDao = new GenericDao(Staff.class);
+        Staff staff = (Staff) staffDao.get(personId);
 
         Map<String, String> staffRateCodeValueMap =
                 (Map<String, String>) session.getAttribute("staffRateCodeValueMap");
@@ -72,8 +72,8 @@ public class PersonDetail extends HttpServlet {
 
     public Client getClientDetail(HttpSession session, int personId) {
 
-        ClientDao clientDao = new ClientDao();
-        Client client = clientDao.getClient(personId);
+        GenericDao clientDao = new GenericDao(Client.class);
+        Client client = (Client) clientDao.get(personId);
 
         Map<String, String> clientRateCodeValueMap =
                 (Map<String, String>) session.getAttribute("clientRateCodeValueMap");
