@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the AddNewPersonForm servlet. It initializes the data elements for either the Client or Staff object and
+ * forwards to the addPersonForm.jsp page.
  *
  *@author Pablo Cataggatan
  */
@@ -55,7 +55,10 @@ public class AddPersonForm extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
-
+    /**
+     * Saves the initial values of the attributes for either the Client or Staff object.
+     * @param session The HttpSession
+     */
     public void initializeCommonPersonData(HttpSession session) {
 
         session.setAttribute("firstName", null);

@@ -22,8 +22,10 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the ClientZipCodeAPI servlet. It retrieves the zipcode and radius from the request parameters and calls the
+ * zipcode api to get all the data items that satisfy the api request. If an invalid or bad request is submitted, it
+ * forwards to the request/response to the clientZipCodeForm.jsp page indicating the error, otherwise it forwards to
+ * the possibleStaff.jsp page.
  *
  *@author Pablo Cataggatan
  */
@@ -75,6 +77,14 @@ public class ClientZipCodeAPI extends HttpServlet {
     }
 
 
+    /**
+     * Calls the zipcode api and creates a map of zipcodes and distances from the result.
+     * @param session the HttpSession
+     * @param uri the zipcode api uri
+     * @param apiZipcode the target zipcode
+     * @return A map containing the zipcodes as keys and distances as values
+     * @throws IOException the IOexception
+     */
     public Map<String, Double> callZipCodeAPI(HttpSession session, String uri, String apiZipcode) throws IOException {
 
         Map<String, Double> zipDistanceMap = new TreeMap<>();
@@ -104,6 +114,11 @@ public class ClientZipCodeAPI extends HttpServlet {
     }
 
 
+    /**
+     * Loops through the zipcode api result and load the zipcodes and distances to a map as keys and values.
+     * @param zipCodes the zipcode items resulting from zipcode api call
+     * @return A map
+     */
     public Map<String, Double> getZipCodesAndDistances(Response zipCodes) {
 
         Map<String, Double> zipCodesAndDistances = new TreeMap<>();
@@ -116,6 +131,14 @@ public class ClientZipCodeAPI extends HttpServlet {
     }
 
 
+    /**
+     * Loops through Staff table and finds any staff with an address zipcode that is in the list of zipcodes from the
+     * zipcode api result. If a match is found, it sets the Staff's distance attribute with value from zipode api
+     * result as well as the hourly rate attribute from a session variable that contains the Code table values.
+     * @param session the HttpSession
+     * @param zipDistanceMap Map of zipcodes and distances
+     * @return List of Staff with address zipcode matching a zipcode in the zipcode api result
+     */
     public List<Staff> getPossibleStaff(HttpSession session, Map<String, Double> zipDistanceMap) {
 
         Map<String, String> staffRateCodeValueMap =

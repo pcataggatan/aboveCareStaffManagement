@@ -14,8 +14,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the UpdateStaff servlet. It retrieves the Staff id from the request parameter and calls the generic dao's
+ * update() method to update the data of an existing Staff on the staff table. It then redirects the response
+ * to the updatePersonForm.jsp page.
  *
  *@author Pablo Cataggatan
  */
@@ -60,7 +61,12 @@ public class UpdateStaff extends HttpServlet {
         resp.sendRedirect("updatePersonForm.jsp");
     }
 
-
+    /**
+     * Sets the all Staff's attributes with values from the request parameters, updated or not.
+     * @param req the HttpRequest
+     * @param staffId The Staff's id
+     * @return Updated Staff's attributes
+     */
     public Staff updateStaffData(HttpServletRequest req, int staffId) {
 
         GenericDao staffDao = new GenericDao(Staff.class);
@@ -90,6 +96,11 @@ public class UpdateStaff extends HttpServlet {
         return staff;
     }
 
+    /**
+     * Saves the values of Staff's attributes to session variables needed for displaying data on the form.
+     * @param session the HttpSession
+     * @param staff A Staff object
+     */
     public void saveStaffUpdatedData(HttpSession session, Staff staff) {
 
         session.setAttribute("updtFirstName", staff.getFirstName());

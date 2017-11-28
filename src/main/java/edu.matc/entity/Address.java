@@ -7,7 +7,11 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-
+/**
+ * This class represents an Address object.
+ *
+ * @author: Pablo Cataggatan
+ */
 @Entity
 @Table(name = "address")
 public class Address {
@@ -41,51 +45,95 @@ public class Address {
         this.zipcode = zipcode;
     }
 
-
+    /**
+     * Gets the Address Id.
+     * @return the Address id
+     */
     public int getAddrId() { return addrId; }
 
+    /**
+     * Sets the Address Id.
+     * @param addrId the value for the Address Id
+     */
     public void setAddrId(int addrId) {
         this.addrId = addrId;
     }
 
 
+    /**
+     * Gets the Street name.
+     * @return the Street name
+     */
     public String getStreet() {
         return street;
     }
 
+
+    /**
+     * Sets the Street name.
+     * @param street the value for the Street
+     */
     public void setStreet(String street) {
         this.street = street;
     }
 
 
+    /**
+     * Gets the City name.
+     * @return the City name
+     */
     public String getCity() {
         return city;
     }
 
+    /**
+     * Sets the City name.
+     * @param city the value for the City
+     */
     public void setCity(String city) {
         this.city = city;
     }
 
 
+    /**
+     * Gets the State code.
+     * @return the State code
+     */
     public String getState() {
         return state;
     }
 
+    /**
+     * Sets the State name.
+     * @param state the value for the State
+     */
     public void setState(String state) {
         this.state = state;
     }
 
 
+    /**
+     * Gets the adress zipcode.
+     * @return the address zipcode
+     */
     public String getZipcode() {
         return zipcode;
     }
 
+    /**
+     * Sets the address zipcode.
+     * @param zipcode the value for the address zipcode
+     */
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 
 
-
+    /**
+     * Compares the parameter object with this Address class.
+     * @param o Object to compare with this Address class
+     * @return true if object matches this class, else false
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -102,6 +150,10 @@ public class Address {
         return true;
     }
 
+    /**
+     * Generates hash code for this Address class.
+     * @return hash code for this Address object
+     */
     @Override
     public int hashCode() {
         int result = addrId;

@@ -3,6 +3,7 @@ package edu.matc.controller;
 import edu.matc.entity.Address;
 import edu.matc.entity.Staff;
 import edu.matc.persistence.GenericDao;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,8 +16,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the AddNewStaff servlet. It retrieves the data from the request parameters and calls the generic dao's
+ * create() method to add a new row to the Staff table. It then redirects the response to the AddPersonForm.jsp page
+ * indicating success or failure from the Staff table insert operation.
  *
  *@author Pablo Cataggatan
  */
@@ -25,6 +27,8 @@ import java.time.format.DateTimeFormatter;
         urlPatterns = {"/add-new-staff"}
 )
 public class AddNewStaff extends HttpServlet {
+
+    private final Logger log = Logger.getLogger(this.getClass());
 
     /**
      *  Handles HTTP GET requests.
@@ -46,6 +50,7 @@ public class AddNewStaff extends HttpServlet {
 
         if (staffDao.create(staff) == 0) {
             session.setAttribute("addMsg", "Error adding new Staff " + addedStaff);
+            log.error("There's an error when adding new Staff to the staff table");
         } else {
             session.setAttribute("addMsg", "New Staff " + addedStaff + " is successfully added");
         }
@@ -61,9 +66,9 @@ public class AddNewStaff extends HttpServlet {
 
 
     /**
-     * ????
+     * Gets the values of the request parameters and populates the Staff object's attributes.
      * @param req the HttpRequest
-     * @return the new staff to be added to the staff table
+     * @return A Staff object
      */
     public Staff getStaffDataEntries(HttpServletRequest req) {
 
@@ -97,11 +102,10 @@ public class AddNewStaff extends HttpServlet {
         return staff;
     }
 
-
     /**
-     * ????
-     * @param session the HttpSession
-     * @param staff the new staff
+     * Saves the values of Staff's attributes to session variables needed for displaying data on the form.
+     * @param session The HttpSession
+     * @param staff The Client object
      */
     public void saveStaffDataEntries(HttpSession session, Staff staff) {
 

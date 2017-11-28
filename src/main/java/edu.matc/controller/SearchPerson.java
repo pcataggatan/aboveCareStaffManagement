@@ -16,8 +16,9 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the SearchPerson servlet. It retrieves the person type from a session variable and calls the generic dao's
+ * getAll() or findByProperty() method to get a list of Clients or Staffs from the client or staff table. It then
+ * forwards the request/response to the searchPersonResult.jsp page.
  *
  *@author Pablo Cataggatan
  */
@@ -52,7 +53,11 @@ public class SearchPerson extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
-
+    /**
+     * Gets list of all Staff or list of Staff with lastnames that contain the text from the search term.
+     * @param req the Httprequest
+     * @return List of all Staff or only those with lastnames that contain the search term
+     */
     public List<Staff> searchStaff(HttpServletRequest req) {
 
         GenericDao staffDao = new GenericDao(Staff.class);
@@ -69,6 +74,11 @@ public class SearchPerson extends HttpServlet {
     }
 
 
+    /**
+     * Gets list of all Client or list of Client with lastnames that contain the text from the search term.
+     * @param req the Httprequest
+     * @return List of all Clients or only those with lastnames that contain the search term
+     */
     public List<Client> searchClient(HttpServletRequest req) {
 
         GenericDao clientDao = new GenericDao(Client.class);

@@ -9,8 +9,8 @@ import java.io.IOException;
 
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the UserLogoutPage servlet. It invalidates the current session and redirects the response to to the
+ * userLogout.jsp page.
  *
  *@author Pablo Cataggatan
  */

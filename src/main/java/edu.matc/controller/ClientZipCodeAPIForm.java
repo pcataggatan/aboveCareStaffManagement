@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the ClientZipCodeAPIForm servlet. It initializes the session variables and forwards the request/response to
+ * the clientZipCodeForm.jsp page.
  *
  *@author Pablo Cataggatan
  */

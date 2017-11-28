@@ -8,6 +8,11 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * This class represents a Staff object.
+ *
+ * @author: Pablo Cataggatan
+ */
 @Entity
 @Table(name = "staff")
 public class Staff {
@@ -74,107 +79,204 @@ public class Staff {
     }
 
 
-
+    /**
+     * Gets the Staff's Id.
+     * @return the Staff's Id
+     */
     public int getStaffId() {
         return staffId;
     }
 
+    /**
+     * Sets the Staff's Id.
+     * @return the value for the Staff's Id
+     */
     public void setStaffId(int staffId) {
         this.staffId = staffId;
     }
 
-
+    /**
+     * Gets the Staff's first name.
+     * @return the Staff's first name
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * Sets the Staff's first name.
+     * @return the value for the Staff's first name
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-
+    /**
+     * Gets the Staff's last name.
+     * @return the Staff's last name
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * Sets the Staff's last name.
+     * @return the value for the Staff's last name
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-
+    /**
+     * Gets the Staff's birth date.
+     * @return the Staff's birth date
+     */
     public LocalDate getBirthDt() {
         return birthDt;
     }
 
+    /**
+     * Sets the Staff's birth date.
+     * @return the value for the Staff's birth date
+     */
     public void setBirthDt(LocalDate birthDt) {
         this.birthDt = birthDt;
     }
 
-
+    /**
+     * Gets the Staff's phone number.
+     * @return the Staff's phone number
+     */
     public String getPhoneNr() {
         return phoneNr;
     }
 
+    /**
+     * Sets the Staff's phone number.
+     * @return the value for the Staff's phone number
+     */
     public void setPhoneNr(String phoneNr) {
         this.phoneNr = phoneNr;
     }
 
-
+    /**
+     * Gets the Staff's email address.
+     * @return the Staff's email address
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Sets the Staff's email address.
+     * @return the value for the Staff's email address
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * Gets the Staff's pay code.
+     * @return the Staff's pay code
+     */
     public String getPayCd() {
         return payCd;
     }
 
+    /**
+     * Sets the Staff's pay code.
+     * @return the value for the Staff's pay code
+     */
     public void setPayCd(String payCd) {
         this.payCd = payCd;
     }
 
-
+    /**
+     * Gets the Staff's job title.
+     * @return the Staff's job title
+     */
     public String getJobTitle() {
         return jobTitle;
     }
 
+    /**
+     * Sets the Staff's job title.
+     * @return the value for the Staff's job title
+     */
     public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
     }
 
-
+    /**
+     * Gets the Staff's address.
+     * @return the Staff's address
+     */
     public Address getAddress() {
         return address;
     }
 
+    /**
+     * Sets the Staff's address.
+     * @return the value for the Staff's address
+     */
     public void setAddress(Address address) {
         this.address = address;
     }
 
-
+    /**
+     * Gets the Clients for the Staff.
+     * @return the Clients for the Staff
+     */
     public Set<Client> getClients() { return clients; }
 
+    /**
+     * Sets the Clients for the Staff.
+     * @return the list of Clients for the Staff
+     */
     public void setClients(Set<Client> clients) { this.clients = clients; }
 
-
+    /**
+     * Gets the distance of the Staff's address from Client's zipcode.
+     * @return the distance of the Staff's address from Client's zipcode
+     */
     public double getDistance() { return distance; }
 
+    /**
+     * Sets the distance of the Staff's address from Client's zipcode.
+     * @return the value for distance of the Staff's address from Client's zipcode
+     */
     public void setDistance(double distance) { this.distance = distance; }
 
-
+    /**
+     * Gets the Staff's hourly rate.
+     * @return the Staff's hourly rate
+     */
     public String getHourlyRate() { return hourlyRate; }
 
+    /**
+     * Sets the Staff's hourly rate.
+     * @return the value for the Staff's hourly rate
+     */
     public void setHourlyRate(String hourlyRate) { this.hourlyRate = hourlyRate; }
 
-
+    /**
+     * Gets the Staff's schedule.
+     * @return the Staff's schedule
+     */
     public String getSchedule() { return schedule; }
 
+    /**
+     * Sets the Staff's schedule.
+     * @return the value for the Staff's schedule
+     */
     public void setSchedule(String schedule) { this.schedule = schedule; }
 
 
+    /**
+     * Compares the parameter object with this Staff class.
+     * @param o Object to compare with this Staff class
+     * @return true if object matches this class, else false
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -194,6 +296,11 @@ public class Staff {
         return true;
     }
 
+
+    /**
+     * Generates hash code for this Staff class.
+     * @return hash code for this Staff object
+     */
     @Override
     public int hashCode() {
         int result = staffId;

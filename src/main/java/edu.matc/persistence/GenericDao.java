@@ -7,13 +7,14 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * This class represents a Generic Dao.
+ *
  * Created by Pablo Cataggatan on 11/20/17.
  * Modeled after: https://rodrigouchoa.wordpress.com/2014/09/26/generic-dao-example/
  *
@@ -33,7 +34,7 @@ public class GenericDao<T> {
     }
 
     /**
-     * Adds the object to the database.
+     * Adds the object to the database.import org.hibernate.criterion.Order;
      *
      * @param object the entity to create
      * @return the id of the newly added record
@@ -48,8 +49,7 @@ public class GenericDao<T> {
             transaction = session.beginTransaction();
             id = (Integer) session.save(object);
             transaction.commit();
-            log.debug("Created " + object.getClass().getName() + " with id " +
-                    "of: " + id);
+            log.debug("Created " + object.getClass().getName() + " with id of: " + id);
         } catch (HibernateException e) {
             if (transaction != null) {
                 try {
@@ -187,19 +187,6 @@ public class GenericDao<T> {
 
 
     /**
-     * Finds entities by one of its properties.
-     * Usage to return all users with lastName of "Smith": findByProperty("lastName", "smith");
-     *
-     * @param propertyName the property name.
-     * @param value        the value by which to find.
-     * @return list of entities
-     */
-    @SuppressWarnings("unchecked")
-    public List<T> findByProperty(String propertyName, Object value) {
-        return getSession().createCriteria(type).add(Restrictions.eq(propertyName, value)).list();
-    }
-
-    /**
      * Finds entities by a String property specifying a MatchMode. This search
      * is case insensitive.
      *
@@ -223,27 +210,6 @@ public class GenericDao<T> {
         }
     }
 
-    /**
-     * Finds all objects of a class by the specified order.
-     *
-     * @param order           the order: ASC or DESC.
-     * @param propertiesOrder the properties on which to apply the ordering.
-     * @return list
-     */
-    @SuppressWarnings("unchecked")
-    public List<T> findAll(String order, String... propertiesOrder) {
-        Criteria criteria = getSession().createCriteria(type);
-
-        for (String propertyOrder : propertiesOrder) {
-            if (propertyOrder.equals("ASC")) {// TODO should create enum for ASC, DESC
-                criteria.addOrder(org.hibernate.criterion.Order.asc(propertyOrder));
-            } else {
-                criteria.addOrder(org.hibernate.criterion.Order.desc(propertyOrder));
-            }
-        }
-
-        return criteria.list();
-    }
 
     /**
      * Returnes an open session from the SessionFactory

@@ -3,6 +3,7 @@ package edu.matc.controller;
 import edu.matc.entity.Address;
 import edu.matc.entity.Client;
 import edu.matc.persistence.GenericDao;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,8 +16,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the AddNewClient servlet. It retrieves the data from the request parameters and calls the generic dao's
+ * create() method to add a new row to the Client table. It then redirects the response to the AddPersonForm.jsp page
+ * indicating success or failure from the Client table insert operation.
  *
  *@author Pablo Cataggatan
  */
@@ -25,6 +27,8 @@ import java.time.format.DateTimeFormatter;
         urlPatterns = {"/add-new-client"}
 )
 public class AddNewClient extends HttpServlet {
+
+    private final Logger log = Logger.getLogger(this.getClass());
 
     /**
      *  Handles HTTP GET requests.
@@ -46,6 +50,7 @@ public class AddNewClient extends HttpServlet {
 
         if (clientDao.create(client) == 0) {
             session.setAttribute("addMsg", "Error adding new Client " + addedClient);
+            log.error("There's an error when adding new Client to the client table");
         } else {
             session.setAttribute("addMsg", "New Client " + addedClient + " is successfully added");
         }
@@ -60,8 +65,11 @@ public class AddNewClient extends HttpServlet {
         resp.sendRedirect("addPersonForm.jsp");
     }
 
-
-
+    /**
+     * Gets the values of the request parameters and populates the Client object's attributes.
+     * @param req the HttpRequest
+     * @return A Client object
+     */
     public Client getClientDataEntries(HttpServletRequest req) {
 
         Client client = new Client();
@@ -91,7 +99,11 @@ public class AddNewClient extends HttpServlet {
         return client;
     }
 
-
+    /**
+     * Saves the values of Client's attributes to session variables needed for displaying data on the form.
+     * @param session The HttpSession
+     * @param client The Client object
+     */
     public void saveClientDataEntries(HttpSession session, Client client) {
 
         session.setAttribute("firstName", client.getFirstName());

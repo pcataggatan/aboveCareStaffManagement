@@ -15,8 +15,9 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the PersonDetail servlet. It retrieves either the Client id or Staff id from the request parameter and calls
+ * the generic dao's get() method to get the specific row from the Client or Staff table. It then forwards the
+ * request/response to the personDetail.jsp page.
  *
  *@author Pablo Cataggatan
  */
@@ -56,6 +57,12 @@ public class PersonDetail extends HttpServlet {
     }
 
 
+    /**
+     * Gets the information details for the Staff from the staff table and code table.
+     * @param session the HttpSession
+     * @param personId The Staff's id
+     * @return A Staff object
+     */
     public Staff getStaffDetail(HttpSession session, int personId) {
 
         GenericDao staffDao = new GenericDao(Staff.class);
@@ -70,6 +77,12 @@ public class PersonDetail extends HttpServlet {
     }
 
 
+    /**
+     * Gets the information details for the Client from the client table and code table.
+     * @param session the HttpSession
+     * @param personId The Client's id
+     * @return A Client object
+     */
     public Client getClientDetail(HttpSession session, int personId) {
 
         GenericDao clientDao = new GenericDao(Client.class);

@@ -15,8 +15,9 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the AssignClientForm servlet. It calls the generic dao's get() method to retrieve a specific row from the
+ * Staff table and initializes a map that contains the client ids as keys and client names as values needed for the
+ * dropdown list. It then forwards the request and response to the assignClientForm.jsp page.
  *
  *@author Pablo Cataggatan
  */
@@ -55,6 +56,11 @@ public class AssignClientForm extends HttpServlet {
     }
 
 
+    /**
+     * Gets the list of all client ids and the corresponding client names. The key/value pairs are used for the
+     * drop down list for the user to select from.
+     * @return A map containing client ids as keys and and names as values
+     */
     public Map<Integer, String> getClientsForStaff() {
 
         Map<Integer, String> clientList = new TreeMap<Integer, String>();

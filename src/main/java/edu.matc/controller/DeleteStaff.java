@@ -3,6 +3,7 @@ package edu.matc.controller;
 import edu.matc.entity.Client;
 import edu.matc.entity.Staff;
 import edu.matc.persistence.GenericDao;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,13 +15,29 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Set;
 
-
+/**
+ * This is the DeleteStaff servlet. It retrieves the Staff id from the request parameter and calls the generic dao's
+ * delete() method to delete the Staff from the staff table. It then forwards the request/response to the
+ * deletePerson.jsp page.
+ *
+ *@author Pablo Cataggatan
+ */
 @WebServlet(
         name = "deleteStaff",
         urlPatterns = {"/delete-staff"}
 )
-
 public class DeleteStaff extends HttpServlet {
+
+    private final Logger log = Logger.getLogger(this.getClass());
+
+    /**
+     *  Handles HTTP GET requests.
+     *
+     *@param  req             the HttpRequest
+     *@param  resp            the HttpResponse
+     *@exception  ServletException  if there is a general servlet exception
+     *@exception  IOException       if there is a general I/O exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -45,6 +62,12 @@ public class DeleteStaff extends HttpServlet {
     }
 
 
+    /**
+     * Disassociates the Staff from the Client(s) and then deletes the Staff from the staff table.
+     * @param session the HttpSeesion
+     * @param staff A Staff object
+     * @param staffId The Staff's id
+     */
     public void deleteStaff(HttpSession session, Staff staff, int staffId) {
 
         Set<Client> clients = staff.getClients();
@@ -66,6 +89,7 @@ public class DeleteStaff extends HttpServlet {
             session.setAttribute("deleteMsg", "Staff " + deleteStaffName + " is successfully deleted");
         } else {
             session.setAttribute("deleteMsg", "Error deleting Staff " + deleteStaffName);
+            log.error("There's an error when deleting a Staff from the staff table");
         }
 
     }

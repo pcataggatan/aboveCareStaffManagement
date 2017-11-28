@@ -15,8 +15,10 @@ import java.io.IOException;
 
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the ConfirmDeletePerson servlet. It retrieves either the Client or Staff id from the request parameters and
+ * calls the generic dao's get() method to get the specific row from the the Client or Staff table. It saves the Client
+ * or Staff information to session variables for delete confirmation and forwards the request/response to the
+ * confirmDeletePerson.jsp page.
  *
  *@author Pablo Cataggatan
  */

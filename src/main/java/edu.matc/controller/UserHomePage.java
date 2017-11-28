@@ -17,8 +17,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the UserHomePage servlet. It initializes session variables used in displaying or suppressing data from a user
+ * based on designated role. It also loads the Code table specific to Client and Staff and forwards the request/response
+ * to the index.jsp page.
  *
  *@author Pablo Cataggatan
  */
@@ -53,6 +54,11 @@ public class UserHomePage extends HttpServlet {
 
     }
 
+    /**
+     * Gets the user role from the request.
+     * @param req the HttpRequest
+     * @return the user role
+     */
     public String getUserRole(HttpServletRequest req) {
 
         String userRole ="";
@@ -64,6 +70,10 @@ public class UserHomePage extends HttpServlet {
         return userRole;
     }
 
+    /**
+     * Loads the Code table specific to Staff to a session variable for later use.
+     * @return A map containing codes as keys and code values as values
+     */
     public Map<String, String> loadStaffRateCodeValue() {
 
         GenericDao codeDao = new GenericDao(Code.class);
@@ -78,6 +88,10 @@ public class UserHomePage extends HttpServlet {
         return staffRateCodeValueMap;
     }
 
+    /**
+     * Loads the Code table specific to Client to a session variable for later use.
+     * @return A map containing codes as keys and code values as values
+     */
     public Map<String, String> loadClientRateCodeValue() {
 
         GenericDao codeDao = new GenericDao(Code.class);

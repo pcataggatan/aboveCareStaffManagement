@@ -33,7 +33,14 @@
             </c:choose>
 
                 <!-- Form Name -->
-                <legend class="text-center"> Personal Information </legend>
+                <c:choose>
+                    <c:when test="${personType == 'Client'}">
+                        <legend class="text-center"> Client Personal Information </legend>
+                    </c:when>
+                    <c:when test="${personType == 'Staff'}">
+                        <legend class="text-center"> Staff Personal Information </legend>
+                    </c:when>
+                </c:choose>
 
                 <!-- firstName Text input-->
 

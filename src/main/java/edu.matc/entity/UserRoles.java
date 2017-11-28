@@ -4,6 +4,11 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
+/**
+ * This class represents a UserRoles object.
+ *
+ * @author: Pablo Cataggatan
+ */
 @Entity
 @Table(name = "user_roles")
 public class UserRoles {
@@ -21,6 +26,10 @@ public class UserRoles {
         this.rolename = rolename;
     }
 
+    /**
+     * Gets the UserRoles' Id
+     * @return the UserRoles' Id
+     */
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
@@ -29,30 +38,56 @@ public class UserRoles {
         return userRolesId;
     }
 
+    /**
+     * Sets the UserRoles' Id
+     * @return the value for the UserRoles' Id
+     */
     public void setUserRolesId(int userRolesId) {
         this.userRolesId = userRolesId;
     }
 
+    /**
+     * Gets the UserRoles' username.
+     * @return the UserRoles' username
+     */
     @Basic
     @Column(name = "username", nullable = false, length = 15)
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Sets the UserRoles' username.
+     * @return the value for the UserRoles' username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * Gets the UserRoles' rolename.
+     * @return the UserRoles' rolename
+     */
     @Basic
     @Column(name = "rolename", nullable = false, length = 15)
     public String getRolename() {
         return rolename;
     }
 
+    /**
+     * Sets the UserRoles' rolename.
+     * @return the value for the UserRoles' rolename
+     */
     public void setRolename(String rolename) {
         this.rolename = rolename;
     }
 
+
+    /**
+     * Compares the parameter object with this UserRoles class.
+     * @param o Object to compare with this UserRoles class
+     * @return true if object matches this class, else false
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -67,6 +102,11 @@ public class UserRoles {
         return true;
     }
 
+
+    /**
+     * Generates hash code for this UserRoles class.
+     * @return hash code for this UserRoles object
+     */
     @Override
     public int hashCode() {
         int result = userRolesId;

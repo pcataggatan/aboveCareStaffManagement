@@ -10,8 +10,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the SearchPersonForm servlet. It retrieves the person type from the request parameter and saves it to a
+ * session variable needed to distinguish the data being displayed on the search result page. It forwards the request/
+ * response to the searchPersonForm.jsp page.
  *
  *@author Pablo Cataggatan
  */

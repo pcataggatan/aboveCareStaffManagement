@@ -3,7 +3,16 @@
 
 <html lang="en">
 
-<c:set var="title" value="Search Result" scope="session" />
+
+<c:choose>
+    <c:when test="${personType == 'Client'}">
+        <c:set var="title" value="Client List" scope="session" />
+    </c:when>
+    <c:when test="${personType == 'Staff'}">
+        <c:set var="title" value="Staff List" scope="session" />
+    </c:when>
+</c:choose>
+
 <%@include file="headtag.jsp"%>
 
 <%@include file="header.jsp"%>

@@ -15,8 +15,10 @@ import java.io.IOException;
 
 
 /**
- * This is the AddNewStaffForm servlet. It initializes the data elements for the Staff and forward
- * to the addPersonForm.jsp page.
+ * This is the UpdatePersonForm servlet. It retrieves the either the Client or Staff id from the request parameter and
+ * calls the generic dao's get() method to get the specific row to update from the Client or Staff table. It pre-fills
+ * the form with Client or Staff data and calls the generic dao's update() method to apply any date updates made. It
+ * then forwards the request/response to the updatePersonForm.jsp page.
  *
  *@author Pablo Cataggatan
  */
@@ -58,6 +60,11 @@ public class UpdatePersonForm extends HttpServlet {
     }
 
 
+    /**
+     * Pre-fills the form with either the Client or Staff's existing data.
+     * @param session the HttpSession
+     * @param personId the Client or Staff id
+     */
     public void prefillUpdateStaffForm(HttpSession session, int personId) {
 
         GenericDao staffDao = new GenericDao(Staff.class);
@@ -84,6 +91,11 @@ public class UpdatePersonForm extends HttpServlet {
     }
 
 
+    /**
+     * Saves the Client or Staff's updated data to session variables needed for displaying the data on the form.
+     * @param session th HttpSession
+     * @param personId the Client or Staff id
+     */
     public void prefillUpdateClientForm(HttpSession session, int personId) {
 
         GenericDao clientDao = new GenericDao(Client.class);

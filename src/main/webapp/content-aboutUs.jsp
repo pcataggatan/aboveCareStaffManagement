@@ -5,7 +5,7 @@
     <h1>Who We Are</h1>
     <br>
 
-    <p><strong>Above Care Staffing's</strong> commitment to excellence begins with pre-hire screenings and backgroun
+    <p><strong>Above Care Staffing's</strong> commitment to excellence begins with pre-hire screenings and background
     checks. Our rigid application process allows us to be selective. To meet the unique needs of our culturally
     diverse region, our agency employs numerous caregivers who are bilingual.
     </p><br>
