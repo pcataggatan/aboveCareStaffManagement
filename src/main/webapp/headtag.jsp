@@ -21,6 +21,7 @@
 
 
 	<style>
+
 		/* Remove the navbar's default margin-bottom and rounded borders */
 		.navbar {
 			margin-bottom: 0;

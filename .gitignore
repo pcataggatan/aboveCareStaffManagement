@@ -20,6 +20,9 @@
 .idea/gradle.xml
 .idea/libraries
 
+# Log files:
+.log
+
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
 

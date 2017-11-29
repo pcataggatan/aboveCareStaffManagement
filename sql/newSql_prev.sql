@@ -111,10 +111,17 @@ insert into `client` VALUES (30007,"Stephanie","Anderson",'1953-07-01',"(608)909
 
 ====================================================================================================================
 
+drop table if exists `schedule`;
+drop table if exists `timesheet`;
+
+
 CREATE TABLE `schedule` (
   `sched_id`        int(11) NOT NULL auto_increment,
-  `times_of_day`    varchar(30) NOT NULL,
-  `days_of_week`    varchar(30) NOT NULL,
+  `sched1`          varchar(30) NOT NULL,
+  `sched2`          varchar(30) NOT NULL,
+  `sched3`          varchar(30) NOT NULL,
+  `sched4`          varchar(30) NOT NULL,
+  `sched5`          varchar(30) NOT NULL,
   `staff_id`        int(11) NOT NULL,
   PRIMARY KEY (`sched_id`),
 

@@ -2,7 +2,8 @@
 
 <div class="col-md-10 text-left">
     <h2>List of Staff</h2>
-    <p align="right"><a href="add-person-form?personType=Staff">Add New Staff</a></p>
+    <br>
+    <%-- <p align="right"><a href="add-person-form?personType=Staff">Add New Staff</a></p> --%>
 
     <table id="staffListTable" class="table table-striped">
         <thead>
