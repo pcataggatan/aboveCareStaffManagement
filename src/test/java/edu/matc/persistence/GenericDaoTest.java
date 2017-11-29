@@ -2,6 +2,7 @@ package edu.matc.persistence;
 
 import edu.matc.entity.Address;
 import edu.matc.entity.Client;
+import edu.matc.entity.Code;
 import edu.matc.entity.Staff;
 import org.hibernate.criterion.MatchMode;
 import org.junit.Before;
@@ -18,6 +19,7 @@ public class GenericDaoTest {
     private Staff staff;
     private Client client;
     private Address address;
+    private GenericDao codeDao;
     private GenericDao staffDao;
     private GenericDao clientDao;
 
@@ -28,6 +30,7 @@ public class GenericDaoTest {
         address = new Address();
         staffDao = new GenericDao(Staff.class);
         clientDao = new GenericDao(Client.class);
+        codeDao = new GenericDao(Code.class);
     }
 
     @Test
@@ -163,7 +166,7 @@ public class GenericDaoTest {
     public void getAllClient() throws Exception {
 
         List<Client> clients = clientDao.getAll();
-        assertTrue(clients.size() > 0);
+        assertTrue("Clients are not retrieved", clients.size() > 0);
     }
 
     @Test
@@ -211,6 +214,14 @@ public class GenericDaoTest {
         List<Client> clients = clientDao.findByProperty("lastName", searchTerm, MatchMode.ANYWHERE);
         assertEquals("Wrong number of rows returned",1, clients.size());
 
+    }
+
+
+    @Test
+    public void getAllCode() throws Exception {
+
+        List<Code> codes = codeDao.getAll();
+        assertTrue("Codes are not retrieved", codes.size() > 0);
     }
 
 }
