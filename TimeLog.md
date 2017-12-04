@@ -46,9 +46,9 @@
 | 11/04/17| Create generic Dao | 2.0 | |
 | 11/05/17| Replace logic the uses specific daos with generic dao | 1.5 | |
 | 11/08/17| Work with team on team project concepts | 2.0 | |
-| 11/11/17| Replace test cases for specific daos with generic dao test cases | 2.0 | |
 | 11/12/17| Work with team on team project | 3.0 | 
+| 11/13/17| Replace test cases for specific daos with generic dao test cases | 2.0 | |
 | 11/17/17| Refactor duplicate codes in servlets and jsps | 2.5 | 
-| 11/22/17| Finish week 13 exervice | 2.0 | |
+| 11/22/17| Finish week 13 exercise | 2.0 | |
 | 11/25/17| Refactor long methods into smaller testable methods| 2.5 | |
 | 12/03/17| Finalize code for presentation | 3.0 | |
