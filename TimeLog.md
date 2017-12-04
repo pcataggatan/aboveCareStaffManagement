@@ -40,10 +40,12 @@
 | 10/21/17| Finally got 1:1 and 1:many working | 3.0 | |
 | 10/23/17| Finish week 8 activities 1-4 | 2.5 | |
 | 10/24/17| Finish Week 8 exercise | 2.5 | |
-| 10/26/17| Work with team on team project concepts | 2.5 | |
+| 10/25/17| Work with team on team project concepts | 2.5 | |
+| 11/01/17| Work with team on team project | 2.0 | |
 | 11/02/17| Finish week 10 exercise | 2.0 | |
 | 11/04/17| Create generic Dao | 2.0 | |
 | 11/05/17| Replace logic the uses specific daos with generic dao | 1.5 | |
+| 11/08/17| Work with team on team project concepts | 2.0 | |
 | 11/11/17| Replace test cases for specific daos with generic dao test cases | 2.0 | |
 | 11/12/17| Work with team on team project | 3.0 | 
 | 11/17/17| Refactor duplicate codes in servlets and jsps | 2.5 | 
