@@ -25,7 +25,7 @@ I would like to create a web application to alleviate my friend's staffing and s
   * Store Staff schedule information
 * Web Services or APIs
   * Zipcodes API for the list of zipcodes within a specified zipcode and radius
-* JSON (independent research topic???) or just CSV results from Zipcodes API
+* Independent Research Topic - Bootstrap
 * Logging
   * Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting. 
 * Site and database hosted on AWS
