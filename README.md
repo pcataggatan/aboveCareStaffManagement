@@ -1,4 +1,4 @@
-# Pablo Cataggatan's Individual Project
+# Above Care Staff Management
 
 ### Problem Statement
 
@@ -7,7 +7,7 @@ A friend of ours from Arlington Heights, Illinois brought her cousin to our plac
 In order to meet her goals, she wanted a solution that will:
 1. store and provide view and/or update access her to clients and staff data easily
 2. allow her to quickly find a staff for a potential client
-3. provide her financial report showing the margin of profits
+3. provide her financial report showing the margin of profits (release 2)
 4. reduce the overall time taken to search for staff availability when their shedule changes
 
 I would like to create a web application to alleviate my friend's staffing and scheduling burdens. It will allow a user based on log in credentials to view, add, update and delete data from the client and staff database. The screens will be user-friendly and easy to use and the data will be rendered nicely on every report page.  
