@@ -1,26 +1,10 @@
 <%@include file="taglib.jsp"%>
 
-<!--
-<div class="col-md-10 text-left">
-  <br>
-  <c:choose>
-    <c:when test="${loggedIn == 'Yes'}">
-        <h1 style="text-align:center;">Providing Quality Care For Men And Women</h1><br>
-        <p style="text-align:center;"><img src="images/asiancaregiver02_680_380.jpg" class="post-img" alt="StaffPic"></p>
-    </c:when>
-    <c:otherwise>
-        <h1 style="text-align:center;">Welcome to Above Care Staffing Agency!</h1><br>
-        <p style="text-align:center;"><img src="images/familypic_680_380.jpg" class="post-img" alt="Family"></p>
-    </c:otherwise>
-  </c:choose>
-  <br>
-</div>
--->
 <div class="col-md-2 text-left"></div>
 <div class="col-md-6 text-left">
     <c:choose>
     <c:when test="${loggedIn == 'Yes'}">
-      <br><h1 style="text-align:center;">Providing Quality Care For Men And Women</h1><br>
+      <br><h1 style="text-align:center; color: #344F8C">Providing Quality Care For Men & Women</h1><br>
 
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -57,14 +41,14 @@
             </div>
 
             <div class="item">
-                <img src="images/caregiver04_680_380.jpg" alt="Caring" style="height:50%; width:100%;">
+                <img src="images/caregiver04_680_380.jpg" alt="Kind Hearted" style="height:50%; width:100%;">
                 <div class="carousel-caption">
                     <h1>Kind Hearted</h1>
                 </div>
             </div>
 
             <div class="item">
-                <img src="images/caregiver09_680_380.jpg" alt="Loving" style="height:50%; width:100%;">
+                <img src="images/caregiver09_680_380.jpg" alt="Dedicated" style="height:50%; width:100%;">
                 <div class="carousel-caption">
                     <h1>Dedicated</h1>
                 </div>
@@ -85,7 +69,7 @@
     </c:when>
 
     <c:otherwise>
-      <br><h1 style="text-align:center;">Welcome to Above Care Staffing Agency!</h1><br>
+      <br><h1 style="text-align:center; color: #344F8C">Welcome to Above Care Staffing Agency</h1><br>
       <p style="text-align:center;"><img src="images/familypic_680_380.jpg" alt="Family" style="height:50%; width:100%;"></p>
     </c:otherwise>
   </c:choose>

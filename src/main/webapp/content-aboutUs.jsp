@@ -1,8 +1,9 @@
 <%@include file="taglib.jsp"%>
 
-<div class="col-md-10 text-left">
+<div class="col-md-1 text-left"></div>
+<div class="col-md-8 text-left">
     <br>
-    <h1>Who We Are</h1>
+    <h1 style="color: #344F8C">Who We Are</h1>
     <br>
 
     <p><strong>Above Care Staffing's</strong> commitment to excellence begins with pre-hire screenings and background
@@ -26,3 +27,4 @@
     </p><br>
 
 </div>
+<div class="col-md-1 text-left"></div>

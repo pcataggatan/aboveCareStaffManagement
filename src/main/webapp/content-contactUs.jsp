@@ -1,13 +1,14 @@
 <%@include file="taglib.jsp"%>
 
-<div class="col-md-10 text-left">
+<div class="col-md-2 text-left"></div>
+<div class="col-md-6 text-left">
     <br>
-    <h1>Contact Information</h1>
+    <h1 style="color: #344F8C">Contact Information</h1>
     <br>
     <table class="table table-striped">
         <tr>
             <td class="col-md-1"><span class="glyphicon glyphicon-calendar"></span> &nbsp; <strong> Mon-Fri</strong></td>
-            <td class="col-md-9">9:00am - 5:00pm</td>
+            <td class="col-md-5">9:00am - 5:00pm</td>
         </tr>
 
         <tr>
@@ -32,3 +33,4 @@
     </table>
     <br>
 </div>
+<div class="col-md-2 text-left"></div>
