@@ -38,14 +38,14 @@
 
 ### Week 6
 - [X] Continue coding servlets and jsps
-- [ ] Create generic Dao
+- [X] Research on how to create generic Dao
 - [X] Read/learn Bootstrap CSS and apply to project
 - [X] Form-based Authentication
 - [X] Log time spent
 
 ### Week 7
 - [X] Continue coding servlets and jsps
-- [X] Redesign table structures, break up into several tables pply 1:1 and 1:many associations 
+- [X] Redesign table structures, break up into several tables and apply 1:1 and 1:many associations 
 - [X] Code the annotations for each entity 
 - [X] Code test cases for Client and Staff CRUD 
 - [X] Start looking for zipcode API
@@ -54,42 +54,54 @@
 
 ### Week 8
 - [X] Fix relationship issues and continue coding servlets and jsps
-- [ ] Start coding the logic to consume RESTful webservice from zipcodeapi.com 
-- [ ] Code the Add and Update functionality for Client and Staff 
+- [X] Start coding the logic to consume RESTful webservice from zipcodeapi.com 
+- [X] Code the Add and Update functionality for Client and Staff 
 - [X] Add Schedule table with many:1 relationship with Staff
 - [X] Start working on the structure of the Team project
 - [X] Log time spent
 
 ### Week 9
-- [ ] Individual project code review and presentation of working parts
-- [ ] Provide feedback for other individual project code 
-- [ ] Code the Add and Update functionality for Client and Staff 
-- [ ] Log time spent
+- [X] Individual project code review and presentation of working parts
+- [X] Provide feedback for other individual's project code 
+- [X] Finalize table designs to limit project scope for release 1
+- [X] Code the Delete functionality for Client and Staff 
+- [X] Log time spent
 
 ### Week 10
-- [ ] TBD
-- [ ] Log time spent
+- [X] Work with team on team project
+- [X] Continue coding and fixing not working pieces of the individual project
+- [X] Log time spent
 
 ### Week 11
-- [ ] TBD
-- [ ] Log time spent
+- [X] Work with team on team project
+- [X] Start refactoring duplicate codes among servlets and jsps
+- [X] Log time spent
 
 ### Week 12
-- [ ] TBD
-- [ ] Log time spent
+- [X] Work with team on team project
+- [X] Team project presentation 
+- [X] Code generic Dao 
+- [X] Log time spent
 
 ### Week 13
-- [ ] TBD
-- [ ] Log time spent
+- [X] Finish coding and testing generic dao
+- [X] Replace codes for specific daos into generic dao
+- [X] Refactor long methods into smaller methods 
+- [X] Log time spent
 
 ### Week 14
-- [ ] TBD
-- [ ] Log time spent
+- [ ] Provide code review feedback on Layton's project 
+- [X] Replace tets cases on specific daos with generic dao test cases
+- [X] Make improvements to look and feel
+- [X] Prepare individual project for presentation
+- [X] Log time spent
 
 ### Week 15
-- [ ] TBD
+- [X] Individual project presentation
+- [ ] Watch, provide verbal feedback, etc. to peer presentations
+- [ ] Create video of individual prooject
 - [ ] Log time spent
 
 ### Week 16
-- [ ] TBD
-- [ ] Log time spent
+- [ ] Watch, provide verbal feedback, etc. to peer presentations
+- [ ] Finalize and submit all codes and materials for he individual project
