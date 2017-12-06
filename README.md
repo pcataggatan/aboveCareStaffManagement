@@ -40,3 +40,5 @@ I would like to create a web application to alleviate my friend's staffing and s
 ### [Project Plan](ProjectPlan.md)
 
 ### [Time Log](TimeLog.md) 
+
+### [AWS link](http://18.220.59.182:8080/aboveCareStaffManagement/)

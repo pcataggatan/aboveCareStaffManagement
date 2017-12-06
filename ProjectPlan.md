@@ -90,7 +90,7 @@
 - [X] Log time spent
 
 ### Week 14
-- [ ] Provide code review feedback on Layton's project 
+- [X] Provide code review feedback on Layton's project 
 - [X] Replace tets cases on specific daos with generic dao test cases
 - [X] Make improvements to look and feel
 - [X] Prepare individual project for presentation
