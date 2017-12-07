@@ -7,7 +7,7 @@ import javax.persistence.*;
 /**
  * This class represents a User object.
  *
- * @author: Pablo Cataggatan
+ * @author Pablo Cataggatan
  */
 @Entity
 @Table (name = "user")
@@ -45,7 +45,7 @@ public class User {
 
     /**
      * Sets the User's id.
-     * @return the value for the User's Id
+     * @param userId  the value for the User's Id
      */
     public void setUserId(int userId) {
         this.userId = userId;
@@ -63,7 +63,7 @@ public class User {
 
     /**
      * Sets the User's username.
-     * @return the value for the User's username
+     * @param username  the value for the User's username
      */
     public void setUsername(String username) {
         this.username = username;
@@ -81,7 +81,7 @@ public class User {
 
     /**
      * Sets the User's password.
-     * @return the value for the User's password
+     * @param password  the value for the User's password
      */
     public void setPassword(String password) {
         this.password = password;
@@ -99,7 +99,7 @@ public class User {
 
     /**
      * Sets the User's rolename.
-     * @return the vlue for the User's rolename
+     * @param rolename  the vlue for the User's rolename
      */
     public void setRolename(String rolename) {
         this.rolename = rolename;
@@ -117,7 +117,7 @@ public class User {
 
     /**
      * Sets the User's email address.
-     * @return the value for the User's email address
+     * @param email  the value for the User's email address
      */
     public void setEmail(String email) {
         this.email = email;

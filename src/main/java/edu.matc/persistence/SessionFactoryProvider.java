@@ -7,6 +7,7 @@ import org.hibernate.service.ServiceRegistry;
 
 /**
  * This utility class creates and returns a Session Factory.
+ * @author Pablo Cataggatan
  */
 public class SessionFactoryProvider {
 

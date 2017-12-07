@@ -1,0 +1,2 @@
+2017-12-06 18:22:41,003 0    [http-nio-8080-exec-5] ERROR edu.matc.controller.ClientZipCodeAPI  - Zip code 53712 does not exist
+2017-12-06 18:22:51,662 10659 [http-nio-8080-exec-7] ERROR edu.matc.controller.ClientZipCodeAPI  - Bad or invalid Zipcode aaaaa

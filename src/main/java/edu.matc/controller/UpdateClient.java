@@ -38,7 +38,7 @@ public class UpdateClient extends HttpServlet {
      *@exception  IOException       if there is a general I/O exception
      */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
 

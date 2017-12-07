@@ -7,7 +7,7 @@ import javax.persistence.*;
 /**
  * This class represents a UserRoles object.
  *
- * @author: Pablo Cataggatan
+ * @author Pablo Cataggatan
  */
 @Entity
 @Table(name = "user_roles")
@@ -40,7 +40,7 @@ public class UserRoles {
 
     /**
      * Sets the UserRoles' Id
-     * @return the value for the UserRoles' Id
+     * @param userRolesId  the value for the UserRoles' Id
      */
     public void setUserRolesId(int userRolesId) {
         this.userRolesId = userRolesId;
@@ -58,7 +58,7 @@ public class UserRoles {
 
     /**
      * Sets the UserRoles' username.
-     * @return the value for the UserRoles' username
+     * @param username  the value for the UserRoles' username
      */
     public void setUsername(String username) {
         this.username = username;
@@ -76,7 +76,7 @@ public class UserRoles {
 
     /**
      * Sets the UserRoles' rolename.
-     * @return the value for the UserRoles' rolename
+     * @param rolename  the value for the UserRoles' rolename
      */
     public void setRolename(String rolename) {
         this.rolename = rolename;

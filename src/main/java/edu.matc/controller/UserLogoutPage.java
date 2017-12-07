@@ -29,7 +29,7 @@ public class UserLogoutPage extends HttpServlet {
      *@exception  IOException       if there is a general I/O exception
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.getSession().invalidate();
         resp.sendRedirect("userLogout.jsp");

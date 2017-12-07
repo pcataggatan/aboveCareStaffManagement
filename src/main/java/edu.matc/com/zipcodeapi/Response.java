@@ -8,7 +8,7 @@ import javax.annotation.Generated;
  * This is the response class from the zipcodesapi webservice.
  * This code is generated via RoboPOJO generator plugin in Intellij.
  *
- * @author: Pablo Cataggatan
+ * @author Pablo Cataggatan
  */
 @Generated("com.robohorse.robopojogenerator")
 public class Response{

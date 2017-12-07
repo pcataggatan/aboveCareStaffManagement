@@ -37,7 +37,7 @@ public class ConfirmDeletePerson extends HttpServlet {
      *@exception  IOException       if there is a general I/O exception
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
 

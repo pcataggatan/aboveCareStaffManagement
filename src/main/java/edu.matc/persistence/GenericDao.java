@@ -13,11 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class represents a Generic Dao.
+ * This class represents a Generic Dao used for CRUD operations on Staff, Client and Code tables.
  *
- * Created by Pablo Cataggatan on 11/20/17.
- * Modeled after: https://rodrigouchoa.wordpress.com/2014/09/26/generic-dao-example/
- *
+ * @author Pablo Cataggatan
  */
 public class GenericDao<T> {
 
@@ -119,6 +117,7 @@ public class GenericDao<T> {
      * Update the entity
      *
      * @param object the entity to be updated
+     * @return A success or failure message
      */
     public String update(T object) {
         Session session = getSession();
@@ -153,6 +152,7 @@ public class GenericDao<T> {
      * Delete the entity.
      *
      * @param id the id of the entity to be deleted
+     * @return A success or failure message
      */
     public String delete(int id) {
         Session session = getSession();

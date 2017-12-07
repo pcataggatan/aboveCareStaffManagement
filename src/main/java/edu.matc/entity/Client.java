@@ -10,7 +10,7 @@ import java.time.LocalDate;
 /**
  * This class represents a Client object.
  *
- * @author: Pablo Cataggatan
+ * @author Pablo Cataggatan
  */
 @Entity
 @Table(name = "client")
@@ -220,7 +220,7 @@ public class Client {
 
     /**
      * Sets the Staff for the Client.
-     * @return the Staff for the Client
+     * @param staff  the Staff for the Client
      */
     public void setStaff(Staff staff) { this.staff = staff; }
 

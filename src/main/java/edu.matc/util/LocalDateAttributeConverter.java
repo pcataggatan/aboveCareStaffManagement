@@ -14,11 +14,21 @@ import java.time.LocalDate;
 @Converter
 public class LocalDateAttributeConverter implements AttributeConverter<LocalDate, Date> {
 
+    /**
+     * Convert LocalDate to Date.
+     * @param locDate the LocalDate to convert to Date
+     * @return Date equivalent of a LocalDate
+     */
     @Override
     public Date convertToDatabaseColumn(LocalDate locDate) {
         return (locDate == null ? null : Date.valueOf(locDate));
     }
 
+    /**
+     * Convert Date to LocalDate.
+     * @param sqlDate the Date to convert to LocalDate
+     * @return LocalDate equivalent of a Date.
+     */
     @Override
     public LocalDate convertToEntityAttribute(Date sqlDate) {
         return (sqlDate == null ? null : sqlDate.toLocalDate());

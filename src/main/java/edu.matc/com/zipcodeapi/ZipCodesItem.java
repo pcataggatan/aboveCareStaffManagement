@@ -9,7 +9,7 @@ import javax.annotation.Generated;
  *
  * This code was generated via RoboPJO generator plugin in Intelligj.
  *
- * @author: Pablo Cataggatan
+ * @author Pablo Cataggatan
  */
 @Generated("com.robohorse.robopojogenerator")
 public class ZipCodesItem{

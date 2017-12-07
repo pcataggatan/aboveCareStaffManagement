@@ -7,7 +7,7 @@ import javax.persistence.*;
 /**
  * This class represents a Code object.
  *
- * @author: Pablo Cataggatan
+ * @author Pablo Cataggatan
  */
 @Entity
 @Table(name = "code")
@@ -38,7 +38,7 @@ public class Code {
 
     /**
      * Sets the code.
-     * @return the value for the code
+     * @param code  the value for the code
      */
     public void setCodeCode(String code) {
         this.codeCode = code;
@@ -55,7 +55,7 @@ public class Code {
 
     /**
      * Sets the code's value.
-     * @return the value for the code's value
+     * @param value  the value for the code's value
      */
     public void setCodeValue(String value) {
         this.codeValue = value;
@@ -73,7 +73,7 @@ public class Code {
 
     /**
      * Sets the code's description.
-     * @return the value for the code's description
+     * @param desc  the value for the code's description
      */
     public void setDescTx(String desc) {
         this.descTx = desc;

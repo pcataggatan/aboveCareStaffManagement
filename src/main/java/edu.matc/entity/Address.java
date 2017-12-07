@@ -10,8 +10,9 @@ import java.util.Set;
 /**
  * This class represents an Address object.
  *
- * @author: Pablo Cataggatan
+ * @author Pablo Cataggatan
  */
+
 @Entity
 @Table(name = "address")
 public class Address {

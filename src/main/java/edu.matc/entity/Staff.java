@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * This class represents a Staff object.
  *
- * @author: Pablo Cataggatan
+ * @author Pablo Cataggatan
  */
 @Entity
 @Table(name = "staff")
@@ -89,7 +89,7 @@ public class Staff {
 
     /**
      * Sets the Staff's Id.
-     * @return the value for the Staff's Id
+     * @param staffId  the value for the Staff's Id
      */
     public void setStaffId(int staffId) {
         this.staffId = staffId;
@@ -105,7 +105,7 @@ public class Staff {
 
     /**
      * Sets the Staff's first name.
-     * @return the value for the Staff's first name
+     * @param firstName  the value for the Staff's first name
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -121,7 +121,7 @@ public class Staff {
 
     /**
      * Sets the Staff's last name.
-     * @return the value for the Staff's last name
+     * @param lastName the value for the Staff's last name
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -137,7 +137,7 @@ public class Staff {
 
     /**
      * Sets the Staff's birth date.
-     * @return the value for the Staff's birth date
+     * @param birthDt  the value for the Staff's birth date
      */
     public void setBirthDt(LocalDate birthDt) {
         this.birthDt = birthDt;
@@ -153,7 +153,7 @@ public class Staff {
 
     /**
      * Sets the Staff's phone number.
-     * @return the value for the Staff's phone number
+     * @param phoneNr  the value for the Staff's phone number
      */
     public void setPhoneNr(String phoneNr) {
         this.phoneNr = phoneNr;
@@ -169,7 +169,7 @@ public class Staff {
 
     /**
      * Sets the Staff's email address.
-     * @return the value for the Staff's email address
+     * @param email  the value for the Staff's email address
      */
     public void setEmail(String email) {
         this.email = email;
@@ -185,7 +185,7 @@ public class Staff {
 
     /**
      * Sets the Staff's pay code.
-     * @return the value for the Staff's pay code
+     * @param payCd  the value for the Staff's pay code
      */
     public void setPayCd(String payCd) {
         this.payCd = payCd;
@@ -201,7 +201,7 @@ public class Staff {
 
     /**
      * Sets the Staff's job title.
-     * @return the value for the Staff's job title
+     * @param jobTitle  the value for the Staff's job title
      */
     public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
@@ -217,7 +217,7 @@ public class Staff {
 
     /**
      * Sets the Staff's address.
-     * @return the value for the Staff's address
+     * @param address  the value for the Staff's address
      */
     public void setAddress(Address address) {
         this.address = address;
@@ -231,7 +231,7 @@ public class Staff {
 
     /**
      * Sets the Clients for the Staff.
-     * @return the list of Clients for the Staff
+     * @param clients  the list of Clients for the Staff
      */
     public void setClients(Set<Client> clients) { this.clients = clients; }
 
@@ -243,7 +243,7 @@ public class Staff {
 
     /**
      * Sets the distance of the Staff's address from Client's zipcode.
-     * @return the value for distance of the Staff's address from Client's zipcode
+     * @param distance  the value for distance of the Staff's address from Client's zipcode
      */
     public void setDistance(double distance) { this.distance = distance; }
 
@@ -255,7 +255,7 @@ public class Staff {
 
     /**
      * Sets the Staff's hourly rate.
-     * @return the value for the Staff's hourly rate
+     * @param hourlyRate  the value for the Staff's hourly rate
      */
     public void setHourlyRate(String hourlyRate) { this.hourlyRate = hourlyRate; }
 
@@ -267,7 +267,7 @@ public class Staff {
 
     /**
      * Sets the Staff's schedule.
-     * @return the value for the Staff's schedule
+     * @param schedule  the value for the Staff's schedule
      */
     public void setSchedule(String schedule) { this.schedule = schedule; }
 

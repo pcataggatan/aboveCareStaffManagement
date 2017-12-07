@@ -20,7 +20,7 @@ import java.time.format.DateTimeFormatter;
  * create() method to add a new row to the Client table. It then redirects the response to the AddPersonForm.jsp page
  * indicating success or failure from the Client table insert operation.
  *
- *@author Pablo Cataggatan
+ * @author Pablo Cataggatan
  */
 @WebServlet(
         name = "addNewClient",
@@ -33,13 +33,13 @@ public class AddNewClient extends HttpServlet {
     /**
      *  Handles HTTP GET requests.
      *
-     *@param  req             the HttpRequest
-     *@param  resp            the HttpResponse
-     *@exception  ServletException  if there is a general servlet exception
-     *@exception  IOException       if there is a general I/O exception
+     * @param  req             the HttpRequest
+     * @param  resp            the HttpResponse
+     * @exception  ServletException  if there is a general servlet exception
+     * @exception  IOException       if there is a general I/O exception
      */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
 
