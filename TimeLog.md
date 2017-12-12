@@ -52,3 +52,4 @@
 | 11/22/17| Finish week 13 exercise | 2.0 | |
 | 11/25/17| Refactor long methods into smaller testable methods| 2.5 | |
 | 12/03/17| Finalize code for presentation | 3.0 | |
+| 12/11/17| Create a demo video and add youtube link to readme.md| 1.0 | |
