@@ -98,10 +98,10 @@
 
 ### Week 15
 - [X] Individual project presentation
-- [ ] Watch, provide verbal feedback, etc. to peer presentations
-- [ ] Create video of individual prooject
-- [ ] Log time spent
+- [X] Watch, provide verbal feedback, etc. to peer presentations
+- [X] Create video of individual prooject
+- [X] Log time spent
 
 ### Week 16
-- [ ] Watch, provide verbal feedback, etc. to peer presentations
-- [ ] Finalize and submit all codes and materials for he individual project
+- [X] Watch, provide verbal feedback, etc. to peer presentations
+- [X] Finalize and submit all codes and materials for the individual project
