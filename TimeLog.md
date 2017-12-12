@@ -32,7 +32,7 @@
 | 10/02/17| Refine codes for login and search and deployed project war file to AWS | 3.0 | |
 | 10/03/17| Watch week 6 videos and update project time log | 2.0 | |
 | 10/06/17| Redesign tables to apply 1:1, 1:many and many:1 associations | 3.0 | |
-| 10/07/17| Modify DAOs to add success/failure message for add/update/delete | 1.5 | Stuck with hibernate lazyinitialization exception |
+| 10/07/17| Modify DAOs to add success/failure message for add/update/delete | 4.0 | Stuck with hibernate lazyinitialization exception |
 | 10/09/17| Modify ClientDaoTest to test relationships | 2.5 | |
 | 10/15/17| Finish week 7 activities | 2.5 | |
 | 10/17/17| Finish week 7 exercise | 2.0 | |
